@@ -8,6 +8,12 @@ Quy trình này hướng dẫn Giảng viên cách trích xuất hình ảnh (Ex
 
 Tất cả các hình ảnh minh họa, bảng biểu và biểu đồ trong chương trình CFA 2027 đều được thống nhất gọi là **Exhibit** (không sử dụng nhãn "Figure" hay "Table" riêng lẻ).
 
+### 🎯 Quy tắc Lọc và Lựa chọn Hình ảnh (Pruning Rules)
+Để đảm bảo tài liệu cô đọng, chỉ tập trung vào kiến thức trọng tâm:
+1. **Chỉ lấy các hình ảnh minh họa cho công thức, kiến thức chính:** Ví dụ: Sơ đồ cấu thành lãi suất, biểu đồ hao hụt lợi nhuận do chi phí, hoặc đồ thị payoff đòn bẩy.
+2. **Không lấy hình ảnh minh họa trong hộp Case Study hoặc Example:** Bỏ qua các đồ thị giá cổ phiếu thực tế cụ thể của doanh nghiệp (ví dụ: biểu đồ Bloomberg cổ phiếu/trái phiếu Ørsted) vì chúng chỉ mang tính chất minh họa tình huống bổ trợ.
+3. **Không lấy hình ảnh trong phần ôn tập (Knowledge Check):** Không chụp lại các biểu đồ/bảng số liệu dùng riêng cho bài tập tự luyện.
+
 ### 💡 Quy trình thực hiện chụp ảnh:
 1. **Mở PDF gốc:** Mở tệp `2027_CFA_L1V1_Quant.pdf` trong phần mềm đọc PDF của bạn (ví dụ: Adobe Acrobat, Foxit Reader, Chrome, v.v.).
 2. **Định vị Exhibit:** Tìm đến trang tương ứng được liệt kê trong [Bản Đồ Tham Chiếu Công Thức & Hình Ảnh Minh Họa](file:///d:/LaTeX/QuantsLV1_2027/.agents/001_memory/006_math_image_mapping.md).
