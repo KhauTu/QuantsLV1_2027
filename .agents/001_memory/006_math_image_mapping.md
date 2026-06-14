@@ -29,7 +29,25 @@ Dưới đây là danh sách toàn bộ hình ảnh minh họa hiện có trong 
 
 | Tên tệp tin hình ảnh | Mô tả nội dung đồ thị | Module chèn | Vị trí đề xuất chèn trong mã nguồn |
 | :--- | :--- | :--- | :--- |
-| `002_figs/001_Module_1/1-Deciding Which Measure to Use.png` | Sơ đồ cây quyết định lựa chọn Mean (Arithmetic vs Geometric vs Harmonic) | **Module 1** | Cuối mục *Arithmetic and Geometric Holding Period Return* |
+| `002_figs/001_Module_1/exhibit_1.png` | Đồ thị Bloomberg biểu diễn hiệu quả cổ phiếu Ørsted A/S (2016-2023) | **Module 1** | Mục *Total Return* (sau phần giải thích Expected vs Actual Returns) |
+| `002_figs/001_Module_1/exhibit_2.png` | Bảng giá cuối năm và cổ tức cổ phiếu Ørsted A/S (2017-2023) | **Module 1** | Mục *Total Return* (cùng phần Exhibit 1) |
+| `002_figs/001_Module_1/exhibit_3.png` | Đồ thị giá và cổ tức cổ phiếu Ørsted A/S (2016-2023) | **Module 1** | Mục *Total Return* (cùng phần Exhibit 1) |
+| `002_figs/001_Module_1/exhibit_4.png` | Đồ thị Bloomberg hiệu quả trái phiếu Ørsted A/S (2017-2023) | **Module 1** | Mục *Total Return* (phần liên quan đến lợi suất trái phiếu) |
+| `002_figs/001_Module_1/exhibit_5.png` | Bảng giá cuối năm và Coupon trái phiếu Ørsted A/S (2017-2023) | **Module 1** | Mục *Total Return* (phần liên quan đến coupon trái phiếu) |
+| `002_figs/001_Module_1/exhibit_6.png` | Đồ thị giá trái phiếu và Coupon định kỳ (in EUR) | **Module 1** | Mục *Total Return* (phần liên quan đến coupon trái phiếu) |
+| `002_figs/001_Module_1/exhibit_7.png` | Bảng tính toán tổng suất sinh lời (Total Returns) cổ phiếu Ørsted | **Module 1** | Mục *Arithmetic and Geometric Holding Period Return* (Case Study) |
+| `002_figs/001_Module_1/exhibit_8.png` | Đồ thị cột thể hiện tổng suất sinh lời cổ phiếu Ørsted (2017-2023) | **Module 1** | Mục *Arithmetic and Geometric Holding Period Return* (Case Study) |
+| `002_figs/001_Module_1/exhibit_9.png` | Bảng so sánh thông tin hiệu quả hoạt động của các quỹ ETF | **Module 1** | Mục *Arithmetic and Geometric Holding Period Return* (Knowledge Check) |
+| `002_figs/001_Module_1/exhibit_10.png` | Bảng mô tả tác động của tần suất ghép lãi (Compounding) | **Module 1** | Mục *Continuous Compounding* (phần giới hạn ghép lãi liên tục) |
+| `002_figs/001_Module_1/exhibit_11.png` | Đồ thị Bloomberg giá cổ phiếu ngày của Ørsted (2020) | **Module 1** | Mục *Continuous Compounding* (Case Study ghép lãi liên tục) |
+| `002_figs/001_Module_1/exhibit_12.png` | Bảng giá cuối tháng của cổ phiếu Ørsted (2020) | **Module 1** | Mục *Continuous Compounding* (Case Study ghép lãi liên tục) |
+| `002_figs/001_Module_1/exhibit_13.png` | Đồ thị cấu thành tỷ suất sinh lời yêu cầu (Required Rate of Return) | **Module 1** | Mục *The Required Rate of Return* (phần cấu thành và Risk Premia) |
+| `002_figs/001_Module_1/exhibit_14.png` | Bảng suất sinh lời trung bình hình học lịch sử các tài sản | **Module 1** | Mục *Excess Returns* hoặc *The Required Rate of Return* |
+| `002_figs/001_Module_1/exhibit_15.png` | Đồ thị Bloomberg hiệu quả cổ phiếu Ørsted (2022) | **Module 1** | Mục *Real Returns* (inflation rate 7.70% ở Đan Mạch) |
+| `002_figs/001_Module_1/exhibit_16.png` | Biểu đồ cột biểu diễn quan hệ Total Return vs Gross Return vs Net Return | **Module 1** | Mục *Gross and Net Return* (mô tả sự xói mòn do chi phí) |
+| `002_figs/001_Module_1/exhibit_17.png` | Đồ thị Bloomberg giá cổ phiếu Ørsted năm 2020 phục vụ tính thuế | **Module 1** | Mục *Pre-Tax and After-Tax Nominal Return* (phần ví dụ tính thuế) |
+| `002_figs/001_Module_1/exhibit_18.png` | Đồ thị thể hiện mối quan hệ Payoff giữa cổ phiếu và quyền chọn (Leverage) | **Module 1** | Mục *Leveraged Returns* (đối chiếu Unleveraged vs Leveraged) |
+| `002_figs/001_Module_1/exhibit_19.png` | Bảng so sánh suất sinh lời có đòn bẩy và không có đòn bẩy | **Module 1** | Mục *Leveraged Returns* |
 | `002_figs/002_Module_2/2.1-Discount Instruments.png` | Đồ thị mô tả công cụ chiết khấu (Discount) | **Module 2** | Phần giới thiệu các loại công cụ suất sinh lời |
 | `002_figs/002_Module_2/2.2-Coupon Instrument.png` | Đồ thị mô tả công cụ trả lãi định kỳ (Coupon) | **Module 2** | Phần giới thiệu công cụ trả lãi định kỳ |
 | `002_figs/002_Module_2/2.3-Annuity Instruments.png` | Đồ thị mô tả công cụ dòng tiền đều (Annuity) | **Module 2** | Phần dòng tiền đều |
