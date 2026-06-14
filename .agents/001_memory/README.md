@@ -8,6 +8,7 @@ Thư mục này đóng vai trò là nơi lưu trữ các kiến thức tĩnh, qu
 - **`002_project_overview.md`**: Định hình mục tiêu dài hạn, lộ trình và các cột mốc quan trọng của dự án.
 - **`003_latex_styling.md`**: Quy định về cách hiển thị chữ, cấu trúc mã LaTeX, môi trường toán học, định dạng bảng biểu và cách phân biệt phần nội dung Curriculum gốc với nội dung chú thích/giảng giải của giảng viên.
 - **`004_cfa_quant_terms.md`**: Tổng hợp danh sách thuật ngữ và công thức Định lượng CFA Level 1 (2027) bằng tiếng Việt và tiếng Anh, kèm ký hiệu toán học tiêu chuẩn để đảm bảo sự thống nhất trong biên dịch và trình bày.
+- **`005_session_log.md`**: Nhật ký phiên làm việc lưu giữ lịch sử công việc và các đề xuất cải tiến/kế hoạch phiên tiếp theo.
 
 ## Nguyên tắc Cập nhật Memory
 

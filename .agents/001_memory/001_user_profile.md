@@ -39,3 +39,6 @@
 - **Quy trình quản lý Git (Git Commit & Push Rules):**
   - Trước khi đẩy code lên GitHub, bắt buộc phải chia nhỏ các lần commit theo từng nội dung cụ thể (atomic commits), tuyệt đối không gộp chung toàn bộ thay đổi lớn vào một commit duy nhất. Mỗi commit phải có thông điệp (commit message) rõ ràng, mang tính mô tả cao (ví dụ: `feat:`, `docs:`, `asset:`, `ci:`).
   - Sau khi thực hiện lệnh `git push`, Agent phải cung cấp lại bảng danh sách tổng hợp các commit đã thực hiện trong phiên làm việc đó cho giảng viên để dễ theo dõi tiến độ.
+- **Báo cáo & Khởi tạo phiên làm việc (Session Initialization & Logging):**
+  - **Khởi tạo phiên:** Đầu mỗi phiên làm việc mới, Agent phải tự động đọc tệp `005_session_log.md` để: (1) Báo cáo tóm tắt các việc đã hoàn thành ở phiên trước, và (2) Đề xuất giải pháp cải tiến & lập kế hoạch chi tiết cho phiên hiện tại.
+  - **Kết thúc phiên:** Cuối mỗi phiên làm việc, Agent có trách nhiệm ghi nhận lại lịch sử công việc đã làm và danh sách các commit đã thực hiện trong phiên đó vào tệp `005_session_log.md` để lưu trữ lâu dài.
