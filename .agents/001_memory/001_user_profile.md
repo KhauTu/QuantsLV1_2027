@@ -37,8 +37,9 @@
 - **Làm việc bài bản & ngăn nắp:** Tổ chức cấu trúc thư mục, tệp tin và các bước thực hiện rõ ràng, có đánh số thứ tự `xxx_` và giải thích lý do cụ thể trước khi thực hiện.
 - **Giới hạn số lượng tệp tin (Max 10 items per folder):** Mỗi thư mục không được chứa quá 10 tệp tin hoặc thư mục con. Nếu vượt quá số lượng này, bắt buộc phải phân loại và gom nhóm chúng thành các thư mục con theo chủ đề hoặc tính chất tương đồng.
 - **Quy trình quản lý Git (Git Commit & Push Rules):**
-  - Trước khi đẩy code lên GitHub, bắt buộc phải chia nhỏ các lần commit theo từng nội dung cụ thể (atomic commits), tuyệt đối không gộp chung toàn bộ thay đổi lớn vào một commit duy nhất. Mỗi commit phải có thông điệp (commit message) rõ ràng, mang tính mô tả cao (ví dụ: `feat:`, `docs:`, `asset:`, `ci:`).
-  - Sau khi thực hiện lệnh `git push`, Agent phải cung cấp lại bảng danh sách tổng hợp các commit đã thực hiện trong phiên làm việc đó cho giảng viên để dễ theo dõi tiến độ.
+  - Không cần thực hiện `git commit` và `git push` tự động trong mỗi phiên làm việc bình thường.
+  - Chỉ thực hiện `git commit` và `git push` khi người dùng nói cụ thể câu lệnh: **"Kết thúc công việc hôm nay"**.
+  - Khi thực hiện commit, vẫn tuân thủ quy tắc chia nhỏ các lần commit theo từng nội dung cụ thể (atomic commits) và gửi lại bảng danh sách tổng hợp các commit sau khi đã push.
 - **Báo cáo & Khởi tạo phiên làm việc (Session Initialization & Logging):**
-  - **Khởi tạo phiên:** Đầu mỗi phiên làm việc mới, Agent phải tự động đọc tệp `005_session_log.md` để: (1) Báo cáo tóm tắt các việc đã hoàn thành ở phiên trước, và (2) Đề xuất giải pháp cải tiến & lập kế hoạch chi tiết cho phiên hiện tại.
-  - **Kết thúc phiên:** Cuối mỗi phiên làm việc, Agent có trách nhiệm ghi nhận lại lịch sử công việc đã làm và danh sách các commit đã thực hiện trong phiên đó vào tệp `005_session_log.md` để lưu trữ lâu dài.
+  - **Khởi tạo phiên:** Chỉ thực hiện báo cáo tóm tắt các việc đã hoàn thành ở phiên trước và đề xuất giải pháp/lập kế hoạch cho phiên mới khi nhận được câu lệnh cụ thể từ người dùng: **"Bắt đầu công việc hôm nay"**. Lúc đó Agent sẽ đọc tệp `005_session_log.md` làm căn cứ báo cáo.
+  - **Kết thúc phiên:** Ghi nhận lại lịch sử công việc đã làm trong phiên đó vào tệp `005_session_log.md`. Việc commit và push mã nguồn lên GitHub sẽ được hoãn lại cho đến khi nhận được câu lệnh "Kết thúc công việc hôm nay".

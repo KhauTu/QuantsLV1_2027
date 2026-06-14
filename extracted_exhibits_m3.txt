@@ -1,0 +1,37 @@
+Found 36 unique exhibits in Module 3:
+Exhibit 1 (Page 85): Exhibit 1  compares these two examples. The total investment cash flows of  EUR12,000 in Panel A and Panel B are the same, but the values at the end of year
+Exhibit 1 (Page 86): Exhibit 1: Impact of Cash Flow Timing on Investment Returns Panel A: Y ear 1 Large Contribution Scenario
+Exhibit 1 (Page 88): The money-weighted return for both scenarios in Exhibit 1 is calculated using  Equation 2. Because the timing and the size of the cash flows matter, the mon -
+Exhibit 2 (Page 89): Exhibit 2  shows the size and the timing of these flows with the respective  value of the fund’s investments.
+Exhibit 2 (Page 90): Exhibit 2: Size and Timing of Investment Flows into Albright Fund Net April 30 cash ﬂow
+Exhibit 3 (Page 91): These cash flows are depicted in Exhibit 3: © CFA Institute. For candidate use only. Not for distribution.
+Exhibit 3 (Page 92): Exhibit 3: Cash Flows to Consider for Money-Weighted Returns Cash Flows Over Time
+Exhibit 4 (Page 93): The specific holding period returns are shown in Exhibit 4. Exhibit 4: Time-Weighted Returns and Holding Period Returns
+Exhibit 5 (Page 94): Exhibit 5 summarizes the main differences and similarities between the  money-weighted (dollar-weighted) and time-weighted rate of return.
+Exhibit 6 (Page 98): narrow or thematic areas. Exhibit 6 outlines the main steps of the index construction,  calculation, and management process:
+Exhibit 6 (Page 99): Exhibit 6: Steps in the Index Construction, Calculation, and Management Process 1. The objective of the index
+Exhibit 7 (Page 100): Exhibit 7 shows the performance of the MSCI World Index (without dividends) as  the price return index and the MSCI World Index (with net dividends reinvested) as
+Exhibit 8 (Page 101): the individual weighting scheme. Exhibit 8 lists the four common weighting methods— market capitalization, equal weight, fundamental factor, and price weight—and sum -
+Exhibit 8 (Page 102): Exhibit 8: Comparison of Index-Weighting Methodologies and Their Typical Uses Index Type
+Exhibit 9 (Page 101): Exhibit 9 provides an illustration using five securities to demonstrate the different  weighting approaches, calculating the index value at inception. In each case, we will
+Exhibit 9 (Page 103): Exhibit 9: Example of a Market Capitalization—Weighted Index Security
+Exhibit 9 (Page 104): Exhibit 9. Indexes that aim to represent the investment opportunities for global investors often
+Exhibit 10 (Page 104): Exhibit 10  demonstrates the values and weights of a float-adjusted market cap - italization—weighted equity index using the same five securities as in the previous
+Exhibit 10 (Page 106): the float-adjusted weights from Exhibit 10:    r   V  MCI     =
+Exhibit 11 (Page 105): as shown in Exhibit 11 . Exhibit 11: Prices and Capital Distributions
+Exhibit 11 (Page 112): 1. U sing the new prices and capital distributions from Exhibit 11,  calculate the new price-weighted index value and its total return.
+Exhibit 11 (Page 113): 2. U sing the new prices and capital distributions from Exhibit 11, calculate the  new equal-weighted index value and its total return.
+Exhibit 12 (Page 109): Exhibit 12 illustrates the values and weights of a price-weighted equity index with  five constituent securities. In a price-weighted index, the aggregate reference value is
+Exhibit 12 (Page 110): Exhibit 12: Example of a Price-Weighted Index Security
+Exhibit 13 (Page 111): At inception, in an equal-weighted index with five securities as shown in Exhibit 13,  the weight of each security is the same: 20%.
+Exhibit 14 (Page 112): in Exhibit 14. Exhibit 14: Equal-Weighted vs. Float-Adjusted Market Capitalization—
+Exhibit 15 (Page 114): returns) command, Exhibit 15 shows the comparative quarterly performance of these  two indexes from 1999 to 2023 over 96 quarters.
+Exhibit 15 (Page 115): Exhibit 15: Comparative Quarterly Returns of MSCI Europe Equal-Weighted Index and MSCI Europe Index,  1999–2023
+Exhibit 16 (Page 115): Exhibit 16  illustrates the rebalancing process, showing the specific adjustment  necessary to maintain the equal weighting across the securities.
+Exhibit 16 (Page 116): Exhibit 16: Rebalancing an Equal-Weighted Price Index Security
+Exhibit 17 (Page 115): an aggregate value of D = 150 × 127.43 = 19,115 as in Exhibit 17. In both Exhibit 16 and Exhibit 17, the number of Security E in the index, the security
+Exhibit 17 (Page 117): Exhibit 17: Rebalancing an Equal-Weighted Total Return Index Security
+Exhibit 17 (Page 118): 16 and Exhibit 17  show adjustments in index weights before and after rebalancing  to illustrate changes in allocation necessary to restore balance. The differences in
+Exhibit 18 (Page 118): in Exhibit 18. For example, if Security A were to undergo a two-for-one split, the divisor is
+Exhibit 19 (Page 119): as outlined in Exhibit 19. New companies are traded on the market and some com - panies are acquired, while others no longer meet the requirements to be included in
+Exhibit 20 (Page 120): various weighting strategies on market dynamics, Exhibit 20 compares the one-period  returns of the five previously discussed securities: A, B, C, D, and E.

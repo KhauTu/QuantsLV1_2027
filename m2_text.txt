@@ -1,0 +1,1096 @@
+
+--- PAGE 58 ---
+Learning Module 2 T ypes of Financial Returns48
+2. Whic h type of return do investors most commonly receive when investing 
+in debt instruments?
+A. Price distribution
+B. Fixed capital distribution
+C. Venture capital appreciation
+Solution
+The correct response is B: Debt instruments typically provide returns in the 
+form of fixed capital distributions, such as regular interest payments, over 
+the investment period.
+Alternative A is incorrect: While price appreciation can occur, most returns 
+from debt instruments come from fixed interest payments.
+Alternative C is incorrect: Variable capital distributions are more commonly 
+associated with equity and certain types of debt with variable coupon rates.
+3. F or international bond investments, foreign exchange rates:
+A. determine the bond’s coupon rate.
+B. have no impact on the bond’s returns.
+C. affect the investor’s home currency return.
+Solution
+The correct answer is C: Changes in exchange rates influence the realized 
+returns of international investments when converting back to the investor’s 
+home currency. As the relative value of the two currencies changes, the 
+return the investor earns is also impacted by these changes. As the domestic 
+currency depreciates against the foreign currency, the returns increase, and 
+vice versa.
+Alternative A is incorrect: The bond’s coupon rate is predetermined and not 
+directly affected by foreign exchange rates.
+Alternative B is incorrect: Foreign exchange rates can have a significant 
+impact on the returns of international investments.
+4. D oes the variability of annual returns relate to investment risk?
+A. No, there is no relationship.
+B. Yes, greater variability indicates lower risk.
+C. Yes, greater variability indicates higher risk.
+Solution
+The correct answer is C: The range of annual returns is a measure of vari-
+ability and volatility. A wider range in annual returns signifies greater fluctu-
+ations in value, implying higher risk and the possibility of greater rewards or 
+losses.
+Alternative A is incorrect: There is a relationship between annual returns 
+and investment risk.
+Alternative B is incorrect: A greater variability does not indicate lower risk, 
+it indicates the opposite.
+5. Whic h factor is considered a macro risk affecting all investments?
+A. Inflation
+B. Industry sector trends
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 59 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 49
+C. Company-specific performance
+Solution
+The correct answer is A: Inflation is a macro risk that impacts the entire 
+economy and financial markets. It affects the performance of all investments 
+by influencing real returns and purchasing power.
+Alternative B is incorrect: Industry sector trends represent unsystematic 
+risks specific to particular industry sectors, not macro risks that affect the 
+entire market. While sector trends can influence multiple companies within 
+the same sector, their impact is not as widespread as macro risks including 
+inflation, which affects all the financial markets.
+Alternative C is incorrect: Company-specific performance is considered a 
+micro or unsystematic risk, affecting only the individual company’s stock or 
+securities and not the entire market or economy.
+TYPES OF RETURNS FOR FINANCIAL ASSETS, 
+INSTRUMENTS, AND INDICATORS
+calculate, compare, and interpret different types of returns for 
+financial assets, instruments, and indicators
+Investors can earn returns from two main sources: uncertain price returns, such as 
+price appreciation and price depreciation; and capital distribution returns, which can 
+either be fixed or variable. These different returns influence the valuation of financial 
+assets and how they are included in investment portfolios.
+Types of Returns
+The proportion of total return coming from each source varies depending on the 
+specific type of financial asset or instrument:
+ ■ Price return  is generally uncertain and variable, reflects changes in a finan -
+cial asset’s price, and refers to changes in the asset price that are indepen -
+dent of the capital income distributions. For equities, it reflects the compa -
+ny’s performance, market sentiment, economic and fiscal conditions, and 
+other factors. For bonds, it usually reflects the level of interest rates and the 
+issuer’s financial health. Many financial assets and instruments generate 
+returns primarily through price changes; thus, variability in price changes 
+tends to be a strong focus of risk analysis.
+ ■ Fixed capital distribution return  is the most common type of return for 
+debt. Typically, this rate of return remains unchanged over the investment 
+period. The realized and the actual value may vary, for example, in the case 
+of issuer default.
+ ■ Variable capital distribution return  is the most common type of return 
+for equity in the form of dividends and for certain types of debt where 
+the coupon rates and payments are variable. Both the rate of return and 
+income vary over time, with dividends and floating-rate bonds being typical 
+examples. 
+2
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 60 ---
+Learning Module 2 T ypes of Financial Returns50
+We note that there can be some confusion for returns around a distribu -
+tion, particularly for equities. If a dividend of X is paid at time, t, then it is 
+expected that the price of the equity will instantaneously decrease by X–so 
+across that small amount of time the dividend return is offset by the price 
+return. However, once the dividend impact is incurred, the security will 
+continue to have further dynamics.
+Types of Returns: Financial Assets
+The main financial assets are cash, equity, and debt. There are also hybrids that com -
+bine the characteristics of equity and debt.
+ ■ Cash, essentially coins, bank notes, currency, and non-interest-bearing bank 
+deposits, does not generate any return unless invested. Having cash available 
+is vital in finance, investment, and portfolio management; every investment 
+will eventually find itself converted back into cash. When cash is invested 
+over the short-term, the typical choice is short-term bonds or interest-bear -
+ing bank accounts because they earn capital distributions. Long-term invest -
+ments include equities, debt, and alternative assets. Those investments earn 
+price returns, capital distributions, or typically both.
+ ■ Equities, also called stocks, shares, or ownership interests, generate return 
+from price appreciation and capital distributions in the form of dividends. 
+For Ørsted A/S equity, the components of price and capital distributions 
+return between 2017 and 2023 are depicted in Exhibit 1.
+ ● Price return . Equity values are determined by a complex interplay of 
+company-specific fundamental factors, broader economic indicators, 
+market sentiment, and global events, which will be covered in greater 
+detail later in the curriculum. As these factors change, equity prices 
+and returns change as well. Typically, most returns come from capital 
+appreciation.
+ ● Capital distributions . Investors who invest capital in corporations may 
+receive discretionary capital distributions in the form of dividends or 
+other cash payments. Investors receive these discretionary distribu -
+tions on a quarterly, semiannual, or annual basis (and there may also be 
+special one-off dividends tied to corporate actions). Some companies, 
+particularly rapidly growing companies, may choose not to distribute 
+dividends and instead reinvest profits to fuel growth. Other compa -
+nies distribute a substantial portion of their earnings to shareholders. 
+Consequently, investors can select companies that offer the type of 
+return they desire.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 61 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 51
+Exhibit 1: Components of Ørsted A/S Equity Returns Between 2017 and 
+2023
+–40
+–20
+20
+40
+60
+80
+Price Return and Capital Distribution Returns (%)
+Price Change (in DKK)0
+400
+200
+–400
+–200
+0
+600
+71.10 97.00
+253.30
+554.50
+–408.30
+–203.90
+–257.00
+2017 2018 2019 2020 2021 20222 023
+Price Return Capital Distribution Return
+Y ear
+ ■ Bonds, also called debt, loans, or fixed-income instruments, are contrac -
+tual agreements where an investor lends a specific amount of money, the 
+principal, to a borrower or an issuer in exchange for regular, predetermined, 
+contractual interest or coupon payments. When the bond matures, the 
+investor’s principal is typically paid out at maturity, unless the bond is an 
+amortizing bond where principal is repaid in regularly scheduled incre -
+ments during the maturity of the bond. The issuer may be a corporation, 
+government, or other organization. In addition to the capital distributions 
+in the form of interest payments, bond investors may also earn returns from 
+capital appreciation. For the Ørsted A/S EUR750 million Senior Unsecured 
+Bond, the components of price and capital distributions return between 
+2018 and 2023 are depicted in Exhibit 2.
+ ● Price return . The value of a bond is influenced by numerous factors, 
+including the creditworthiness of the borrower, prevailing interest rates, 
+and the maturity of the bond. Debt issued by governments, such as gov -
+ernment bonds like US Treasuries, are generally considered to have low 
+default risk, while corporate bonds can range from low to high default 
+risk depending on the issuing company’s financial health. Higher default 
+risk typically leads to higher yields to compensate investors for accepting 
+the risk. In terms of price return related to rates, generally, longer-dated 
+bonds will have more price variability due to rate movements in compar -
+ison to shorter-term bonds. Increases in interest rates reduce the value 
+of fixed-income streams, while reductions in interest rates increase their 
+value.
+ ● Capital distributions . Because bond investors regularly receive contrac -
+tual interest payments, these investments are particularly attractive to 
+investors seeking steady cash income streams. Though not the case in 
+this example, it is not atypical for the return earned by bond investors to 
+be mainly driven by capital distributions—particularly for shorter-term 
+bonds, which are less sensitive to changes in interest rates.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 62 ---
+Learning Module 2 T ypes of Financial Returns52
+Exhibit 2: Components of Ørsted A/S EUR750 Million Senior Unsecured 
+Bond Returns Between 2018 and 2023
+Price Return Capital Distribution Return
+Y ear
+–15
+–5
+0
+5
+10
+Price Return and Capital Distribution Returns (%)
+Price Change (in EUR)–10
+5
+0
+–20
+–15
+–5
+–10
+10
+0.79
+8.71
+3.37
+–4.77
+4.08
+–21.23
+2018 2019 2020 2021 2022 2023
+ ■ Hybrids, financial assets that blend equity and debt characteristics, repre -
+sent a unique category of financial assets and include preferred stock and 
+convertible bonds. Their returns are a middle ground between the fixed 
+income of bonds and the growth potential of equities, and they balance 
+the fixed-income features of bonds with the potentially higher rewards of 
+equities.
+Types of Returns: Financial Instruments
+ ■ Financial instruments are standardized legal agreements for financial assets, 
+such as equity and bonds, as well as derivatives and securitized debt. The 
+standardization facilitates public trading among investors. The return 
+combines price return and return on capital, and the specific contribution 
+of each to the total return depends on the type of financial instrument in 
+question. The earlier examples of Ørsted A/S equity and bond returns are 
+examples of cash instruments.
+ ■ Derivatives are financial instruments whose value is derived from the per -
+formance of another, underlying, financial asset or financial indicator, such 
+as exchange rate, interest rate, or market index. The value of a derivative is 
+based on the expected future price movements of the underlying asset or 
+financial indicator. An example of a derivative is a call option to purchase 
+stock at a given price on a particular future date.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 63 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 53
+Types of Returns: Financial Indicators
+Financial indicators are integral to the operation of financial markets. Two of the 
+most prominent indicators are interest rates and foreign exchange rates. Returns on 
+financial assets and instruments are often assessed in relation to different financial 
+indicators. Additionally, unlike financial assets and financial instruments, financial 
+indicators do not directly generate cash flows.
+ ■ Interest rates are typically traded through risk-free, government bonds 
+whose prices mirror the prevailing interest rate environment. The inter -
+est rate varies inversely with the value of bonds, and thus interest rates 
+are inferred from bond prices. Interest rates, as a key economic indicator, 
+influence the valuation and performance of various financial instruments, 
+including bonds. While the interest rates don’t produce cash flows on their 
+own, their level affects the actual returns bond investors earn through capi -
+tal gains and capital distributions.
+ ■ The risk-free rate  is determined by the return on short-term, risk-free, gov -
+ernment debt, as we discuss in the following case study.
+CASE STUDY
+The Risk-Free Rate
+When evaluating the risk-free rate, investors often use the 3-month US Treasury 
+bill, or T-bill, that has a face value of USD1,000. If a T-bill is currently priced 
+at USD990, or a discount of USD10, it does not pay any interest. There are 90 
+days remaining before the bill matures and is repaid. Interest is calculated using 
+365 days in the year.
+1. The pr ice of the T-bill implies an annualized interest rate closest to:
+A. 4.04%.
+B. 4.10%.
+C. 4.16%.
+Solution
+The correct response is C: 4.16%. To find the annualized risk-free rate, the 
+yield to maturity of the T-bill needs to be calculated. The yield to maturity is 
+the total return on this bond, or
+  r =   
+ P  1  −  P  0  + Inc
+ _  P  0     =   USD1, 000 − USD990 + 0  ___________________  USD990    = 1.01% .
+There is no capital distribution in the case of the T-bill, which is a discount 
+instrument. This 1.01% is then annualized using the usual expression:
+   r  annual   =   (1+  r  period  )    c  − 1 =   (1 + 0.0101)      365 _ 90    − 1= 4.16% .
+Alternative A is incorrect: It does not correctly annualize the return, rather 
+it multiplies the total return of the bond, or
+  r =   
+ P  1  −  P  0  + Inc
+ _  P  0     =   USD1, 000 − USD990 + 0  ___________________  USD990    = 1.01% , by 4 to yield 4.04%.
+Alternative B is incorrect: It does not correctly annualize the return. It uses 
+360 days instead of 365 days, or:
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 64 ---
+Learning Module 2 T ypes of Financial Returns54
+   r  annual   =   (1+  r  period  )    c  − 1 =   (1 + 0.0101)      360 _ 90    − 1 = 4.10% .
+ ■ Foreign exchange rates  represent the value of one currency expressed in 
+terms of another currency. Currency pairs are used to establish an exchange 
+rate and to trade on relative change in the value of currencies.
+CASE STUDY
+Impact of Exchange Rates When Investing in the 
+Ørsted A/S EUR750 Million Bond
+On the final trading day of 2020, a US investor bought USD1 million worth of 
+Ørsted A/S bonds, which were part of a EUR750 million issuance.
+The bonds were priced at EUR112.54 for every EUR100 of face value. 
+At this time, the USD/EUR exchange rate was 1.2216, meaning EUR1 was 
+worth USD1.2216. Differently put, USD1 could be exchanged for EUR0.8186. 
+Consequently, the investor acquired bonds worth EUR818,599.
+By the end of 2021, these bonds were trading at EUR107.769 per EUR100 
+face value, and the USD/EUR exchange rate had moved to 1.1373; that is, USD1 
+could be exchanged for EUR0.8793. This change in exchange rate signifies that 
+the USD strengthened against the EUR; now, the same USD amount could buy 
+more EUR. For a USD investor, this means that returns in EUR are now less 
+valuable when converted back to USD.
+The value of the USD appreciated by 
+   0.8793 _ 0.8186   − 1 = 7.42% , which means that 
+the EUR depreciated in value by    0.8186 _ 0.8793   − 1 = − 6.90% .
+The bond return also reflects coupon payments of EUR1.5 per EUR100 face 
+value on the bond; the total purchase price was EUR818,599, meaning a face 
+value of 818,599/1.1254 = EUR727,385. This means that the coupon would be 
+0.015 × 727,385 = 10,910.77. The situation is depicted in Exhibit 3.
+Exhibit 3: Performance of an Investment by a USD-Denominated 
+Investor in the Ørsted A/S EUR750 Million Bond
+Bond price:
+EUR 112.54 for every EUR 100
+End of 2020/beginning of 2021
+Exchange rate:
+USD/EUR 0.8186
+Investment:
+USD1 million buys 
+EUR 818,600 in bonds
+Bond price:
+EUR 107.769 per EUR 100 
+End of 2021
+Exchange rate:
+USD/EUR 0.8793
+Investment:
+The investment is worth EUR 783,896.42.
+That is worth USD 891,500.54.
+Change in value
+The USD/EUR exchange rate
+−1 = 7.42%0.8793
+0.8186
+The bond in EUR
+−1 = −4.24%EUR 107.769
+EUR 112.54
+The investment in USD
+USD 891,500.54
+USD 1,000,000 −1 = −10.85%
+After incorporating the bond coupon, the annual return on the bond in EUR,   
+r  EUR   , for 2021 was a loss of 2.91%:
+   r  EUR   =    EUR 107.769 + EUR1.5  _________________  EUR112.54   − 1 =   − 2.91% .
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 65 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 55
+Accordingly, the end-of-year bond value decreased to EUR794,806.24. At the 
+new exchange rate, this is equivalent to USD903,933.14. Therefore, in USD terms, 
+the investment value dropped by about USD96,000, or a loss of
+   r  USD   =   USD903, 933.14   ____________  USD1, 000, 000   − 1 = − 9.61% .
+This scenario illustrates how a USD investor suffered a more significant loss of 
+9.61%, compared to the 2.91% loss in EUR terms.
+The strengthening of the USD, coupled with the bond’s value decline, ampli -
+fied the investor’s losses when measured in USD. The weakening of the EUR 
+against the USD is:
+   r  1 EUR, USD   =   1.1373 _ 1.2216   − 1 = − 6.90% .
+And so the overall USD return is explainable by the return on the investment 
+in EUR and the return of EUR in USD:
+   r  Invest, USD   =  (1 +  r  Invest, EUR  )  (1 +  r  1 EUR, USD  )  − 1 
+  =  (1 − 0.0291)  (1 − 0.0691)  − 1 = − 9.61% .
+ ■ Market indexes reflect the aggregated values of stocks, bonds, or other asset 
+classes traded in a market and indicate the overall performance of a specific 
+market or the entire market. Trading in market indexes typically involves 
+derivatives, exchange-traded funds (ETFs), or mutual funds that track these 
+indexes.
+CASE STUDY
+The Performance of Ørsted A/S Equity Relative to 
+the OMX Copenhagen 25 Index
+Ørsted A/S equity is included in the OMX Copenhagen 25 Index that contains 
+the 25 largest and most traded shares on NASDAQ Copenhagen. The following 
+exhibits show the annual total returns for the OMX Copenhagen 25 Index and 
+Ørsted A/S equity between 2017 and 2023. The joint performance of the index, 
+OMXC25 Index, and the stock, ORSTED DC Equity, is depicted in the following 
+Bloomberg screenshot (Exhibit 4).
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 66 ---
+Learning Module 2 T ypes of Financial Returns56
+Exhibit 4: Performance of OMX Copenhagen 25 Index and Ørsted 
+A/S Equity Between 2017 and 2023
+2017 2018 2019 2020
+Years
+2021 2022 2023
+100
+150
+200
+250
+300
+350
+Last Price
+400
+450
+500
+ORSTED DC Equity
+12/31/2016 12/29/2023 Local CCY
+SuggestedCharts94) Actions
+TableWeeklyMax 5Y 1Y6M1M 3D 1D YTD
+96) Edit G7 LI_QM_LM_02_btwn_Ex3&4
+Add Data Edit Chart
+97)
+Normalized As of 01/06/2017
+Last Price
+ORSTED DC Equity140.714
+175.521OMXC25 Index
+Source: Bloomberg.
+The annual total returns of the OMX Copenhagen 25 Index and Ørsted A/S 
+equity from 2017 to 2023 are shown graphically in Exhibit 5 and in tabular 
+format in Exhibit 6:
+Exhibit 5: Annual Total Returns for the OMX Copenhagen 25 Index 
+and Ørsted A/S Equity Between 2017 and 2023
+80
+60
+40
+20
+0
+–20
+–40
+2017 2018 2019 2020 2021 2022 2023
+Y ear
+Total Return (%)
+28.81% 31.30%
+60.37%
+–31.91%
+–22.92% –38.57%
+–11.19%
+28.71%
+35.60%
+18.60%
+–11.54%
+9.63%
+15.09%
+82.00%
+OMX Copenhagen 25 Index Ørsted A/S Equity
+Exhibit 6: Annual Total Returns for the OMX Copenhagen 25 Index and 
+Ørsted A/S Equity Between 2017 and 2023
+ 
+Y ear OMX Copenhagen 25 Index Ørsted A/S Equity
+2017 15.09% 28.81%
+2018 −11.19% 31.30%
+2019 28.71% 60.37%
+2020 35.60% 82.00%
+2021 18.60% −31.91%
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 67 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 57
+Y ear OMX Copenhagen 25 Index Ørsted A/S Equity
+2022 −11.54% −22.92%
+2023 9.63% −38.57%
+ 
+1. C alculate the arithmetic average return for the OMX Copenhagen 25 Index 
+and Ørsted A/S equity. 
+Solution
+The arithmetic average return for the OMX Copenhagen 25 Index is:
+     _ r    i   =   
+ r  i1   +  r  i2   + … +  r  i,T−1   +  r  iT  
+  __________________ T    
+  =   15.09% − 11.19% + 28.71% + 35.60% + 18.60% − 11.54% + 9.63%     _______________________________________________    7       
+  = 12.13% .
+For the Ørsted A/S equity, we know that the arithmetic average return be-
+tween 2017 and 2023,     _ r    i   , is:
+     _ r    i   =   28.81 %  + 31.30 %  + 60.37 %  + 82.00 %  − 31.91 %  − 22.92 %  − 38.57%       ____________________________________________________    7        
+  = 15.58% .
+On average, the Ørsted A/S equity returns were 3.45% higher.
+From 2017–2020, the OMX Copenhagen 25 Index underperformed Ørsted 
+A/S equity. In 2020, Ørsted A/S equity had a return of 82% while the OMX 
+Copenhagen 25 Index had a return of 35.60%, resulting in a difference of 
+46.40%. However, since 2021, the index has significantly outperformed the 
+stock.
+2. C alculate the geometric average return for the OMX Copenhagen 25 Index 
+and Ørsted A/S equity.
+Solution
+For the OMX Copenhagen 25 Index, the geometric mean return between 
+2017 and 2023 is:
+     _ r    Gi   =  
+T
+ √ 
+________________________________________
+     (1 +  r  i1  )  ×  (1 +  r  i2  )  × … ×  (1 +  r  i,T−1  )  ×  (1 +  r  iT  )    − 1 
+  =   [ (1 +  r  2017  )  ×  (1 +  r  2018  )  × … ×  (1 +  r  2022  )  ×  (1 +  r  2023  ) ]      1 _ 7    − 1 
+  =   [1.1509 × 0.8881 × 1.2871 × 1.3560 × 1.1860 × 0.8846 × 1.0363]      1 _ 7    − 1 
+  =  2.0518     1 _ 7    − 1 = 10.81% .
+For the Ørsted A/S equity, we know that the geometric mean return be-
+tween 2017 and 2023 is:
+     _ r    Gi   =   [1.2881 × 1.3130 × 1.6037 × 1.8200 × 0.6809 × 0.7708 × 0.6143]      1 _ 7    − 1 
+  =  1.5915     1 _ 7    − 1 = 6.86% .
+The investment return would have been higher for an investor who chose 
+the OMX Copenhagen 25 Index over the Ørsted A/S equity. Specifically, 
+an initial investment of DKK1 million in the OMX Copenhagen 25 Index 
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 68 ---
+Learning Module 2 T ypes of Financial Returns58
+would have increased to DKK2,051,788, whereas the same amount invested 
+in Ørsted A/S equity would have grown to only DKK1,591,528.
+Arithmetic returns tend to overestimate investment performance. Geomet-
+ric returns offer a more accurate assessment by accounting for the variability 
+and the sequential nature of returns, leading to different conclusions about 
+true performance.
+Long-Term Financial Asset Returns
+The contributions of price appreciation and capital distributions to the total return 
+differ across time. This section analyzes the historical returns of different assets and 
+contributions of returns from capital distributions and price appreciation for the US 
+markets between 1979 and 2023.
+Historical Long-Term Asset Returns
+Exhibit 7 shows a Bloomberg screenshot of the aggregate total return for selected 
+major US asset classes: large-cap stocks (Russell 1000 Index), small-cap stocks (Russell 
+2000 Index), corporate bonds (Bloomberg US Corporate Total Return Index), and 
+government bonds (Bloomberg US Treasury Total Return Index) between 1979 and 
+2023, or 45 years. The long-term performance of other asset classes and alternative 
+assets are covered elsewhere in the curriculum. Exhibit 8 lists the arithmetic and 
+geometric average annual returns as well as the highest and lowest annual returns 
+for the same period.
+Exhibit 7: Cumulative Total Returns for Different Asset Classes, 1979–2023
+Edit Chart1D 3D 1M 6M YTD 1Y 5Y Max Monthly Table
+RIY Index
+12/29/1978 12/29/2023 Local CCY
+At 0H L Prev3331.272 3331.273 3324.511 3326.86509:58d
+94) Suggested Charts 96)9 7)Actions Edit
+Add Data
+G 22: ASSET CLASS RETURNS
+1980–1984 1985–1989 1990–1994 1995–1999 2000–2004 2005–2009 2010–2014 2015–2019 2020–2024
+0
+1000
+2000
+3000
+4000
+5000
+6000
+Reset
+Track Annotate ZoomNewsNormalized As of 12/29/1978
+Russell 1000 Index
+Russell 2000 Index
+Bloomberg US Corporate Total Return
+Bloomberg US Treasury Total Return
+Source: Bloomberg.
+The returns provide a robust framework for understanding the long-term performance 
+of various assets and fluctuating financial market conditions. For instance, between 
+1979 and 2023, these asset classes exhibited three phases of evolution. Starting with 
+modest, uniform growth across all indexes through 1995, the market began showing 
+divergence in the late 1990s (phase 1), with stock indexes displaying increased vola -
+tility while bond indexes maintained steady growth. The 2008 Global Financial Crisis 
+(phase 2) caused sharp losses in returns across many asset classes, with a subsequent 
+recovery by 2010. The post-2015 era (phase 3) marked the most dramatic divergence, 
+with equity indexes showing substantial growth and volatility while fixed-income 
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 69 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 59
+indexes maintained a relatively flat trajectory. Throughout this period, the relationship 
+between risk and return became increasingly evident, with equity indexes achieving 
+substantively greater and more volatile returns than fixed-income indexes.
+Differences between large- and small-capitalization stock returns suggest that 
+small-capitalization stocks have periodically offered a higher total return, suggesting 
+the evidence of a temporary small-cap premium. However, this premium appears to 
+diminish over time. Differences between corporate and government bond indexes 
+suggest that corporate bonds generate slightly higher aggregate returns than govern -
+ment bonds.
+CASE STUDY
+The Difference Between Asset Returns
+The average return, geometric return, highest annual return, and lowest annual 
+return for different types of assets are depicted in Exhibit 8.
+Exhibit 8: Returns for Different Types of Assets, 1979–2023
+ 
+Series Return Type Arithmetic Mean Geometric Mean
+Highest Annual 
+Return
+Lowest Annual 
+Return
+Equity --- --- --- --- ---
+Large capitalization Total return 13.35% 12.26% 37.77% −37.60%
+Russell 1000 Index Capital 
+appreciation
+10.42% 9.32% 34.39% −39.02%
+--- Capital 
+distribution
+2.64% 2.58% 5.81% 1.15%
+Small capitalization Total return 12.60% 11.23% 47.25% −33.79%
+Russell 2000 Index Capital 
+appreciation
+10.68% 9.32% 45.37% −34.80%
+--- Capital 
+distribution
+1.71% 1.63% 3.70% 0.99%
+Debt/bond/fixed 
+income
+--- --- --- --- ---
+US corporate bonds Total return 7.62% 7.43% 39.21% −15.76%
+--- Capital 
+appreciation
+0.34% 0.06% 23.12% −18.92%
+--- Capital 
+distribution
+7.23% 7.10% 13.43% 3.32%
+US Treasury bonds Total return 8.29% 7.62% 41.76% −29.25%
+--- Capital 
+appreciation
+1.49% 0.76% 25.88% −31.27%
+--- Capital 
+distribution
+6.69% 6.57% 13.37% 2.26%
+30-Day T-bill (risk-free 
+rate)
+Total return 2.52% 2.50% 6.20% −0.01%
+Inflation --- --- --- --- ---
+Annual inflation rate --- 3.57% --- 13.30% 0.10%
+Sources: Bloomberg, FRED, and author calculations.
+ 
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 70 ---
+Learning Module 2 T ypes of Financial Returns60
+1. U sing the geometric average total returns shown in Exhibit 8, calculate the 
+relative outperformance of large-capitalization equity versus long-term 
+corporate debt.
+Solution
+Using the geometric average total return of 12.26% for large-capitalization 
+equity and 7.43% for long-term corporate debt (i.e., US corporate bonds), 
+the relative outperformance of large-cap equity is:
+    1 + 12.26% _ 1 + 7.43%   − 1 =   1.1226 _ 1.0743   − 1 = 4.50 % . 
+In other words, over one period the same investment in large-cap equity 
+would generate 4.50% more than an investment in long-term corporate 
+debt, assuming the performance in each was exactly equal to their respec-
+tive historical geometric average total returns.
+2. U sing the geometric average total returns in Exhibit 8, calculate the small-
+cap premium: the difference of the average growth in value between 
+small-capitalization stocks over large-capitalization stocks.
+Solution
+Using the geometric average total return of 12.26% for large-capitalization 
+equity and 11.23% for small-capitalization equity, the small-cap premium 
+(discount) is:
+    1 + 11.23% _ 1 + 12.26%   − 1 =   1.1123 _ 1.1226   − 1 = − 0.92 % . 
+In other words, on average, small-capitalization equities index underper-
+formed the large-capitalization equities index by −0.92% during this period, 
+though historically small-capitalization equities have tended to outperform 
+large-capitalization equities.
+3. Wha t are the limitations of the data shown in Exhibit 8 when it comes to 
+performance?
+Solution
+The limitations lie in the historical perspective: Realized returns may not 
+be indicative of future performance. Additionally, these data reflect gross 
+returns and not net returns. Finally, the impact of taxes and inflation have 
+not been factored in.
+Primarily driven by capital appreciation, equities yield higher average returns over 
+time than bonds. Bonds tend to provide returns mainly through coupon payments, 
+also termed interest income, a form of capital distribution. Comparing the dispersion 
+of historical returns using the range between highest and lowest annual returns shows 
+that equities are consistently riskier than bonds.
+Corporate bonds have historically underperformed government bonds despite 
+offering higher yields on paper (this is due to the impact of defaults). Additionally, 
+longer-term government bonds offer higher returns than their shorter-term counter-
+parts, implying a greater required rate of return for committing capital over a longer 
+horizon, as shown in the following Bloomberg screenshot (Exhibit 9).
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 71 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 61
+Exhibit 9: Cumulative Total Returns for Different US Treasury Bond Indexes, 
+1979–2023
+2500
+2000
+1500
+500
+0
+2020-20242015-20192010-20142005-20092000-20041995-19991990-19941985-19891980-1984
+1000
+LT08TRUU
+12/29/1978 12/29/2023 USD
+Index 94) Suggested Charts 96) 97)Actions Edit G 25: Gov returns
+Normalized As of 12/29/1978
+Bloomberg US Government 1 - 5 Year Total Return
+Bloomberg US Government 5-10 Year Total Return
+Bloomberg US Treasury Total Return
+Bloomberg US Treasury 20- Year Total Return
+Edit Chart1D 3D 1M 6M YTD 1Y 5Y Max Monthly Table Add Data
+Track Annotate ZoomNews
+Source: Bloomberg.
+The higher returns (see Exhibit 8) for long-term bonds reflect compensation for 
+committing capital for a longer time as well as for the effects of inflation and higher 
+sensitivity to changes in interest rates. Finally, the US 30-Day T-bill, whose yield is a 
+commonly selected proxy for the risk-free rate, has an average nominal return closely 
+aligned with the average inflation rate, suggesting minimal real return.
+KNOWLEDGE CHECK: DIFFERENCES IN DEBT RETURNS
+1. U sing the geometric means shown in Exhibit 8, estimate the 
+annualized relative outperformance of long-term government bonds versus 
+long-term corporate bonds.
+Solution
+The geometric average total return for long-term government bonds (i.e., 
+US Treasury bonds) is 7.62% and for long-term corporate bonds is 7.43%. 
+The outperformance of government bonds compared to corporate bonds is:
+    1 + 7.62% _ 1 + 7.43%  –1  =   1.0762 _ 1.0743   = 0.18 % . 
+Long-Term Asset Return Components
+The proportion of returns from capital appreciation and capital distributions has 
+shifted over the decades. In the United States during the 1940s, 1950s, 1980s, and 
+1990s, equity total returns were primarily driven by capital appreciation. In contrast, 
+other decades saw more modest total returns, primarily fueled by capital distribution 
+returns. Capital appreciation returns have shown greater volatility compared to capital 
+distribution returns.
+It is worth noting that dividend distributions have tended downward over time, 
+reflecting a shift in profit distribution strategies by large US corporations, which were 
+potentially influenced by a 1982 regulatory change that provided a safe harbor from 
+market manipulation charges. Increasingly, corporations have opted to repurchase their 
+own shares rather than issue cash dividends. Share buybacks reduce the number of 
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 72 ---
+Learning Module 2 T ypes of Financial Returns62
+shares available in the market, which can potentially increase the value of the remaining 
+shares, benefiting both investors and corporations. For US shareholders, buybacks also 
+offer tax advantages: They avoid higher tax rates on dividends, and when appreciated 
+shares are sold, any gains are typically taxed at the lower capital gains rate.
+For long-term US government bonds, income return has historically been the 
+dominant contributor to total returns, with capital appreciation playing a lesser role. 
+There have been periods, however, such as in the early 2020s, when bond prices fell 
+due to rising market interest rates, resulting in capital losses. Such losses are to be 
+expected anytime there is a shift to a higher rate environment; in the 2020s case, we 
+moved from a period of very low interest rates to a higher interest rate environment. 
+Historically, an average of 85% of total returns for US long-term government bonds 
+has come from income returns, with the remainder from price appreciation. Capital 
+distribution returns, which benefit from periods of higher interest rates, such as during 
+the 1980s, have declined over time.
+Risks and Returns
+Risk stems from the uncertainty between the expected returns on an investment and 
+the actual, realized returns. This risk can reflect either pervasive macro factors or 
+issuer-specific micro factors.
+ ■ Macro risks or systematic risks  are broad economy-wide risks that influ -
+ence the performance of investments. The returns are systematically depen -
+dent on these factors. If the economy or the financial markets perform 
+well, asset returns are likely to follow suit. Systematic risk largely cannot be 
+mitigated and thus is also called non-diversifiable risk.
+ ■ Micro risks or unsystematic risks  are associated with factors specific to 
+the issuer and determine investment returns based on the firm’s underlying 
+economic characteristics, such as earning power, market position, finan -
+cial strength captured by its sales and sales growth, operating margins, and 
+return on assets and equity. Unsystematic risks can be mitigated through 
+diversification; they are diversifiable risks.
+Three interrelated systematic risk factors are common to all assets: inflation, 
+interest rates, and market movements.
+ ■ Inflation risk is the risk that investment returns will deviate from expecta -
+tions solely due to effects of inflation (or deflation). The primary investment 
+objective is to earn a positive real rate of return, making inflation risk a 
+major concern for portfolio managers and clients globally.
+ ■ Interest rate risk is the uncertainty of returns due to interest rate fluctu -
+ations. Asset prices generally rise with falling interest rates and vice versa. 
+This inverse relationship is pervasive, though it affects different investments 
+to varying extents. Generally speaking, the value of any investment depends 
+on its future cash flows. Those future cash flows are worth more when inter -
+est rates are lower than they would be if interest rates were higher.
+ ■ Market risk represents the possibility that market forces will affect the 
+returns of all financial assets in an unexpected manner.
+Unsystematic risks for an investment include issuer risk and sector or industry risk.
+ ■ Issuer risk, or specific risk, encompasses a firm’s business and financial 
+risks. Business risk is inherent in the nature of the firm’s operations, while 
+financial risk arises from the use of financial leverage. Credit risk relates to 
+a firm’s ability to meet its payment promises: in case of debt, repayment of 
+debt, and periodic interest payments.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 73 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 63
+ ■ Sector risks or industry risks  are similar to market risk in that they repre -
+sent the possibility that forces particular to a sector will affect the returns 
+of all assets within that grouping in an unexpected manner. The investment 
+environment often necessitates a simplified sector classification for practical 
+portfolio management, such as sector rotation strategies.
+There are many risk measures to help us quantify total risk and its components, 
+and these will be explored in later sections. One straightforward approach we address 
+in this lesson is to calculate the range between the highest and lowest returns and 
+relate this range to the average return, as shown in Exhibit 10.
+The range of annual returns represents the variability of these returns, indicating 
+the uncertainty of returns and the potential risk faced by investors. A narrower range 
+suggests that returns are relatively consistent and predictable, indicating lower uncer-
+tainty about their size and direction—in other words, lower risk. A relatively wide 
+range signifies significant variability in annual returns across time, making returns 
+less predictable. Such variability indicates unpredictability and implies higher risk, 
+including greater potential losses as well as greater potential gains.
+The higher risk premium of riskier investments compensates investors for taking 
+on greater volatility and uncertainty, offering the potential for higher returns. This 
+premium represents the additional expected return for taking on higher risk. It varies 
+depending on the financial asset: bonds or equity, investment time horizon (short 
+or long term), and other specific risk factors. Consequently, conservative investors 
+prioritize stability and predictability, choosing investments with lower risk premiums 
+and more modest potential returns.
+Exhibit 10: Geometric Average Annual Total Returns and Range of Annual 
+Total Returns, 1979–2023
+Asset Class
+Geometric Average 
+Annual Total Return
+Range of Annual 
+Total Returns
+Large capitalization 12.26% 75.37%
+Small capitalization 11.23% 81.04%
+US corporate bonds 7.43% 54.97%
+US Treasury bonds 7.62% 71.01%
+30-Day T-bill (risk-free rate) 2.50% 6.21%
+Sources: Bloomberg, FRED, and author calculations.
+These historical data associate higher variability in returns with higher risk. For 
+example, in the set of observations shown in Exhibit 10, equities delivered higher 
+returns than bonds. That said, small-capitalization stocks exhibited greater variability 
+in returns compared to large-capitalization stocks, but they also generated a lower 
+geometric average return during this period. Just because the expectation of relative 
+returns suggests one asset will outperform another, that does not mean things will 
+occur in that manner in any particular period. It must be kept in mind that we are 
+dealing with relatively small statistical samples. Using the data from Exhibit 10, Exhibit 
+11 contrasts the historical geometric average returns and risk for various investments 
+from 1979–2023.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 74 ---
+Learning Module 2 T ypes of Financial Returns64
+Exhibit 11: Historical Geometric Average Return for Different Assets, 
+1979–2023
+0%
+0% 20% 40%
+Range of Annual Returns (%)
+60% 80%
+2%
+4%
+6%
+8%
+10%Average Annual Return (%)
+12%
+14%
+Large Capitalization
+Return: 12.26%, Range: 75.37%
+US Treasury Bonds
+Return: 7.62%, Range: 70.01%
+Small Capitalization
+Return: 11.23%, Range: 81.04%
+30-Day T-Bill
+Return: 2.50%, Range: 6.21%
+US Corporate Bonds
+Return: 7.43%, Range: 54.97%Generally speaking, investors expect riskier investments to provide higher returns 
+than less risky alternatives to compensate for the additional risks. The realized expe -
+rience tends to match the expectation over time: Although variability in returns is not 
+directly proportional to average returns, investment returns tend to increase with risk.
+From the investor perspective, if an investment promises high returns without 
+increased risk, there will be increased demand for it. This demand will drive up the 
+price of the investment, which, in turn, reduces the potential rate of return for those 
+seeking to invest. If the expectation of returns were relatively low in comparison 
+to the level of perceived risk, however, investors would not invest in the particular 
+assets. This reaction would cause the prices to fall and increase the rate of return to a 
+level that would be more appealing to investors. These two examples underscore the 
+fundamental risk–return trade-off in investing: Expected returns rise with risk, as 
+higher-risk investments typically offer greater potential returns to reward investors 
+for taking on additional risk.
+CASE STUDY
+Asset Allocation and Returns
+In investment management, investors’ differing objectives inform asset alloca -
+tion among various assets. Here, we present three hypothetical investors with 
+differing objectives:
+ ■ Investor A seeks aggressive capital growth, prioritizing long-term 
+capital appreciation.
+ ■ Investor B looks for a balanced approach, seeking returns from both 
+growth and income.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 75 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 65
+ ■ Investor C desires more steady income, with some growth to hedge 
+against inflation.
+Differences in asset allocation impact returns from both capital appreciation 
+and capital distributions. Exhibit 12 shows the returns for the assets.
+Exhibit 12: Asset Class Returns for Three Different Investors
+ 
+Asset Total Return Capital Appreciation Capital Distribution
+Large-capitalization equities 12.00% 8.50% 3.50%
+Long-term government bonds 5.75% 0.75% 5.00%
+T-bills 3.00% N/A 3.00%
+ 
+Exhibit 13 summarizes their asset allocations and includes the long-term returns 
+for these three asset classes.
+Exhibit 13: Asset Allocation for Three Different Investors
+ 
+Asset Allocation (in %) Annual Return (in %)
+Investor
+Large-Capital-
+ization Equities
+Long-Term Gov-
+ernment Bonds T-Bills Total Return
+Capital 
+Appreciation
+Capital 
+Distributions
+A 80 10 10 10.48 6.88 3.60
+B 60 35 5 9.36 5.36 4.00
+C 50 45 5 8.74 4.59 4.15
+ 
+Investor A has an 80% allocation to large-capitalization equities, 10% to long-
+term government bonds, and 10% to T-bills. Returns are additive and weighted 
+by their respective positions in a portfolio. For a portfolio with N assets, the 
+return is:
+   r  portfolio   =  w  1   ×  r  1   +  w  2   ×  r  2   + … +  w  N   ×  r  N   =  ∑ i=1  
+N
+     w  i   ×  r  i  . 
+ ■ The total return on this allocation is then:
+   r  portfolio,A   =  ∑ i=1  
+3
+     w  i   ×  r  i   
+ =  w  Equity   ×  r  Equity   +  w  Gov Bonds   ×  r  Gov Bonds   +  w  T−bills   ×  r  T−bills   
+  = 80% × 12.00% + 10% × 5.75% + 10% × 3.00% 
+  = 9.60% + 0.58% + 0.30% = 10.48% .
+ ■ The return from capital appreciation on this allocation can be calcu -
+lated using the same expression:
+  80% × 8.50% + 10%  × 0.75% + 10% × 0% 
+  = 6.80% + 0.08% + 0% = 6.88% .
+ ■ The return from capital distributions on this allocation is: 
+  80% × 3.50% + 10%  × 5.00% + 10% × 3.00% 
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 76 ---
+Learning Module 2 T ypes of Financial Returns66
+  = 2.80% + 0.50% + 0.30% = 3.60% .
+Investor B has a 60% allocation to large-capitalization equities, 35% to long-
+term government bonds, and 5% to T-bills. The total return is 9.36%, with 5.36% 
+from capital appreciation and 4.00% from capital distributions return from 
+dividends and coupon payments. The calculations are as follows:
+ ■ The total return on this allocation is:
+  60% × 12.00% + 35%  × 5.75% + 5% × 3.00% 
+  = 7.20% + 2.01% + 0.15% = 9.36% .
+ ■ The return from capital appreciation on this allocation is:
+  60% × 8.50% + 35%  × 0.75% + 5% × 0% 
+  = 5.10% + 0.26% + 0% = 5.36% .
+ ■ The return from capital distributions on this allocation is: 
+  60% × 3.50% + 35%  × 5.00% + 5% × 3.00% 
+  = 2.10% + 1.75% + 0.15% = 4.00% .
+Investor C allocates 50% to large-capitalization equities and 50% to fixed 
+income, with 45% to long-term government bonds and 5% to T-bills. The total 
+return is 8.74%, with 4.59% from capital appreciation and 4.15% from capital 
+distributions return. The calculations are as follows:
+ ■ The total return on this allocation is:
+  50% × 12.00% + 45%  × 5.75% + 5% × 3.00% 
+  = 6.00% + 2.59% + 0.15% = 8.74% .
+ ■ The return from capital appreciation on this allocation is:
+  50% × 8.50% + 45%  × 0.75% + 5% × 0% 
+  = 4.25% + 0.34% + 0% = 4.59% .
+ ■ The return from capital distributions on this allocation is:
+  50% × 3.50% + 45%  × 5.00% + 5% × 3.00% 
+  = 1.75% + 2.25% + 0.15% = 4.15% .
+Investor A’s strategy maximizes capital appreciation through a large allocation 
+in equities. Investor B strikes a balance, receiving income through bonds while 
+tapping into equities. Investor C adopts a conservative allocation, prioritizing 
+income through bonds; however, returns are almost evenly split between income 
+and the modest capital appreciation.
+Note that Investor B’s allocation of 60% equity and 40% debt has been long 
+considered the common rule-of-thumb capital allocation choice for long-term 
+individual investors, many of whom are saving for retirement.
+Exhibit 14 shows the distribution of returns to the three investors from this 
+allocation:
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 77 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 67
+Exhibit 14: The Distribution of Returns to the Three Investors
+Investor
+A B C
+Annual Return (%)
+12
+10
+8
+6
+4
+2
+0
+3.60%
+4.00%
+4.15%
+8.74%
+9.36%
+10.48%
+Capital Appreciation Capital Distributions
+6.88% 6.88%
+5.36% 5.36% 4.59% 4.59%
+QUESTION SET
+1. A p erformance analyst is looking at two investments that happen 
+to have the same historical return, but one has a wider range of annual asset 
+returns. What is the wider range of asset returns most likely to indicate?
+A. Lower risk
+B. Higher risk
+C. Consistent returns
+Solution
+The correct response is B: A wide range of annual returns indicates higher 
+risk. This variability suggests that the returns fluctuate significantly, mak-
+ing them unpredictable and implying a higher potential for both gains and 
+losses, which makes them riskier compared to assets with a narrower range 
+of annual asset returns.
+Alternative A is incorrect: A wide range of annual returns does not indicate 
+lower risk, but higher risk.
+Alternative C is incorrect: A wide range of annual returns does not indi-
+cate consistent returns, but higher variability of returns or less consistent 
+returns.
+2. B ased on the historical record, which of the following asset types typically 
+earns the highest average returns over time?
+A. US corporate bonds
+B. US large-capitalization equities
+C. US government bonds
+Solution
+The correct response is B: Historically, US large-capitalization equities have 
+yielded higher average returns over time compared to bonds, including cor-
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 78 ---
+Learning Module 2 T ypes of Financial Returns68
+porate and government bonds. This result is primarily due to their capital 
+appreciation potential, despite their higher risk compared to bonds.
+Alternative A is incorrect: Equity long-term total returns exceed that of debt 
+and fixed-income returns, including corporate debt.
+Alternative C is incorrect: Equity long-term total returns exceed that of debt 
+and fixed-income returns, including government debt.
+3. If t he risk-free rate is 2.5% and the expected market return is 7.5%, the mar -
+ket risk premium is closest to (assume simple annual returns):
+A. 2.5%.
+B. 4.9%.
+C. 10.0%.
+Solution
+The correct response is B: The market risk premium is calculated as the 
+difference between the expected market return and the risk-free rate:
+    1 + 7.50% _ 1 + 2.50%   − 1 =   1.0750 _ 1.0250  –1 = 4.88% .
+Alternative A is incorrect: It is just the risk-free rate.
+Alternative C is incorrect: It is the sum of the risk-free rate and the expected 
+market return.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 79 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 69
+SUMMARY: TYPES OF FINANCIAL 
+RETURNS
+ ■ Historically, long-term equity returns have exceeded bond returns.
+ ■ Investment risks are divided into macro (systematic) risks, which affect the 
+entire market, and micro (unsystematic) risks, which are specific to individ -
+ual issuers or sectors.
+ ■ The risk–return trade-off balances higher risk with the potential for higher 
+returns.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 80 ---
+Learning Module 2 T ypes of Financial Returns70
+PRACTICE PROBLEMS
+1. In the context of total investment risk, macro risks:
+A. represent non-systematic risks.
+B. are independent from total investment risk.
+C. significantly influence overall investment performance.
+2. A wider range of annual returns for an asset class is typically associated with:
+A. lower risk and higher returns.
+B. higher risk and lower returns.
+C. higher risk and higher returns.
+3. What does the decline in capital distribution returns in long-term government 
+bonds over the period from the early 2000s to early 2020s indicate?
+A. A shift toward higher equity investments
+B. A decrease in market interest rates
+C. An increase in corporate default rates
+4. How does the risk–return trade-off principle affect asset allocation among inves-
+tors with different objectives?
+A. It encourages all investors to prioritize high-risk assets for maximum 
+returns.
+B. It leads investors to allocate assets based on their risk tolerance and return 
+objectives.
+C. It suggests that low-risk assets offer the highest potential returns.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 81 ---
+Solutions 71
+SOLUTIONS
+1. The correct response is C. Macro risks, also known as systematic risks, affect 
+the entire market or a large segment of the market. These include factors like 
+economic recessions, political instability, changes in interest rates, and inflation. 
+These risks are inherent to the entire market and cannot be avoided or diversified 
+away. A strong economic downturn can lead to a widespread decline in stock 
+prices.
+Alternative A is incorrect: Macro risks, or systematic risks, affect the market as 
+a whole. Their impact is broad, encompassing the entire financial system and all 
+investments.
+Alternative B is incorrect: Macro risks, such as inflation risk, affect financial mar -
+ket performance and the risk of assets traded in the financial markets.
+2. The correct response is C. A wider range of annual returns in an investment 
+signifies increased variability or volatility, indicating a higher risk. The investment 
+can experience significant fluctuations in returns from year to year, with substan-
+tial gains and losses. A wider range of returns is characteristic of higher-risk in-
+vestments: large swings in value with the potential for higher returns and losses. 
+This result aligns with the risk–return trade-off principle.
+Alternative A is incorrect: A narrower range of returns typically suggests lower 
+risk with more predictable and consistent returns. Investments with a narrow 
+range of expected and realized returns are generally seen as less volatile, which 
+reduces the likelihood of significant losses and the potential for high returns.
+Alternative B is incorrect: A wider range of returns indicates higher variability, 
+which correlates positively with higher investment risk—for which investors de-
+mand a higher return from inception. The statement contradicts the risk–return 
+trade-off.
+3. The correct answer is B: The decline in capital distributions return for long-term 
+government bonds reflects periods of lower market interest rates. This reduces 
+the income yield on these bonds as newer issues come with lower interest cou-
+pons compared to past higher-rate periods.
+Alternative A is incorrect: The shift toward equity investments does not directly 
+impact the income returns of existing long-term government bonds.
+Alternative C is incorrect: Corporate default rates affect corporate bond markets 
+and their perceived risk. They do not directly influence the returns on govern-
+ment bonds, which are considered lower-risk investments.
+4. The correct response is B: The risk-reward trade-off principle leads investors 
+to allocate assets based on their risk tolerance and return objectives, balanc-
+ing between growth (capital appreciation) and income. Investors with different 
+objectives allocate their portfolios differently, balancing between the risk they are 
+willing to take and the returns they aim to achieve.
+Alternative A is incorrect: Not all investors seek high-risk and high-return in-
+vestments. Investors who prefer lower-risk options for more predictable, albeit 
+potentially lower, returns allocate their assets there.
+Alternative C is incorrect: Low-risk assets, such as government bonds, offer low -
+er but more predictable potential returns.
+© CFA Institute. For candidate use only. Not for distribution.
+--- PAGE 82 ---
+© CFA Institute. For candidate use only. Not for distribution.

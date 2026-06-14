@@ -44,9 +44,9 @@
 \textcolor{blue}{
 	\textit{Lãi suất hay lợi suất là đối tượng thống kê chính trong hoạt động đầu tư. 
 Có thể hiểu, thị trường tài chính là nơi buôn bán một loại hàng hóa đặc biệt, là Vốn.
-Và lãi suất chính là mức giá cho loại hàng hóa đặc biệt đó.}}
+Và lãi suất chính là mức giá cho loại hàng hóa đặc biệt đó. Hãy bắt đầu tìm hiểu cách chúng ta đo lường mức giá này.}}
 
-\subsection{Total Return} % (fold)
+\subsection{Total Return}
 \begin{equation}
 \begin{alignedat}{2}
 \text{Total Return}
@@ -54,69 +54,93 @@ Và lãi suất chính là mức giá cho loại hàng hóa đặc biệt đó.}
 r   &={} r_{\text{price}} &+{} & r_{\text{distribution}} \\
     &={} \frac{P_1-P_0}{P_0} &+{} & \frac{Inc}{P_0}
 \end{alignedat}
+\label{eq:total_return}
 \end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 8
 
 For capital distributions on equities, we focus on the dividend yield; for bonds, we look at current yield.
 \begin{itemize}
 	\item Some expressions of Return:
 	\begin{itemize}
-		\item[] \textbf{Expected returns}, or ex ante returns, are the anticipated returns on an investment over a specified period.
-		\item[] \textbf{Actual returns}, or ex post returns, are the returns on an investment after the investment period has ended.
+		\item[] \textbf{Expected returns} (ex ante returns): are the anticipated returns on an investment over a specified period.
+		\item[] \textbf{Actual returns} (ex post returns): are the returns on an investment after the investment period has ended.
 		\item[] \textbf{Unrealized returns}: changes in value represent while an investor holds an investment.
 		\item[] \textbf{Realized returns}: when the investment is ultimately sold, gains and losses would be realized at the current market value.
 	\end{itemize}
 \end{itemize}
-% subsection Total Returndowncase:_}${1:_} (end)
 
-\subsection{Arithmetic and Geometric Holding Period Return} % (fold)
-% \label{sub:Arithmetic and Geometric Holding Period Return}
+\subsection{Arithmetic and Geometric Holding Period Return}
 To ensure accurate comparisons across different investments and time periods, it's crucial that these returns are calculated using a uniform time period.
 \begin{itemize}
-	\item \textbf{arithmetic mean return}: 
+	\item \textbf{arithmetic mean return}:
 	\begin{equation}
-		\bar{r}_A = r_1 + r_2 + ... + r_{T-1} + r_T = \frac{1}{T}\sum_{t=1}^{T}r_t
-		% \label{eq:}
+		\bar{r}_A = \frac{r_1 + r_2 + \dots + r_T}{T} = \frac{1}{T}\sum_{t=1}^{T}r_t
+		\label{eq:arithmetic_mean}
 	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 12
+
 	\item \textbf{geometric mean return}:
 	\begin{equation}
-		\bar{r}_G = \sqrt[T]{(1 + r_1) \times (1 + r_2) \times ... \times (1 + r_T)} - 1 = \sqrt[T]{\prod_{t = 1}^{T}(1 + r_t)} - 1
-		% \label{eq:}
+		\bar{r}_G = \sqrt[T]{(1 + r_1) \times (1 + r_2) \times \dots \times (1 + r_T)} - 1 = \left[ \prod_{t=1}^{T}(1+r_t) \right]^{1/T} - 1
+		\label{eq:geometric_mean}
 	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 13
 \end{itemize}
+
 Geometric mean is a more accurate reflection of investment performance over time.
 Arithmetic average return calculations assume that the amount invested at the beginning of the period does not change,
 but the base amount changes due to capital appreciation or depreciation.
 The arithmetic-geometric mean inequality highlights the impact of volatility on investment returns.
-% subsection Arithmetic and Geometric Holding Period Return (end)
 
-\subsection{Compounding: Daily, Monthly, Quarterly, and Annual Returns} % (fold)
-% \label{sub:Compounding: Daily, Monthly, Quarterly, and Annual Returns}
-With c is the number of periods in a year,
+\begin{examtip}
+Remember:
+- \textbf{Arithmetic Mean} is the best estimator of return for a single future period (ex-ante).
+- \textbf{Geometric Mean} represents the actual historical compound rate of return over multiple periods (ex-post).
+- Unless all period returns are identical, \textbf{Arithmetic Mean is always strictly greater than Geometric Mean} due to volatility ($ \bar{r}_A > \bar{r}_G $).
+\end{examtip}
+
+\subsection{Compounding: Daily, Monthly, Quarterly, and Annual Returns}
+With $c$ is the number of compounding periods in a year,
 \begin{equation}
-	r_{annualized} = (1 + r_{period})^c - 1
-	% \label{eq:}
+	r_{\text{annualized}} = (1 + r_{\text{period}})^c - 1
+	\label{eq:annualized_return}
 \end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 17
 
 One major limitation of annualizing returns is the implicit assumption that earned returns can be repeated.
-% subsection Compounding: Daily, Monthly, Quarterly, and Annual Returns (end)
 
-\subsection{Continuous Compounding} % (fold)
-% \label{sub:Continuous Compounding}
+\textcolor{blue}{
+	\textit{Ví dụ thực tế tại Việt Nam: Nếu một ngân hàng thương mại áp dụng lãi suất kỳ hạn 3 tháng là 1.5\% (tương ứng $r_{\text{period}}$), khi quy đổi ra lãi suất năm có ghép lãi (annualized return), ta tính được: $r_{\text{annualized}} = (1 + 0.015)^4 - 1 \approx 6.136\%$. Con số này lớn hơn mức 6.0\% nếu chỉ nhân đơn thuần kỳ hạn với 4. Điều này phản ánh giá trị thời gian của tiền khi tiền lãi kỳ trước được tái đầu tư để sinh lãi ở kỳ sau.}}
+
+\subsection{Continuous Compounding}
 The more frequently we compound returns, the higher the annual return will be; however, there is a limit.
+As shown in Exhibit \ref{fig:mod1_exhibit_10}:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/001_Module_1/exhibit_10.png}
+	\caption{The Impact of Compounding}
+	\label{fig:mod1_exhibit_10}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 28
+
 \begin{itemize}
 	\item \textbf{continuously compounded return}: 
 	\begin{equation}
-		\tilde{r}_{t, t+1} = ln \frac{P_{t+1}}{P_t} = ln(1 + r_{t, t+1})
-		% \label{eq:}
+		\tilde{r}_{t, t+1} = \ln \left( \frac{P_{t+1}}{P_t} \right) = \ln(1 + r_{t, t+1})
+		\label{eq:continuous_compounding}
 	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 20
 \end{itemize}
+
 The additive property of continuously compounded returns provides calculation advantages:
 \begin{align*}
-	\frac{P_T}{P_0} & = \frac{P_T}{P_{T-1}} \cdot \frac{P_{T-1}}{P_{T-2}} ... \frac{P_2}{P_1} \cdot \frac{P_1}{P_0} \\
-	\Rightarrow ln(\frac{P_T}{P_0}) &= ln(\frac{P_T}{P_{T-1}}) + ln(\frac{P_{T-1}}{P_{T-2}}) + ... + ln(\frac{P_2}{P_1}) + ln(\frac{P_1}{P_0}) \\
-	\Rightarrow \tilde{r}_{0, T} &=  \tilde{r}_{T-1, T} + \tilde{r}_{T-2, T-1} + ... + \tilde{r}_{2, 1} + \tilde{r}_{1, 0} = \sum_{t=1}^{T} \tilde{r}_{t-1, t}
+	\frac{P_T}{P_0} & = \frac{P_T}{P_{T-1}} \cdot \frac{P_{T-1}}{P_{T-2}} \dots \frac{P_2}{P_1} \cdot \frac{P_1}{P_0} \\
+	\Rightarrow \ln\left(\frac{P_T}{P_0}\right) &= \ln\left(\frac{P_T}{P_{T-1}}\right) + \ln\left(\frac{P_{T-1}}{P_{T-2}}\right) + \dots + \ln\left(\frac{P_2}{P_1}\right) + \ln\left(\frac{P_1}{P_0}\right) \\
+	\Rightarrow \tilde{r}_{0, T} &=  \tilde{r}_{T-1, T} + \tilde{r}_{T-2, T-1} + \dots + \tilde{r}_{1, 2} + \tilde{r}_{0, 1} = \sum_{t=1}^{T} \tilde{r}_{t-1, t}
 \end{align*}
-% subsection Continuous Compounding (end)
+
+\textcolor{blue}{
+	\textit{Tại sao trong phân tích định lượng nâng cao, người ta lại thích dùng suất sinh lời ghép lãi liên tục (continuously compounded return) hơn là suất sinh lời rời rạc thông thường? Đó chính là nhờ tính chất cộng gộp qua thời gian ở trên (time-additivity). Tổng log return của từng ngày chính bằng log return của cả năm, giúp đơn giản hóa các mô hình toán học và thống kê phức tạp.}}
 
 \section{COMMON RETURN MEASURES}
 \begin{center}
@@ -125,8 +149,7 @@ The additive property of continuously compounded returns provides calculation ad
 \end{tabular}
 \end{center}
 
-\subsection{The Required Rate of Return} % (fold)
-% \label{sub:The Required Rate of Return}
+\subsection{The Required Rate of Return}
 \begin{itemize}
 	\item \textbf{opportunity cost}: that incurs when delaying consumption, or the value that investors forgo by choosing a course of action.
 	\item \textbf{required rate of return}: the minimum rate of return an investor must receive to accept the investment.
@@ -138,101 +161,128 @@ Components of Required Rate of Return:
 		\item[] It refers to returns on short-term government bonds, such as the 30-day US Treasury bill. The bonds have a short maturity, which reduces their sensitivity to interest rates changes.
 		\item[] \textbf{real risk-free rate} reflects the time preferences of individuals for current versus future real consumption.
 		\begin{equation}
-				r_{rf} = \frac{1+r_f}{1+infl} - 1
-				\text{ or quick approximation: } r_{rf} = r_f - infl
-			% \label{eq:}
+			r_{\text{real\_rf}} = \frac{1 + r_{\text{rf}}}{1 + \text{infl}} - 1 \quad \text{or quick approximation: } r_{\text{real\_rf}} \approx r_{\text{rf}} - \text{infl}
+			\label{eq:real_risk_free}
 		\end{equation}
+		% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 31
 	\end{itemize}
-	\item Total returns for any asset can then be approximated as:
+	\item Total required returns for any asset can then be approximated as:
 	\begin{equation}
-	r = r_{rf} + inf + \sum_{j=1}^{n}f_j \times rp_j	
-		% \label{eq:}
+		r = r_{\text{rf}} + \text{infl} + \sum_{j=1}^{n} (f_j \times \text{rp}_j)
+		\label{eq:required_return}
 	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 31
 	\begin{itemize}
-		\item[] $n$ is the number of risk premia
-		\item[] $f_{ij}$ is the exposure of security $i$ to the $j^{th}$ risk factor
-		\item[] $rp_j$ is the specific risk premium associated with the $j^{th}$ risk factor
-		\item[] $\sum_{j=1}^{n}f_j \times rp_j$ is the sum of all risk premia.
+		\item[] $n$ is the number of risk factors
+		\item[] $f_{j}$ is the exposure of the security to the $j^{\text{th}}$ risk factor
+		\item[] $\text{rp}_j$ is the specific risk premium associated with the $j^{\text{th}}$ risk factor
+		\item[] $\sum_{j=1}^{n} (f_j \times \text{rp}_j)$ is the sum of all risk premia.
 	\end{itemize}
 \end{itemize}
+
+As shown in Exhibit \ref{fig:mod1_exhibit_13}:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/001_Module_1/exhibit_13.png}
+	\caption{Components of Required Rate of Return and Examples of Different Risk Premia}
+	\label{fig:mod1_exhibit_13}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 31
+
 Examples of risk premia for bonds:
 \begin{itemize}
-	\item \textbf{Default risk premium}: the additional return for buying a riskier corporate bond instead of a less-risky government bond, which depends on the creditworthiness of the issuer.
-	\item \textbf{Liquidity premium}: the additional return for holding a bond that may be harder to sell quickly or without impacting the price.
+	\item \textbf{Default risk premium}: the additional return for buying a riskier corporate bond instead of a less-risky government bond.
+	\item \textbf{Liquidity premium}: the additional return for holding a bond that may be harder to sell quickly.
 	\item \textbf{Maturity risk premium}: the additional return for holding more interest rate sensitive, longer maturity bonds.
 \end{itemize}
 Examples of risk premia for stocks:
 \begin{itemize}
 	\item \textbf{Size risk premium}: the return spread between small and large market-capitalization stocks.
-	\item \textbf{Value risk premium}: the return spread between companies with high book-to-market and low book-to-market ratios.
+	\item \textbf{Value risk premium}: the return spread between value stocks (high book-to-market) and growth stocks (low book-to-market).
 \end{itemize}
-% subsection The Required Rate of Return (end)
-\subsection{Excess Returns} % (fold)
-% \label{sub:Excess Returns}
+
+\subsection{Excess Returns}
 \textbf{Excess returns}: the difference between an asset's return and the return on some reference rate or benchmark.
 \begin{equation}
-		\dot{r}_i = \frac{1+r_i}{1+r_B} - 1
-		\text{ or quick approximation: } \dot{r}_i = r_i - r_B
-	% \label{eq:}
+	\dot{r}_i = \frac{1+r_i}{1+r_B} - 1 \quad \text{or quick approximation: } \dot{r}_i \approx r_i - r_B
+	\label{eq:excess_return}
 \end{equation}
-% subsection Excess Returns (end)
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 33
 
-\subsection{Real returns} % (fold)
-% \label{sub:Real returns}
+\subsection{Real Returns}
 \textbf{Real returns} are inflation-adjusted returns.
 \begin{equation}
-		r_{real} = \frac{1+r_i}{1+infl} - 1
-	% \label{eq:}
+	r_{\text{real}} = \frac{1+r_i}{1+\text{infl}} - 1 \quad \text{or quick approximation: } r_{\text{real}} \approx r_i - \text{infl}
+	\label{eq:real_return}
 \end{equation}
-% subsection Real returns (end)
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 35
 
-\subsection{Gross and Net Return} % (fold)
-% \label{sub:Gross and Net Return}
+\subsection{Gross and Net Return}
 \textbf{Gross return} = Total return - Transaction costs
 \begin{itemize}
-	\item[] an appropriate measure for evaluating and comparing the investment skill of managers,
-	\item[] excludes indirect expenses related to the management and administration of an investment
+	\item[] An appropriate measure for evaluating and comparing the investment skill of managers.
+	\item[] Excludes indirect expenses related to the management and administration of an investment.
 \end{itemize}
 \textbf{Net return} = Gross return - Management fees - Administrative expenses 
 \begin{itemize}
-	\item[] the return the investor actually earns
+	\item[] The return the investor actually earns.
 \end{itemize}
-% subsection Gross and Net Return (end)
 
-\subsection{Pre-Tax and After-Tax Nominal Return} % (fold)
-% \label{sub:Pre-Tax and After-Tax Nominal Return}
-\textbf{After-tax nominal return}
+Exhibit \ref{fig:mod1_exhibit_16} depicts the relationship and shows how costs erode investment returns:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/001_Module_1/exhibit_16.png}
+	\caption{The Relationship between Total Return, Gross Return, and Net Return}
+	\label{fig:mod1_exhibit_16}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 37
+
+\subsection{Pre-Tax and After-Tax Nominal Return}
+\textbf{After-tax nominal return}:
 \begin{equation}
-	r_{net-tax} = r_{price} \times (1-tax_{capital gains}) + r_{capital} \times (1-tax_{capital distribution})
-	% \label{eq:}
+	r_{\text{net-tax}} = r_{\text{price}} \times (1 - \text{tax}_{\text{capital gains}}) + r_{\text{capital}} \times (1 - \text{tax}_{\text{capital distribution}})
+	\label{eq:after_tax_return}
 \end{equation}
-Capital gains tax is a tax on a positive price return, which can be offset for tax purposes against capital losses. Two forms of capital gains tax rate:
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 39
+
+Capital gains tax is a tax on a positive price return. Two forms of capital gains tax rate:
 \begin{itemize}
-	\item[] Short-term capital gains are levied on capital gains on short-term holdings
-	\item[] Long-term capital gains are levied on longer-term holdings and receive preferential tax treatment in a number of countries
+	\item[] Short-term capital gains are levied on capital gains on short-term holdings.
+	\item[] Long-term capital gains are levied on longer-term holdings and receive preferential tax treatment in a number of countries.
 \end{itemize}
 Forms of capital distribution tax rate:
 \begin{itemize}
 	\item[] Interest income is taxed as ordinary income in most countries. 
-	\item[] Dividend income may be taxed as ordinary income, may have a lower tax rate, or may be exempt from taxes depending on the country and the type of investor.
+	\item[] Dividend income may be taxed as ordinary income, at a lower rate, or be exempt from taxes depending on the jurisdiction.
 \end{itemize}
-Factors affect tax components:
-\begin{itemize}
-	\item[] The investor's specific income sources and overall tax rates (marginal tax rate)
-	\item[] The time period the investor holds the investment (long-term versus short-term)
-	\item[] The type of account in which the investor holds the asset (tax-exempt, tax-deferred, or taxable)
-	\item[] The different tax systems under which the investor is liable to pay taxes (local, municipal, county, state, regional, and national or federal taxes)
-\end{itemize}
-% subsection Pre-Tax and After-Tax Nominal Return (end)
 
-\subsection{Leveraged Returns} % (fold)
-% \label{sub:Leveraged Returns}
+\begin{examtip}
+In examinations, note the different tax rates applied to price returns (capital gains tax) versus income distributions (dividend or interest income tax). Always apply them to their respective components of the return formula.
+\end{examtip}
+
+\subsection{Leveraged Returns}
 Using leverage to increase the total amount of investible assets is a common feature of investments, whether through borrowing or derivatives.
-Leverage increases investible capital, and the larger investment magnifies returns, and consequently, risks.
+Leverage increases investible capital, magnifying both returns and risks.
 \begin{equation}
-	R_L = \frac{Net Return}{Equity} = \frac{R_A \times A - R_D \times D}{E} = R_A + \frac{D}{E}(R_A-R_D)
-	% \label{eq:}
+	R_L = R_A + \frac{D}{E}(R_A - R_D)
+	\label{eq:leveraged_return}
 \end{equation}
-As long as the $r_p > r_d$, then $r_p$ will be positive and the leverage adds value to the portfolio.
-% subsection Leveraged Returns (end)
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 46
+\begin{itemize}
+	\item[] $R_L$ is the leveraged return (Return on Equity)
+	\item[] $R_A$ is the return on total assets (unleveraged return)
+	\item[] $R_D$ is the cost of debt (borrowing interest rate)
+	\item[] $D/E$ is the debt-to-equity ratio.
+\end{itemize}
 
+\textcolor{blue}{
+	\textit{Hãy chú ý: Đòn bẩy tài chính là con dao hai lưỡi. Khi hiệu quả đầu tư trên tài sản ($R_A$) lớn hơn chi phí đi vay ($R_D$), đòn bẩy sẽ phóng đại suất sinh lời trên vốn tự có ($R_L$). Nhưng nếu $R_A < R_D$, điều gì sẽ xảy ra với tỷ suất sinh lời của bạn? Nó sẽ sụt giảm nhanh hơn rất nhiều so với trường hợp không sử dụng đòn bẩy!}}
+
+The potential financial outcomes for owning a stock outright versus owning a call option on the stock (another form of leverage) are illustrated in Exhibit \ref{fig:mod1_exhibit_18}:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/001_Module_1/exhibit_18.png}
+	\caption{The Payoff Relationship between Stock Price, Unleveraged Return, and Leveraged Return}
+	\label{fig:mod1_exhibit_18}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 45

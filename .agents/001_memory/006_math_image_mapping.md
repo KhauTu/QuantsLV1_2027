@@ -33,15 +33,7 @@ Dưới đây là danh sách toàn bộ hình ảnh minh họa hiện có trong 
 | `002_figs/001_Module_1/exhibit_13.png` | Đồ thị cấu thành tỷ suất sinh lời yêu cầu (Required Rate of Return) | **Module 1** | Mục *The Required Rate of Return* (sơ đồ cấu thành và Risk Premia) |
 | `002_figs/001_Module_1/exhibit_16.png` | Biểu đồ cột biểu diễn quan hệ Total Return vs Gross Return vs Net Return | **Module 1** | Mục *Gross and Net Return* (mô tả sự xói mòn do chi phí/phí quản lý) |
 | `002_figs/001_Module_1/exhibit_18.png` | Đồ thị thể hiện mối quan hệ Payoff giữa cổ phiếu và quyền chọn (Leverage) | **Module 1** | Mục *Leveraged Returns* (đối chiếu suất sinh lời có đòn bẩy vs không đòn bẩy) |
-| `002_figs/002_Module_2/2.1-Discount Instruments.png` | Đồ thị mô tả công cụ chiết khấu (Discount) | **Module 2** | Phần giới thiệu các loại công cụ suất sinh lời |
-| `002_figs/002_Module_2/2.2-Coupon Instrument.png` | Đồ thị mô tả công cụ trả lãi định kỳ (Coupon) | **Module 2** | Phần giới thiệu công cụ trả lãi định kỳ |
-| `002_figs/002_Module_2/2.3-Annuity Instruments.png` | Đồ thị mô tả công cụ dòng tiền đều (Annuity) | **Module 2** | Phần dòng tiền đều |
-| `002_figs/002_Module_2/2.4-Constant Dividends.png` | Mô hình chiết khấu cổ tức không đổi (Zero-growth DDM) | **Module 2** | Phần định giá cổ phiếu ưu đãi / cổ tức không đổi |
-| `002_figs/002_Module_2/2.5-Constant Dividend Growth Rate.png` | Mô hình tăng trưởng cổ tức đều (Gordon Growth Model) | **Module 2** | Phần định giá cổ phiếu tăng trưởng đều |
-| `002_figs/002_Module_2/2.6-Changing Dividend Growth Rate.png` | Mô hình tăng trưởng cổ tức nhiều giai đoạn (Multi-stage DDM) | **Module 2** | Phần định giá cổ phiếu tăng trưởng không đều |
-| `002_figs/002_Module_2/2.7-Implied Forward Rates.png` | Đồ thị dòng thời gian biểu diễn lãi suất kỳ hạn hàm ý | **Module 2** | Mục tính toán Forward Rates từ Spot Rates |
-| `002_figs/002_Module_2/2.8-Forward Exchange Rates.png` | Đồ thị mô tả tỷ giá kỳ hạn trong ngoại hối | **Module 2** | Mục xác định tỷ giá kỳ hạn (FX Forward) |
-| `002_figs/002_Module_2/2.9-Option Pricing.png` | Cây nhị phân định giá quyền chọn (Binomial Tree) | **Module 2** | Mục định giá quyền chọn (Option Pricing) |
+| `002_figs/002_Module_2/exhibit_11.png` | Đồ thị cột biểu diễn quan hệ đánh đổi giữa Rủi ro và Tỷ suất sinh lời lịch sử (Risk-Return Trade-Off) | **Module 2** | Mục *The Risk-Return Trade-Off* (quan hệ giữa suất sinh lời bình quân và biến động) |
 | `002_figs/003_Module_3/3.1-box and whisker.png` | Đồ thị hộp và râu (Box and Whisker Plot) | **Module 3** | Phần trực quan hóa thống kê mô tả |
 | `002_figs/003_Module_3/3.2-Skewness.png` | So sánh đồ thị lệch trái, lệch phải và đối xứng | **Module 3** | Mục giải thích độ lệch (Skewness) |
 | `002_figs/003_Module_3/3.3-Kurtosis.png` | Đồ thị ba loại độ nhọn (Lepto-, Platy-, Mesokurtic) | **Module 3** | Mục giải thích độ nhọn (Kurtosis) |

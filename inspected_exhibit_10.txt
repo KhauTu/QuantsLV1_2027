@@ -1,0 +1,104 @@
+--- Page 72 ---
+Learning Module 2 T ypes of Financial Returns62
+shares available in the market, which can potentially increase the value of the remaining 
+shares, benefiting both investors and corporations. For US shareholders, buybacks also 
+offer tax advantages: They avoid higher tax rates on dividends, and when appreciated 
+shares are sold, any gains are typically taxed at the lower capital gains rate.
+For long-term US government bonds, income return has historically been the 
+dominant contributor to total returns, with capital appreciation playing a lesser role. 
+There have been periods, however, such as in the early 2020s, when bond prices fell 
+due to rising market interest rates, resulting in capital losses. Such losses are to be 
+expected anytime there is a shift to a higher rate environment; in the 2020s case, we 
+moved from a period of very low interest rates to a higher interest rate environment. 
+Historically, an average of 85% of total returns for US long-term government bonds 
+has come from income returns, with the remainder from price appreciation. Capital 
+distribution returns, which benefit from periods of higher interest rates, such as during 
+the 1980s, have declined over time.
+Risks and Returns
+Risk stems from the uncertainty between the expected returns on an investment and 
+the actual, realized returns. This risk can reflect either pervasive macro factors or 
+issuer-specific micro factors.
+ ■ Macro risks or systematic risks  are broad economy-wide risks that influ -
+ence the performance of investments. The returns are systematically depen -
+dent on these factors. If the economy or the financial markets perform 
+well, asset returns are likely to follow suit. Systematic risk largely cannot be 
+mitigated and thus is also called non-diversifiable risk.
+ ■ Micro risks or unsystematic risks  are associated with factors specific to 
+the issuer and determine investment returns based on the firm’s underlying 
+economic characteristics, such as earning power, market posi
+
+--- Page 73 ---
+Types of Returns for Financial Assets, Instruments, and Indicators 63
+ ■ Sector risks or industry risks  are similar to market risk in that they repre -
+sent the possibility that forces particular to a sector will affect the returns 
+of all assets within that grouping in an unexpected manner. The investment 
+environment often necessitates a simplified sector classification for practical 
+portfolio management, such as sector rotation strategies.
+There are many risk measures to help us quantify total risk and its components, 
+and these will be explored in later sections. One straightforward approach we address 
+in this lesson is to calculate the range between the highest and lowest returns and 
+relate this range to the average return, as shown in Exhibit 10.
+The range of annual returns represents the variability of these returns, indicating 
+the uncertainty of returns and the potential risk faced by investors. A narrower range 
+suggests that returns are relatively consistent and predictable, indicating lower uncer-
+tainty about their size and direction—in other words, lower risk. A relatively wide 
+range signifies significant variability in annual returns across time, making returns 
+less predictable. Such variability indicates unpredictability and implies higher risk, 
+including greater potential losses as well as greater potential gains.
+The higher risk premium of riskier investments compensates investors for taking 
+on greater volatility and uncertainty, offering the potential for higher returns. This 
+premium represents the additional expected return for taking on higher risk. It varies 
+depending on the financial asset: bonds or equity, investment time horizon (short 
+or long term), and other specific risk factors. Consequently, conservative investors 
+prioritize stability and predictability, choosing investments with lower risk premiums 
+and more modest potential returns.
+Exhibit 10: Geometric Average Annual Total Returns and Range of Annual 
+Total Returns, 1979
+
+--- Page 74 ---
+Learning Module 2 T ypes of Financial Returns64
+Exhibit 11: Historical Geometric Average Return for Different Assets, 
+1979–2023
+0%
+0% 20% 40%
+Range of Annual Returns (%)
+60% 80%
+2%
+4%
+6%
+8%
+10%Average Annual Return (%)
+12%
+14%
+Large Capitalization
+Return: 12.26%, Range: 75.37%
+US Treasury Bonds
+Return: 7.62%, Range: 70.01%
+Small Capitalization
+Return: 11.23%, Range: 81.04%
+30-Day T-Bill
+Return: 2.50%, Range: 6.21%
+US Corporate Bonds
+Return: 7.43%, Range: 54.97%Generally speaking, investors expect riskier investments to provide higher returns 
+than less risky alternatives to compensate for the additional risks. The realized expe -
+rience tends to match the expectation over time: Although variability in returns is not 
+directly proportional to average returns, investment returns tend to increase with risk.
+From the investor perspective, if an investment promises high returns without 
+increased risk, there will be increased demand for it. This demand will drive up the 
+price of the investment, which, in turn, reduces the potential rate of return for those 
+seeking to invest. If the expectation of returns were relatively low in comparison 
+to the level of perceived risk, however, investors would not invest in the particular 
+assets. This reaction would cause the prices to fall and increase the rate of return to a 
+level that would be more appealing to investors. These two examples underscore the 
+fundamental risk–return trade-off in investing: Expected returns rise with risk, as 
+higher-risk investments typically offer greater potential returns to reward investors 
+for taking on additional risk.
+CASE STUDY
+Asset Allocation and Returns
+In investment management, investors’ differing objectives inform asset alloca -
+tion among various assets. Here, we present three hypothetical investors with 
+differing objectives:
+ ■ Investor A seeks aggressive capital growth, prioritizing long-term 
+capital appreciation.
+ ■ Investor B looks for a balanced approach, seeking returns from 
+

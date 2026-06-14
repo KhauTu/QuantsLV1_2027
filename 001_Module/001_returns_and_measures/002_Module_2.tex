@@ -1,4 +1,4 @@
-\chapter{Types of Financial Returns}
+\chapter{Types of Returns for Financial Assets, Instruments, and Indicators}
 \label{chap:types-financial-returns}
 
 \begin{center}
@@ -14,13 +14,303 @@
 \vspace{1em}
 
 \begin{itemize}
-	\item[] \textbf{Types of Returns for Financial Assets, Instruments, and Indicators}
+	\item[] \textbf{Types of Returns}
 	      \begin{itemize}
-			\item[] Types of Returns
 			\item[] Types of Returns: Financial Assets
 			\item[] Types of Returns: Financial Instruments
 			\item[] Types of Returns: Financial Indicators
-			\item[] Long-Term Financial Asset Returns
-			\item[] Risks and Returns
+	      \end{itemize}
+	\item[] \textbf{Long-Term Financial Asset Returns}
+	      \begin{itemize}
+			\item[] Historical Long-Term Asset Returns
+			\item[] Long-Term Asset Return Components
+	      \end{itemize}
+	\item[] \textbf{Risks and Returns}
+	      \begin{itemize}
+			\item[] Systematic and Unsystematic Risk
+			\item[] The Risk--Return Trade-Off
+			\item[] Portfolio Return Calculation
 	      \end{itemize}
 \end{itemize}
+
+\section{TYPES OF RETURNS}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	a & calculate, compare, and interpret different types of returns for financial assets, instruments, and indicators \\
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{
+	\textit{Tỷ suất sinh lời (Return) là thước đo cốt lõi của bất kỳ khoản đầu tư nào. Suất sinh lời tổng thế (Total Return) luôn bao gồm hai thành phần chính: biến động giá (Price Return hay lãi/lỗ vốn) và dòng tiền được phân phối trực tiếp từ tài sản đó (Capital Distribution Return hay cổ tức, tiền lãi). Sự kết hợp của hai cấu phần này thay đổi đáng kể tùy thuộc vào việc chúng ta đang đánh giá tài sản tài chính (Financial Asset), công cụ tài chính (Financial Instrument), hay các chỉ báo tài chính (Financial Indicator). Hãy cùng tìm hiểu cách phân biệt và tính toán chi tiết từng loại!}}
+
+\subsection{Matrix Mapping of Return Types}
+To provide a scientific and intuitive overview, Table \ref{tab:return_matrix_m2} maps the characteristics of price return and capital distribution return across all assets, instruments, and indicators.
+
+\begin{table}[H]
+\centering
+\caption{Matrix Mapping of Return Types across Assets, Instruments, and Indicators}
+\label{tab:return_matrix_m2}
+\begin{tabular}{p{0.22\linewidth} | p{0.34\linewidth} | p{0.34\linewidth}}
+\toprule
+\textbf{Category} & \textbf{Price Return} & \textbf{Capital Distribution Return} \\
+\midrule
+\textbf{Financial Assets} & & \\
+- Cash & None (zero price change). & None (unless held in interest-bearing accounts). \\
+- Equities & Highly volatile and uncertain (Capital Appreciation). & Variable and discretionary (Dividends). \\
+- Bonds (Debt) & Inversely related to interest rates; higher volatility for long-term bonds. & Fixed and contractual (Coupon payments). \\
+- Hybrids & Moderate appreciation potential. & Fixed or structured (Preferred dividends). \\
+\midrule
+\textbf{Financial Instruments} & & \\
+- Derivatives & Determined by price movements of underlying assets. & None (does not distribute cash flows). \\
+\midrule
+\textbf{Financial Indicators} & & \\
+- Interest Rates & Inverse relation to debt instrument prices. & None (acts as valuation driver). \\
+- FX Rates & Currency appreciation/depreciation ($r_{\text{FX}}$). & None (acts as return multiplier: $1 + r_{\text{FX}}$). \\
+- Market Indexes & Reflects aggregate price movements. & Reflects weighted cash distributions of constituents. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Types of Returns: Financial Assets}
+The main financial assets are cash, equity, and debt, as well as hybrids that combine their characteristics.
+
+\textcolor{blue}{
+	\textit{Lưu ý về tính đồng thời: Khi một tài sản tài chính chi trả một khoản dòng tiền $X$ tại thời điểm $t$ (ví dụ cổ tức), trên lý thuyết, giá của tài sản đó sẽ giảm ngay lập tức một lượng đúng bằng $X$. Do đó, trong khoảnh khắc ngắn hạn đó, phần suất sinh lời phân phối sẽ bù trừ chính xác với phần sụt giảm giá (Price Return). Sau thời điểm đó, tài sản mới tiếp tục chu kỳ biến động giá mới. Bạn đã bao giờ quan sát hiện tượng giá cổ phiếu giảm trong ngày giao dịch không hưởng quyền tại thị trường chứng khoán Việt Nam chưa?}}
+
+Let's detail the characteristics across major financial assets:
+\begin{itemize}
+	\item \textbf{Cash:} does not generate any return unless invested. In the short term, excess cash is typically placed in interest-bearing bank accounts or short-term debt instruments.
+	\item \textbf{Equities:} generate returns from capital appreciation and discretionary dividends (variable capital distributions). Rapidly growing companies often choose not to distribute dividends and instead reinvest earnings to fuel growth.
+	\item \textbf{Bonds (Debt):} represent contractual lending agreements that pay fixed interest coupons (fixed capital distributions). Shorter-term bonds are dominated by capital distributions, whereas longer-term bonds exhibit substantial price volatility due to market interest rate movements.
+	\item \textbf{Hybrids:} preferred stock and convertible bonds blend fixed-income features of debt with the growth potential of equity.
+\end{itemize}
+
+\subsection{Types of Returns: Financial Instruments}
+Financial instruments are standardized legal agreements for financial assets (such as equity and bonds), as well as derivatives and securitized debt. The standardization facilitates public trading.
+\begin{itemize}
+	\item \textbf{Cash Instruments:} represent direct ownership claims on financial assets (e.g., actual shares of stock or actual corporate bonds).
+	\item \textbf{Derivatives:} financial instruments whose value is derived from the performance of another underlying financial asset or indicator (e.g., stock price, interest rate, index, exchange rate). A call option is a typical example.
+\end{itemize}
+
+\subsection{Types of Returns: Financial Indicators}
+Financial indicators do not directly generate cash flows, but are critical to financial market operations. 
+\begin{itemize}
+	\item \textbf{Interest Rates:} traded through risk-free government bonds. Their level varies inversely with bond prices.
+	\item \textbf{The Risk-Free Rate:} represented by short-term, risk-free government debt (e.g., US Treasury bills).
+\end{itemize}
+
+\begin{examtip}
+Short-term discount instruments (like T-bills) do not pay regular coupons ($\text{Inc}_t = 0$). Instead, they sell at a discount to face value, and the return is earned purely from the price appreciation when the bond matures at par value.
+\end{examtip}
+
+Let's review the annualized risk-free rate calculation using a Treasury Bill:
+\begin{equation}
+	r_{\text{period}} = \frac{P_1 - P_0 + \text{Inc}_t}{P_0} = \frac{\text{Face Value} - P_0}{P_0}
+	\label{eq:period_return_tbill}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 63
+
+To annualize this period return for a T-bill with $90$ days to maturity using $365$ days in a year:
+\begin{equation}
+	r_{\text{annual}} = (1 + r_{\text{period}})^{\frac{365}{90}} - 1
+	\label{eq:annual_return_tbill}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 63
+
+\textcolor{blue}{
+	\textit{Ví dụ: Một tín phiếu kho bạc Mỹ (T-Bill) thời hạn 90 ngày, mệnh giá $1,000$ USD đang được bán ở mức giá $990$ USD (tức chiết khấu $10$ USD). Suất sinh lời thời kỳ là: $r_{\text{period}} = \frac{1000 - 990}{990} = 1.01\%$. Quy đổi ra suất sinh lời năm có ghép lãi (lấy 365 ngày): $r_{\text{annual}} = (1 + 0.0101)^{365/90} - 1 \approx 4.16\%$. Nếu chỉ tính lãi đơn bằng cách nhân 4 ($1.01\% \times 4 = 4.04\%$), bạn sẽ đánh giá thấp suất sinh lời thực tế nhận được. Hãy chú ý công thức ghép lãi này trong bài thi!}}
+
+\begin{itemize}
+	\item \textbf{Foreign Exchange (FX) Rates:} represent the value of one currency expressed in terms of another currency.
+\end{itemize}
+
+When investing internationally, the home-currency return ($r_{\text{home}}$) depends on both the investment return in foreign currency ($r_{\text{foreign}}$) and the currency appreciation/depreciation rate ($r_{\text{FX}}$):
+\begin{equation}
+	r_{\text{home}} = (1 + r_{\text{foreign}})(1 + r_{\text{FX}}) - 1 \approx r_{\text{foreign}} + r_{\text{FX}}
+	\label{eq:foreign_exchange_adjust_m2}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 65
+
+Where:
+\begin{equation}
+	r_{\text{FX}} = \frac{\text{Ending FX Rate} - \text{Beginning FX Rate}}{\text{Beginning FX Rate}}
+	\label{eq:fx_rate_return_m2}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 64
+
+\textcolor{blue}{
+	\textit{Ví dụ: Một nhà đầu tư USD mua trái phiếu bằng EUR. Suất sinh lời bằng EUR là $r_{\text{foreign}} = -2.91\%$. Cùng năm đó, tỷ giá EUR/USD biến động khiến đồng EUR giảm giá so với USD là $-6.90\%$ (tức $r_{\text{FX}} = -6.90\%$, tỷ giá thay đổi từ $1.2216$ USD/EUR xuống $1.1373$ USD/EUR). Suất sinh lời cuối cùng bằng USD của nhà đầu tư này sẽ chịu tác động kép của cả hai khoản lỗ: $r_{\text{home}} = (1 - 0.0291)(1 - 0.0690) - 1 = -9.61\%$. Việc đồng ngoại tệ mất giá đã khuếch đại khoản lỗ của nhà đầu tư khi quy đổi về nội tệ.}}
+
+\begin{itemize}
+	\item \textbf{Market Indexes:} reflect the aggregate value of a basket of assets (e.g., S\&P 500, OMX Copenhagen 25 Index) to indicate market trends.
+\end{itemize}
+
+To evaluate and compare performance, we look at the arithmetic and geometric averages of index returns:
+\begin{equation}
+	\bar{r}_{\text{arithmetic}} = \frac{1}{T}\sum_{t=1}^{T}r_t
+	\label{eq:arith_average_m2}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 67
+
+\begin{equation}
+	\bar{r}_{\text{geometric}} = \left[ \prod_{t=1}^{T}(1+r_t) \right]^{\frac{1}{T}} - 1
+	\label{eq:geom_average_m2}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 67
+
+Let's review the historical performance numbers of the OMX Copenhagen 25 Index versus Ørsted A/S equity between 2017 and 2023:
+\begin{table}[H]
+\centering
+\caption{OMX Copenhagen 25 Index vs. Ørsted A/S Equity Total Returns (2017--2023)}
+\label{tab:omx_vs_orsted}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Year} & \textbf{OMX Copenhagen 25 Return} & \textbf{Ørsted A/S Equity Return} \\
+\midrule
+2017 & 15.09\% & 28.81\% \\
+2018 & -11.19\% & 31.30\% \\
+2019 & 28.71\% & 60.37\% \\
+2020 & 35.60\% & 82.00\% \\
+2021 & 18.60\% & -31.91\% \\
+2022 & -11.54\% & -22.92\% \\
+2023 & 9.63\% & -38.57\% \\
+\midrule
+\textbf{Arithmetic Mean} & \textbf{12.13\%} & \textbf{15.58\%} \\
+\textbf{Geometric Mean} & \textbf{10.81\%} & \textbf{6.86\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 66--67
+
+\textcolor{blue}{
+	\textit{Nhìn vào bảng số liệu trên, bạn thấy điều gì thú vị? Suất sinh lời trung bình số học (Arithmetic Mean) của Ørsted ($15.58\%$) cao hơn của OMX index ($12.13\%$), nhưng suất sinh lời trung bình hình học (Geometric Mean) của nó lại thấp hơn rất nhiều ($6.86\%$ so với $10.81\%$). Điều này chứng minh tác động tiêu cực của biến động (volatility drag) lên lãi kép: Ørsted có những năm tăng trưởng rất nóng ($82.00\%$) nhưng sau đó lại sụt giảm rất sâu ($-38.57\%$), làm xói mòn hiệu quả tăng trưởng vốn tích lũy của nhà đầu tư dài hạn.}}
+
+\section{LONG-TERM FINANCIAL ASSET RETURNS}
+
+\textcolor{blue}{
+	\textit{Lịch sử thị trường tài chính cung cấp những bài học vô giá về hành vi dài hạn của các lớp tài sản khác nhau. Trong phần này, chúng ta sẽ rà soát số liệu thực tế qua 45 năm (1979--2023) tại thị trường Mỹ để so sánh lợi nhuận giữa các loại tài sản và hiểu rõ cấu phần sinh lời của chúng thay đổi thế nào qua thời gian.}}
+
+\subsection{Historical Long-Term Asset Returns}
+Based on historical data for selected major US asset classes between 1979 and 2023 (large-cap stocks, small-cap stocks, corporate bonds, government bonds, and Treasury bills), several trends emerge:
+\begin{itemize}
+	\item \textbf{Equities Outperform Bonds:} driven primarily by capital appreciation, equities deliver higher long-term average returns than fixed-income indexes.
+	\item \textbf{Small-Cap Premium:} small-capitalization stocks have periodically outperformed large-capitalization stocks (size premium), though this premium varies over time and can occasionally be negative.
+	\item \textbf{Corporate vs. Government Debt:} corporate bonds offer higher coupon yields on paper, but government bonds can occasionally match or exceed corporate bond performance over specific horizons due to the impact of default losses.
+\end{itemize}
+
+Let's review the relative outperformance calculations using geometric average annual returns from the 1979--2023 historical record:
+\begin{itemize}
+	\item Large-cap equity ($12.26\%$) versus corporate debt ($7.43\%$):
+	\begin{equation}
+		\text{Outperformance} = \frac{1 + 0.1226}{1 + 0.0743} - 1 = 4.50\%
+		\label{eq:largecap_vs_corp_debt}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 70
+	
+	\item Small-cap equity ($11.23\%$) versus large-cap equity ($12.26\%$):
+	\begin{equation}
+		\text{Small-Cap Premium} = \frac{1 + 0.1123}{1 + 0.1226} - 1 = -0.92\% \quad (\text{a discount over this specific period})
+		\label{eq:smallcap_premium_m2}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 70
+
+	\item US Treasury bonds ($7.62\%$) versus corporate bonds ($7.43\%$):
+	\begin{equation}
+		\text{Outperformance} = \frac{1 + 0.0762}{1 + 0.0743} - 1 = 0.18\%
+		\label{eq:gov_vs_corp_debt_outperform}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 71
+\end{itemize}
+
+\subsection{Long-Term Asset Return Components}
+The relative contribution of capital appreciation and capital distributions has evolved significantly:
+\begin{itemize}
+	\item \textbf{Equities:} dividend yields have trended downward over time, particularly following a 1982 regulatory change that established a safe harbor for share buybacks. Companies increasingly repurchase shares to return cash to shareholders, which reduces share count, increases stock value, and provides tax advantages (capital gains tax is generally lower than dividend tax).
+	\item \textbf{Government Bonds:} income return (coupon payments) remains the dominant driver of total returns, historically accounting for approximately 85\% of total government bond returns. Capital appreciation plays a minor role, and bond prices suffer capital losses during periods of rising interest rates (such as the early 2020s).
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Hãy ghi nhớ: Mua lại cổ phiếu (Share Buybacks) không làm phát sinh dòng tiền phân phối trực tiếp cho cổ đông như cổ tức tiền mặt, do đó nó được hạch toán vào cấu phần tăng giá (Price Return). Đây là lý do tại sao phần lợi nhuận tăng giá của cổ phiếu lại chiếm tỷ trọng lớn dần trong những thập kỷ gần đây tại các nước phát triển. Bạn có nghĩ đây là xu hướng tất yếu của các doanh nghiệp khi tối ưu hóa thuế cho cổ đông không?}}
+
+\section{RISKS AND RETURNS}
+
+\textcolor{blue}{
+	\textit{Rủi ro tài chính là khả năng suất sinh lời thực tế nhận được lệch khỏi suất sinh lời kỳ vọng. Việc đo lường rủi ro và xây dựng danh mục đầu tư đòi hỏi chúng ta phải phân loại rủi ro thành hệ thống (Systematic Risk) và phi hệ thống (Unsystematic Risk), đồng thời áp dụng nguyên lý đánh đổi rủi ro - lợi nhuận (Risk-Return Trade-Off). Cùng rà soát các định nghĩa và cách tính suất sinh lời danh mục ở phần dưới đây.}}
+
+Risk represents the uncertainty of investment returns and can be categorized into macro and micro risks:
+\begin{itemize}
+	\item \textbf{Systematic Risk (Macro Risks):} broad, economy-wide risks that affect all financial assets (e.g., inflation risk, market interest rate risk, and market risk). Systematic risk cannot be diversified away.
+	\item \textbf{Unsystematic Risk (Micro Risks):} risks specific to a particular issuer or sector (e.g., credit/default risk, business risk, financial leverage, sector/industry risk). Unsystematic risk can be mitigated through diversification.
+\end{itemize}
+
+\subsection{The Risk--Return Trade-Off}
+Investors demand a higher expected return (risk premium) to compensate for taking on higher volatility and uncertainty. Exhibit \ref{fig:mod2_exhibit_11} shows that historically, higher average annual returns are generally associated with a wider range of annual returns (higher volatility).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/002_Module_2/exhibit_11.png}
+	\caption{Historical Geometric Average Return for Different Assets (1979--2023)}
+	\label{fig:mod2_exhibit_11}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 74
+
+\subsection{Portfolio Return Calculation}
+The expected return of a portfolio is the weighted average of the returns of the individual assets in the portfolio:
+\begin{equation}
+	r_p = \sum_{i=1}^{N} w_i r_i = w_1 r_1 + w_2 r_2 + \dots + w_N r_N
+	\label{eq:portfolio_return_m2}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 75
+
+Where:
+\begin{itemize}
+	\item[] $w_i$ is the weight of asset $i$ in the portfolio (where $\sum_{i=1}^{N} w_i = 1$).
+	\item[] $r_i$ is the rate of return of asset $i$.
+\end{itemize}
+
+Let's review the asset allocations and long-term returns for three different investors (Investor A: Aggressive, Investor B: Balanced, and Investor C: Conservative):
+\begin{table}[H]
+\centering
+\caption{Asset Class Returns and Allocation Summary}
+\label{tab:investor_returns_m2}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Asset Class} & \textbf{Total Return} & \textbf{Capital Appreciation} & \textbf{Capital Distribution} \\
+\midrule
+Large-cap Equities & 12.00\% & 8.50\% & 3.50\% \\
+Long-term Gov Bonds & 5.75\% & 0.75\% & 5.00\% \\
+30-Day T-Bills (Cash) & 3.00\% & 0.00\% & 3.00\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 75
+
+\begin{table}[H]
+\centering
+\caption{Investor Asset Allocations and Portfolio Returns}
+\label{tab:investor_allocations_m2}
+\begin{tabular}{ccccccc}
+\toprule
+\textbf{Investor} & 
+\begin{tabular}[c]{c}\textbf{Equities}\\\textbf{Weight}\end{tabular} & 
+\begin{tabular}[c]{c}\textbf{Bonds}\\\textbf{Weight}\end{tabular} & 
+\begin{tabular}[c]{c}\textbf{T-Bills}\\\textbf{Weight}\end{tabular} & 
+\begin{tabular}[c]{c}\textbf{Total}\\\textbf{Return}\end{tabular} & 
+\begin{tabular}[c]{c}\textbf{Capital}\\\textbf{Apprec.}\end{tabular} & 
+\begin{tabular}[c]{c}\textbf{Capital}\\\textbf{Distrib.}\end{tabular} \\
+\midrule
+A & 80\% & 10\% & 10\% & 10.48\% & 6.88\% & 3.60\% \\
+B & 60\% & 35\% & 5\% & 9.36\% & 5.36\% & 4.00\% \\
+C & 50\% & 45\% & 5\% & 8.74\% & 4.59\% & 4.15\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 75
+
+\textcolor{blue}{
+	\textit{Ví dụ tính chi tiết cho danh mục Investor A:
+	Với cấu trúc phân bổ 80\% cổ phiếu, 10\% trái phiếu chính phủ dài hạn, và 10\% tín phiếu kho bạc (tiền mặt):
+	- Tỷ suất sinh lời tổng thể: $r_p = 80\% \times 12.00\% + 10\% \times 5.75\% + 10\% \times 3.00\% = 9.60\% + 0.58\% + 0.30\% = 10.48\%$.
+	- Tỷ suất sinh lời từ tăng trưởng giá: $r_{\text{price}} = 80\% \times 8.50\% + 10\% \times 0.75\% + 10\% \times 0.00\% = 6.80\% + 0.08\% + 0.00\% = 6.88\%$.
+	- Tỷ suất sinh lời từ phân phối thu nhập: $r_{\text{dist}} = 80\% \times 3.50\% + 10\% \times 5.00\% + 10\% \times 3.00\% = 2.80\% + 0.50\% + 0.30\% = 3.60\%$.
+	Như vậy, danh mục của Investor A được thiết kế để tối đa hóa phần lãi vốn (Capital Appreciation), trong khi Investor C ưu tiên dòng thu nhập đều đặn (Capital Distribution). Bạn hãy thử bấm máy tính tự giải lại trường hợp của Investor B và C để thành thạo kỹ năng tính toán này nhé!}}
