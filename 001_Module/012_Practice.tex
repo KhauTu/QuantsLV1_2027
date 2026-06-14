@@ -1,0 +1,451 @@
+\chapter{Quant Practice Level 1}
+\label{chap:Quant Practice Level 1}
+\section{Rates and Returns}
+\label{sec:Rates and Returns}
+\subsection{Converting HPR to EAR} % (fold)
+\label{sub:Converting HPR to EAR}
+
+\paragraph{Example 1} % (fold)
+An investor is evaluating the returns of three recently formed ETFs. Selected return information on the ETFs is presented in Exhibit 1:
+\begin{table}[H]
+	\caption{Returns on ETFs}
+	\begin{center}
+		\label{tab:M1ex1}
+		\begin{tabular}{p{0.1\linewidth} | c | c}
+			\toprule
+			\textbf{ETF} & \textbf{Time Since Inception} & \textbf{Return Since Inception (\%)}                                            \\
+			\midrule
+			1             & 125 days & 4.25                                                            \\
+			2             & 8 weeks  & 1.95                                                            \\
+			3             & 16 months& 17.18                                                           \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+Which ETF has the highest annualized rate of return?
+\begin{enumerate}[label=\Alph*.]
+	\item ETF 1
+	\item ETF 2
+	\item ETF 3
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+B. Correct. The annualized rate of return for each ETF is calculated using the formula for the effective annual rate (EAR):
+\[
+\text{EAR} = \left(1 + \text{HPR}\right)^{\frac{365}{n}} - 1
+\]
+where HPR is the holding period return (expressed as a decimal), and $n$ is the number of days in the holding period.
+	\[
+	\text{EAR}_1 = (1 + 0.0425)^{\frac{365}{125}} - 1 \approx 12.92\%
+	\]
+	\[
+	\text{EAR}_2 = (1 + 0.0195)^{\frac{365}{56}} - 1 \approx 13.37\%
+	\]
+	\[
+	\text{EAR}_3 = (1 + 0.1718)^{\frac{365}{480}} - 1 \approx 12.63\%
+	\]
+Despite having the lowest value for the periodic rate, ETF 2 has the highest annualized rate of return because of the reinvestment rate assumption and the compounding of the periodic rate.
+
+\subsection{Multi-period HPR vs Geometric mean return} % (fold)
+\label{sub:Multi-period HPR vs Geometric mean return}
+
+\paragraph{Example 2} % (fold)
+The quarterly returns on a portfolio are as follows:
+\begin{table}[H]
+	\begin{center}
+		\label{tab:M1ex2}
+		\begin{tabular}{|p{0.1\linewidth} | c | c |c | c|}
+			\toprule
+			\textbf{Quarter} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+			\midrule
+			Return           & 20\% & -20\% & 10\% & -10\% \\	
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+The time-weighted rate of return of the portfolio is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item -5.0\%.
+	\item -1.3\%.
+	\item 0.0\%.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+A. Correct. The time-weighted rate of return of this portfolio = $(1 + r_1)(1 + r_2)(1 + r_3)(1 + r_4) - 1$, where $r_1$ = holding period return (HPR) for the first quarter, second quarter, and so on:
+\[
+	= (1 + 0.20)(1 - 0.20)(1 + 0.10)(1 - 0.10) - 1 = -4.96\% \approx -5.0\%
+	\]
+B. Incorrect. It is calculated as
+\[
+	= [(1.20)(0.80)(1.10)(0.90)]^{1/4} - 1 = -1.26\% \text{ and confused with}
+	\]
+\[
+	r_{TW} = [(1 + r_1)(1 + r_2)(1 + r_3)(1 + r_4)]^{1/N} - 1
+\]
+C. Incorrect. It is calculated as simple addition of gain and loses $(+20\% - 20\% + 10\% - 10\%)$.
+
+\paragraph{Example 3} % (fold)
+Over the past four years, a portfolio experienced returns of $-8\%$, $4\%$, $17\%$, and $-12\%$. The geometric mean return of the portfolio over the four-year period is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item -0.37\%.
+	\item 0.25\%.
+	\item 0.99\%.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+A. Correct. Add one to each of the given returns, then multiply them together and take the fourth root of the resulting product. 0.92 × 1.04 × 1.17 × 0.88 = 0.985121; 0.985121 raised to the 0.25 power is 0.996259. Subtracting one and multiplying by 100 gives the correct geometric mean return:
+\[
+(0.92 \times 1.04 \times 1.17 \times 0.88)^{0.25} - 1= -0.37\%.
+\]
+B. Incorrect because it is the arithmetic mean of the four numbers.\\
+C. Incorrect because it is the solution to:
+\[
+(0.92 \times 1.04 \times 1.17 \times 0.88) = 0.99 \text{ (rounded)}.
+\]
+
+\subsection{Money-weighted rate of return vs Time-weighted rate of return} % (fold)
+\paragraph{Example 4} % (fold)
+A fund receives investments at the beginning of each year and generates returns for three years as follows:
+\begin{table}[H]
+	\caption{Investments and Returns for Three Years}
+	\begin{center}
+		\begin{tabular}{p{0.15\linewidth} | p{0.3\linewidth} | p{0.3\linewidth}}
+			\toprule
+			\textbf{Year of Investment} & \textbf{Assets under Management at the Beginning of each year} & \textbf{Return during Year of Investment}                                            \\
+			\midrule
+			1             & USD1,000	& 15\%                                                            \\
+			2             & USD4,000	& 14\%                                                            \\
+			3             & USD45,000	& -4\%                                                           \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+Which return measure over the three-year period is negative?
+\begin{enumerate}[label=\Alph*.]
+	\item Geometric mean return.
+	\item Time-weighted rate of return.
+	\item Money-weighted rate of return.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+C. Correct. The money-weighted rate of return considers both the timing and amounts of investments into the fund. To calculate the money-weighted rate of return, tabulate the annual returns and investment amounts to determine the cash flows.
+\begin{table}[H]
+	\caption{Investments and Returns for Three Years}
+	\begin{center}
+		\begin{tabular}{p{0.4\linewidth} c c c }
+			\toprule
+			\textbf{Year} & 1	& 2	& 3 \\
+			\midrule
+			Balance from previous year & 0	& USD1,150	& USD4,560 \\
+			New investment & USD1,000	& USD2,850	& USD40,440 \\
+			Net balance at the beginning of year & USD1,000	& USD4,000	& USD45,000 \\
+			Investment return for the year & 15\%	& 14\%	& -4\% \\
+			Investment gain (loss) & USD150	& USD560	& -USD1,800 \\
+			Balance at the end of year & USD1,150	& USD4,560	& USD43,200 \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+The cash flows for the three years are as follows:
+\begin{itemize}
+	\item Year 0: CF$_0$ = -USD1,000
+	\item Year 1: CF$_1$ = -USD2,850
+	\item Year 2: CF$_2$ = -USD40,440
+	\item Year 3: CF$_3$ = +USD43,200
+\end{itemize}
+The money-weighted rate of return (IRR) is the rate $r$ that solves:
+\[
+-1,000 + \frac{-2,850}{(1+r)^1} + \frac{-40,440}{(1+r)^2} + \frac{43,200}{(1+r)^3} = 0
+\]
+Solving for $r$ gives IRR $\approx -2.22\%$.\\
+Note that A and B are incorrect because the time-weighted rate of return (TWR) of the fund is the same as the geometric mean return of the fund and is positive:
+\[
+R_{TW}=\sqrt[3]{(1.15)(1.14)(0.96)} - 1 = 7.97\%.
+\]
+\paragraph{Example 5} % (fold)
+At the beginning of Year 1, a fund has USD10 million under management; it earns a return of 14 percent for the year. The fund attracts another net USD100 million at the start of Year 2 and earns a return of 8 percent for that year. The money-weighted rate of return of the fund is most likely to be:
+\begin{enumerate}[label=\Alph*.]
+	\item less than the time-weighted rate of return.
+	\item the same as the time-weighted rate of return.
+	\item greater than the time-weighted rate of return.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+A. Correct. Computation of the money-weighted return, r, requires finding the discount rate that sums the present value of cash flows to zero. Because most of the investment came during Year 2, the money-weighted return will be biased toward the performance of Year 2 when the return was lower. The cash flows are as follows:
+\begin{itemize}
+	\item CF$_0$ = -USD10 million
+	\item CF$_1$ = -USD100 million
+	\item CF$_2$ = +USD120.31 million
+\end{itemize}
+The terminal value is determined by summing the investment returns for each period $[(10 \times 1.14 \times 1.08) + (100 \times 1.08)]$.
+\begin{align*}
+&\frac{CF_0}{(1+IRR)^0} + \frac{CF_1}{(1+IRR)^1} + \frac{CF_2}{(1+IRR)^2} \\
+&\frac{-10}{(1+IRR)^0} + \frac{-100}{(1+IRR)^1} + \frac{120.31}{(1+IRR)^2} = 0
+\end{align*}
+This results in a value of IRR = 8.53 percent.\\
+The time-weighted return of the fund is calculated as follows:
+\[
+R_{TW} = \sqrt{(1.14)(1.08)} - 1 = 10.96\%.
+\]
+
+\subsection{Gross/Net, Pre/After Tax and Leveraged Returns}
+\paragraph{Example 6} % (fold)
+At the beginning of the year, an investor holds EUR10,000 in a hedge fund. The investor borrowed 25 percent of the purchase price, EUR2,500, at an annual interest rate of 6 percent and expects to pay a 30 percent tax on the return she earns from his investment. At the end of the year, the hedge fund reported the information in the table below:
+
+\begin{table}[H]
+	\caption{Hedge Fund Investment}
+	\begin{center}
+		\begin{tabular}{p{0.4\linewidth} c}
+			\toprule
+			Gross return	& 8.46\% \\
+			Trading expenses	& 1.10\% \\
+			Managerial and administrative expenses	& 1.60\% \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+The investor's after-tax return on the hedge fund investment is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item 3.60 percent.
+	\item 3.98 percent.
+	\item 5.00 percent.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+C. Correct. The first step is to compute the investor's net return from the hedge fund investment.
+The net return is the fund's gross return less managerial and administrative expenses of 1.60 percent, or 8.46\% - 1.60\% = 6.86\%.
+Note that trading expenses are already reflected in the gross return, so they are not subtracted.\\
+The second step is to compute the investor's leveraged return (the investor borrowed EUR2,500 (25 percent) of the purchase), calculated as follows:
+\[
+R_L=R_p+\frac{V_B}{V_E}(R_p-r_D)
+\]
+\[
+R_L=6.86\% + \frac{EUR2,500}{EUR7,500}(6.86\%-6\%)
+\]
+\[
+R_L= 6.86\% + 0.33\times0.86\% = 7.15\%.
+\]
+
+The final step is to compute the after-tax return:
+\[
+R_{AT} = R_L(1 - T) = 7.15\%(1 - 0.30) = 5.00\%.
+\]
+\newpage
+\section{The Time Value of Money in Finance}
+\label{sec:The Time Value of Money in Finance}
+\subsection{Fixed-Income: Annuity} % (fold)
+\paragraph{Example 1} % (fold)
+A consumer purchases an automobile using a loan. The amount borrowed is €30,000, and the terms of the loan call for the loan to be repaid over five years using equal monthly payments with an annual nominal interest rate of 8\% and monthly compounding. The monthly payment is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item €608.29.
+	\item €626.14.
+	\item €700.00.
+\end{enumerate}
+
+\subparagraph{Solution} % (fold)
+A. Correct. Using a financial calculator: N = 60, I/Y = 8/12, PV = 30,000, FV = 0, and compute PMT.\\
+Note, 5 years = 60 months. The nominal rate of 8\% must be divided by 12 to find the monthly periodic rate of 0.6666667\%. Alternatively, using the present value of an annuity formula, solve:
+\[
+PV = A \frac{1 - (1 + (r_s/m))^{-mN}}{(r_s/m)}
+\]
+\[
+30,000 = A \frac{1 - (1 + (0.08/12))^{-12 \times 5}}{(0.08/12)}
+\]
+\[30,000 = A \times 49.318433 \Rightarrow A = 30,000/49.318433 \Rightarrow A = 608.291829\]
+B. Incorrect. It uses N = 5, I/Y = 8, PV = 30,000, FV = 0, compute PMT = 7,513.69.\\
+7513.69/12 = 626.14.\\
+C. Incorrect. It is calculated using: Interest = \texteuro{}30,000 $\times$ 0.08 $\times$ 5 = \texteuro{}12,000; Payment = (\texteuro{}30,000 + \texteuro{}12,000)/60 = \texteuro{}700
+
+\subsection{Equity: Changing Dividend Growth Rate} % (fold)
+\paragraph{Example 2} % (fold)
+Suppose Mylandia announces that it expects significant cash flow growth over the next three years, and now plans to increase its recent CAD2.40 dividend by 10 percent in each of the next three years. Following the 10 percent growth period, Mylandia is expected to grow its annual dividend by a constant 3 percent indefinitely. Mylandia’s required return is 8 percent. Based upon these revised expectations, The expected share price of Mylandia stock is:
+\begin{enumerate}[label=\Alph*.]
+	\item CAD49.98.
+	\item CAD55.84.
+	\item CAD59.71.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+C. Correct. Following the first step, we observe the following expected dividends for Mylandia for the next three years:
+\begin{itemize}
+	\item In 1 year: $D_1 = CAD2.64 (=2.40 \times 1.10)$
+	\item In 2 years: $D_2 = CAD2.90 (=2.40 \times 1.10^2)$
+	\item In 3 years: $D_3 = CAD3.19 (=2.40 \times 1.10^3)$
+\end{itemize}
+The second step involves a lower 3 percent growth rate. At the end of year four, Mylandia's dividend ($D_4$) is expected to be $CAD3.29 (=2.40 \times 1.10^3 \times 1.03)$. At this time, Mylandia's expected terminal value at the end of three years is CAD65.80 using Equation 17, as follows:\\
+$E(S_{t+n})= 3.29/(0.08- 0.03)=65.80$\\
+Third, we calculate the sum of the present values of these expected dividends using Equation 16:\\
+$PV_t= 2.64/1.08 + 2.90/1.08^2 + 3.19/1.08^3 + 65.80/1.08^3 = 59.71.$
+\newpage
+\section{Statistical Measures of Asset Returns}
+\label{sec:Statistical Measures of Asset Returns}
+\subsection{Mean, Variance} % (fold)
+\paragraph{Example 1} % (fold)
+The following 10 observations are a sample drawn from an approximately normal population:
+\table[H]
+	\caption{Sample Observations}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{Observation} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+			\hline
+			\textbf{Value} & -3 & -11 & 3 & -18 & 18 & 20 & -6 & 9 & 2 & -16 \\
+			\hline
+		\end{tabular}
+	\end{center}
+The sample standard deviation is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item 13.18.
+	\item 14.01.
+	\item 15.49.
+\end{enumerate}
+\subparagraph{Solution} % (fold)
+Correct. The sample mean is:
+
+% 𝑋⎯⎯⎯=∑𝑖=1𝑛𝑋𝑖𝑛
+
+% = (−3 − 11 + 3 − 18 + 18 + 20 − 6 + 9 + 2 − 16)/10
+
+% = −2.00/10 = −0.20
+
+% The sample variance is:
+
+% 𝑠2=∑𝑖=1𝑛(𝑋𝑖−𝑋⎯⎯⎯⎯)2(𝑛−1)
+
+% The sample standard deviation is the (positive) square root of the sample variance.
+
+% Value	Difference vs. Mean
+% [Value − (−0.20)]	Difference Squared
+% −3	−2.8	7.84
+% −11	−10.8	116.64
+% 3	3.2	10.24
+% −18	−17.8	316.84
+% 18	18.2	331.24
+% 20	20.2	408.04
+% −6	−5.8	33.64
+% 9	9.2	84.64
+% 2	2.2	4.84
+% −16	−15.8	249.64
+% Sum of squared differences	1563.6
+% Divided by n − 1	173.7333333
+% Square root	13.18079411
+% Incorrect. It is calculated by dividing by 11 rather than 9.
+
+% Incorrect. It is calculated by dividing by 10 rather than 9.
+
+% An analyst gathers the following information about a portfolio's returns:
+
+% Year	Return
+% 1	6%
+% 2	7%
+% 3	3%
+% 4	2%
+% 5	4%
+% If the target return is 5%, the target downside deviation is closest to:
+
+% A.1.7%.
+% B.1.9%.
+% C.2.2%.
+% Solution
+% Incorrect because n (5) is used in the calculation instead of n – 1: (14/5)0.5, resulting in 1.67% ≈ 1.7%.
+
+% Correct because the formula for target downside deviation is [Σ(Xi – B)2/(n – 1)]0.5, where Xi is the return for the period, B is the target return and n is the total number of sample observations. Moreover, the summation is taken over only those observations (Xi) that are less than or equal to the target B.
+
+% Year	Return (%)	Deviations from the target	Squared deviations
+% 1	6	0	0
+% 2	7	0	0
+% 3	3	–2	4
+% 4	2	–3	9
+% 5	4	–1	1
+% Since the sum of squared deviations is 14, the target downside deviation = [14/(5 – 1)]0.5, resulting in 1.87% ≈ 1.9%.
+
+% Incorrect because all the returns are used in the calculation, not just the returns below the target. In other words, the standard deviation from the target return is calculated. Since the sum of all squared deviations is 14 + 5 = 19, the target downside deviation is calculated as: [19/(5 – 1)]0.5, resulting in 2.18% ≈ 2.2%.
+
+% This answer is also closest if n is assumed to be the number of observations used in the correct calculation (3): (14/3)0.5, resulting in 2.16% ≈ 2.2%.
+
+\subsection{Median} % (fold)
+
+\subsection{Quantiles} % (fold)
+% The following table shows the volatility of a series of funds that belong to the same peer group, ranked in ascending order:
+
+% Fund	Volatility (%)
+% Fund 1	9.81
+% Fund 2	10.12
+% Fund 3	10.84
+% Fund 4	11.33
+% Fund 5	12.25
+% Fund 6	13.39
+% Fund 7	13.42
+% Fund 8	13.99
+% Fund 9	14.47
+% Fund 10	14.85
+% Fund 11	15.00
+% Fund 12	17.36
+% Fund 13	17.98
+% The approximate value of the first quintile is closest to:
+
+% A.10.70%.
+% B.11.09%.
+% C.10.84%.
+% Solution
+% Correct. The position of the first quintile is found with the following formula:
+
+% Ly = (n + 1) × (y/100),where
+
+% y = the percentage point at which the distribution is divided. In this case, y = 20, which corresponds to the 20th percentile (first quintile)
+
+% n = the number of observations (funds) in the peer group. In this case, n = 13
+
+% L20 = the location of the 20th percentile (first quintile)
+
+% L20 = (13 + 1) × (20/100) = 2.80.
+
+% Therefore, the location of the first quintile is between the volatility of Fund 2 and Fund 3 (because they are ranked in ascending order).
+
+% Linear interpolation is used to find the approximate value of the first quintile:
+
+% P20 ≈ X2 + (2.80 − 2) × (X3 − X2) where
+
+% X2 = the volatility of Fund 2
+
+% X3 = the volatility of Fund 3
+
+% P20 = the approximate value of the first quintile
+
+% P20 ≈ 10.12% + (2.80 − 2) × (10.84% − 10.12%) = 10.70%
+
+% Incorrect. It is the approximate value of the first quartile. The position of the first quartile is found as follows: L25 = (13 + 1) × (25/100) = 3.50. So, the location of the first quartile is between the volatility of Fund 3 and Fund 4. Linear interpolation is used to find the approximate value of the first quartile:
+
+% P25 ≈ X3 + (3.50 − 3) × (X4 − X3)
+
+% P25 ≈ 10.84% + (3.50 − 3) × (11.33% − 10.84%) = 11.09%
+
+% Incorrect. The position of the first quintile is found with the following formula:
+
+% Ly = (n + 1) × (y/100)
+
+% L20 = (13 + 1) × (20/100) = 2.80. 2.80 is then rounded up to 3 and the volatility of Fund 3 is taken. That corresponds to 10.84%.
+\subsection{Covariance and Correlation} % (fold)
+
+\section{Probability Trees and Conditional Expectations}
+\label{sec:Probability Trees and Conditional Expectations}
+\subsection{Expected value and Variance} % (fold)
+
+\subsection{Conditional expected value} % (fold)
+
+\section{Portfolio Mathematics}
+\label{sec:Portfolio Mathematics}
+\subsection{Portfolio Variance} % (fold)
+
+\subsection{Joint Probability Matrix} % (fold)
+
+% paragraph Joint Probability Matrix (end)
+
+\section{Simulation Methods}
+\label{sec:Simulation Methods}
+
+\section{Estimation and Inference}
+\label{sec:Estimation and Inference}
+
+\section{Hypothesis Testing}
+\label{sec:Hypothesis Testing}
+
+
+\section{Parametric and Non-parametric Tests of Independence}
+\label{sec:Parametric and Non-parametric Tests of Independence}
+
+\section{Simple Linear Regression}
+\label{sec:Simple Linear Regression}

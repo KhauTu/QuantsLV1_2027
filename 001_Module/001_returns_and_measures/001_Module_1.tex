@@ -1,0 +1,238 @@
+\chapter{Returns of Financial Assets and Instruments}
+\label{chap:Returns of Financial Assets and Instruments}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	a & describe, compare, and interpret returns \\
+	\midrule
+	b & describe, compare, and interpret required rates of return, risk-free rates, risk premia, and inflation \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+\begin{itemize}
+	\item[] \textbf{Financial Returns}
+	      \begin{itemize}
+		      \item[] Total Return
+		      \item[] Arithmetic and Geometric Holding Period Return
+		      \item[] Compounding: Daily, Monthly, Quarterly, and Annual Returns
+		      \item[] Continuous Compounding
+	      \end{itemize}
+	\item[] \textbf{Common Return Measures}
+	      \begin{itemize}
+		      \item[] The Required Rate of Return
+		      \item[] Excess Returns
+		      \item[] Real Returns
+		      \item[] Gross and Net Return
+		      \item[] Pre-Tax and After-Tax Nominal Return
+		      \item[] Leveraged Returns
+	      \end{itemize}
+\end{itemize}
+
+\section{FINANCIAL RETURNS}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	a & describe, compare, and interpret returns \\
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{
+	\textit{Lãi suất hay lợi suất là đối tượng thống kê chính trong hoạt động đầu tư. 
+Có thể hiểu, thị trường tài chính là nơi buôn bán một loại hàng hóa đặc biệt, là Vốn.
+Và lãi suất chính là mức giá cho loại hàng hóa đặc biệt đó.}}
+
+\subsection{Total Return} % (fold)
+\begin{equation}
+\begin{alignedat}{2}
+\text{Total Return}
+    &={} \text{Capital Appreciation Return} &+{} & \text{Capital Distribution Return} \\
+r   &={} r_{\text{price}} &+{} & r_{\text{distribution}} \\
+    &={} \frac{P_1-P_0}{P_0} &+{} & \frac{Inc}{P_0}
+\end{alignedat}
+\end{equation}
+
+For capital distributions on equities, we focus on the dividend yield; for bonds, we look at current yield.
+\begin{itemize}
+	\item Some expressions of Return:
+	\begin{itemize}
+		\item[] \textbf{Expected returns}, or ex ante returns, are the anticipated returns on an investment over a specified period.
+		\item[] \textbf{Actual returns}, or ex post returns, are the returns on an investment after the investment period has ended.
+		\item[] \textbf{Unrealized returns}: changes in value represent while an investor holds an investment.
+		\item[] \textbf{Realized returns}: when the investment is ultimately sold, gains and losses would be realized at the current market value.
+	\end{itemize}
+\end{itemize}
+% subsection Total Returndowncase:_}${1:_} (end)
+
+\subsection{Arithmetic and Geometric Holding Period Return} % (fold)
+% \label{sub:Arithmetic and Geometric Holding Period Return}
+To ensure accurate comparisons across different investments and time periods, it's crucial that these returns are calculated using a uniform time period.
+\begin{itemize}
+	\item \textbf{arithmetic mean return}: 
+	\begin{equation}
+		\bar{r}_A = r_1 + r_2 + ... + r_{T-1} + r_T = \frac{1}{T}\sum_{t=1}^{T}r_t
+		% \label{eq:}
+	\end{equation}
+	\item \textbf{geometric mean return}:
+	\begin{equation}
+		\bar{r}_G = \sqrt[T]{(1 + r_1) \times (1 + r_2) \times ... \times (1 + r_T)} - 1 = \sqrt[T]{\prod_{t = 1}^{T}(1 + r_t)} - 1
+		% \label{eq:}
+	\end{equation}
+\end{itemize}
+Geometric mean is a more accurate reflection of investment performance over time.
+Arithmetic average return calculations assume that the amount invested at the beginning of the period does not change,
+but the base amount changes due to capital appreciation or depreciation.
+The arithmetic-geometric mean inequality highlights the impact of volatility on investment returns.
+% subsection Arithmetic and Geometric Holding Period Return (end)
+
+\subsection{Compounding: Daily, Monthly, Quarterly, and Annual Returns} % (fold)
+% \label{sub:Compounding: Daily, Monthly, Quarterly, and Annual Returns}
+With c is the number of periods in a year,
+\begin{equation}
+	r_{annualized} = (1 + r_{period})^c - 1
+	% \label{eq:}
+\end{equation}
+
+One major limitation of annualizing returns is the implicit assumption that earned returns can be repeated.
+% subsection Compounding: Daily, Monthly, Quarterly, and Annual Returns (end)
+
+\subsection{Continuous Compounding} % (fold)
+% \label{sub:Continuous Compounding}
+The more frequently we compound returns, the higher the annual return will be; however, there is a limit.
+\begin{itemize}
+	\item \textbf{continuously compounded return}: 
+	\begin{equation}
+		\tilde{r}_{t, t+1} = ln \frac{P_{t+1}}{P_t} = ln(1 + r_{t, t+1})
+		% \label{eq:}
+	\end{equation}
+\end{itemize}
+The additive property of continuously compounded returns provides calculation advantages:
+\begin{align*}
+	\frac{P_T}{P_0} & = \frac{P_T}{P_{T-1}} \cdot \frac{P_{T-1}}{P_{T-2}} ... \frac{P_2}{P_1} \cdot \frac{P_1}{P_0} \\
+	\Rightarrow ln(\frac{P_T}{P_0}) &= ln(\frac{P_T}{P_{T-1}}) + ln(\frac{P_{T-1}}{P_{T-2}}) + ... + ln(\frac{P_2}{P_1}) + ln(\frac{P_1}{P_0}) \\
+	\Rightarrow \tilde{r}_{0, T} &=  \tilde{r}_{T-1, T} + \tilde{r}_{T-2, T-1} + ... + \tilde{r}_{2, 1} + \tilde{r}_{1, 0} = \sum_{t=1}^{T} \tilde{r}_{t-1, t}
+\end{align*}
+% subsection Continuous Compounding (end)
+
+\section{COMMON RETURN MEASURES}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	b & describe, compare, and interpret required rates of return, risk-free rates, risk premia, and inflation \\
+\end{tabular}
+\end{center}
+
+\subsection{The Required Rate of Return} % (fold)
+% \label{sub:The Required Rate of Return}
+\begin{itemize}
+	\item \textbf{opportunity cost}: that incurs when delaying consumption, or the value that investors forgo by choosing a course of action.
+	\item \textbf{required rate of return}: the minimum rate of return an investor must receive to accept the investment.
+\end{itemize}
+Components of Required Rate of Return:
+\begin{itemize}
+	\item \textbf{risk-free rate}: is the return on an investment without any default or reinvestment risk.
+	\begin{itemize}
+		\item[] It refers to returns on short-term government bonds, such as the 30-day US Treasury bill. The bonds have a short maturity, which reduces their sensitivity to interest rates changes.
+		\item[] \textbf{real risk-free rate} reflects the time preferences of individuals for current versus future real consumption.
+		\begin{equation}
+				r_{rf} = \frac{1+r_f}{1+infl} - 1
+				\text{ or quick approximation: } r_{rf} = r_f - infl
+			% \label{eq:}
+		\end{equation}
+	\end{itemize}
+	\item Total returns for any asset can then be approximated as:
+	\begin{equation}
+	r = r_{rf} + inf + \sum_{j=1}^{n}f_j \times rp_j	
+		% \label{eq:}
+	\end{equation}
+	\begin{itemize}
+		\item[] $n$ is the number of risk premia
+		\item[] $f_{ij}$ is the exposure of security $i$ to the $j^{th}$ risk factor
+		\item[] $rp_j$ is the specific risk premium associated with the $j^{th}$ risk factor
+		\item[] $\sum_{j=1}^{n}f_j \times rp_j$ is the sum of all risk premia.
+	\end{itemize}
+\end{itemize}
+Examples of risk premia for bonds:
+\begin{itemize}
+	\item \textbf{Default risk premium}: the additional return for buying a riskier corporate bond instead of a less-risky government bond, which depends on the creditworthiness of the issuer.
+	\item \textbf{Liquidity premium}: the additional return for holding a bond that may be harder to sell quickly or without impacting the price.
+	\item \textbf{Maturity risk premium}: the additional return for holding more interest rate sensitive, longer maturity bonds.
+\end{itemize}
+Examples of risk premia for stocks:
+\begin{itemize}
+	\item \textbf{Size risk premium}: the return spread between small and large market-capitalization stocks.
+	\item \textbf{Value risk premium}: the return spread between companies with high book-to-market and low book-to-market ratios.
+\end{itemize}
+% subsection The Required Rate of Return (end)
+\subsection{Excess Returns} % (fold)
+% \label{sub:Excess Returns}
+\textbf{Excess returns}: the difference between an asset's return and the return on some reference rate or benchmark.
+\begin{equation}
+		\dot{r}_i = \frac{1+r_i}{1+r_B} - 1
+		\text{ or quick approximation: } \dot{r}_i = r_i - r_B
+	% \label{eq:}
+\end{equation}
+% subsection Excess Returns (end)
+
+\subsection{Real returns} % (fold)
+% \label{sub:Real returns}
+\textbf{Real returns} are inflation-adjusted returns.
+\begin{equation}
+		r_{real} = \frac{1+r_i}{1+infl} - 1
+	% \label{eq:}
+\end{equation}
+% subsection Real returns (end)
+
+\subsection{Gross and Net Return} % (fold)
+% \label{sub:Gross and Net Return}
+\textbf{Gross return} = Total return - Transaction costs
+\begin{itemize}
+	\item[] an appropriate measure for evaluating and comparing the investment skill of managers,
+	\item[] excludes indirect expenses related to the management and administration of an investment
+\end{itemize}
+\textbf{Net return} = Gross return - Management fees - Administrative expenses 
+\begin{itemize}
+	\item[] the return the investor actually earns
+\end{itemize}
+% subsection Gross and Net Return (end)
+
+\subsection{Pre-Tax and After-Tax Nominal Return} % (fold)
+% \label{sub:Pre-Tax and After-Tax Nominal Return}
+\textbf{After-tax nominal return}
+\begin{equation}
+	r_{net-tax} = r_{price} \times (1-tax_{capital gains}) + r_{capital} \times (1-tax_{capital distribution})
+	% \label{eq:}
+\end{equation}
+Capital gains tax is a tax on a positive price return, which can be offset for tax purposes against capital losses. Two forms of capital gains tax rate:
+\begin{itemize}
+	\item[] Short-term capital gains are levied on capital gains on short-term holdings
+	\item[] Long-term capital gains are levied on longer-term holdings and receive preferential tax treatment in a number of countries
+\end{itemize}
+Forms of capital distribution tax rate:
+\begin{itemize}
+	\item[] Interest income is taxed as ordinary income in most countries. 
+	\item[] Dividend income may be taxed as ordinary income, may have a lower tax rate, or may be exempt from taxes depending on the country and the type of investor.
+\end{itemize}
+Factors affect tax components:
+\begin{itemize}
+	\item[] The investor's specific income sources and overall tax rates (marginal tax rate)
+	\item[] The time period the investor holds the investment (long-term versus short-term)
+	\item[] The type of account in which the investor holds the asset (tax-exempt, tax-deferred, or taxable)
+	\item[] The different tax systems under which the investor is liable to pay taxes (local, municipal, county, state, regional, and national or federal taxes)
+\end{itemize}
+% subsection Pre-Tax and After-Tax Nominal Return (end)
+
+\subsection{Leveraged Returns} % (fold)
+% \label{sub:Leveraged Returns}
+Using leverage to increase the total amount of investible assets is a common feature of investments, whether through borrowing or derivatives.
+Leverage increases investible capital, and the larger investment magnifies returns, and consequently, risks.
+\begin{equation}
+	R_L = \frac{Net Return}{Equity} = \frac{R_A \times A - R_D \times D}{E} = R_A + \frac{D}{E}(R_A-R_D)
+	% \label{eq:}
+\end{equation}
+As long as the $r_p > r_d$, then $r_p$ will be positive and the leverage adds value to the portfolio.
+% subsection Leveraged Returns (end)
+
