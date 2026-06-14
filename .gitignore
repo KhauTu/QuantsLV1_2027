@@ -1,0 +1,12 @@
+# Build directories
+004_intermediate/
+005_product/
+
+# References (large files)
+000_references/
+2027_CFA_L1V1_Quant.pdf
+
+# Editor & OS files
+.vscode/
+.DS_Store
+Thumbs.db
