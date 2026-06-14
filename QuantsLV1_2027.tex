@@ -1,0 +1,132 @@
+\documentclass{book}
+\usepackage{blindtext}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm, 257mm},
+    left=20mm,
+    top=20mm,
+}
+\usepackage[utf8]{vietnam}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{comment}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{amsmath, amsfonts}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{xcolor}
+\definecolor{trustvilleblue}{HTML}{1D70B8}
+\definecolor{trustvillegreen}{HTML}{0F8A5F}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\includegraphics[height=15pt]{002_figs/brand/logo Trustville + text.png}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newtcolorbox{examtip}[1][]{
+    colback=trustvilleblue!5!white,
+    colframe=trustvilleblue,
+    fonttitle=\bfseries,
+    title=Exam Tip,
+    boxrule=1pt,
+    arc=3pt,
+    #1
+}
+
+%% -------------------------------------------------------------------
+
+\title{\textbf{QUANTITATIVE METHODS LEVEL 1}}
+\author{Trustville}
+\date{Hanoi, Jun 2026}
+\begin{document}
+\maketitle
+
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\chaptername}{Module}
+\renewcommand{\tablename}{Table}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\appendixname}{Appendix}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{002_figs/brand/logo Trustville + text.png}
+	% \caption{ảnh}
+	\label{logo}
+\end{figure}
+
+\section*{Lời giới thiệu}
+\label{sec:Intro}
+\textit{Tài liệu này được biên soạn và tổng hợp chủ yếu từ nguồn học liệu Curriculum level 1.
+Bên cạnh những trích dẫn, công thức và biểu đồ, đôi khi bạn sẽ gặp một số \textcolor{blue}{đoạn văn tiếng Việt in nghiêng và màu xanh} 
+là phần diễn giải bổ sung của Giảng viên biên soạn, hy vọng giúp giải thích rõ ràng hơn.}\\
+\textit{Để môn học trở nên hiệu quả, các bạn học viên nên sử dụng cùng với một số tài liệu bổ trợ dưới đây:}
+\begin{itemize}
+    \item[-] \textit{Spreadsheet mô phỏng một số ví dụ tính toán, }\href{https://docs.google.com/spreadsheets/d/1AvkPUnBJj9hxhHHbvqQ9apDKq3mkkVS42RxranmZA6Y/edit}{Click}
+    \item[-] \textit{Mindmap tổng hợp các mục kiến thức chính, }\href{https://drive.google.com/file/d/1azarWz-GfrmQmlA-m7iSUl9XhfugKW5b/view}{Click}
+    \item[-] \textit{Video bài giảng theo chương trình năm 2024, }\href{https://www.youtube.com/playlist?list=PLXb7t2Rj75qHjU6zmDa1YhgMQmf9ynVpZ}{Click}
+    \item[-] \textit{Tổng hợp các tài liệu khác: }\href{https://docs.google.com/spreadsheets/d/1-Iz2FbQpaJ5eGwUC_HNVa4TwAi5nm9fZNf8p_cczEK0/edit?usp=sharing}{Click}.
+\end{itemize}
+\textit{Xin gửi lời cảm ơn trân trọng đến đội ngũ Giảng viên của Trustville, và những bạn học viên đã đóng góp nhiều ý tưởng để giúp hoàn thiện tài liệu này.}\\
+\textit{Mặc dù tài liệu biên soạn được chuẩn bị một cách kỹ lưỡng và cẩn trọng, nhưng cũng không thể tránh khỏi sai sót và lỗi diễn đạt.
+Vậy rất mong những ý kiến phản hồi từ các bạn khi sử dụng tài liệu, để giúp hoàn thiện nội dung hơn.}\\
+\textit{Mọi ý kiến đóng góp xin gửi về email: \href{mailto:dongkhautu@gmail.com}{dongkhautu@gmail.com}}.\\
+\textbf{Chúc các bạn có những giờ học bổ ích và hoàn thành mục tiêu!}
+
+\setcounter{tocdepth}{1}
+% \addtocontents{toc}{\setcounter{tocdepth}{1}}
+\tableofcontents
+% \newpage
+% \subsection{List of figures/tables}
+% \setcounter{tocdepth}{1}
+
+\input{001_Module/001_returns_and_measures/001_Module_1.tex} % Returns of Financial Assets and Instruments
+\input{001_Module/001_returns_and_measures/002_Module_2.tex} % Types of Financial Returns
+\input{001_Module/001_returns_and_measures/003_Module_3.tex} % Benchmarking Returns
+\input{001_Module/002_tvm_and_statistics/004_Module_4.tex} % The Time Value of Money in Finance
+\input{001_Module/002_tvm_and_statistics/005_Module_5.tex} % Statistical Characteristics of Asset Returns
+\input{001_Module/002_tvm_and_statistics/006_Module_6.tex} % Statistical Distributions for Financial Asset Prices and Returns
+\input{001_Module/003_inference_and_portfolios/007_Module_7.tex} % Estimation and Hypothesis Testing
+\input{001_Module/003_inference_and_portfolios/008_Module_8.tex} % The Return and Risk of a Financial Portfolio
+\input{001_Module/003_inference_and_portfolios/009_Module_9.tex} % Simulation of Financial Asset Prices and Returns
+\input{001_Module/004_regression_and_data_science/010_Module_10.tex} % Applications of Simple Linear Regression in Finance
+\input{001_Module/004_regression_and_data_science/011_Module_11.tex} % Introduction to Financial Data Science
+
+
+\begin{appendix}
+    % \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+    % \input{001_Module/012_Practice.tex} % Quant Practice Level 1
+    % \chapter{Tables and Figures}
+    \listoftables
+	\listoffigures
+\end{appendix}put{Module/Module10.tex} % Simple Linear Regression
+% \input{Module/Module11.tex} % Introduction to Big Data Techniques
+
+
+\begin{appendix}
+    % \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+    % \input{Module/Practice.tex} % Quant Practice Level 1
+    % \chapter{Tables and Figures}
+    \listoftables
+	\listoffigures
+\end{appendix}
+
+% \begin{comment}
+% acb
+% \end{comment}
+
+\end{document}
