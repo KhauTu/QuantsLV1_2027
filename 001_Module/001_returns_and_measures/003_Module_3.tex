@@ -25,3 +25,310 @@
 			\item[] Comparing Index Performance
 	      \end{itemize}
 \end{itemize}
+
+\section{MONEY-WEIGHTED AND TIME-WEIGHTED RATES OF RETURN}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	a & calculate and compare money-weighted and time-weighted rates of return \\
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{
+	\textit{Chào các bạn! Khi đánh giá hiệu quả đầu tư, chúng ta không chỉ quan tâm đến tỷ suất sinh lời của bản thân tài sản mà còn phải xem xét tác động của dòng tiền ra/vào (contribution/withdrawal). Trong phần này, chúng ta sẽ học cách phân biệt hai loại tỷ suất sinh lời cốt lõi: Suất sinh lời theo thời gian (Time-Weighted Return - TWR) và Suất sinh lời theo dòng tiền (Money-Weighted Return - MWR). Hiểu rõ hai khái niệm này là chìa khóa để đánh giá chính xác hiệu quả quản lý quỹ lẫn hiệu quả đầu tư thực tế của cá nhân bạn.}}
+
+\subsection{Time-Weighted Rate of Return (TWR)}
+The time-weighted rate of return measures the compounded rate of growth of an investment portfolio over a specified horizon. To eliminate the distorting effects of external cash flows (which the investment manager typically does not control), the total investment horizon is broken down into subperiods at each cash flow event. The returns for each subperiod are calculated and then geometrically linked:
+\begin{equation}
+	r_{\text{TW}} = \prod_{t=1}^{T} (1 + r_t) - 1
+	\label{eq:twr_m3}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 86
+
+Where:
+\begin{itemize}
+	\item[] $r_{\text{TW}}$ is the time-weighted rate of return.
+	\item[] $T$ is the total number of subperiods.
+	\item[] $r_t$ is the holding period return for subperiod $t$, calculated between two successive cash flow events.
+\end{itemize}
+
+Because TWR measures performance between periods and filters out investor-driven contributions or withdrawals, it is the standard metric used to evaluate the investment skill of public market fund managers.
+
+\subsection{Money-Weighted Rate of Return (MWR)}
+The money-weighted rate of return (or dollar-weighted rate of return) measures the internal rate of return (IRR) of the investment. It accounts for both the size and timing of all cash flows. The MWR is the discount rate that sets the net present value of all cash flows equal to zero:
+\begin{equation}
+	0 = \sum_{t=0}^{T} \frac{\text{CF}_t}{(1 + r_{\text{MW}})^t}
+	\label{eq:mwr_m3}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 87
+
+Where:
+\begin{itemize}
+	\item[] $r_{\text{MW}}$ is the money-weighted rate of return.
+	\item[] $\text{CF}_t$ is the net cash flow at time $t$.
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Lưu ý về quy ước dấu dòng tiền từ góc nhìn của nhà đầu tư:
+	- Số tiền đầu tư ban đầu ($\text{CF}_0$) và các khoản đóng góp thêm vốn sau đó mang dấu âm (--) vì đây là dòng tiền đi ra khỏi ví của nhà đầu tư.
+	- Các khoản cổ tức nhận bằng tiền mặt, các khoản rút vốn hoặc giá trị còn lại của danh mục tại thời điểm cuối kỳ mang dấu dương (+) vì đây là dòng tiền đi vào ví của nhà đầu tư.
+	- Việc tính toán MWR bản chất là đi tìm nghiệm của phương trình bậc cao nên không có công thức đại số trực tiếp, chúng ta sẽ phải sử dụng máy tính tài chính hoặc Excel để giải phương trình này.}}
+
+\subsection{Case Study: The Albright Fund}
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: The Albright Fund},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+The Albright Fund has a beginning asset value of EUR 100 million on 1 January. We evaluate its performance over a year with three 4-month subperiods:
+\begin{itemize}
+	\item \textbf{1 January ($t = 0$):} Initial portfolio value is EUR 100 million.
+	\item \textbf{30 April ($t = 1$):} Fund value before contribution is EUR 115 million. An additional EUR 20 million contribution is received (total value EUR 135 million). Received EUR 2 million in dividends (reinvested) and realized EUR 10 million in capital gains (reinvested).
+	\item \textbf{31 August ($t = 2$):} Received EUR 3 million in dividends (reinvested). Total fund value is EUR 130 million.
+	\item \textbf{31 December ($t = 3$):} Received EUR 3 million in dividends (not reinvested). Ending fund value is EUR 140 million (including the dividend).
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Phân tích dòng tiền của Albright Fund (từ góc độ nhà đầu tư):
+	- Tại $t=0$: Dòng tiền ra $\text{CF}_0 = -100$ triệu EUR.
+	- Tại $t=1$: Tổng dòng tiền ròng là $\text{CF}_1 = -30$ triệu EUR (gồm $-20$ triệu đóng góp thêm và $-10$ triệu tái đầu tư lãi vốn. Tiền cổ tức $2$ triệu nhận và tái đầu tư ngay nên triệt tiêu).
+	- Tại $t=2$: Dòng tiền ròng $\text{CF}_2 = 0$ do cổ tức được tái đầu tư ngay.
+	- Tại $t=3$: Dòng tiền vào $\text{CF}_3 = +140$ triệu EUR (gồm giá trị cuối kỳ 137 triệu và 3 triệu cổ tức rút ra).}}
+
+\begin{examtip}
+	\textbf{Texas Instruments BA II Plus Keystrokes for MWR:}
+	\begin{enumerate}
+		\item Press \textbf{[CF]} $\rightarrow$ \textbf{[2nd]} $\rightarrow$ \textbf{[CLR CF]} to clear worksheet memory.
+		\item Enter $\text{CF}_0 = -100$: Press \textbf{100} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
+		\item Press \textbf{[$\downarrow$]} to display \textbf{C01}.
+		\item Enter $\text{CF}_1 = -30$: Press \textbf{30} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
+		\item Press \textbf{[$\downarrow$]} $\rightarrow$ \textbf{[$\downarrow$]} to display \textbf{C02} (F01 defaults to 1).
+		\item Enter $\text{CF}_2 = 0$: Press \textbf{0} $\rightarrow$ \textbf{[ENTER]}.
+		\item Press \textbf{[$\downarrow$]} $\rightarrow$ \textbf{[$\downarrow$]} to display \textbf{C03} (F02 defaults to 1).
+		\item Enter $\text{CF}_3 = 140$: Press \textbf{140} $\rightarrow$ \textbf{[ENTER]}.
+		\item Press \textbf{[IRR]} then \textbf{[CPT]}.
+	\end{enumerate}
+	Periodic 4-month IRR is $r_{\text{MW, period}} = 2.71\%$.
+	Annualized MWR:
+	\[ r_{\text{MW, annual}} = (1 + 0.027126)^3 - 1 = 8.35\% \]
+\end{examtip}
+
+\textbf{Time-Weighted Rate of Return (TWR) Calculation:}
+\begin{enumerate}
+	\item \textbf{Subperiod 1 (1 Jan to 30 Apr):} $r_1 = \frac{115 - 100}{100} = 15.00\%$
+	\item \textbf{Subperiod 2 (1 May to 31 Aug):} $r_2 = \frac{130 - 135}{135} = -3.70\%$
+	\item \textbf{Subperiod 3 (1 Sep to 31 Dec):} $r_3 = \frac{140 - 130}{130} = 7.69\%$
+\end{enumerate}
+Geometrically linking the returns:
+\[ r_{\text{TW}} = (1 + 0.1500)(1 - 0.0370)(1 + 0.0769) - 1 = 19.26\% \]
+
+\textcolor{blue}{
+	\textit{So sánh: $r_{\text{TW}} = 19.26\%$ và $r_{\text{MW}} = 8.35\%$. MWR thấp hơn nhiều vì quỹ nhận thêm EUR 20 triệu ngay trước khi tỷ suất sinh lời của quỹ bị âm ($-3.70\%$). Lượng vốn lớn này chịu lỗ làm giảm mạnh MWR của cả quỹ, trong khi TWR phản ánh khách quan hiệu quả đầu tư thuần túy mà không bị ảnh hưởng bởi dòng tiền này.}}
+\end{tcolorbox}
+
+\subsection{Summary of Differences}
+Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between the two return methodologies.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of Money-Weighted and Time-Weighted Returns}
+\label{tab:mwr_vs_twr_differences}
+\begin{tabular}{p{0.18\linewidth} p{0.31\linewidth} p{0.31\linewidth}}
+\toprule
+\textbf{Dimension} & \textbf{Money-Weighted Return (MWR)} & \textbf{Time-Weighted Return (TWR)} \\
+\midrule
+\textbf{Core Objective} & Measures the actual growth rate of the investor's funds. & Measures the compound growth rate of the portfolio assets. \\
+\textbf{Cash Flow Sensitivity} & Highly sensitive to the size and timing of external cash flows. & Completely unaffected by external cash flows. \\
+\textbf{Calculation Base} & Internal Rate of Return (IRR) equation. & Geometric linkage of subperiod returns. \\
+\textbf{Performance Bias} & Can misrepresent manager skill if they cannot control cash flow timings. & Provides an objective measure of the manager's investment selection skill. \\
+\textbf{Primary Suitability} & Recommended for private equity (where managers call capital) and individual investors. & Mandated by GIPS for public market mutual funds and active asset managers. \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 94
+
+\section{INDEX DEFINITION AND CALCULATION}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	b & describe the choices and the implications of the different weighting methods used in index construction and management, and calculate, interpret, and explain the value and the returns of an index \\
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{
+	\textit{Chỉ số thị trường (Market Index) là một công cụ cực kỳ quan trọng làm thước đo chuẩn (Benchmark) để so sánh hiệu quả đầu tư, đồng thời làm cơ sở để xây dựng các quỹ đầu tư thụ động (Passive/ETF). Khi thiết kế một chỉ số, hai lựa chọn kỹ thuật quan trọng nhất là: (1) Chỉ số tính theo giá trị tăng trưởng giá thuần (Price Return) hay có tái đầu tư cổ tức (Total Return), và (2) Phương pháp phân bổ tỷ trọng (Weighting Scheme) cho các cổ phiếu thành phần. Hãy cùng phân tích các phương pháp này ở phần dưới đây.}}
+
+\subsection{Price Return vs. Total Return Indexes}
+\begin{itemize}
+	\item \textbf{Price Return Index ($r_{\text{PR}}$):} reflects only the prices of the constituent securities and measures capital appreciation:
+	      \begin{equation}
+		      r_{\text{PR}} = \frac{P_{t+1}}{P_t} - 1
+		      \label{eq:price_return_rate}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 99
+	\item \textbf{Total Return Index ($r_{\text{TR}}$):} reflects both the prices and the reinvestment of all capital distributions (dividends/interest):
+	      \begin{equation}
+		      r_{\text{TR}} = \frac{P_{t+1} + \text{Div}_{t+1}}{P_t} - 1
+		      \label{eq:total_return_rate}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 99
+\end{itemize}
+Over time, the total return index will significantly outperform the price return index due to the compounding effect of reinvested cash distributions.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_7.png}
+	\caption{MSCI World Index Price Return vs. Total Return (1999--2023)}
+	\label{fig:msci_world_price_vs_total}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 100
+
+\subsection{Index Weighting Methodologies}
+The general formula for calculating an index value at time $t$ is:
+\begin{equation}
+	\text{Index Value}_t = \sum_{i=1}^{N} w_{i,t} \times P_{i,t}
+	\label{eq:general_index_value}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 100
+
+Where:
+\begin{itemize}
+	\item[] $w_{i,t}$ is the weight of constituent $i$ at time $t$.
+	\item[] $P_{i,t}$ is the price of constituent $i$ at time $t$.
+\end{itemize}
+
+Let's review the five primary weighting methodologies:
+\begin{enumerate}
+	\item \textbf{Market Capitalization Weighting:} Weights are proportional to the total market capitalization ($Q_i P_i$):
+	      \begin{equation}
+		      w_i^M = \frac{Q_i P_i}{\sum_{j=1}^{N} Q_j P_j}
+		      \label{eq:market_cap_weight}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 101
+	      The index value is often calculated using a divisor ($D_t$) to normalize the value:
+	      \begin{equation}
+		      V_t = \frac{\sum_{i=1}^{N} Q_{i,t} P_{i,t}}{D_t}
+		      \label{eq:divisor_index_value}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 101
+
+	\item \textbf{Float-Adjusted Market Cap Weighting:} Accounts only for shares available to the public ($f_i Q_i$), excluding strategic holdings:
+	      \begin{equation}
+		      w_i^{M,\text{Float}} = \frac{f_i Q_i P_i}{\sum_{j=1}^{N} f_j Q_j P_j}
+		      \label{eq:float_adjusted_weight}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 104
+
+	\item \textbf{Fundamental Weighting:} Weights are based on economic or accounting indicators (e.g., book value, revenues, earnings, or dividends) instead of market prices:
+	      \begin{equation}
+		      w_i^F = \frac{F_i}{\sum_{j=1}^{N} F_j}
+		      \label{eq:fundamental_weight}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 109
+
+	\item \textbf{Price Weighting:} Weights are proportional to the security price per share:
+	      \begin{equation}
+		      w_i^P = \frac{P_i}{\sum_{j=1}^{N} P_j}
+		      \label{eq:price_weight}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 109
+	      The index value is calculated by dividing the sum of constituent prices by a divisor ($D_t$):
+	      \begin{equation}
+		      V_{\text{PRI},t} = \frac{\sum_{i=1}^{N} P_{i,t}}{D_t}
+		      \label{eq:price_weighted_value}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 109
+
+	\item \textbf{Equal Weighting:} Each security is assigned an equal share at the inception/rebalancing date:
+	      \begin{equation}
+		      w_i^E = \frac{1}{N}
+		      \label{eq:equal_weight}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 111
+	      The index value is:
+	      \begin{equation}
+		      V_{\text{EQI},t} = \frac{\sum_{i=1}^{N} n_i P_{i,t}}{D_t}
+		      \label{eq:equal_weighted_value}
+	      \end{equation}
+	      % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 111
+\end{enumerate}
+
+\subsection{Summary of Weighting Methodologies}
+Table \ref{tab:index_weighting_methodologies_summary} compares the characteristics of these methodologies.
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison of Index-Weighting Methodologies}
+\label{tab:index_weighting_methodologies_summary}
+\begin{tabular}{p{0.15\linewidth} p{0.13\linewidth} p{0.18\linewidth} p{0.18\linewidth} p{0.14\linewidth}}
+\toprule
+\textbf{Index Type} & \textbf{Weighting Basis} & \textbf{Examples} & \textbf{Pros} & \textbf{Cons} \\
+\midrule
+\textbf{Market Cap} & Proportional to market capitalization. & S\&P 500, MSCI World, S\&P BSE SENSEX & Reflects relative sizes; low turnover; automatic rebalancing. & Concentrated in top firms; overweights overpriced stocks. \\
+\midrule
+\textbf{Equal Weighted} & Identical weight ($1/N$). & S\&P 500 Equal Weight, MSCI USA Equal Weight & Reduces concentration risk; enhances exposure to smaller firms. & Requires frequent rebalancing; high turnover and transaction costs. \\
+\midrule
+\textbf{Fundamental} & Economic metrics (sales, dividends, book value). & FTSE RAFI US 1000 & Focuses on firm size over market sentiment; value bias. & Sector bias; excludes firms with zero earnings or dividends. \\
+\midrule
+\textbf{Price Weighted} & Share price ($P_i$). & Dow Jones Industrial Average (DJIA), Nikkei 225 & Simple to calculate and interpret. & High price stocks dominate index; stock splits distort weights. \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 102
+
+\textcolor{blue}{
+	\textit{Hãy thảo luận về cơ chế tự điều chỉnh (Self-Rebalancing) của chỉ số Market Capitalization:
+	- Khi giá cổ phiếu thành phần thay đổi, tỷ trọng của nó trong chỉ số tự động điều chỉnh tương ứng với vốn hóa của nó. Vì vậy, nhà đầu tư mô phỏng chỉ số này không cần phải mua bán cổ phiếu để tái cơ cấu tỷ trọng (tỷ lệ luân chuyển danh mục cực thấp).
+	- Tuy nhiên, nhược điểm lớn nhất là chỉ số này bị ảnh hưởng bởi đà tăng giá (momentum bias): cổ phiếu nào tăng giá càng mạnh thì tỷ trọng càng tăng, dẫn đến việc nhà đầu tư thụ động bị ép mua nhiều cổ phiếu được định giá quá cao (bong bóng).}}
+
+\subsection{Index Management: Rebalancing and Reconstitution}
+\begin{itemize}
+	\item \textbf{Periodic Rebalancing:} adjusts the weights of the constituents back to their target levels. This is critical for equal-weighted and fundamentally weighted indexes because price variations cause weights to drift. Equal-weighted indexes require counter-trend trading (selling winners and buying losers), which increases transaction costs and portfolio turnover.
+	\item \textbf{Reconstitution:} the periodic process of adding or removing constituent securities from the index based on eligibility rules. Widely followed indexes often apply a \textit{banding strategy} (e.g., Russell 2000's 5\% band) to reduce unnecessary index turnover at the breakpoints.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_15.png}
+	\caption{MSCI Europe Equal-Weighted vs. MSCI Europe Market Cap-Weighted (1999--2023)}
+	\label{fig:msci_europe_equal_vs_cap}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 115
+
+\subsection{Divisor Adjustment for Stock Splits}
+In a price-weighted index, when a constituent stock splits, its price per share drops mechanically without any change in its actual economic value or the firm's market capitalization. To prevent the index value from dropping artificially, the divisor ($D$) must be adjusted downward:
+\begin{equation}
+	D_{\text{new}} = \frac{\sum P_{\text{new}}}{V_{\text{PRI, before}}}
+	\label{eq:divisor_adjustment}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 118
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Divisor Adjustment for Stock Splits},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Consider a price-weighted index with 5 stocks: A ($50$), B ($40$), C ($30$), D ($25$), E ($5$). Divisor $D_{\text{old}} = 1.5$.
+\begin{itemize}
+	\item \textbf{Before Split:} The index value is:
+	      \[ V_{\text{PRI}} = \frac{50+40+30+25+5}{1.5} = 100 \]
+	\item \textbf{After 2-for-1 Split of A:} Stock A's price drops from 50 to 25. The new price sum is $25+40+30+25+5 = 125$.
+	\item \textbf{Divisor Adjustment:} To keep the index value unchanged at 100:
+	      \[ D_{\text{new}} = \frac{125}{100} = 1.25 \]
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Giải thích thêm: Khi cổ phiếu A chia tách, giá giảm cơ học nên Divisor phải giảm từ 1.5 xuống 1.25 để giữ chỉ số không bị sụt giảm giả tạo. Điều này gián tiếp làm tăng tỷ trọng ảnh hưởng của 4 cổ phiếu còn lại trong chỉ số.}}
+\end{tcolorbox}
