@@ -21,6 +21,16 @@ Chào mừng bạn đến với hướng dẫn hoạt động của Antigravity 
   - Công thức không cần đánh số: Sử dụng `\begin{align*}` hoặc `\[ ... \]`.
   - Luôn viết hoa các hàm toán học tiêu chuẩn và ký hiệu (ví dụ: `\ln`, `\log`, `\text{Total Return}`).
 - **Bảng biểu (Tables):** Sử dụng các package `booktabs` (`\toprule`, `\midrule`, `\bottomrule`) kết hợp với `tabular` có định kích thước cột cố định (ví dụ: `p{0.06\linewidth} | p{0.88\linewidth}`).
+- **Ví dụ (Examples) & Nghiên cứu Tình huống (Case Studies):**
+  - Nội dung cần được biên soạn lại (wording) ngắn gọn, súc tích hơn so với văn bản gốc.
+  - Phải được đóng khung riêng biệt (sử dụng môi trường `tcolorbox` hoặc tương đương có thuộc tính `breakable`) để phân biệt trực quan với phần kiến thức cốt lõi.
+- **Khoảng cách và Khoảng trống (Spacing & Whitespace):**
+  - Tránh lạm dụng các lệnh tạo khoảng cách dọc trống như `\vspace{...}` hoặc `\\[...]` không cần thiết.
+  - Giữ khoảng cách giữa các đoạn văn và công thức ở mức vừa phải, chỉ sử dụng một dòng trống duy nhất để tách biệt đoạn văn.
+  - **Quản lý khoảng trắng lớn (Page stretching)**:
+    - Sử dụng `\raggedbottom` trong preamble để ngăn LaTeX co giãn khoảng cách giữa các đoạn văn/công thức/box khi trang chưa đầy.
+    - Hạn chế lạm dụng thuộc tính cưỡng bức vị trí `[H]` đối với hình ảnh/bảng biểu lớn. Nên ưu tiên các tùy chọn linh hoạt như `[!htbp]` hoặc `[tb]` để LaTeX tự động tối ưu hóa vị trí mà không gây đứt gãy trang đột ngột tạo khoảng trắng lớn.
+    - Không lồng ghép các hộp `tcolorbox` không thể bẻ trang (ví dụ như `examtip` không để `breakable`) sâu bên trong các hộp `tcolorbox` cha khác, vì điều này tạo ra một khối không thể chia tách rất lớn, dễ gây ra lỗi tràn trang hoặc kéo giãn khoảng cách.
 
 ---
 

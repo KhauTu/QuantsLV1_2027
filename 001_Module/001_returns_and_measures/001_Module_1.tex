@@ -108,9 +108,28 @@ With $c$ is the number of compounding periods in a year,
 % Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 17
 
 One major limitation of annualizing returns is the implicit assumption that earned returns can be repeated.
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Compounding and Annualizing Returns},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Consider a bank deposit with a 3-month periodic interest rate of $1.50\%$.
+\begin{itemize}
+	\item \textbf{Compounding periods per year:} $c = 4$.
+	\item \textbf{Annualized return calculation:}
+	      \[ r_{\text{annualized}} = (1 + 0.015)^4 - 1 \approx 6.136\% \]
+\end{itemize}
 
 \textcolor{blue}{
-	\textit{Ví dụ thực tế tại Việt Nam: Nếu một ngân hàng thương mại áp dụng lãi suất kỳ hạn 3 tháng là 1.5\% (tương ứng $r_{\text{period}}$), khi quy đổi ra lãi suất năm có ghép lãi (annualized return), ta tính được: $r_{\text{annualized}} = (1 + 0.015)^4 - 1 \approx 6.136\%$. Con số này lớn hơn mức 6.0\% nếu chỉ nhân đơn thuần kỳ hạn với 4. Điều này phản ánh giá trị thời gian của tiền khi tiền lãi kỳ trước được tái đầu tư để sinh lãi ở kỳ sau.}}
+	\textit{Ví dụ thực tế tại Việt Nam: Con số 6.136\% này lớn hơn mức 6.0\% nếu chỉ nhân đơn thuần kỳ hạn với 4 ($1.5\% \times 4$). Điều này phản ánh lãi suất ghép khi tiền lãi kỳ trước được tái đầu tư để sinh lãi ở kỳ sau.}}
+\end{tcolorbox}
 
 \subsection{Continuous Compounding}
 The more frequently we compound returns, the higher the annual return will be; however, there is a limit.

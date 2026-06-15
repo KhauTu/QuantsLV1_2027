@@ -43,8 +43,17 @@
     title=Exam Tip,
     boxrule=1pt,
     arc=3pt,
+    before skip=6pt,
+    after skip=6pt,
     #1
 }
+
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+
+\raggedbottom
+
 
 %% -------------------------------------------------------------------
 
@@ -106,27 +115,9 @@ Vậy rất mong những ý kiến phản hồi từ các bạn khi sử dụng 
 \input{001_Module/004_regression_and_data_science/010_Module_10.tex} % Applications of Simple Linear Regression in Finance
 \input{001_Module/004_regression_and_data_science/011_Module_11.tex} % Introduction to Financial Data Science
 
-
 \begin{appendix}
-    % \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-    % \input{001_Module/012_Practice.tex} % Quant Practice Level 1
-    % \chapter{Tables and Figures}
     \listoftables
-	\listoffigures
-\end{appendix}put{Module/Module10.tex} % Simple Linear Regression
-% \input{Module/Module11.tex} % Introduction to Big Data Techniques
-
-
-\begin{appendix}
-    % \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-    % \input{Module/Practice.tex} % Quant Practice Level 1
-    % \chapter{Tables and Figures}
-    \listoftables
-	\listoffigures
+    \listoffigures
 \end{appendix}
-
-% \begin{comment}
-% acb
-% \end{comment}
 
 \end{document}

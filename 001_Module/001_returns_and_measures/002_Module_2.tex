@@ -117,8 +117,29 @@ To annualize this period return for a T-bill with $90$ days to maturity using $3
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 63
 
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: T-Bill Period and Annualized Returns},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Consider a 90-day US Treasury Bill with a face value of USD 1,000 purchased at USD 990.
+\begin{itemize}
+	\item \textbf{Period return calculation:}
+	      \[ r_{\text{period}} = \frac{1000 - 990}{990} \approx 1.01\% \]
+	\item \textbf{Annualized return calculation (using 365 days):}
+	      \[ r_{\text{annual}} = (1 + 0.0101)^{\frac{365}{90}} - 1 \approx 4.16\% \]
+\end{itemize}
+
 \textcolor{blue}{
-	\textit{Ví dụ: Một tín phiếu kho bạc Mỹ (T-Bill) thời hạn 90 ngày, mệnh giá $1,000$ USD đang được bán ở mức giá $990$ USD (tức chiết khấu $10$ USD). Suất sinh lời thời kỳ là: $r_{\text{period}} = \frac{1000 - 990}{990} = 1.01\%$. Quy đổi ra suất sinh lời năm có ghép lãi (lấy 365 ngày): $r_{\text{annual}} = (1 + 0.0101)^{365/90} - 1 \approx 4.16\%$. Nếu chỉ tính lãi đơn bằng cách nhân 4 ($1.01\% \times 4 = 4.04\%$), bạn sẽ đánh giá thấp suất sinh lời thực tế nhận được. Hãy chú ý công thức ghép lãi này trong bài thi!}}
+	\textit{Ví dụ thực tế: So sánh giữa lãi suất năm thực tế (4.16\% có ghép lãi) và lãi suất năm đơn thuần không ghép lãi ($1.01\% \times \frac{365}{90} \approx 4.10\%$). Trong bài thi, luôn ưu tiên sử dụng phương pháp ghép lãi lũy thừa này.}}
+\end{tcolorbox}
 
 \begin{itemize}
 	\item \textbf{Foreign Exchange (FX) Rates:} represent the value of one currency expressed in terms of another currency.
@@ -138,8 +159,29 @@ Where:
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 64
 
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Foreign Exchange FX Adjustment on Returns},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A US dollar-based investor purchases a bond denominated in Euros (EUR).
+\begin{itemize}
+	\item \textbf{Foreign asset return:} $r_{\text{foreign}} = -2.91\%$.
+	\item \textbf{FX rate change (EUR to USD):} $r_{\text{FX}} = -6.90\%$ (the Euro depreciated from 1.2216 to 1.1373 USD/EUR).
+	\item \textbf{Home-currency return calculation:}
+	      \[ r_{\text{home}} = (1 - 0.0291)(1 - 0.0690) - 1 = -9.61\% \]
+\end{itemize}
+
 \textcolor{blue}{
-	\textit{Ví dụ: Một nhà đầu tư USD mua trái phiếu bằng EUR. Suất sinh lời bằng EUR là $r_{\text{foreign}} = -2.91\%$. Cùng năm đó, tỷ giá EUR/USD biến động khiến đồng EUR giảm giá so với USD là $-6.90\%$ (tức $r_{\text{FX}} = -6.90\%$, tỷ giá thay đổi từ $1.2216$ USD/EUR xuống $1.1373$ USD/EUR). Suất sinh lời cuối cùng bằng USD của nhà đầu tư này sẽ chịu tác động kép của cả hai khoản lỗ: $r_{\text{home}} = (1 - 0.0291)(1 - 0.0690) - 1 = -9.61\%$. Việc đồng ngoại tệ mất giá đã khuếch đại khoản lỗ của nhà đầu tư khi quy đổi về nội tệ.}}
+	\textit{Ví dụ thực tế: Nhà đầu tư chịu tác động kép từ cả việc trái phiếu giảm giá và đồng EUR mất giá so với USD, điều này khuếch đại khoản lỗ cuối cùng bằng USD từ $-2.91\%$ thành $-9.61\%$.}}
+\end{tcolorbox}
 
 \begin{itemize}
 	\item \textbf{Market Indexes:} reflect the aggregate value of a basket of assets (e.g., S\&P 500, OMX Copenhagen 25 Index) to indicate market trends.
@@ -201,24 +243,10 @@ Based on historical data for selected major US asset classes between 1979 and 20
 Let's review the relative outperformance calculations using geometric average annual returns from the 1979--2023 historical record:
 \begin{itemize}
 	\item Large-cap equity ($12.26\%$) versus corporate debt ($7.43\%$):
-	\begin{equation}
-		\text{Outperformance} = \frac{1 + 0.1226}{1 + 0.0743} - 1 = 4.50\%
-		\label{eq:largecap_vs_corp_debt}
-	\end{equation}
 	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 70
-	
 	\item Small-cap equity ($11.23\%$) versus large-cap equity ($12.26\%$):
-	\begin{equation}
-		\text{Small-Cap Premium} = \frac{1 + 0.1123}{1 + 0.1226} - 1 = -0.92\% \quad (\text{a discount over this specific period})
-		\label{eq:smallcap_premium_m2}
-	\end{equation}
 	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 70
-
 	\item US Treasury bonds ($7.62\%$) versus corporate bonds ($7.43\%$):
-	\begin{equation}
-		\text{Outperformance} = \frac{1 + 0.0762}{1 + 0.0743} - 1 = 0.18\%
-		\label{eq:gov_vs_corp_debt_outperform}
-	\end{equation}
 	% Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 71
 \end{itemize}
 
@@ -246,7 +274,7 @@ Risk represents the uncertainty of investment returns and can be categorized int
 \subsection{The Risk--Return Trade-Off}
 Investors demand a higher expected return (risk premium) to compensate for taking on higher volatility and uncertainty. Exhibit \ref{fig:mod2_exhibit_11} shows that historically, higher average annual returns are generally associated with a wider range of annual returns (higher volatility).
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.85\linewidth]{002_figs/002_Module_2/exhibit_11.png}
 	\caption{Historical Geometric Average Return for Different Assets (1979--2023)}
@@ -307,10 +335,29 @@ C & 50\% & 45\% & 5\% & 8.74\% & 4.59\% & 4.15\% \\
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 75
 
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Detailed Portfolio Return Calculations (Investor A)},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Using the asset allocations and returns from Table \ref{tab:investor_returns_m2} and Table \ref{tab:investor_allocations_m2}:
+\begin{itemize}
+	\item \textbf{Asset allocation for Investor A:} $80\%$ Equities, $10\%$ Long-term Gov Bonds, $10\%$ T-Bills (Cash).
+	\item \textbf{Total portfolio return calculation:}
+	      \[ r_p = 80\%(12.00\%) + 10\%(5.75\%) + 10\%(3.00\%) = 10.48\% \]
+	\item \textbf{Capital appreciation component:}
+	      \[ r_{\text{price}} = 80\%(8.50\%) + 10\%(0.75\%) + 10\%(0.00\%) = 6.88\% \]
+	\item \textbf{Capital distribution component:}
+	      \[ r_{\text{dist}} = 80\%(3.50\%) + 10\%(5.00\%) + 10\%(3.00\%) = 3.60\% \]
+\end{itemize}
+
 \textcolor{blue}{
-	\textit{Ví dụ tính chi tiết cho danh mục Investor A:
-	Với cấu trúc phân bổ 80\% cổ phiếu, 10\% trái phiếu chính phủ dài hạn, và 10\% tín phiếu kho bạc (tiền mặt):
-	- Tỷ suất sinh lời tổng thể: $r_p = 80\% \times 12.00\% + 10\% \times 5.75\% + 10\% \times 3.00\% = 9.60\% + 0.58\% + 0.30\% = 10.48\%$.
-	- Tỷ suất sinh lời từ tăng trưởng giá: $r_{\text{price}} = 80\% \times 8.50\% + 10\% \times 0.75\% + 10\% \times 0.00\% = 6.80\% + 0.08\% + 0.00\% = 6.88\%$.
-	- Tỷ suất sinh lời từ phân phối thu nhập: $r_{\text{dist}} = 80\% \times 3.50\% + 10\% \times 5.00\% + 10\% \times 3.00\% = 2.80\% + 0.50\% + 0.30\% = 3.60\%$.
-	Như vậy, danh mục của Investor A được thiết kế để tối đa hóa phần lãi vốn (Capital Appreciation), trong khi Investor C ưu tiên dòng thu nhập đều đặn (Capital Distribution). Bạn hãy thử bấm máy tính tự giải lại trường hợp của Investor B và C để thành thạo kỹ năng tính toán này nhé!}}
+	\textit{Ví dụ thực tế: Danh mục của Investor A được thiết kế để tối đa hóa phần tăng trưởng giá (Capital Appreciation chiếm $6.88\%$), trong khi Investor C ưu tiên dòng thu nhập phân phối đều đặn (Capital Distribution chiếm $4.15\%$). Hãy thử tự giải cho Investor B và C để thực hành!}}
+\end{tcolorbox}
