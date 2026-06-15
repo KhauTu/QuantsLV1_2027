@@ -9,7 +9,7 @@
 	a & calculate and interpret the present value of fixed-income and equity instruments based on expected future cash flows \\
 	\midrule
 	b & calculate and interpret the implied return of fixed-income instruments and required return and implied growth of equity instruments given their present value and cash flows \\
-		\midrule
+	\midrule
 	c & explain the cash flow additivity principle and its importance for the condition of no arbitrage, and explain its use in calculating implied forward interest rates, forward exchange rates, and option values \\
 	\bottomrule
 \end{tabular}
@@ -35,3 +35,742 @@
 		      \item[] Option Pricing Using Cash Flow Additivity
 	      \end{itemize}
 \end{itemize}
+
+\textcolor{blue}{
+	\textit{Chào các bạn! Giá trị thời gian của tiền (Time Value of Money - TVM) là nguyên lý nền tảng nhất trong tài chính: Một đồng nhận được hôm nay luôn có giá trị hơn một đồng nhận được trong tương lai. Sự chênh lệch này được phản ánh qua tỷ lệ chiết khấu (discount rate) hoặc suất sinh lời yêu cầu (required rate of return) dựa trên mức độ rủi ro và kỳ hạn của dòng tiền. Trong phần này, chúng ta sẽ áp dụng các công thức TVM cơ bản và liên tục để định giá hai lớp công cụ tài chính cốt lõi: công cụ nợ (Fixed-Income) và công cụ vốn (Equity). Hãy cùng bắt đầu!}}
+
+\section{TIME VALUE OF MONEY IN FIXED INCOME AND EQUITY}
+
+The relationship between a current or present value, $PV_0$, and future value, $FV_t$, of a cash flow—where $r$ is the stated discount rate per period and $t$ is the number of compounding periods—is:
+\begin{equation}
+	FV_t = PV_0 (1 + r)^t
+	\label{eq:fv_simple_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 137
+
+If the compounding frequency approaches infinity (continuous compounding), we calculate the future value as follows:
+\begin{equation}
+	FV_t = PV_0 e^{r \times t}
+	\label{eq:fv_continuous_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 138
+
+Conversely, we can solve for the present value of a future cash flow under simple and continuous compounding:
+\begin{equation}
+	PV_0 = FV_t (1 + r)^{-t} = \frac{FV_t}{(1 + r)^t}
+	\label{eq:pv_simple_m4}
+\end{equation}
+\begin{equation}
+	PV_0 = FV_t e^{-r \times t}
+	\label{eq:pv_continuous_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 138
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Annualizing Returns across Different Horizons},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Annualized returns provide a standardized framework for comparing investments with different holding periods:
+\begin{equation}
+	r_{\text{annualized}} = (1 + r_{\text{periodic}})^{\frac{365}{\text{Days}}} - 1
+	\label{eq:annualize_returns_m4}
+\end{equation}
+For three securities in a portfolio held for different durations:
+\begin{itemize}
+	\item \textbf{Security A:} Earned $6.2\%$ over 100 days. Annualized return:
+	      \[ r_{\text{annual}} = (1 + 0.062)^{365/100} - 1 \approx 24.55\% \]
+	\item \textbf{Security B:} Earned $2.0\%$ over four weeks (28 days). Annualized return:
+	      \[ r_{\text{annual}} = (1 + 0.02)^{52/4} - 1 \approx 29.36\% \]
+	\item \textbf{Security C:} Earned $5.0\%$ over three months (90 days). Annualized return:
+	      \[ r_{\text{annual}} = (1 + 0.05)^{365/90} - 1 \approx 21.55\% \]
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Giải thích ý nghĩa: Việc quy đổi lợi nhuận về cùng một năm (annualization) giúp chúng ta so sánh khách quan các khoản đầu tư có kỳ hạn khác nhau. Trong ví dụ này, dù Security B có tỷ suất sinh lời kỳ hạn thấp nhất (2.0\%), nó lại là khoản đầu tư hiệu quả nhất khi được chuẩn hóa theo năm (29.36\%) nhờ thời gian nắm giữ ngắn (4 tuần) và giả định tái đầu tư kép liên tục.}}
+\end{tcolorbox}
+
+\subsection{Fixed-Income Instruments and the Time Value of Money}
+
+Cash flows associated with fixed-income instruments (debt) usually follow one of three general patterns:
+\begin{enumerate}
+	\item \textbf{Discount (Zero-Coupon) Bonds:} Single payment representing both interest and principal repayment at maturity.
+	\item \textbf{Coupon Bonds:} Regular periodic interest coupon payments with the principal repaid at maturity.
+	\item \textbf{Annuities / Fully Amortizing Loans:} Equal periodic payments containing both interest and principal over the life of the instrument.
+\end{enumerate}
+
+\subsubsection{Discount Instruments}
+The cash flow pattern of a discount bond is illustrated in Exhibit \ref{fig:mod4_exhibit_1}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_1.png}
+	\caption{Discount Bond Cash Flows}
+	\label{fig:mod4_exhibit_1}
+\end{figure}
+
+The present value calculation for a discount bond with principal $FV_t$ repaid fully after $t$ periods with a periodic market discount rate of $r$ per period is:
+\begin{equation}
+	PV_{\text{Discount}} = \frac{FV_t}{(1 + r)^t}
+	\label{eq:pv_discount_bond_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 140
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Discount Bonds under Positive and Negative Interest Rates},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{enumerate}
+	\item \textbf{Positive Rates (India STRIPS):} A 20-year stripped government bond with $FV = \text{INR } 100$ and required return $r = 6.70\%$:
+	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.067)^{20}} \approx \text{INR } 27.33 \]
+	      If rates remain unchanged, after three years ($t = 17$ remaining):
+	      \[ PV_3 = \frac{\text{INR } 100}{(1 + 0.067)^{17}} \approx \text{INR } 33.21 \]
+	      If rates immediately rise to $7.70\%$ at $t = 0$:
+	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.077)^{20}} \approx \text{INR } 22.68 \quad (\text{reflects the inverse price-yield relationship}) \]
+	
+	\item \textbf{Negative Rates (German Bund):} A 10-year sovereign bond with $FV = \text{EUR } 100$ issued at a negative yield $r = -0.05\%$:
+	      \[ PV_0 = \frac{\text{EUR } 100}{(1 - 0.0005)^{10}} \approx \text{EUR } 100.50 \]
+\end{enumerate}
+
+\textcolor{blue}{
+	\textit{Giải thích thêm: Khi lãi suất dương, giá của trái phiếu chiết khấu tăng dần (accretes) về mệnh giá theo thời gian. Ngược lại, khi lãi suất âm, nhà đầu tư sẵn sàng trả phí (trái phiếu phát hành ở mức thặng dư - premium) để giữ vốn an toàn, khiến giá trái phiếu giảm dần (amortizes) về mệnh giá tại ngày đáo hạn.}}
+\end{tcolorbox}
+
+\subsubsection{Coupon Instruments}
+The cash flow pattern of a coupon bond is illustrated in Exhibit \ref{fig:mod4_exhibit_2}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_2.png}
+	\caption{Coupon Bond Cash Flows}
+	\label{fig:mod4_exhibit_2}
+\end{figure}
+
+The price of a coupon bond is the sum of the present values of all periodic coupon payments and the present value of the final principal repayment:
+\begin{equation}
+	PV_{\text{Coupon}} = \sum_{t=1}^{T} \frac{PMT}{(1 + r)^t} + \frac{FV}{(1 + r)^T}
+	\label{eq:pv_coupon_bond_base_m4}
+\end{equation}
+Using the sum of a geometric series, this simplifies to:
+\begin{equation}
+	PV_{\text{Coupon}} = \frac{PMT}{r} \left[ 1 - \frac{1}{(1 + r)^T} \right] + \frac{FV}{(1 + r)^T}
+	\label{eq:pv_coupon_bond_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 143
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Coupon Pricing and Compounding Frequencies},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{enumerate}
+	\item \textbf{Annual Coupons (Greece):} A 7-year bond with a $2\%$ annual coupon ($FV = \text{EUR } 100$) and $r = 2.00\%$ yield:
+	      \[ PV = \frac{\text{EUR } 2}{0.02} \left[ 1 - \frac{1}{(1.02)^7} \right] + \frac{\text{EUR } 100}{(1.02)^7} = \text{EUR } 100 \quad (\text{Par Bond}) \]
+	      \begin{itemize}
+		      \item Coupon Rate = Yield $\implies PV = FV$ (Par Bond)
+		      \item Coupon Rate > Yield $\implies PV > FV$ (Premium Bond)
+		      \item Coupon Rate < Yield $\implies PV < FV$ (Discount Bond)
+	      \end{itemize}
+	\item \textbf{Semiannual Coupons (India):} A 20-year bond with a $6.70\%$ coupon ($FV = \text{INR } 100$) paid semiannually. Periodic coupon $PMT = \text{INR } 3.35$, periodic discount rate $r = 3.35\%$, total periods $T = 40$:
+	      \[ PV = \frac{3.35}{0.0335} \left[ 1 - \frac{1}{1.0335^{40}} \right] + \frac{100}{1.0335^{40}} = \text{INR } 100 \]
+	      If the yield-to-maturity immediately rises to $7.70\%$ (periodic rate $r = 3.85\%$):
+	      \[ PV = \frac{3.35}{0.0385} \left[ 1 - \frac{1}{1.0385^{40}} \right] + \frac{100}{1.0385^{40}} \approx \text{INR } 89.88 \]
+\end{enumerate}
+
+\textcolor{blue}{
+	\textit{Chú ý: Khi định giá trái phiếu, tần suất ghép lãi rất quan trọng. So sánh một khoản thanh toán đơn lẻ INR 100 ở năm thứ 20: ghép lãi năm cho ra giá trị hiện tại là INR 27.33, trong khi ghép lãi nửa năm (40 kỳ) cho ra INR 26.77. Việc ghép lãi thường xuyên hơn làm giảm giá trị hiện tại của dòng tiền nhận được ở tương lai.}}
+\end{tcolorbox}
+
+\subsubsection{Floating-Rate and Perpetual Bonds}
+\begin{itemize}
+	\item \textbf{Floating-Rate Bonds:} Adjust their coupon payments periodically based on a reference rate (e.g., NIBOR, SOFR) plus a fixed credit margin.
+	\item \textbf{Perpetual Bonds:} Have no stated maturity date ($T \to \infty$), paying coupons indefinitely. The valuation simplifies to:
+	      \begin{equation}
+		      PV_{\text{Perpetual}} = \frac{PMT}{r}
+		      \label{eq:pv_perpetual_bond_m4}
+	      \end{equation}
+\end{itemize}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 146--147
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Examples: Floating-Rate and Perpetual Valuations},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{itemize}
+	\item \textbf{Floating-Rate (Sogn og Fjordane Energi A/S):} Norwegian hydropower green bond with quarterly coupon. Coupon Rate = 3-month NIBOR + 73 bps margin. If NIBOR is $4.52\%$, the quarterly periodic rate is:
+	      \[ r_{\text{periodic}} = \frac{4.52\% + 0.73\%}{4} = 1.3125\% \]
+	      The periodic coupon payment for a $\text{NOK } 1 \text{ million}$ face value is:
+	      \[ PMT = \text{NOK } 1,000,000 \times 1.3125\% = \text{NOK } 13,125 \]
+	\item \textbf{Perpetual Bond (KB Financial):} Perpetual debt with a $3.30\%$ coupon paid quarterly ($0.825\%$ periodic coupon). If the required return is $3.40\%$ quarterly compounded (periodic rate $0.85\%$):
+	      \[ PV = \frac{\text{KRW } 8.25}{0.0085} \approx \text{KRW } 970.59 \quad (\text{per KRW 1,000 face value}) \]
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection{Annuities and Fully Amortizing Loans}
+The cash flow pattern for fully amortizing loans (mortgages) is illustrated in Exhibit \ref{fig:mod4_exhibit_3}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_3.png}
+	\caption{Mortgage Cash Flows}
+	\label{fig:mod4_exhibit_3}
+\end{figure}
+
+For level-payment instruments (like mortgages), the periodic level cash flow, $PMT$, containing both interest and principal repayment is:
+\begin{equation}
+	PMT = \frac{r \times PV_0}{1 - (1 + r)^{-t}}
+	\label{eq:pmt_annuity_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 148
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Mortgage Cash Flow Amortization},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A 30-year residential mortgage is used to finance $80\%$ of a $\text{USD } 1,000,000$ building. Loan amount $PV_0 = \text{USD } 800,000$. Mortgage rate is $5.25\%$ annual monthly compounded ($r = 0.4375\%$ per month, $t = 360$):
+\[ PMT = \frac{0.004375 \times \text{USD } 800,000}{1 - (1.004375)^{-360}} \approx \text{USD } 4,417.63 \text{ per month} \]
+The amortization breakdown for the first two months is:
+\begin{itemize}
+	\item \textbf{Month 1:}
+	      \begin{itemize}
+		      \item Interest payment: $\text{USD } 800,000 \times 0.4375\% = \text{USD } 3,500.00$
+		      \item Principal repayment: $\text{USD } 4,417.63 - \text{USD } 3,500.00 = \text{USD } 917.63$
+		      \item Remaining balance: $\text{USD } 800,000 - \text{USD } 917.63 = \text{USD } 799,082.37$
+	      \end{itemize}
+	\item \textbf{Month 2:}
+	      \begin{itemize}
+		      \item Interest payment: $\text{USD } 799,082.37 \times 0.4375\% = \text{USD } 3,495.99$
+		      \item Principal repayment: $\text{USD } 4,417.63 - \text{USD } 3,495.99 = \text{USD } 921.64$
+		      \item Remaining balance: $\text{USD } 799,082.37 - \text{USD } 921.64 = \text{USD } 798,160.73$
+	      \end{itemize}
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Giải thích bản chất: Mặc dù tổng số tiền thanh toán hàng tháng cố định ở mức USD 4,417.63, cấu phần của nó thay đổi liên tục. Phần trả lãi giảm dần do dư nợ gốc giảm đi, trong khi phần trả nợ gốc tăng dần. Đây là đặc trưng tiêu biểu của dư nợ giảm dần.}}
+\end{tcolorbox}
+
+\section{EQUITY INSTRUMENTS AND THE TIME VALUE OF MONEY}
+
+Equity shares have no maturity date and are assumed to remain outstanding indefinitely. Share valuation is based on discounting expected discretionary cash dividends.
+
+\subsection{Constant Dividends}
+The cash flow pattern for equity paying constant dividends is illustrated in Exhibit \ref{fig:mod4_exhibit_5}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_5.png}
+	\caption{Equity Cash Flows with Constant Dividends}
+	\label{fig:mod4_exhibit_5}
+\end{figure}
+
+The valuation of equity paying constant dividends in perpetuity simplifies to:
+\begin{equation}
+	PV_t = \sum_{i=1}^{\infty} \frac{Div_{t+1}}{(1 + r)^i} = \frac{Div_{t+1}}{r}
+	\label{eq:pv_preferred_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 152
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Shipline PLC Constant Dividend Valuation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Shipline PLC pays a constant annual dividend of $\text{GBP } 1.50$ indefinitely. With a required return $r = 15\%$:
+\[ PV_0 = \frac{\text{GBP } 1.50}{0.15} = \text{GBP } 10.00 \]
+\end{tcolorbox}
+
+\subsection{Constant Dividend Growth (Gordon Growth Model)}
+The cash flow pattern for equity paying constant growth dividends is illustrated in Exhibit \ref{fig:mod4_exhibit_6}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_6.png}
+	\caption{Equity Cash Flows with Constant Dividend Growth}
+	\label{fig:mod4_exhibit_6}
+\end{figure}
+
+If dividends grow at a constant rate $g$ in perpetuity:
+\begin{equation}
+	PV_t = \frac{Div_t (1 + g)}{r - g} = \frac{Div_{t+1}}{r - g}
+	\label{eq:gordon_growth_m4}
+\end{equation}
+where $r - g > 0$.
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 153
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Shipline PLC Constant Growth Valuation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+If Shipline PLC’s dividend grows at a constant $g = 6\%$ indefinitely, next year's dividend is:
+\[ Div_1 = \text{GBP } 1.50 \times (1 + 0.06) = \text{GBP } 1.59 \]
+The expected stock price is:
+\[ PV_0 = \frac{\text{GBP } 1.59}{0.15 - 0.06} \approx \text{GBP } 17.67 \]
+
+\textcolor{blue}{
+	\textit{Lưu ý về mức độ nhạy cảm: Chênh lệch $r - g$ ở mẫu số cực kỳ quan trọng. Khi chênh lệch này nhỏ (hệ số tăng trưởng sát với tỷ suất sinh lời yêu cầu), giá cổ phiếu sẽ cực kỳ nhạy cảm với bất kỳ thay đổi nhỏ nào của $r$ hoặc $g$.}}
+\end{tcolorbox}
+
+\subsection{Two-Stage Dividend Growth Model}
+The cash flow pattern of a two-stage dividend growth model is illustrated in Exhibit \ref{fig:mod4_exhibit_7}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_7.png}
+	\caption{Equity Cash Flows with Two-Stage Dividend Growth}
+	\label{fig:mod4_exhibit_7}
+\end{figure}
+
+For companies experiencing a rapid initial growth phase ($g_s$) for $n$ periods, followed by a stable long-term growth rate ($g_l$):
+\begin{equation}
+	PV_0 = \sum_{i=1}^{n} \frac{Div_0 (1 + g_s)^i}{(1 + r)^i} + \frac{E[S_n]}{(1 + r)^n}
+	\label{eq:two_stage_growth_base_m4}
+\end{equation}
+Where the expected terminal value at the end of the high-growth phase $E[S_n]$ is:
+\begin{equation}
+	E[S_n] = \frac{Div_{n+1}}{r - g_l}
+	\label{eq:terminal_value_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 154
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Shipline PLC Two-Stage Dividend Growth Valuation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Assume Shipline grows its dividend by $g_s = 6\%$ for three years, followed by $g_l = 2\%$ constant growth. $r = 15\%$, $Div_0 = \text{GBP } 1.50$:
+\begin{itemize}
+	\item \textbf{Step 1: PV of high-growth dividends (first 3 years):}
+	      \[ Div_1 = 1.5900 \implies PV(Div_1) = \frac{1.5900}{1.15} \approx 1.3826 \]
+	      \[ Div_2 = 1.6854 \implies PV(Div_2) = \frac{1.6854}{1.15^2} \approx 1.2744 \]
+	      \[ Div_3 = 1.7865 \implies PV(Div_3) = \frac{1.7865}{1.15^3} \approx 1.1747 \]
+	      \[ \text{Sum of PV of high-growth phase} \approx 3.8317 \]
+	\item \textbf{Step 2: PV of terminal value at Year 3:}
+	      \[ Div_4 = Div_3 \times (1 + g_l) = 1.7865 \times 1.02 \approx \text{GBP } 1.8222 \]
+	      \[ Terminal\ Value\ E[S_3] = \frac{1.8222}{0.15 - 0.02} \approx \text{GBP } 14.0169 \]
+	      \[ PV\ of\ E[S_3] = \frac{14.0169}{1.15^3} \approx \text{GBP } 9.2163 \]
+	\item \textbf{Step 3: Total price:}
+	      \[ PV_0 = 3.8317 + 9.2163 = \text{GBP } 13.0480 \approx \text{GBP } 13.05 \]
+\end{itemize}
+\end{tcolorbox}
+
+\section{IMPLIED RETURN AND GROWTH}
+
+When market prices and expected cash flows are observed, analysts can calculate the implied rate of return and the implied growth rate to assess valuation.
+
+\subsection{Implied Return for Fixed-Income Instruments}
+The price-yield relationship of a discount bond and its implied return are illustrated in Exhibit \ref{fig:mod4_exhibit_8}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_8.png}
+	\caption{Discount Bond Implied Return}
+	\label{fig:mod4_exhibit_8}
+\end{figure}
+
+For discount bonds, the implied return is:
+\begin{equation}
+	r = \left( \frac{FV_t}{PV_0} \right)^{\frac{1}{t}} - 1
+	\label{eq:implied_return_discount_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 150
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Studies: Implied returns for zero-coupon and coupon bonds},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{enumerate}
+	\item \textbf{Zero-Coupon (German sovereign bond):} 10-year discount bond issued at $\text{EUR } 100.50$ per $\text{EUR } 100$ principal ($r = -0.05\%$). Six years later, it trades at $\text{EUR } 95.72$.
+	      \begin{itemize}
+		      \item Annualized holding return for initial buyer (6 years):
+		            \[ r_{\text{hold}} = \left( \frac{95.72}{100.50} \right)^{1/6} - 1 \approx -0.81\% \]
+		      \item Expected annualized return for buyer at Year 6 (4 years remaining):
+		            \[ r_{\text{buy}} = \left( \frac{100}{95.72} \right)^{1/4} - 1 \approx 1.10\% \]
+	      \end{itemize}
+	\item \textbf{Coupon-Paying (Greece 2\% annual bond):} Issued at par ($\text{EUR } 100$, YTM $2\%$). Two years later, price drops to $\text{EUR } 93.091$.
+	      \begin{itemize}
+		      \item Implied YTM for remaining 5 years: Solved iteratively using RATE function:
+		            \[ \text{Rate}(5, 2, -93.091, 100) \approx 3.5320\% \]
+		      \item Two-year holding return if coupons are reinvested at $2.00\%$:
+		            \[ FV_2 = 2(1.02) + 2 + 93.091 = \text{EUR } 97.13 \implies r_{\text{hold}} = \left( \frac{97.13}{100} \right)^{1/2} - 1 \approx -1.445\% \]
+	      \end{itemize}
+\end{enumerate}
+
+\textcolor{blue}{
+	\textit{Nhận xét: Trong ví dụ trái phiếu Hy Lạp, khoản lỗ vốn (capital loss) từ EUR 100 xuống EUR 93.091 lớn hơn số tiền lãi cộng dồn nhận được (EUR 4.04), dẫn đến suất sinh lời thực tế của nhà đầu tư bị âm trong 2 năm đầu, bất chấp việc trái phiếu có chi trả coupon dương.}}
+\end{tcolorbox}
+
+The relationship between a coupon bond's price and its implied return (YTM) is illustrated in Exhibit \ref{fig:mod4_exhibit_10}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_10.png}
+	\caption{Coupon Bond Implied Return}
+	\label{fig:mod4_exhibit_10}
+\end{figure}
+
+\subsection{Equity Implied Return, Implied Growth, and Forward P/E Ratios}
+
+Rearranging the Gordon growth model, we can solve for implied return ($r$) and implied growth rate ($g$):
+\begin{equation}
+	r = \frac{Div_{t+1}}{PV_0} + g
+	\label{eq:implied_return_equity_m4}
+\end{equation}
+\begin{equation}
+	g = r - \frac{Div_{t+1}}{PV_0}
+	\label{eq:implied_growth_equity_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 166
+
+By dividing the valuation formula by expected earnings per share ($E_{t+1}$), we obtain the forward Price-to-Earnings (P/E) ratio:
+\begin{equation}
+	\frac{PV_t}{E_{t+1}} = \frac{Div_{t+1} / E_{t+1}}{r - g}
+	\label{eq:forward_pe_m4}
+\end{equation}
+where $Div_{t+1}/E_{t+1}$ represents the expected dividend payout ratio.
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 168
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Studies: Stock and index implied return and growth calculations},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{enumerate}
+	\item \textbf{Coca-Cola Stock:} Trades at $\text{USD } 63.00$, next year expected dividend is $\text{USD } 1.76$.
+	      \begin{itemize}
+		      \item If $g = 4.00\%$ constant growth:
+		            \[ r_{\text{implied}} = \frac{1.76}{63.00} + 0.04 \approx 6.79\% \]
+		      \item If required return $r = 7.00\%$:
+		            \[ g_{\text{implied}} = 0.07 - \frac{1.76}{63.00} \approx 4.21\% \]
+	      \end{itemize}
+	\item \textbf{Coca-Cola Forward P/E:} Forward P/E is 28, payout ratio is $70\%$.
+	      \begin{itemize}
+		      \item If required return $r = 9.00\%$ and growth $g = 4.50\%$:
+		            \[ \text{Valuation P/E} = \frac{0.70}{0.09 - 0.045} \approx 15.56 \]
+		            Since the market P/E ($28$) is much higher than the fundamental valuation ($15.56$), the stock is \textbf{overvalued} (recommend short position).
+	      \end{itemize}
+	\item \textbf{Indian NIFTY 50 Index:} Forward P/E is 15, expected payout ratio is $50\%$, required return $r = 7.50\%$, expected growth $g = 4.50\%$:
+	      \[ \text{Valuation P/E} = \frac{0.50}{0.075 - 0.045} \approx 16.67 \]
+	      Since the market P/E ($15$) is lower than the valuation ($16.67$), the index is \textbf{undervalued} (recommend long position).
+\end{enumerate}
+\end{tcolorbox}
+
+\section{CASH FLOW ADDITIVITY}
+
+The cash flow additivity principle states that the present value of any sum of future cash flows equals the sum of their individual present values. This principle is vital in maintaining the no-arbitrage condition (meaning it is impossible to make a riskless profit).
+
+The comparison between two investment strategies under this principle is illustrated in Exhibit \ref{fig:mod4_exhibit_13}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_13.png}
+	\caption{Two Investment Strategies}
+	\label{fig:mod4_exhibit_13}
+\end{figure}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Basic Cash Flow Additivity},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Consider two strategies with an initial investment of $\text{GBP } 100$ and $r=10\%$:
+\begin{itemize}
+	\item \textbf{Strategy 1:} Cash flows are $-100, +45, +45, +45$.
+	      \[ PV_1 = -100 + \frac{45}{1.1} + \frac{45}{1.1^2} + \frac{45}{1.1^3} \approx \text{GBP } 11.91 \]
+	\item \textbf{Strategy 2:} Cash flows are $-100, +60, +40, +32.35$.
+	      \[ PV_2 = -100 + \frac{60}{1.1} + \frac{40}{1.1^2} + \frac{32.35}{1.1^3} \approx \text{GBP } 11.91 \]
+	\item \textbf{Incremental Cash Flow Diff:} Strategy 1 -- Strategy 2 cash flows: $0, -15, +5, +12.65$.
+	      \[ PV_{\text{Diff}} = -\frac{15}{1.1} + \frac{5}{1.1^2} + \frac{12.65}{1.1^3} \approx 0 \]
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Nhận xét: Kế toán cộng dồn dòng tiền (additivity) chỉ ra rằng hai danh mục đầu tư tạo ra các dòng tiền có giá trị hiện tại tương đương nhau thì phải giao dịch ở cùng một mức giá để loại bỏ cơ hội đầu cơ trục lợi.}}
+\end{tcolorbox}
+
+\subsection{Implied Forward Interest Rates Using Cash Flow Additivity}
+The relationship between spot rates and implied forward rates is illustrated in Exhibit \ref{fig:mod4_exhibit_15}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_15.png}
+	\caption{Implied Forward Rates}
+	\label{fig:mod4_exhibit_15}
+\end{figure}
+
+Under the no-arbitrage condition, investing for $k$ periods must yield the same return as investing for $j$ periods ($j < k$) and then reinvesting for the remaining $k-j$ periods at the forward rate:
+\begin{equation}
+	(1 + S_k)^k = (1 + S_j)^j (1 + F_{j, k-j})^{k-j}
+	\label{eq:forward_rate_spot_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 175
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Implied US Treasury forward rate calculations (STRIPS)},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+US Treasury STRIPS prices per $\text{USD } 100$ and implied spot rates:
+\begin{center}
+\begin{tabular}{ccccc}
+	\toprule
+	\textbf{Date} & \textbf{PV 1y} & \textbf{PV 2y} & \textbf{Spot } $S_1$ & \textbf{Spot } $S_2$ \\
+	\midrule
+	31 May 2022 & 98.028 & 95.109 & $2.012\%$ & $2.539\%$ \\
+	15 Jun 2022 & 97.402 & 93.937 & $2.667\%$ & $3.177\%$ \\
+	\bottomrule
+\end{tabular}
+\end{center}
+Using $(1 + S_2)^2 = (1 + S_1)(1 + F_{1,1})$:
+\begin{itemize}
+	\item \textbf{May 31 Forward Rate:}
+	      \[ F_{1,1} = \frac{(1 + 0.02539)^2}{1 + 0.02012} - 1 \approx 3.069\% \]
+	\item \textbf{June 15 Forward Rate:}
+	      \[ F_{1,1} = \frac{(1 + 0.03177)^2}{1 + 0.02667} - 1 \approx 3.689\% \]
+	\item \textbf{Forward Rate Change:} $3.689\% - 3.069\% = 62 \text{ bps}$.
+\end{itemize}
+\end{tcolorbox}
+
+The differences between spot and forward curves under rising rates are illustrated in Exhibit \ref{fig:mod4_exhibit_16}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_16.png}
+	\caption{Forward Rate Differences}
+	\label{fig:mod4_exhibit_16}
+\end{figure}
+
+\subsection{Forward Exchange Rates Using No Arbitrage}
+The no-arbitrage condition and the replication paths in the FX market are illustrated in Exhibit \ref{fig:mod4_exhibit_17}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_17.png}
+	\caption{No-Arbitrage Condition in the Foreign Exchange Market}
+	\label{fig:mod4_exhibit_17}
+\end{figure}
+
+The forward exchange rate $F$ (expressed as price/base) under continuous compounding interest rate parity is:
+\begin{equation}
+	F = S \times e^{(r_{\text{price}} - r_{\text{base}})T}
+	\label{eq:fx_forward_continuous_m4}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 177
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Studies: Foreign Exchange forward rate calculations},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+\begin{enumerate}
+	\item \textbf{US/Japan (USD to JPY, 6 months):} Spot JPY/USD = 134.40. $r_{\text{JPY}} = 0.05\%$, $r_{\text{USD}} = 2.00\%$ (continuously compounded):
+	      \begin{itemize}
+		      \item Strategy 1 (Domestic USD): $\text{USD } 1,000 \times e^{0.02 \times 0.5} = \text{USD } 1,010.05$
+		      \item Strategy 2 (Convert JPY): $\text{USD } 1,000 \to \text{JPY } 134,400$. Grows to $\text{JPY } 134,400 \times e^{0.0005 \times 0.5} \approx \text{JPY } 134,433.60$.
+		      \item Forward rate required:
+		            \[ F = \frac{\text{JPY } 134,433.60}{\text{USD } 1,010.05} \approx 133.096 \text{ JPY/USD} \]
+	      \end{itemize}
+	\item \textbf{GBP/USD (Interest rate differential shift):} Spot GBP/USD = 1.2602 (USD per GBP):
+	      \begin{itemize}
+		      \item \textbf{May 31:} $r_{\text{USD}} = 2.012\%$, $r_{\text{GBP}} = 1.291\% \implies F = 1.2602 \times e^{0.02012 - 0.01291} \approx 1.2693$
+		      \item \textbf{June 15:} $r_{\text{USD}} = 2.667\%$, $r_{\text{GBP}} = 1.562\% \implies F = 1.2602 \times e^{0.02667 - 0.01562} \approx 1.2742$
+	      \end{itemize}
+\end{enumerate}
+
+\textcolor{blue}{
+	\textit{Giải thích thêm: Khi lãi suất của Mỹ ($r_{\text{USD}}$) tăng mạnh hơn Anh ($r_{\text{GBP}}$), chênh lệnh lãi suất nới rộng khiến đồng USD mất giá trên thị trường kỳ hạn (forward depreciation) so với GBP, thể hiện qua tỷ giá kỳ hạn tăng từ 1.2693 lên 1.2742.}}
+\end{tcolorbox}
+
+\subsection{Option Pricing Using Cash Flow Additivity}
+The binomial tree model for the underlying asset's price is illustrated in Exhibit \ref{fig:mod4_exhibit_18}, and the contract value under the two scenarios is shown in Exhibit \ref{fig:mod4_exhibit_19}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_18.png}
+	\caption{One-Period Binomial Tree for the Asset's Price}
+	\label{fig:mod4_exhibit_18}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_19.png}
+	\caption{One-Period Binomial Tree for the Contract's Price}
+	\label{fig:mod4_exhibit_19}
+\end{figure}
+
+We can calculate the no-arbitrage price of derivative options using a replicating portfolio consisting of a position in the underlying asset ($\Delta$ shares) and risk-free lending/borrowing.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Call and Put Option replication pricing},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Stock price $S_0 = 40$. In one year, it can go up to $S_1^u = 56$ or down to $S_1^d = 32$. Risk-free rate is $5\%$. Option strike price $X = 50$.
+
+\begin{enumerate}
+	\item \textbf{Call Option ($c_1^u = 6$, $c_1^d = 0$):} Replicate with $\Delta$ stock and short 1 call option.
+	      \[ \text{Hedge Ratio } \Delta = \frac{c_1^u - c_1^d}{S_1^u - S_1^d} = \frac{6 - 0}{56 - 32} = 0.25 \]
+	      \begin{itemize}
+		      \item Portfolio Value in up state: $0.25 \times 56 - 6 = 8$
+		      \item Portfolio Value in down state: $0.25 \times 32 - 0 = 8$
+	      \end{itemize}
+	      Since the portfolio is risk-free, its initial value must equal the discounted payoff of 8:
+	      \[ 0.25(40) - c_0 = \frac{8}{1.05} \approx 7.62 \implies c_0 = 10 - 7.62 = \text{CNY } 2.38 \]
+	\item \textbf{Put Option ($p_1^u = 0$, $p_1^d = 18$):} Replicate with $\Delta$ stock and long 1 put option.
+	      \[ \text{Hedge Ratio } \Delta = \frac{p_1^d - p_1^u}{S_1^u - S_1^d} = \frac{18 - 0}{56 - 32} = 0.75 \]
+	      \begin{itemize}
+		      \item Portfolio Value in up state: $0.75 \times 56 + 0 = 42$
+		      \item Portfolio Value in down state: $0.75 \times 32 + 18 = 42$
+	      \end{itemize}
+	      Setting initial value equal to discounted payoff of 42:
+	      \[ 0.75(40) + p_0 = \frac{42}{1.05} = 40 \implies p_0 = 40 - 30 = \text{CNY } 10 \]
+\end{enumerate}
+\end{tcolorbox}
+
+The replication payoffs for the call option under the up and down scenarios are shown in Exhibit \ref{fig:mod4_exhibit_20}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_20.png}
+	\caption{Call Option Replication}
+	\label{fig:mod4_exhibit_20}
+\end{figure}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Real Option Pricing in Project Valuation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A desalination project in Malaysia (MYR 10.5 million initial investment) has a lifetime of 20 years. In Year 10, the manager has the option to invest an additional $\text{MYR } 0.5 \text{ million}$ to lock in costs.
+
+\begin{itemize}
+	\item \textbf{Project value with option exercised:} $\text{MYR } 1.03 \text{ million}$ (Case 1)
+	\item \textbf{Project value without option exercised:} $-\text{MYR } 2.12 \text{ million}$ (Case 2)
+	\item \textbf{Gross value of the option (at Year 10):}
+	      \[ \text{MYR } 1.03 \text{ million} - (-\text{MYR } 2.12 \text{ million}) = \text{MYR } 3.15 \text{ million} \]
+	\item \textbf{PV of option cost (discounted 10 years at 6\%):}
+	      \[ PV(\text{Cost}) = \frac{\text{MYR } 0.5 \text{ million}}{1.06^{10}} \approx \text{MYR } 0.28 \text{ million} \]
+	\item \textbf{Net Value of Real Option:}
+	      \[ \text{MYR } 3.15 \text{ million} - \text{MYR } 0.28 \text{ million} = \text{MYR } 2.87 \text{ million} \]
+\end{itemize}
+
+\textcolor{blue}{
+	\textit{Giải thích ý nghĩa: Quyền chọn thực tế (Real Option) mang lại cho người quản lý sự linh hoạt trong việc đưa ra quyết định đầu tư (ở đây là nâng cấp hệ thống). Bằng cách thực hiện quyền chọn này ở năm thứ 10, giá trị ròng của dự án tăng thêm MYR 2.87 triệu so với việc không có quyền chọn.}}
+\end{tcolorbox}
+
+The outcomes and decision tree of the desalination project with and without the real option are illustrated in Exhibit \ref{fig:mod4_exhibit_22}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_22.png}
+	\caption{Project Outcomes}
+	\label{fig:mod4_exhibit_22}
+\end{figure}
