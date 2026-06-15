@@ -43,9 +43,22 @@ Dưới đây là danh sách toàn bộ hình ảnh minh họa hiện có trong 
 
 | Tên tệp tin hình ảnh | Mô tả nội dung đồ thị | Module chèn | Vị trí đề xuất chèn trong mã nguồn |
 | :--- | :--- | :--- | :--- |
-| `002_figs/004_Module_4/4.1-BankCorp Forecasted EPS.png` | Sơ đồ cây xác suất dự báo EPS BankCorp | **Module 4** | Phần ví dụ xác suất có điều kiện |
-| `002_figs/004_Module_4/4.2-Bayes formula.png` | Sơ đồ cây áp dụng công thức Bayes | **Module 4** | Phần công thức Bayes |
-| `002_figs/004_Module_4/4.3-Tree Map.png` | Tổng quan sơ đồ cây xác suất đầy đủ | **Module 4** | Phần giới thiệu sơ đồ cây (Probability Trees) |
+| `002_figs/004_Module_4/exhibit_1.png` | Sơ đồ dòng tiền Trái phiếu chiết khấu | **Module 4** | Mục *Discount Instruments* |
+| `002_figs/004_Module_4/exhibit_2.png` | Sơ đồ dòng tiền Trái phiếu trả lãi định kỳ | **Module 4** | Mục *Coupon Instruments* |
+| `002_figs/004_Module_4/exhibit_3.png` | Sơ đồ dòng tiền Khoản vay trả góp (Mortgage) | **Module 4** | Mục *Annuities and Fully Amortizing Loans* |
+| `002_figs/004_Module_4/exhibit_5.png` | Sơ đồ dòng tiền Cổ tức cố định | **Module 4** | Mục *Constant Dividends* |
+| `002_figs/004_Module_4/exhibit_6.png` | Sơ đồ dòng tiền Cổ tức tăng trưởng đều | **Module 4** | Mục *Constant Dividend Growth (Gordon Growth Model)* |
+| `002_figs/004_Module_4/exhibit_7.png` | Sơ đồ dòng tiền Cổ tức tăng trưởng hai giai đoạn | **Module 4** | Mục *Two-Stage Dividend Growth Model* |
+| `002_figs/004_Module_4/exhibit_8.png` | Đồ thị Suất sinh lời ngầm định Trái phiếu chiết khấu | **Module 4** | Mục *Implied Return for Fixed-Income Instruments* |
+| `002_figs/004_Module_4/exhibit_10.png` | Đồ thị Suất sinh lời ngầm định Trái phiếu trả lãi định kỳ | **Module 4** | Mục *Implied Return for Fixed-Income Instruments* (sau Ví dụ Hy Lạp) |
+| `002_figs/004_Module_4/exhibit_13.png` | So sánh dòng tiền của hai chiến lược đầu tư | **Module 4** | Mục giới thiệu *Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_15.png` | Sơ đồ biểu diễn Lãi suất kỳ hạn ngầm định | **Module 4** | Mục *Implied Forward Interest Rates Using Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_16.png` | So sánh sự khác biệt của Lãi suất kỳ hạn khi lãi suất tăng | **Module 4** | Mục *Implied Forward Interest Rates Using Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_17.png` | Sơ đồ điều kiện Không cơ hội đầu cơ trên thị trường FX | **Module 4** | Mục *Forward Exchange Rates Using No Arbitrage* |
+| `002_figs/004_Module_4/exhibit_18.png` | Sơ đồ cây nhị phân giá tài sản cơ sở (1 giai đoạn) | **Module 4** | Mục *Option Pricing Using Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_19.png` | Sơ đồ cây nhị phân giá trị của hợp đồng quyền chọn | **Module 4** | Mục *Option Pricing Using Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_20.png` | Đồ thị/Bảng phòng ngừa rủi ro quyền chọn mua | **Module 4** | Mục *Option Pricing Using Cash Flow Additivity* |
+| `002_figs/004_Module_4/exhibit_22.png` | Sơ đồ cây kết quả và quyết định của Dự án (Quyền chọn thực tế) | **Module 4** | Mục *Real Option Pricing in Project Valuation* |
 | `002_figs/006_Module_6/6.1-lognormal.jpg` | Đồ thị so sánh phân phối Normal và Lognormal | **Module 6** | Mục giải thích phân phối Lognormal trong đầu tư |
 | `002_figs/006_Module_6/6.2-Monte Carlo.png` | Sơ đồ quy trình mô phỏng Monte Carlo | **Module 6** | Mục giới thiệu phương pháp Monte Carlo |
 
