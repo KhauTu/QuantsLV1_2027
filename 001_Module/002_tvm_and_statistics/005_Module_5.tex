@@ -41,3 +41,385 @@
 		      \item[] Coefficient of Variation
 	      \end{itemize}
 \end{itemize}
+
+\textcolor{blue}{\textit{Chào các bạn học viên! Phân tích các đặc trưng thống kê của tỷ suất sinh lời tài sản là bước đi đầu tiên và quan trọng nhất trong việc định lượng rủi ro và xây dựng danh mục đầu tư. Thay vì chỉ nhìn vào một con số tỷ suất sinh lời bình quân đơn lẻ, các nhà phân tích chuyên nghiệp sẽ quan tâm đến toàn bộ hình dáng của phân phối suất sinh lời: liệu nó có bị lệch không, đuôi có dày không, và các tài sản có xu hướng đồng biến động với nhau như thế nào? Hãy cùng tìm hiểu chi tiết!}}
+
+\section{MEASURES OF CENTRAL TENDENCY AND DISPERSION}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	a & calculate, interpret, and evaluate various measures of (1) central tendency and location and (2) dispersion \\
+\end{tabular}
+\end{center}
+
+To describe a dataset systematically, statisticians rely on two concepts: the \textbf{population} (the entire set of observations, such as the entire exchange rate history) and the \textbf{sample} (a subset of that population, such as daily exchange rates during a specific period).
+
+\subsection{Measures of Central Tendency}
+A measure of central tendency is a single numerical value that describes the center or typical position of a dataset.
+
+\begin{enumerate}
+	\item \textbf{Arithmetic Mean:} The sum of all values divided by the number of observations.
+	\begin{equation}
+		\text{Population Mean} = \mu = \frac{\sum_{i=1}^{N} X_i}{N}
+		\label{eq:pop_mean_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 197
+	
+	\begin{equation}
+		\text{Sample Mean} = \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n}
+		\label{eq:sample_mean_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 197
+	
+	The arithmetic mean is measured in the same units as the underlying data. It is highly sensitive to outliers.
+
+	\item \textbf{Median:} The middle value in a dataset when the values are arranged in ascending or descending order.
+	\begin{itemize}
+		\item If the number of observations $n$ is odd, the median is the value at position $\frac{n+1}{2}$:
+		\begin{equation}
+			\text{Med} = X_{\left(\frac{n+1}{2}\right)}
+			\label{eq:median_odd_m5}
+		\end{equation}
+		% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 203
+		\item If $n$ is even, the median is the average of the two middle observations:
+		\begin{equation}
+			\text{Med} = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2}
+			\label{eq:median_even_m5}
+		\end{equation}
+		% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 203
+	\end{itemize}
+	The median is robust to outliers, but it does not use all the information in the dataset.
+
+	\item \textbf{Mode:} The value that appears most frequently in a dataset. A dataset may be unimodal (one mode), multimodal (multiple modes), or have no mode at all.
+\end{enumerate}
+
+\subsubsection{Dealing with Outliers}
+Outliers can occur due to measurement errors, data entry issues, or natural variability. When outliers are valid, analysts use three primary strategies to manage them:
+\begin{itemize}
+	\item \textbf{Leave the outliers unchanged:} Best if it is important to reflect the entire actual distribution.
+	\item \textbf{Trimmed Mean:} Excludes a stated percentage of the lowest and highest values before computing the mean. For example, a $1\%$ trimmed mean discards the bottom $0.5\%$ and top $0.5\%$ of values.
+	\item \textbf{Winsorized Mean:} Substitutes extreme values with specified percentiles (e.g., setting the lowest $2.5\%$ to the $2.5\text{th}$ percentile and the highest $2.5\%$ to the $97.5\text{th}$ percentile value).
+\end{itemize}
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison of Mean, Trimmed Mean, and Winsorized Mean for Brent Crude Returns}
+\label{tab:trimmed_winsorized_comparison_m5}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Measure} & \textbf{Original Data} & \multicolumn{2}{c}{\textbf{Trimmed Data}} & \multicolumn{2}{c}{\textbf{Winsorized Data}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & \textbf{1\%} & \textbf{10\%} & \textbf{1\%} & \textbf{10\%} \\
+\midrule
+Mean & 0.35\% & 0.83\% & 0.99\% & 0.80\% & 0.80\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 210, Exhibit 9
+
+\subsection{Quantiles}
+Quantiles divide a sorted dataset into equal parts. Common quantile measures include quartiles (four parts), quintiles (five parts), deciles (ten parts), and percentiles (one hundred parts).
+The position $L_y$ of the $y$-th percentile in a sorted dataset of size $n$ is:
+\begin{equation}
+	L_y = (n + 1) \frac{y}{100}
+	\label{eq:percentile_position_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 211
+
+If $L_y$ is not an integer, we linearly interpolate between the two closest values.
+The **Box and Whisker Plot** visually summarizes these quartiles: the box spans the interquartile range ($\text{IQR} = Q_3 - Q_1$), a middle line marks the median, and the whiskers extend to the limits of normal data points. Outliers are typically identified as points beyond $1.5 \times \text{IQR}$ from the quartiles.
+
+\begin{table}[!htbp]
+\centering
+\caption{Excel and Google Sheets Functions for Measures of Central Tendency}
+\label{tab:excel_central_tendency_m5}
+\begin{tabular}{p{0.25\linewidth} | p{0.32\linewidth} | p{0.32\linewidth}}
+\toprule
+\textbf{Calculation Type} & \textbf{Excel Formula} & \textbf{Google Sheets Formula} \\
+\midrule
+Mean & \texttt{=AVERAGE(A1:A5)} & \texttt{=AVERAGE(A1:A5)} \\
+Median & \texttt{=MEDIAN(A1:A5)} & \texttt{=MEDIAN(A1:A5)} \\
+Mode & \texttt{=MODE.SNGL(A1:A5)} & \texttt{=MODE(A1:A5)} \\
+Trimmed Mean & \texttt{=TRIMMEAN(A1:A5, percent)} & \texttt{=TRIMMEAN(A1:A5, percent)} \\
+1st Quartile & \texttt{=QUARTILE.INC(A1:A5, 1)} & \texttt{=QUARTILE(A1:A5, 1)} \\
+3rd Quartile & \texttt{=QUARTILE.INC(A1:A5, 3)} & \texttt{=QUARTILE(A1:A5, 3)} \\
+Percentile & \texttt{=PERCENTILE.INC(A1:A5, K)} & \texttt{=PERCENTILE(A1:A5, K)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 211, Exhibit 11
+
+\subsection{Measures of Dispersion}
+Dispersion quantifies the variability of data around its central tendency, serving as a measure of investment risk.
+\begin{itemize}
+	\item \textbf{Range:} The difference between the highest and lowest values:
+	\begin{equation}
+		\text{Range} = \text{Maximum value} - \text{Minimum value}
+		\label{eq:range_formula_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 213
+	
+	\item \textbf{Mean Absolute Deviation (MAD):} The arithmetic average of absolute deviations from the mean. It is less sensitive to outliers than standard deviation:
+	\begin{equation}
+		\text{MAD} = \frac{\sum_{i=1}^{n} |X_i - \bar{X}|}{n}
+		\label{eq:mad_formula_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 214
+
+	\item \textbf{Variance ($\sigma^2$ or $s^2$):} The average of the squared deviations from the mean. Sample variance uses $n - 1$ (Bessel's correction) to prevent underestimating the population variance:
+	\begin{equation}
+		\text{Population Variance} = \sigma^2 = \frac{\sum_{i=1}^{N} (X_i - \mu)^2}{N}
+		\label{eq:pop_variance_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 198
+	
+	\begin{equation}
+		\text{Sample Variance} = s^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1}
+		\label{eq:sample_variance_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 198
+
+	\item \textbf{Standard Deviation ($\sigma$ or $s$):} The square root of variance ($s = \sqrt{s^2}$). It is measured in the same units as the underlying data.
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Calculating Sample Standard Deviation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Consider a sample of $10$ observations: $-3, -11, 3, -18, 18, 20, -6, 9, 2, -16$.
+\begin{enumerate}
+	\item \textbf{Calculate the sample mean $\bar{X}$:}
+	      \[ \bar{X} = \frac{-3 - 11 + 3 - 18 + 18 + 20 - 6 + 9 + 2 - 16}{10} = \frac{-2.00}{10} = -0.20 \]
+	\item \textbf{Calculate the sum of squared differences $\sum(X_i - \bar{X})^2$:}
+	      \[ (-3 - (-0.2))^2 + (-11 - (-0.2))^2 + \dots = 1563.60 \]
+	\item \textbf{Divide by $n - 1 = 9$ and take the square root:}
+	      \[ s = \sqrt{\frac{1563.60}{9}} = 13.18 \]
+\end{enumerate}
+\end{tcolorbox}
+
+\section{MEASURES OF SHAPE OF A DISTRIBUTION}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	b & describe, interpret, and evaluate measures of skewness and kurtosis \\
+\end{tabular}
+\end{center}
+
+To describe a distribution's shape completely, analysts evaluate its higher-order moments, particularly its asymmetry (\textbf{skewness}) and tail heaviness (\textbf{kurtosis}).
+
+\subsection{Skewness}
+Skewness is a measure of the asymmetry of a distribution.
+\begin{itemize}
+	\item \textbf{Symmetric Distribution:} Skewness is zero. Mean, Median, and Mode are equal.
+	\item \textbf{Positively Skewed (Right-skewed):} Has a long tail on the right side. Extreme positive values pull the mean upward, making $\text{Mean} > \text{Median} > \text{Mode}$.
+	\item \textbf{Negatively Skewed (Left-skewed):} Has a long tail on the left side. Extreme negative values pull the mean downward, making $\text{Mean} < \text{Median} < \text{Mode}$.
+\end{itemize}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/005_Module_5/exhibit_1.png}
+	\caption{Skewness in Distributions}
+	\label{fig:mod5_exhibit_1}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 217, Exhibit 20
+
+\subsection{Kurtosis}
+Kurtosis measures the thickness or heaviness of the tails of a distribution relative to a normal distribution.
+\begin{itemize}
+	\item \textbf{Leptokurtic (Fat-tailed):} Kurtosis $>$ 3, Excess Kurtosis $>$ 0. Taller peaks and fatter tails, representing higher probability of extreme outcomes.
+	\item \textbf{Platykurtic (Thin-tailed):} Kurtosis $<$ 3, Excess Kurtosis $<$ 0. Flatter peaks and thinner tails.
+	\item \textbf{Mesokurtic (Normal-like):} Kurtosis = 3, Excess Kurtosis = 0.
+\end{itemize}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/005_Module_5/exhibit_2.png}
+	\caption{Types of Kurtosis}
+	\label{fig:mod5_exhibit_2}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 221, Exhibit 23
+
+Excess Kurtosis is defined as:
+\begin{equation}
+	\text{Excess Kurtosis} = \text{Kurtosis} - 3
+	\label{eq:excess_kurtosis_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 221
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Skewness and Kurtosis Mathematical Approximations},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+For a sample of $n$ observations, sample mean $\bar{X}$, and sample standard deviation $s$, the approximations for sample skewness and kurtosis are:
+\begin{equation}
+	\text{Sample Skewness} \approx \frac{1}{n} \sum_{i=1}^{n} \left(\frac{X_i - \bar{X}}{s}\right)^3
+	\label{eq:sample_skewness_approx_m5}
+\end{equation}
+\begin{equation}
+	\text{Sample Kurtosis} \approx \frac{1}{n} \sum_{i=1}^{n} \left(\frac{X_i - \bar{X}}{s}\right)^4
+	\label{eq:sample_kurtosis_approx_m5}
+\end{equation}
+\textcolor{blue}{\textit{Lưu ý từ Giảng viên: Học viên không cần ghi nhớ công thức toán học chi tiết này của Skewness và Kurtosis để thi. Các câu hỏi thi CFA chỉ tập trung vào việc đọc hiểu ý nghĩa thực tế (interpretation) của các chỉ số này và so sánh chúng. Do đó, hãy tập trung vào bản chất thay vì học thuộc lòng công thức.}}
+\end{tcolorbox}
+
+\begin{table}[!htbp]
+\centering
+\caption{The Four Moments of Statistical Distributions}
+\label{tab:moments_summary_m5}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Moment} & \textbf{Moment Name / Description} & \textbf{Population Formula} & \textbf{Sample Approximation} \\
+\midrule
+First & Mean (Central Tendency) & $\mu = \frac{\sum x_i}{N}$ & $\bar{X} = \frac{\sum x_i}{n}$ \\
+Second & Variance (Dispersion) & $\sigma^2 = \frac{\sum (x_i - \mu)^2}{N}$ & $s^2 = \frac{\sum (x_i - \bar{X})^2}{n - 1}$ \\
+Third & Skewness (Asymmetry) & $\text{Skew} = \frac{1}{N}\sum\left(\frac{x_i - \mu}{\sigma}\right)^3$ & $\text{Skew} = \frac{1}{n}\sum\left(\frac{x_i - \bar{X}}{s}\right)^3$ \\
+Fourth & Kurtosis (Tail Heaviness) & $\text{Kurt} = \frac{1}{N}\sum\left(\frac{x_i - \mu}{\sigma}\right)^4$ & $\text{Kurt} = \frac{1}{n}\sum\left(\frac{x_i - \bar{X}}{s}\right)^4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 222, Exhibit 25
+
+\begin{table}[!htbp]
+\centering
+\caption{Excel and Google Sheets Functions for Skewness and Kurtosis}
+\label{tab:excel_skew_kurt_m5}
+\begin{tabular}{p{0.25\linewidth} | p{0.32\linewidth} | p{0.32\linewidth}}
+\toprule
+\textbf{Calculation} & \textbf{Excel Formula} & \textbf{Google Sheets Formula} \\
+\midrule
+Population Skewness & \texttt{=SKEW.P(A1:A5)} & N/A \\
+Sample Skewness & \texttt{=SKEW(A1:A5)} & \texttt{=SKEW(A1:A5)} \\
+Excess Kurtosis & \texttt{=KURT(A1:A5)} & \texttt{=KURT(A1:A5)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 222, Exhibit 26
+
+\section{COVARIANCE AND CORRELATION}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	c & calculate, interpret, and evaluate covariance and correlation \\
+\end{tabular}
+\end{center}
+
+To quantify the co-movements and linear relationships between two variables, analysts use covariance and correlation.
+
+\textcolor{blue}{\textit{Lưu ý từ giảng viên: Hãy cẩn thận! Hệ số tương quan (Correlation) bằng 0 chỉ có nghĩa là không có mối quan hệ TUYẾN TÍNH giữa hai biến. Nó không phủ nhận các mối quan hệ phi tuyến tính phức tạp khác. Bạn đã nghe về Anscombe's Quartet chưa? Bốn tập dữ liệu có cùng hệ số tương quan nhưng khi vẽ đồ thị lại cho ra những hình thù hoàn toàn khác biệt. Do đó, trực quan hóa dữ liệu bằng đồ thị (Scatter Plot) luôn là bước bắt buộc trước khi kết luận mối quan hệ.}}
+
+\subsection{Covariance}
+Covariance measures the joint variability of two random variables, indicating how they move in relation to each other.
+\begin{equation}
+	\sigma_{X,Y} = \frac{\sum_{i=1}^{N} (X_i - \mu_X)(Y_i - \mu_Y)}{N}
+	\label{eq:pop_covariance_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 225, Equation (13)
+
+\begin{equation}
+	s_{X,Y} = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}
+	\label{eq:sample_covariance_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 225
+
+If covariance is positive, the variables tend to move in the same direction relative to their means. If negative, they tend to move in opposite directions.
+
+\subsection{Correlation}
+Correlation standardizes covariance into a dimensionless measure that ranges between $-1$ and $+1$:
+\begin{equation}
+	\rho_{X,Y} = \frac{\sigma_{X,Y}}{\sigma_X \sigma_Y} \quad \text{or} \quad r_{X,Y} = \frac{s_{X,Y}}{s_X s_Y}
+	\label{eq:correlation_coefficient_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 227, Equation (14)
+
+\begin{table}[!htbp]
+\centering
+\caption{Correlation Levels and Interpretation}
+\label{tab:correlation_levels_m5}
+\begin{tabular}{p{0.22\linewidth} p{0.22\linewidth} p{0.43\linewidth}}
+\toprule
+\textbf{Correlation Value} & \textbf{Correlation Type} & \textbf{Description} \\
+\midrule
+$\rho_{X,Y} = 0$ & No correlation & Absence of any linear relationship. \\
+$\rho_{X,Y} > 0$ & Positive correlation & Moves in the same direction; $+1$ represents a perfect linear relationship. \\
+$\rho_{X,Y} < 0$ & Negative correlation & Moves in opposite directions; $-1$ represents a perfect inverse linear relationship. \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 227, Exhibit 30
+
+\subsection{Anscombe's Quartet}
+Anscombe's Quartet consists of four datasets that have nearly identical simple statistical properties (mean, variance, correlation), yet have completely different distributions and look completely different when graphed. This underscores the vital importance of visualizing data prior to performing correlation analysis.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/005_Module_5/exhibit_3.png}
+	\caption{The Four Cases for Anscombe's Quartet Scatter Plots}
+	\label{fig:mod5_exhibit_3}
+\end{figure}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 231, Exhibit 35
+
+\section{OTHER DISPERSION MEASURES}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	d & calculate, interpret, and evaluate semi-deviation and coefficient of variation \\
+\end{tabular}
+\end{center}
+
+\subsection{Semi-Deviation and Target Downside Deviation}
+While variance and standard deviation capture both upside and downside volatility, investors are primarily concerned with downside risk.
+\begin{itemize}
+	\item \textbf{Semi-deviation (Semi-variance):} Measures variability for observations below the mean.
+	\item \textbf{Target Downside Deviation:} Measures dispersion only for observations below a specific target or threshold $B$:
+	\begin{equation}
+		s_{\text{Target}} = \sqrt{\frac{\sum_{X_i \le B} (X_i - B)^2}{n - 1}}
+		\label{eq:target_semi_deviation_m5}
+	\end{equation}
+	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 236, Equation (16)
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Calculating Target Downside Deviation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Let's compute the sample target downside deviation for a portfolio with $12$ monthly returns when the target return is $B = 3\%$:
+\[ 5\%, 3\%, -1\%, -4\%, 4\%, 2\%, 0\%, 4\%, 3\%, 0\%, 6\%, 5\% \]
+\begin{enumerate}
+	\item \textbf{Identify values below or equal to the target $B = 3\%$:}
+	      \[ 3\% \ (0), \ -1\% \ (-4), \ -4\% \ (-7), \ 2\% \ (-1), \ 0\% \ (-3), \ 3\% \ (0), \ 0\% \ (-3) \]
+	\item \textbf{Calculate the squared deviations for these values:}
+	      \[ 0^2 + (-4)^2 + (-7)^2 + (-1)^2 + (-3)^2 + 0^2 + (-3)^2 = 0 + 16 + 49 + 1 + 9 + 0 + 9 = 84 \]
+	\item \textbf{Divide by total sample size $n - 1 = 11$ and take the square root:}
+	      \[ s_{\text{Target}} = \sqrt{\frac{84}{11}} \approx 2.76\% \]
+\end{enumerate}
+\end{tcolorbox}
+
+\subsection{Coefficient of Variation (CV)}
+The Coefficient of Variation measures the amount of risk per unit of return. It standardizes standard deviation, making it universally comparable:
+\begin{equation}
+	\text{CV} = \frac{s}{\bar{X}}
+	\label{eq:coefficient_of_variation_m5}
+\end{equation}
+% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 236, Equation (17)
+
+A lower CV represents a more favorable risk-to-return ratio.

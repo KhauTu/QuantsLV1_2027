@@ -39,3 +39,1057 @@
 	      \end{itemize}
 	\item[] \textbf{Bayesian Updating}
 \end{itemize}
+
+% \textcolor{blue}{\textit{Lời khuyên từ Giảng viên: Module 6 là một trong những chương có lượng công thức toán học và xác suất thống kê nhiều nhất trong chương trình CFA Level 1. Mục tiêu cốt lõi ở đây không phải là bắt bạn trở thành nhà toán học, mà là giúp bạn hiểu cách các phân phối xác suất khác nhau (như Nhị thức, Poisson, Chuẩn, Log-normal) được áp dụng để mô hình hóa giá tài sản, tỷ suất sinh lời, và rủi ro tín dụng. Đặc biệt, hãy chú ý đến định lý Bayes (Bayesian Updating) vì đây là nội dung cực kỳ thực tế và thường xuyên xuất hiện trong phòng thi dưới dạng các bài toán cập nhật xác suất dựa trên thông tin mới.}}
+
+% \textcolor{blue}{\textit{Lộ trình học đơn giản hóa cho người mới bắt đầu:
+% 1. Đừng quá lo lắng về các công thức vi tích phân phức tạp (như tích phân/đạo hàm). Trong kỳ thi CFA, thí sinh không cần tính tích phân trực tiếp. Bạn chỉ cần hiểu bản chất hình học: xác suất của một biến liên tục là diện tích phần nằm dưới đường cong PDF.
+% 2. Tập trung làm chủ phần biến ngẫu nhiên rời rạc (cách tính kỳ vọng, phương sai qua trọng số xác suất) và định lý Bayes vì đây là phần thực hành tính toán cốt lõi trong đề thi.
+% 3. Học thuộc lòng bảng so sánh đặc trưng 4 moments của các phân phối để xử lý các câu lý thuyết định tính. Ghi nhớ rõ lý do vì sao một phân phối cụ thể được chọn (ví dụ: Log-normal dùng cho giá tài sản vì giá không thể âm, Poisson dùng cho các sự kiện vỡ nợ trái phiếu).}}
+
+\section{RANDOM VARIABLES AND UNCONDITIONAL EXPECTATIONS}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	a & calculate, interpret, and evaluate unconditional expected values for mean, variance, and covariance \\
+\end{tabular}
+\end{center}
+
+This section outlines the characteristics of some of the most widely used statistical distributions to model prices and returns in finance, investments, and portfolio management.
+
+\subsection{Random Variables and Their Properties}
+A \textbf{random variable} is a function that assigns a number to each outcome of an experiment. In finance, random variables are often called \textbf{stochastic variables}, reflecting their inherent unpredictable nature. Random variables are categorized into two types:
+\begin{itemize}
+	\item A \textbf{discrete random variable} has a countable number of distinct outcomes. For example, a fair coin toss results in heads or tails, each with a probability of $p = 0.50$. Similarly, rolling a fair six-sided die yields outcomes of $1, 2, 3, 4, 5,$ or $6$, each with a probability of $p = \frac{1}{6}$.
+	\item A \textbf{continuous random variable} can take on an infinite number of possible values within a given range, such as picking a random number between $0$ and $1$ on the number line. When the number of observations is large, empirical distributions often converge to continuous distributions.
+\end{itemize}
+
+% \textcolor{blue}{\textit{Lưu ý từ Giảng viên: Biến ngẫu nhiên rời rạc (Discrete) thường dùng để mô tả các sự kiện đếm được như số lần vỡ nợ của trái phiếu, số lượng giao dịch trong ngày. Ngược lại, tỷ suất sinh lời của cổ phiếu thường được mô tả bằng biến ngẫu nhiên liên tục (Continuous) vì nó có thể nhận bất kỳ giá trị số thực nào trong một khoảng.}}
+
+A random variable, $X$, is fully described by its distribution functions:
+\begin{itemize}
+	\item \textbf{Cumulative Distribution Function (CDF):} Gives the probability that the random variable $X$ takes on a value less than or equal to $x$:
+	\begin{equation}
+		F(x) = P(X \le x)
+		\label{eq:cdf_def_m6}
+	\end{equation}
+	The CDF is non-decreasing with $\lim_{x \to -\infty} F(x) = 0$ and $\lim_{x \to \infty} F(x) = 1$. The CDF applies to both discrete and continuous random variables.
+	
+	\item \textbf{Probability Density Function (PDF):} For continuous random variables, the PDF is the derivative of the CDF, representing the instantaneous rate of change of the CDF:
+	\begin{equation}
+		f_X(x) = \frac{dF_X(x)}{dx}
+		\label{eq:pdf_derivative_m6}
+	\end{equation}
+	The probability that $X$ falls within an interval $[a, b]$ is the area under the PDF curve between $a$ and $b$:
+	\begin{equation}
+		P(a \le X \le b) = \int_a^b f_X(x) dx = F(b) - F(a)
+		\label{eq:pdf_probability_interval_m6}
+	\end{equation}
+	The total area under the PDF curve equals $1$:
+	\begin{equation}
+		\int_{-\infty}^{\infty} f_X(x) dx = 1
+		\label{eq:pdf_total_area_m6}
+	\end{equation}
+	
+	\item \textbf{Probability Mass Function (PMF):} For discrete random variables, the PMF gives the probability that $X$ is exactly equal to a specific value $x$, $P(X=x)$. The probability that $X$ lies within $[a, b]$ is:
+	\begin{equation}
+		P(a \le X \le b) = \sum_{x=a}^b P(X=x)
+		\label{eq:pmf_probability_interval_m6}
+	\end{equation}
+	The sum of probabilities for all possible outcomes equals $1$: $\sum_x P(X=x) = 1$.
+\end{itemize}
+
+\begin{figure}[!htbp]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{002_figs/006_Module_6/exhibit_1.png}
+		\caption{Discrete PMF (Coin Tosses)}
+		\label{fig:mod6_exhibit_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{002_figs/006_Module_6/exhibit_2.png}
+		\caption{Continuous PDF (Stock Returns)}
+		\label{fig:mod6_exhibit_2}
+	\end{subfigure}
+	\caption{Discrete vs. Continuous Probability Distributions}
+	\label{fig:discrete_vs_continuous_m6}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_3.png}
+	\caption{Theoretical PDF and CDF of Daily Stock Returns}
+	\label{fig:mod6_exhibit_3}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_4.png}
+	\caption{The PMF and CDF of the Coin Toss Experiment}
+	\label{fig:mod6_exhibit_4}
+\end{figure}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Roll of two fair dice},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An economist analyzes the PMF and CDF of the sum of outcomes from rolling two fair six-sided dice. There are $6 \times 6 = 36$ possible combinations. The frequency and probability distributions are calculated in Table~\ref{tab:dice_outcomes_m6}.
+\end{tcolorbox}
+
+\begin{table}[!htbp]
+\centering
+\caption{Distribution of Outcomes for Rolling Two Six-Sided Dice}
+\label{tab:dice_outcomes_m6}
+\begin{tabular}{c c c c}
+\toprule
+\textbf{Outcome} $x$ & \textbf{Frequency} $n(x)$ & \textbf{PMF} $P(X=x)$ & \textbf{CDF} $P(X \le x)$ \\
+\midrule
+2  & 1  & 0.0278 & 0.0278 \\
+3  & 2  & 0.0556 & 0.0834 \\
+4  & 3  & 0.0833 & 0.1667 \\
+5  & 4  & 0.1111 & 0.2778 \\
+6  & 5  & 0.1389 & 0.4167 \\
+7  & 6  & 0.1667 & 0.5834 \\
+8  & 5  & 0.1389 & 0.7223 \\
+9  & 4  & 0.1111 & 0.8334 \\
+10 & 3  & 0.0833 & 0.9167 \\
+11 & 2  & 0.0556 & 0.9723 \\
+12 & 1  & 0.0278 & 1.0000 \\
+\midrule
+\textbf{Sum} & \textbf{36} & \textbf{1.0000} & \textbf{---} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 257, Exhibit 5
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_6.png}
+	\caption{The PMF and CDF of Rolling Two Six-Sided Dice}
+	\label{fig:mod6_exhibit_6}
+\end{figure}
+
+\subsection{Unconditional Expectations, Variance, and Covariance}
+Unconditional expectations, variance, and covariance provide foundational tools for assessing the behavior of financial assets without requiring prior knowledge of specific market conditions.
+\begin{itemize}
+	\item \textbf{Unconditional Mean (Expected Value):} The probability-weighted average of the outcomes of a random variable over an infinite number of trials:
+	\begin{equation}
+		\text{Discrete: } \mu_X = E[X] = \sum_i x_i P(x_i)
+		\label{eq:discrete_expected_value_m6}
+	\end{equation}
+	\begin{equation}
+		\text{Continuous: } \mu_X = E[X] = \int_{-\infty}^{\infty} x f_X(x) dx
+		\label{eq:continuous_expected_value_m6}
+	\end{equation}
+	
+	\item \textbf{Unconditional Variance:} Measures the squared dispersion of a random variable around its mean:
+	\begin{equation}
+		\sigma_X^2 = \text{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2
+		\label{eq:unconditional_variance_m6}
+	\end{equation}
+	
+	\item \textbf{Unconditional Standard Deviation:} $\sigma_X = \sqrt{\text{Var}(X)}$.
+	
+	\item \textbf{Unconditional Covariance:} Quantifies the linear relationship between two random variables $X$ and $Y$:
+	\begin{equation}
+		\sigma_{XY} = \text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]
+		\label{eq:unconditional_covariance_m6}
+	\end{equation}
+\end{itemize}
+
+\textcolor{blue}{\textit{Lưu ý từ Giảng viên: Trong phòng thi, bạn rất dễ gặp các câu hỏi tính toán giá trị kỳ vọng và phương sai của các biến ngẫu nhiên rời rạc. Hãy nhớ công thức cơ bản: nhân từng kết quả với xác suất tương ứng rồi cộng lại để ra số trung bình (Mean), và lấy bình phương khoảng cách tới trung bình nhân xác suất để ra phương sai (Variance).}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Expected Mean, Variance, and Covariances of Two Dice},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+For two fair dice, the expected sum is:
+\[ E[X] = 2\left(\frac{1}{36}\right) + 3\left(\frac{2}{36}\right) + \dots + 12\left(\frac{1}{36}\right) = 7 \]
+To calculate variance, we find the expected value of $X^2$:
+\[ E[X^2] = 2^2\left(\frac{1}{36}\right) + 3^2\left(\frac{2}{36}\right) + \dots + 12^2\left(\frac{1}{36}\right) = 54.84 \]
+\[ \text{Var}(X) = E[X^2] - (E[X])^2 = 54.84 - 7^2 = 5.84 \]
+Since rolls are independent, the covariance between the two individual dice is:
+\[ \text{Cov}(X, Y) = E[XY] - E[X]E[Y] = 12.25 - (3.5 \times 3.5) = 0 \]
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Unconditional Mean, Variance, and Covariances of Two Assets},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst forecasts the performance of a stock index ($X$) and a bond index ($Y$) under different conditions:
+\begin{center}
+\begin{tabular}{c c c}
+\toprule
+\textbf{Probability} $P$ & \textbf{Stock Return} $X$ (\%) & \textbf{Bond Return} $Y$ (\%) \\
+\midrule
+0.2 & $-2.00$ & $0.75$ \\
+0.3 & $-1.00$ & $0.50$ \\
+0.3 & $0.00$  & $0.25$ \\
+0.2 & $1.00$  & $0.00$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Calculating expectations:
+\begin{align*}
+	E[X] &= (-2.00 \times 0.2) + (-1.00 \times 0.3) + (0 \times 0.3) + (1.00 \times 0.2) = -0.50\% \\
+	E[Y] &= (0.75 \times 0.2) + (0.50 \times 0.3) + (0.25 \times 0.3) + (0 \times 0.2) = 0.375\%
+\end{align*}
+Calculating variance:
+\begin{align*}
+	E[X^2] &= (0.2 \times (-2)^2) + (0.3 \times (-1)^2) + (0.3 \times 0^2) + (0.2 \times 1^2) = 1.30 \\
+	\text{Var}(X) &= 1.30 - (-0.50)^2 = 1.05 \implies \sigma_X = \sqrt{1.05} = 1.025\% \\
+	E[Y^2] &= (0.2 \times 0.75^2) + (0.3 \times 0.50^2) + (0.3 \times 0.25^2) + 0 = 0.2063 \\
+	\text{Var}(Y) &= 0.2063 - 0.375^2 = 0.0656 \implies \sigma_Y = \sqrt{0.0656} = 0.2562\%
+\end{align*}
+Calculating covariance:
+\begin{align*}
+	E[XY] &= (0.2 \times (-2 \times 0.75)) + (0.3 \times (-1 \times 0.50)) + 0 + 0 = -0.45 \\
+	\text{Cov}(X, Y) &= E[XY] - E[X]E[Y] = -0.45 - (-0.50 \times 0.375) = -0.2625
+\end{align*}
+The negative covariance of $-0.2625$ indicates that stocks and bonds tend to move in opposite directions, providing significant diversification benefits for a portfolio.
+\end{tcolorbox}
+
+\subsection{The Law of Large Numbers (LLN)}
+The \textbf{Law of Large Numbers} states that as the number of trials (sample size) increases, the empirical sample mean converges to the true population parameter (unconditional mean), assuming the sample is randomly drawn and representative of the population.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: The Law of Large Numbers and Dice Throws},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An economist simulates $10,000$ throws of a pair of fair dice. Table~\ref{tab:lln_dice_m6} summarizes the convergence of the sample statistics to the true population parameters ($\mu = 7.00$, $\sigma^2 = 5.83$).
+\end{tcolorbox}
+
+\begin{table}[!htbp]
+\centering
+\caption{Convergence of Sample Mean and Variance to Unconditional Values}
+\label{tab:lln_dice_m6}
+\begin{tabular}{c c c}
+\toprule
+\textbf{Throws of Dice} & \textbf{Sample Mean} $\bar{X}$ & \textbf{Sample Variance} $s^2$ \\
+\midrule
+1,000 & 6.96 & 5.89 \\
+2,000 & 7.01 & 5.86 \\
+5,000 & 7.00 & 5.80 \\
+10,000 & 7.00 & 5.81 \\
+\midrule
+\textbf{Unconditional Expected} & \textbf{7.00} & \textbf{5.83} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 272, Exhibit 7
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_8.png}
+	\caption{Convergence of Sample Mean and Variance to Unconditional Values in Dice Throws}
+	\label{fig:mod6_exhibit_8}
+\end{figure}
+
+\section{KEY STATISTICAL DISTRIBUTIONS IN FINANCE}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	b & calculate, interpret, and evaluate the principal moments of key statistical distributions used in finance \\
+\end{tabular}
+\end{center}
+
+Probability distributions are required to model the random behavior of financial variables. This section reviews discrete and continuous distributions widely used in finance.
+
+Để giúp học viên dễ dàng hình dung và phân loại, các phân phối xác suất chính trong chương trình CFA được hệ thống hóa qua Ma trận phân loại hai chiều dưới đây (phân biệt giữa biến ngẫu nhiên Rời rạc vs. Liên tục, và phân phối Đều vs. Không đều):
+
+\begin{table}[!htbp]
+\centering
+\caption{Classification Matrix of Statistical Distributions}
+\label{tab:distribution_matrix_m6}
+\begin{tabular}{p{0.20\linewidth} | p{0.38\linewidth} | p{0.38\linewidth}}
+\toprule
+ & \textbf{Uniform (Phân phối đều)} & \textbf{Non-Uniform (Phân phối không đều)} \\
+\midrule
+\textbf{Discrete} & \textbf{Discrete Uniform Distribution} & \textbf{Binomial Distribution} \\
+\textbf{(Biến rời rạc)} & - Mỗi kết quả có xác suất bằng nhau ($1/n$). & - Số lần thành công trong $n$ phép thử độc lập. \\
+ & - Ví dụ: Gieo xúc xắc, tung đồng xu. & \textbf{Poisson Distribution} \\
+ & & - Số sự kiện xảy ra trong một khoảng xác định. \\
+\midrule
+\textbf{Continuous} & \textbf{Continuous Uniform Distribution} & \textbf{Normal Distribution} (Đối xứng, hình chuông) \\
+\textbf{(Biến liên tục)} & - Hàm mật độ không đổi $f(x) = \frac{1}{b-a}$. & \textbf{Log-normal Distribution} (Chặn dưới bởi 0, lệch phải) \\
+ & - Ví dụ: Chọn ngẫu nhiên số trong $[0, 1]$. & \textbf{Logistic Distribution} (Đối xứng, đuôi dày hơn Normal) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Discrete Statistical Distributions}
+
+\subsubsection{Discrete Uniform Distribution}
+A discrete uniform distribution consists of a finite number of equally spaced outcomes, each with equal probability of occurrence. For a variable $X$ taking $n$ outcomes in the range $[a, b]$, each outcome occurs with probability $\frac{1}{n}$.
+\begin{equation}
+	\text{Mean: } \mu = \frac{a + b}{2}
+	\label{eq:discrete_uniform_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Variance: } \sigma^2 = \frac{(b - a + 1)^2 - 1}{12}
+	\label{eq:discrete_uniform_var_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Có $N = b - a + 1$ kết quả rời rạc có khoảng cách đều nhau trong đoạn $[a, b]$, mỗi kết quả xuất hiện với xác suất bằng nhau là $P(X=x_i) = \frac{1}{N}$.
+- Chứng minh Mean ($\mu$): Do xác suất bằng nhau nên kỳ vọng đơn giản là trung bình cộng của các giá trị từ $a$ đến $b$. Các giá trị tạo thành một cấp số cộng với số hạng đầu là $a$, số hạng cuối là $b$, tổng của dãy là $\frac{N(a+b)}{2}$. Do đó:
+\[ E[X] = \sum_{i=1}^N x_i \cdot \frac{1}{N} = \frac{1}{N} \cdot \frac{N(a+b)}{2} = \frac{a+b}{2} \]
+- Chứng minh Variance ($\sigma^2$): Đặt biến chuẩn hóa $Y$ chạy từ $1$ đến $N$. Ta có $X = Y + a - 1$. Vì dịch chuyển cộng không đổi phương sai nên $\text{Var}(X) = \text{Var}(Y) = E[Y^2] - (E[Y])^2$.
+Sử dụng các công thức tổng cấp số cộng $\sum_{i=1}^N i = \frac{N(N+1)}{2}$ và tổng bình phương $\sum_{i=1}^N i^2 = \frac{N(N+1)(2N+1)}{6}$, ta có:
+\[ E[Y] = \frac{N+1}{2} \]
+\[ E[Y^2] = \frac{(N+1)(2N+1)}{6} \]
+\[ \text{Var}(Y) = \frac{(N+1)(2N+1)}{6} - \frac{(N+1)^2}{4} = \frac{N^2-1}{12} \]
+Thay ngược lại $N = b - a + 1$, ta thu được công thức phương sai:
+\[ \sigma^2 = \frac{(b - a + 1)^2 - 1}{12} \]}}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_9.png}
+	\caption{Discrete Uniform Distribution PMF and CDF}
+	\label{fig:mod6_exhibit_9}
+\end{figure}
+
+\subsubsection{Binomial Distribution}
+The binomial distribution models the number of successes in a fixed number $n$ of independent Bernoulli trials, where each trial has a success probability $p$ and a failure probability $q = 1-p$.
+The probability of observing exactly $x$ successes is:
+\begin{equation}
+	P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}
+	\label{eq:binomial_pmf_m6}
+\end{equation}
+The mean and variance are:
+\begin{equation}
+	\text{Mean: } \mu = n \times p
+	\label{eq:binomial_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Variance: } \sigma^2 = n \times p(1 - p)
+	\label{eq:binomial_variance_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Có $n$ phép thử độc lập (Bernoulli trials), mỗi phép thử chỉ có 2 kết quả (thành công hoặc thất bại) với xác suất thành công $p$ không đổi qua các phép thử.
+- Chứng minh Mean ($\mu$): Gọi $Y_i$ là biến ngẫu nhiên đại diện cho phép thử thứ $i$ ($Y_i = 1$ nếu thành công, $Y_i = 0$ nếu thất bại). Ta có $E[Y_i] = 1 \cdot p + 0 \cdot (1-p) = p$. Tổng số lần thành công sau $n$ phép thử là $X = \sum_{i=1}^n Y_i$. Nhờ tính tuyến tính của kỳ vọng:
+\[ E[X] = E\left[\sum_{i=1}^n Y_i\right] = \sum_{i=1}^n E[Y_i] = \sum_{i=1}^n p = n \times p \]
+- Chứng minh Variance ($\sigma^2$): Do các phép thử độc lập với nhau nên phương sai của tổng bằng tổng các phương sai của từng phép thử độc lập:
+\[ \text{Var}(X) = \text{Var}\left(\sum_{i=1}^n Y_i\right) = \sum_{i=1}^n \text{Var}(Y_i) \]
+Phương sai của từng phép thử Bernoulli đơn lẻ là:
+\[ \text{Var}(Y_i) = E[Y_i^2] - (E[Y_i])^2 = (1^2 \cdot p + 0^2 \cdot (1-p)) - p^2 = p - p^2 = p(1-p) \]
+Do đó:
+\[ \text{Var}(X) = \sum_{i=1}^n p(1-p) = n \times p(1-p) \]}}
+
+\textcolor{blue}{\textit{Góc nhìn thực tế: Phân phối nhị thức cực kỳ phổ biến trong tài chính. Một ví dụ tiêu biểu là Mô hình định giá quyền chọn nhị thức (Binomial Option Pricing Model), trong đó giá cổ phiếu qua mỗi kỳ được giả định chỉ có thể đi lên (up) hoặc đi xuống (down) theo một tỷ lệ cố định. Bằng cách xây dựng cây nhị thức, chúng ta có thể định giá được các hợp đồng tài chính phức tạp.}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Binomial Model for Stock Prices},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Let $S_0$ be the initial price of a stock, $u$ the up factor, and $d$ the down factor. The stock price at node $(i,j)$ after $n = i + j$ steps (where $i$ is up movements and $j$ is down movements) is:
+\[ S_{i,j} = S_0 \times u^i \times d^j \]
+For $S_0 = 100$, $u = 1.1$, $d = 0.9$, and a path with $n = 3$ steps ($i=2$ ups, $j=1$ down), the price is:
+\[ S_{2,1} = 100 \times 1.1^2 \times 0.9^1 = 108.90 \]
+Exhibit~\ref{fig:mod6_exhibit_10} shows the tree of possible stock prices over three periods.
+\end{tcolorbox}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{002_figs/006_Module_6/exhibit_10.png}
+	\caption{Binomial Stock Prices and Price Paths}
+	\label{fig:mod6_exhibit_10}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_11.png}
+	\caption{Binomial PMF and CDF Across Different Success Probabilities}
+	\label{fig:mod6_exhibit_11}
+\end{figure}
+
+If $n$ is large, the binomial distribution can be approximated by a normal distribution:
+\begin{equation}
+	X \sim N(np, np(1-p))
+	\label{eq:binomial_normal_approx_m6}
+\end{equation}
+This approximation is generally valid when both $np \ge 5$ and $n(1-p) \ge 5$.
+
+\subsubsection{Poisson Distribution}
+The Poisson distribution models the number of independent events occurring in a fixed interval of time or space at a constant average rate $\lambda$. The probability of observing $k$ events is:
+\begin{equation}
+	P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}
+	\label{eq:poisson_pmf_m6}
+\end{equation}
+The mean and variance of a Poisson distribution are identical:
+\begin{equation}
+	\mu = \sigma^2 = \lambda
+	\label{eq:poisson_moments_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Các sự kiện xảy ra độc lập với nhau ở tốc độ trung bình không đổi $\lambda$ trong một khoảng thời gian hoặc không gian xác định. Phân phối Poisson được phát triển từ giới hạn của phân phối Nhị thức khi số phép thử $n \to \infty$ và xác suất thành công $p \to 0$ sao cho $n \times p = \lambda$.
+- Chứng minh Mean ($\mu$): Sử dụng khai triển Taylor cho $e^\lambda = \sum_{k=0}^\infty \frac{\lambda^k}{k!}$:
+\[ E[X] = \sum_{k=0}^\infty k \frac{\lambda^k e^{-\lambda}}{k!} = e^{-\lambda} \sum_{k=1}^\infty \frac{\lambda^k}{(k-1)!} = \lambda e^{-\lambda} \sum_{m=0}^\infty \frac{\lambda^m}{m!} = \lambda e^{-\lambda} \cdot e^\lambda = \lambda \]
+- Chứng minh Variance ($\sigma^2$): Ta tính kỳ vọng của $X(X-1)$:
+\[ E[X(X-1)] = \sum_{k=0}^\infty k(k-1) \frac{\lambda^k e^{-\lambda}}{k!} = e^{-\lambda} \sum_{k=2}^\infty \frac{\lambda^k}{(k-2)!} = \lambda^2 e^{-\lambda} \sum_{m=0}^\infty \frac{\lambda^m}{m!} = \lambda^2 \]
+Từ đó, kỳ vọng của $X^2$ là:
+\[ E[X^2] = E[X(X-1)] + E[X] = \lambda^2 + \lambda \]
+Phương sai của phân phối Poisson là:
+\[ \text{Var}(X) = E[X^2] - (E[X])^2 = \lambda^2 + \lambda - \lambda^2 = \lambda \]}}
+Its skewness is $\frac{1}{\sqrt{\lambda}}$ and excess kurtosis is $\frac{1}{\lambda}$.
+
+In credit risk modeling, the Poisson distribution is widely used in \textbf{reduced-form models} where default is modeled as a random event governed by a hazard rate (default intensity) $\lambda$.
+\begin{itemize}
+	\item Probability of no default over time $t$: $P(\text{No default}) = e^{-\lambda t}$
+	\item Probability of default over time $t$: $P(\text{Default}) = 1 - e^{-\lambda t}$
+	\item Expected time to first default: $E[t_d] = \frac{1}{\lambda}$
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Predicting Corporate Default},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Assume the hazard rate $\lambda$ for a corporate bond is $0.02$ per year.
+\begin{itemize}
+	\item Probability of default within 1 year: $P(\text{Default}) = 1 - e^{-0.02 \times 1} \approx 1.98\%$
+	\item Probability of no default within 1 year: $P(\text{No default}) = e^{-0.02 \times 1} \approx 98.02\%$
+	\item Expected time until first default: $E[t_d] = \frac{1}{0.02} = 50 \text{ years}$
+\end{itemize}
+\end{tcolorbox}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_12.png}
+	\caption{Poisson Distributions for Different Values of Lambda}
+	\label{fig:mod6_exhibit_12}
+\end{figure}
+
+\subsection{Continuous Statistical Distributions}
+
+\subsubsection{Continuous Uniform Distribution}
+The continuous uniform distribution is defined over an interval $[a, b]$, where any value within this interval is equally likely to occur.
+\begin{equation}
+	\text{Mean: } \mu = \frac{a + b}{2}
+	\label{eq:continuous_uniform_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Variance: } \sigma^2 = \frac{(b - a)^2}{12}
+	\label{eq:continuous_uniform_var_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Biến ngẫu nhiên liên tục $X$ nhận giá trị trong đoạn $[a, b]$, với hàm mật độ xác suất không đổi: $f(x) = \frac{1}{b-a}$ khi $a \le x \le b$, và $0$ ở ngoài đoạn.
+- Chứng minh Mean ($\mu$): 
+\[ E[X] = \int_a^b x f(x) dx = \int_a^b \frac{x}{b-a} dx = \frac{1}{b-a} \left[ \frac{x^2}{2} \right]_a^b = \frac{b^2 - a^2}{2(b-a)} = \frac{a+b}{2} \]
+- Chứng minh Variance ($\sigma^2$): Ta tính kỳ vọng của $X^2$:
+\[ E[X^2] = \int_a^b x^2 f(x) dx = \int_a^b \frac{x^2}{b-a} dx = \frac{1}{b-a} \left[ \frac{x^3}{3} \right]_a^b = \frac{b^3 - a^3}{3(b-a)} = \frac{a^2 + ab + b^2}{3} \]
+Phương sai của phân phối đều liên tục là:
+\[ \text{Var}(X) = E[X^2] - (E[X])^2 = \frac{a^2 + ab + b^2}{3} - \left(\frac{a+b}{2}\right)^2 = \frac{4a^2 + 4ab + 4b^2 - 3a^2 - 6ab - 3b^2}{12} = \frac{(b-a)^2}{12} \]}}
+Its skewness is $0$ and kurtosis is $1.8$.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_13.png}
+	\caption{Continuous Uniform Probability Density between a and b}
+	\label{fig:mod6_exhibit_13}
+\end{figure}
+
+Continuous uniform distributions are key to generating Monte Carlo simulations. To simulate any continuous distribution, we first draw random numbers from a standard uniform distribution $U \sim [0, 1]$ and then map them to the target distribution using the inverse CDF method.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Monte Carlo Simulation and Geometric Brownian Motion (GBM)},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Stock price paths are often simulated using the GBM formula:
+\[ S_t = S_0 e^{\left(\mu - \frac{\sigma^2}{2}\right)t + \sigma W_t} \]
+where $\mu$ is drift, $\sigma$ is volatility, and $W_t$ is Brownian motion (normally distributed noise).
+To simulate a single daily step ($t = 1/250$):
+\begin{enumerate}
+	\item Draw a uniform random value from $[0, 1]$, say $U = 0.07$.
+	\item Convert it into a standard normal value: using the inverse standard normal CDF, $\Phi^{-1}(0.07) \approx -1.48$.
+	\item Substitute $W_t = -1.48$ into the formula to compute the next stock price $S_1$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_14.png}
+	\caption{Monte Carlo Simulation Stock Price Paths}
+	\label{fig:mod6_exhibit_14}
+\end{figure}
+
+\subsubsection{Normal Distribution}
+The normal distribution, or Gaussian distribution, is fully defined by its mean $\mu$ and variance $\sigma^2$, denoted as $N(\mu, \sigma^2)$.
+It has a symmetrical bell shape where Mean = Median = Mode. Its skewness is $0$, kurtosis is $3$, and excess kurtosis is $0$.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_15.png}
+	\caption{Standard Normal Distribution PDF and CDF}
+	\label{fig:mod6_exhibit_15}
+\end{figure}
+
+A standard normal distribution has $\mu = 0$ and $\sigma^2 = 1$. Z-scores standardize any normal variable: $Z = \frac{X - \mu}{\sigma}$.
+Key probability intervals (Empirical Rule):
+\begin{itemize}
+	\item $\mu \pm 1\sigma$ contains approximately $68\%$ of the observations.
+	\item $\mu \pm 1.96\sigma$ contains approximately $95\%$ of the observations (often rounded to $\mu \pm 2\sigma$).
+	\item $\mu \pm 2.58\sigma$ contains approximately $99\%$ of the observations.
+\end{itemize}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Đối với phân phối Chuẩn chuẩn hóa $Z \sim N(0, 1)$, hàm mật độ đối xứng quanh trục tung là $f(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}$. Một biến phân phối Chuẩn tổng quát $X \sim N(\mu, \sigma^2)$ có thể viết dưới dạng tuyến tính của biến chuẩn hóa: $X = \mu + \sigma Z$.
+- Chứng minh Mean ($\mu$): Trước hết, kỳ vọng của biến chuẩn hóa $Z$:
+\[ E[Z] = \int_{-\infty}^{\infty} z \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz = 0 \]
+(vì tích phân của hàm lẻ đối xứng qua gốc tọa độ luôn bằng 0). Do đó:
+\[ E[X] = E[\mu + \sigma Z] = \mu + \sigma E[Z] = \mu \]
+- Chứng minh Variance ($\sigma^2$): Ta tính phương sai của biến chuẩn hóa $Z$ bằng tích phân từng phần (đặt $u=z, dv=z e^{-z^2/2} dz$):
+\[ \text{Var}(Z) = E[Z^2] = \int_{-\infty}^{\infty} z^2 \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz = \frac{1}{\sqrt{2\pi}} \left[ -z e^{-z^2/2} \right]_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz = 0 + 1 = 1 \]
+Từ đó, phương sai của biến tổng quát $X$ là:
+\[ \text{Var}(X) = \text{Var}(\mu + \sigma Z) = \sigma^2 \text{Var}(Z) = \sigma^2 \]}}
+
+\subsubsection{Log-Normal Distribution}
+A random variable $Y$ is log-normally distributed if $X = \ln(Y)$ is normally distributed.
+Because $Y = e^X$, log-normal variables can only take strictly positive values ($Y > 0$). The distribution is right-skewed.
+If $X \sim N(\mu_X, \sigma_X^2)$, the moments of $Y$ are:
+\begin{equation}
+	\text{Mean: } \mu_Y = e^{\mu_X + \frac{\sigma_X^2}{2}}
+	\label{eq:lognormal_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Variance: } \sigma_Y^2 = (e^{\sigma_X^2} - 1) e^{2\mu_X + \sigma_X^2}
+	\label{eq:lognormal_var_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Biến ngẫu nhiên $Y = e^X$, trong đó $X \sim N(\mu_X, \sigma_X^2)$ là biến ngẫu nhiên phân phối chuẩn.
+- Chứng minh Mean ($\mu_Y$): Sử dụng phương pháp hàm sinh mô-men (Moment Generating Function) của phân phối chuẩn, ta biết $E[e^{tX}] = e^{\mu_X t + \sigma_X^2 t^2 / 2}$. Đặt $t=1$, ta thu được kỳ vọng của $Y$:
+\[ E[Y] = E[e^X] = e^{\mu_X + \frac{\sigma_X^2}{2}} \]
+- Chứng minh Variance ($\sigma_Y^2$): Ta tính kỳ vọng của $Y^2 = e^{2X}$ bằng cách đặt $t=2$ vào hàm sinh mô-men:
+\[ E[Y^2] = E[e^{2X}] = e^{2\mu_X + 2\sigma_X^2} \]
+Từ đó, phương sai của phân phối Log-normal được xác định:
+\[ \text{Var}(Y) = E[Y^2] - (E[Y])^2 = e^{2\mu_X + 2\sigma_X^2} - \left(e^{\mu_X + \frac{\sigma_X^2}{2}}\right)^2 = e^{2\mu_X + 2\sigma_X^2} - e^{2\mu_X + \sigma_X^2} = (e^{\sigma_X^2} - 1) e^{2\mu_X + \sigma_X^2} \]}}
+
+\textcolor{blue}{\textit{Lưu ý quan trọng: Tại sao ta dùng Log-normal cho giá tài sản mà dùng Normal cho tỷ suất sinh lời? Vì giá cổ phiếu không thể âm (bị chặn dưới bởi số 0), hoàn toàn phù hợp với phân phối Log-normal. Ngược lại, tỷ suất sinh lời có thể nhận giá trị âm, do đó phù hợp hơn với phân phối Chuẩn. Ngoài ra, tỷ suất sinh lời liên tục (Log returns) có tính cộng dồn (additive) theo thời gian, giúp việc tính toán đơn giản hơn nhiều so với tỷ suất sinh lời thông thường (Simple returns).}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Modeling Asset Prices},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Let $S_0 = 100$, logarithmic annual mean return $\mu = 8\%$, and volatility $\sigma = 20\%$. After $1$ year, the logarithmic price is:
+\[ \ln(S_1) = \ln(S_0) + \left(\mu - \frac{\sigma^2}{2}\right) \times t = \ln(100) + \left(0.08 - \frac{0.04}{2}\right) \times 1 = 4.6652 \]
+The expected future price is $S_1 = e^{4.6652} = 106.19$.
+\end{tcolorbox}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_16.png}
+	\caption{A Log-Normal Distribution Curve}
+	\label{fig:mod6_exhibit_16_lognormal}
+\end{figure}
+
+\subsubsection{Logistic Distribution}
+The logistic distribution is a continuous distribution defined by location $\mu$ and scale $s$. It resembles the normal distribution but has fatter tails.
+\begin{equation}
+	\text{Mean: } \mu = \mu
+	\label{eq:logistic_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Variance: } \sigma^2 = \frac{s^2 \pi^2}{3}
+	\label{eq:logistic_variance_m6}
+\end{equation}
+
+\textcolor{blue}{\textit{Giả định cơ sở và chứng minh của Giảng viên:
+- Giả định cơ sở: Phân phối Logistic chuẩn hóa có hàm mật độ đối xứng quanh gốc tọa độ $0$ với CDF là $F(z) = \frac{1}{1+e^{-z}}$. Một biến ngẫu nhiên phân phối Logistic tổng quát được xây dựng bằng cách tịnh tiến và tỉ lệ hóa: $X = \mu + s Z$, trong đó $s$ là tham số tỉ lệ (scale parameter).
+- Chứng minh Mean ($\mu$): Do tính đối xứng hoàn hảo của phân phối Logistic xung quanh tham số vị trí $\mu$ (location parameter), kỳ vọng của nó bằng chính tham số vị trí:
+\[ E[X] = \mu \]
+- Chứng minh Variance ($\sigma^2$): Phương sai của phân phối Logistic chuẩn hóa $Z$ có thể tính toán bằng tích phân số học phức tạp hơn (sử dụng tích phân Riemann-Zeta):
+\[ \text{Var}(Z) = \int_{-\infty}^{\infty} z^2 \frac{e^{-z}}{(1+e^{-z})^2} dz = \frac{\pi^2}{3} \]
+Do đó, dựa trên tính chất của phương sai tuyến tính:
+\[ \text{Var}(X) = \text{Var}(\mu + s Z) = s^2 \text{Var}(Z) = \frac{s^2 \pi^2}{3} \]}}
+Its skewness is $0$, kurtosis is $4.2$, and excess kurtosis is $1.2$.
+The logistic distribution is widely used in logistic regression to predict binary outcomes in finance (e.g., probability of default).
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_17.png}
+	\caption{The PDF and CDF of Different Logistic Distributions}
+	\label{fig:mod6_exhibit_17_logistic}
+\end{figure}
+
+\subsection{Practical Implementation}
+
+Table~\ref{tab:moments_all_m6} summarizes the moments of all distributions covered in this module, and Table~\ref{tab:distribution_formulas_m6} shows their density/mass functions and cumulative distributions.
+
+\begin{table}[!htbp]
+\centering
+\caption{The Four Statistical Moments of Distributions}
+\label{tab:moments_all_m6}
+\begin{tabular}{p{0.18\linewidth} p{0.18\linewidth} p{0.22\linewidth} p{0.15\linewidth} p{0.15\linewidth}}
+\toprule
+\textbf{Distribution} & \textbf{Mean} & \textbf{Variance} & \textbf{Skewness} & \textbf{Excess Kurtosis} \\
+\midrule
+Discrete Uniform & $\frac{a+b}{2}$ & $\frac{(b-a+1)^2-1}{12}$ & 0 & $-\frac{6(n^2+1)}{5(n^2-1)}$ \\
+Binomial & $np$ & $np(1-p)$ & $\frac{1-2p}{\sqrt{np(1-p)}}$ & $\frac{1-6p(1-p)}{np(1-p)}$ \\
+Poisson & $\lambda$ & $\lambda$ & $\frac{1}{\sqrt{\lambda}}$ & $\frac{1}{\lambda}$ \\
+Continuous Uniform & $\frac{a+b}{2}$ & $\frac{(b-a)^2}{12}$ & 0 & $-1.2$ \\
+Normal & $\mu$ & $\sigma^2$ & 0 & 0 \\
+Log-normal & $e^{\mu+\frac{\sigma^2}{2}}$ & $(e^{\sigma^2}-1)e^{2\mu+\sigma^2}$ & $>0$ & $>0$ \\
+Logistic & $\mu$ & $\frac{s^2\pi^2}{3}$ & 0 & 1.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 289, Exhibit 18
+
+\begin{table}[!htbp]
+\centering
+\caption{CDFs, PMFs, and PDFs for Statistical Distributions}
+\label{tab:distribution_formulas_m6}
+\begin{tabular}{p{0.18\linewidth} p{0.38\linewidth} p{0.38\linewidth}}
+\toprule
+\textbf{Distribution} & \textbf{PMF / PDF} & \textbf{CDF} \\
+\midrule
+Discrete Uniform & $\frac{1}{b-a+1}$ & $\frac{x-a+1}{b-a+1}$ \\
+Binomial & $\binom{n}{x} p^x (1-p)^{n-x}$ & $\sum_{i=0}^x \binom{n}{i} p^i (1-p)^{n-i}$ \\
+Poisson & $\frac{\lambda^x e^{-\lambda}}{x!}$ & $e^{-\lambda} \sum_{i=0}^x \frac{\lambda^i}{i!}$ \\
+Continuous Uniform & $\frac{1}{b-a}$ & $\frac{x-a}{b-a}$ \\
+Normal & $\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$ & $\Phi\left(\frac{x-\mu}{\sigma}\right)$ \\
+Log-normal & $\frac{1}{x\sigma\sqrt{2\pi}} e^{-\frac{(\ln x - \mu)^2}{2\sigma^2}}$ & $\Phi\left(\frac{\ln x - \mu}{\sigma}\right)$ \\
+Logistic & $\frac{e^{-(x-\mu)/s}}{s\left(e^{-(x-\mu)/s}+1\right)^2}$ & $\frac{1}{e^{-(x-\mu)/s}+1}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 290, Exhibit 19
+
+Table~\ref{tab:excel_formulas_m6} summarizes the Excel and Google Sheets formulas used to compute these distributions in practice.
+
+\begin{table}[!htbp]
+\centering
+\caption{Statistical Distribution Functions in Excel and Google Sheets}
+\label{tab:excel_formulas_m6}
+\begin{tabular}{p{0.28\linewidth} p{0.33\linewidth} p{0.33\linewidth}}
+\toprule
+\textbf{Distribution Function} & \textbf{Excel Formula} & \textbf{Google Sheets Formula} \\
+\midrule
+Uniform CDF & \texttt{BETA.DIST((x-a)/(b-a),1,1,TRUE)} & \texttt{BETA.DIST((x-a)/(b-a),1,1,TRUE)} \\
+Uniform Random Draw & \texttt{=RAND()*(b-a)+a} & \texttt{=RAND()*(b-a)+a} \\
+Binomial PMF & \texttt{=BINOM.DIST(x, n, p, FALSE)} & \texttt{=BINOM.DIST(x, n, p, FALSE)} \\
+Binomial CDF & \texttt{=BINOM.DIST(x, n, p, TRUE)} & \texttt{=BINOM.DIST(x, n, p, TRUE)} \\
+Poisson PMF & \texttt{=POISSON.DIST(x, lambda, FALSE)} & \texttt{=POISSON.DIST(x, lambda, FALSE)} \\
+Normal PDF & \texttt{=NORM.DIST(x, mean, sd, FALSE)} & \texttt{=NORM.DIST(x, mean, sd, FALSE)} \\
+Normal Random Draw & \texttt{=NORM.INV(RAND(), mean, sd)} & \texttt{=NORMINV(RAND(), mean, sd)} \\
+Log-normal CDF & \texttt{=LOGNORM.DIST(x, mean, sd, TRUE)} & \texttt{=LOGNORM.DIST(x, mean, sd, TRUE)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 290, Exhibit 20
+
+\section{CONDITIONAL EXPECTATIONS, VARIANCES, AND COVARIANCES}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	c & calculate, interpret, and evaluate conditional expectations, variances, and covariances \\
+\end{tabular}
+\end{center}
+
+\subsection{Joint Distributions of Random Variables}
+Joint distributions allow for examining the simultaneous distribution of two random variables. The bivariate cumulative distribution function (CDF) is defined as:
+\begin{equation}
+	F_{12}(x_1, x_2) = P(X_1 \le x_1, X_2 \le x_2)
+	\label{eq:joint_cdf_m6}
+\end{equation}
+For continuous variables, the joint CDF is obtained by integrating the joint PDF $f_{12}(u_1, u_2)$:
+\begin{equation}
+	F_{12}(x_1, x_2) = \int_{-\infty}^{x_1} \int_{-\infty}^{x_2} f_{12}(u_1, u_2) du_1 du_2
+	\label{eq:joint_cdf_integral_m6}
+\end{equation}
+If the variables are independent:
+\begin{equation}
+	f_{12}(u_1, u_2) = f_1(u_1) \times f_2(u_2)
+	\label{eq:joint_pdf_independent_m6}
+\end{equation}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/006_Module_6/exhibit_16.png}
+	\caption{Joint Probability Density Surface Plot}
+	\label{fig:mod6_exhibit_16}
+\end{figure}
+
+The \textbf{marginal density} is the probability distribution of a single variable within a multivariate distribution. It is obtained by integrating out the other variables:
+\begin{equation}
+	f_{X_1}(x_1) = \int_{-\infty}^{\infty} f_{X_1 X_2}(x_1, u_2) du_2
+	\label{eq:marginal_density_m6}
+\end{equation}
+
+For discrete variables, joint and marginal distributions are summarized in contingency tables.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Stock Market Returns and Technology Companies},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An index consists of $500$ firms, $100$ of which are technology firms.
+Among the $100$ technology firms, $60$ had returns $> 10\%$ and $40$ had returns $\le 10\%$.
+Among the $400$ non-tech firms, $100$ had returns $> 10\%$ and $300$ had returns $\le 10\%$.
+Table~\ref{tab:contingency_tech_m6} displays these frequencies.
+\end{tcolorbox}
+
+\begin{table}[!htbp]
+\centering
+\caption{Returns for Technology and Non-Technology Firms}
+\label{tab:contingency_tech_m6}
+\begin{tabular}{c c c c}
+\toprule
+\textbf{Rate of Return} $R$ & \textbf{Non-Technology} & \textbf{Technology} & \textbf{Total} \\
+\midrule
+$R > 10\%$  & 100 & 60  & 160 \\
+$R \le 10\%$ & 300 & 40  & 340 \\
+\midrule
+\textbf{Total} & \textbf{400} & \textbf{100} & \textbf{500} \\
+\bottomrule
+\end{tabular}
+\end{table}
+% Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 295, Exhibit 22
+
+\subsection{Conditional Expectations}
+The conditional expectation $E[X | Y=y]$ is the expected value of $X$ given that $Y$ takes on the value $y$:
+\begin{equation}
+	\text{Discrete: } E[X|Y=y] = \sum_x x P(X=x | Y=y)
+	\label{eq:discrete_cond_mean_m6}
+\end{equation}
+\begin{equation}
+	\text{Continuous: } E[X|Y=y] = \int x f_{X|Y}(x|y) dx
+	\label{eq:continuous_cond_mean_m6}
+\end{equation}
+The expected conditional variance is:
+\begin{equation}
+	\text{Var}(X | Y=y) = E[X^2 | Y=y] - (E[X | Y=y])^2
+	\label{eq:conditional_variance_m6}
+\end{equation}
+
+The \textbf{Total Probability Rule for Expected Value} states:
+\begin{equation}
+	E[X] = \sum_{i=1}^n E[X | S_i] \times P(S_i)
+	\label{eq:total_prob_rule_expectation_m6}
+\end{equation}
+where $S_1, S_2, \dots, S_n$ are mutually exclusive and exhaustive scenarios.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: The Effect of Tax Rebates on Spending},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An economist analyzes value-added tax relief across two economic conditions:
+\begin{itemize}
+	\item Strong economy ($Y=1$, probability $P(Y=1) = 0.30$)
+	\item Weak economy ($Y=0$, probability $P(Y=0) = 0.70$)
+\end{itemize}
+Probabilities of scenarios are:
+\begin{center}
+\begin{tabular}{c c c}
+\toprule
+\textbf{Scenario (Change in Spending)} & \textbf{Strong Economy} $Y=1$ & \textbf{Weak Economy} $Y=0$ \\
+\midrule
+Scenario 1: DKK 10,000 & 0.15 & 0.30 \\
+Scenario 2: DKK 1,000  & 0.80 & 0.40 \\
+Scenario 3: $-$\,DKK 2,000 & 0.05 & 0.30 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The conditional expected changes in consumer spending are:
+\begin{align*}
+	E[\text{Spending}|Y=1] &= (0.15 \times 10,000) + (0.80 \times 1,000) + (0.05 \times -2,000) = \text{DKK 2,200} \\
+	E[\text{Spending}|Y=0] &= (0.30 \times 10,000) + (0.40 \times 1,000) + (0.30 \times -2,000) = \text{DKK 2,800}
+\end{align*}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Scenario Expected Returns and Variances},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst estimates portfolio return forecasts across three economic scenarios:
+\begin{itemize}
+	\item \textbf{Depression} (prob $50\%$): $-25\%$ return (prob $50\%$), $-10\%$ return (prob $25\%$), $-5\%$ return (prob $15\%$), $0\%$ return (prob $10\%$).
+	\item \textbf{Recession} (prob $30\%$): $-5\%$ return (prob $30\%$), $0\%$ return (prob $30\%$), $5\%$ return (prob $30\%$), $15\%$ return (prob $10\%$).
+	\item \textbf{Expansion} (prob $40\%$? Wait, assuming scenarios are equally likely for simplicity, $P = 1/3$ each).
+\end{itemize}
+Conditional expected returns and variances are calculated as:
+\begin{align*}
+	E[R|\text{Depression}] &= 0.50(-0.25) + 0.25(-0.10) + 0.15(-0.05) + 0.10(0) = -15.75\% \\
+	\text{Var}[R|\text{Depression}] &= 0.50(-0.25 - (-0.1575))^2 + \dots = 0.0093 \\
+	E[R|\text{Recession}] &= 0.30(-0.05) + 0.30(0) + 0.30(0.05) + 0.10(0.15) = 1.5\% \\
+	\text{Var}[R|\text{Recession}] &= 0.0035 \\
+	E[R|\text{Expansion}] &= 0.10(0.25) + 0.25(0.10) + 0.25(0.15) + 0.40(0.50) = 28.75\% \\
+	\text{Var}[R|\text{Expansion}] &= 0.0317
+\end{align*}
+If scenarios are equally likely, the unconditional expected return is:
+\[ E[R] = \frac{-15.75\% + 1.50\% + 28.75\%}{3} = 4.83\% \]
+The unconditional variance is:
+\[ \sigma^2 = \frac{1}{3}(-0.1575 - 0.0483)^2 + \frac{1}{3}(0.015 - 0.0483)^2 + \frac{1}{3}(0.2875 - 0.0483)^2 = 0.0234 \]
+\end{tcolorbox}
+
+\subsection{Conditional Means, Variances, and Covariances}
+Incorporating conditioning information updates expected values:
+\begin{itemize}
+	\item \textbf{Conditional Mean:} $E[X|S] = \sum_{i=1}^n x_i P(X_i|S)$
+	\item \textbf{Conditional Variance:} $\text{Var}(X|S) = E[(X - E[X|S])^2 | S]$
+	\item \textbf{Conditional Covariance:}
+	\begin{equation}
+		\text{Cov}(X, Y | S) = E[(X - E[X|S])(Y - E[Y|S]) | S]
+		\label{eq:conditional_covariance_formula_m6}
+	\end{equation}
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Three-Period Asset Price Evolution},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Let $P_0 = 100$. Each period, the price rises by $10$ with probability $0.60$ or falls by $10$ with probability $0.40$. At Time 3, possible outcomes follow a binomial tree (Exhibit~\ref{fig:mod6_exhibit_17}):
+\begin{itemize}
+	\item $P_3 = 130$ (prob $0.6^3 = 0.216$)
+	\item $P_3 = 110$ (prob $3 \times 0.6^2 \times 0.4 = 0.432$)
+	\item $P_3 = 90$ (prob $3 \times 0.6 \times 0.4^2 = 0.288$)
+	\item $P_3 = 70$ (prob $0.4^3 = 0.064$)
+\end{itemize}
+The unconditional price expectation at Time 3 is:
+\[ E[P_3] = 130(0.216) + 110(0.432) + 90(0.288) + 70(0.064) = 106 \]
+The unconditional variance is:
+\[ \text{Var}(P_3) = E[P_3^2] - (E[P_3])^2 = 11,524 - 106^2 = 288 \]
+
+Suppose at Time 1, the price is observed to be $110$ ($P_1 = 110$, Exhibit~\ref{fig:mod6_exhibit_18}). The conditional probabilities for Time 3 update to:
+\begin{itemize}
+	\item $P_3 = 130$ (prob $0.6^2 = 0.36$)
+	\item $P_3 = 110$ (prob $2 \times 0.6 \times 0.4 = 0.48$)
+	\item $P_3 = 90$ (prob $0.4^2 = 0.16$)
+\end{itemize}
+The conditional expectation is:
+\[ E[P_3|P_1=110] = 130(0.36) + 110(0.48) + 90(0.16) = 114 \]
+The conditional variance is:
+\[ \text{Var}(P_3|P_1=110) = E[P_3^2|P_1=110] - E[P_3|P_1=110]^2 = 15,568 - 114^2 = 192 \]
+
+Suppose at Time 2, the price is $100$ ($P_2 = 100$, Exhibit~\ref{fig:mod6_exhibit_19}). The conditional statistics update to:
+\[ E[P_3|P_2=100] = 110(0.60) + 90(0.40) = 102 \]
+\[ \text{Var}(P_3|P_2=100) = (110^2 \times 0.60 + 90^2 \times 0.40) - 102^2 = 96 \]
+
+Table~\ref{tab:binomial_cond_summary_m6} summarizes the updates:
+\end{tcolorbox}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{002_figs/006_Module_6/exhibit_17.png}
+	\caption{Potential Asset Price Evolution over Three Periods}
+	\label{fig:mod6_exhibit_17}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{002_figs/006_Module_6/exhibit_18.png}
+	\caption{Price Evolution Given Time 1 Outcome $P_1 = 110$}
+	\label{fig:mod6_exhibit_18}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{002_figs/006_Module_6/exhibit_19.png}
+	\caption{Price Evolution Given Time 2 Outcome $P_2 = 100$}
+	\label{fig:mod6_exhibit_19}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Expectation and Variance Under Different Conditions}
+\label{tab:binomial_cond_summary_m6}
+\begin{tabular}{l c c}
+\toprule
+\textbf{Conditionality} & \textbf{Expected Price} & \textbf{Variance} \\
+\midrule
+Unconditional & 106 & 288 \\
+Conditional on $P_1 = 110$ & 114 & 192 \\
+Conditional on $P_2 = 100$ & 102 & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{BAYESIAN UPDATING}
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+	d & formulate investment problems through Bayesian updating \\
+\end{tabular}
+\end{center}
+
+Bayes' theorem provides a formal framework for updating the probability of a hypothesis (prior probability) in light of additional data or evidence to form an updated probability (posterior probability).
+\begin{itemize}
+	\item \textbf{A Priori Probability (Prior):} The probability of an event formulated before new data is considered.
+	\item \textbf{A Posteriori Probability (Posterior):} The updated probability of the event after incorporating new observations.
+\end{itemize}
+
+Bayes' formula is stated as:
+\begin{equation}
+	P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}
+	\label{eq:bayes_formula_m6}
+\end{equation}
+where:
+\begin{itemize}
+	\item $P(A|B)$ is the posterior probability of $A$ occurring given $B$ is true.
+	\item $P(B|A)$ is the likelihood of observing $B$ given $A$ is true.
+	\item $P(A)$ is the prior probability of $A$.
+	\item $P(B)$ is the marginal probability of observing $B$, computed using the total probability rule:
+	\begin{equation}
+		P(B) = \sum_i P(B|A_i) \times P(A_i)
+		\label{eq:total_prob_denominator_m6}
+	\end{equation}
+\end{itemize}
+
+\textcolor{blue}{\textit{Góc nhìn thực tế: Định lý Bayes là một công cụ cực kỳ hữu ích giúp các nhà đầu tư cập nhật liên tục các nhận định của mình khi thị trường công bố thông tin mới (ví dụ: cập nhật xác suất một công ty vỡ nợ khi biết điểm xếp hạng tín dụng thay đổi, hoặc cập nhật khả năng tăng trưởng của cổ phiếu khi doanh nghiệp công bố báo cáo tài chính). Hãy ghi nhớ công thức: Xác suất sau (Posterior) = (Xác suất có điều kiện của tin tức / Xác suất tổng quan của tin tức) * Xác suất trước (Prior).}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Technology Companies and Stock Returns},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Using the contingency table for technology firms in Table~\ref{tab:contingency_tech_m6}, we calculate:
+\begin{itemize}
+	\item $P(\text{Tech}) = 0.20$ and $P(\text{Non-tech}) = 0.80$
+	\item $P(R > 10\% | \text{Tech}) = 0.60$ and $P(R > 10\% | \text{Non-tech}) = 0.25$
+\end{itemize}
+The overall probability of a firm having a return $R > 10\%$ is:
+\[ P(R > 10\%) = (0.60 \times 0.20) + (0.25 \times 0.80) = 0.32 \]
+Using Bayes' formula, the probability that a firm is a technology company given its return exceeds $10\%$ is:
+\[ P(\text{Tech} | R > 10\%) = \frac{P(R > 10\% | \text{Tech}) \times P(\text{Tech})}{P(R > 10\%)} = \frac{0.60 \times 0.20}{0.32} = 37.5\% \]
+This represents an increase from the unconditional prior probability of $20\%$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Sustainability Investments and Earnings Expectations},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+EcoMed A/S will release its annual earnings next week. Prior probabilities for consensus EPS outcomes are:
+\begin{itemize}
+	\item $P(\text{Exceeded Consensus}) = 0.45$
+	\item $P(\text{Met Consensus}) = 0.30$
+	\item $P(\text{Fell Short}) = 0.25$
+\end{itemize}
+Before the release, EcoMed announces expanding sustainable practices. The likelihood of this announcement under each earnings scenario is estimated as:
+\begin{itemize}
+	\item $P(\text{Sustainability Announcement} | \text{Exceeded}) = 0.75$
+	\item $P(\text{Sustainability Announcement} | \text{Met}) = 0.20$
+	\item $P(\text{Sustainability Announcement} | \text{Fell Short}) = 0.05$
+\end{itemize}
+First, we find the unconditional probability of the sustainability announcement:
+\[ P(\text{Sustainability}) = (0.75 \times 0.45) + (0.20 \times 0.30) + (0.05 \times 0.25) = 0.41 \]
+We update the probabilities using Bayes' formula:
+\begin{align*}
+	P(\text{Exceeded} | \text{Sustainability}) &= \frac{0.75 \times 0.45}{0.41} = 82.32\% \\
+	P(\text{Met} | \text{Sustainability}) &= \frac{0.20 \times 0.30}{0.41} = 14.63\% \\
+	P(\text{Fell Short} | \text{Sustainability}) &= \frac{0.05 \times 0.25}{0.41} = 3.05\%
+\end{align*}
+Note that the updated posterior probabilities sum to exactly $1.0000$:
+\[ 0.8232 + 0.1463 + 0.0305 = 1.0000 \]
+\end{tcolorbox}
