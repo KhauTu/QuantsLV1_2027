@@ -2,7 +2,7 @@
 \label{chap:The Return and Risk of a Financial Portfolio}
 
 \begin{center}
-\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+\begin{tabular}{p{0.06\linewidth}  p{0.88\linewidth}}
 	\toprule
 	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
 	\midrule
@@ -59,7 +59,7 @@ The geometric average return, or geometric return, is defined as:
 	\label{eq:portfolio_geometric_return_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Giảng viên lưu ý: Portfolio drift xảy ra khi tỷ trọng các tài sản thay đổi tự nhiên theo thời gian do sự khác biệt về tỷ suất sinh lời của từng tài sản. Tài sản tăng mạnh sẽ chiếm tỷ trọng ngày càng lớn, dẫn đến việc danh mục lệch khỏi chiến lược ban đầu (style drift). Để kiểm soát rủi ro này, các nhà quản lý quỹ bắt buộc phải thực hiện tái cân bằng (rebalancing) định kỳ.}}
+\textcolor{blue}{\textit{Portfolio drift làm lệch tỷ trọng mục tiêu (style drift) do tài sản tăng trưởng không đều. Chúng ta cần đặt câu hỏi: Nếu không tái cân bằng (rebalancing) định kỳ, rủi ro danh mục sẽ thay đổi thế nào? Có tiệm cận rủi ro của tài sản sinh lời cao nhất?}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -82,11 +82,19 @@ Calculate the arithmetic average return and geometric average return of the port
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Arithmetic Return for Year 1:} $R_{P,1} = 0.5(10\%) + 0.5(-5\%) = 2.5\%$.
-	\item \textbf{Arithmetic Return for Year 2:} $R_{P,2} = 0.5(-10\%) + 0.5(20\%) = 5.0\%$.
-	\item \textbf{Arithmetic Average:} $\bar{R}_P = \frac{2.5\% + 5\%}{2} = 3.75\%$.
-	\item \textbf{Geometric Average:} $\bar{R}_{g,P} = \sqrt{(1 + 0.025)(1 + 0.05)} - 1 = 3.74\%$.
+	\item \textbf{Tỷ suất sinh lời Năm 1 (Arithmetic Return):} $R_{P,1} = 0.5(10\%) + 0.5(-5\%) = 2.5\%$.
+	\item \textbf{Tỷ suất sinh lời Năm 2 (Arithmetic Return):} $R_{P,2} = 0.5(-10\%) + 0.5(20\%) = 5.0\%$.
+	\item \textbf{Tỷ suất sinh lời trung bình cộng (Arithmetic Average):} $\bar{R}_P = \frac{2.5\% + 5\%}{2} = 3.75\%$.
+	\item \textbf{Tỷ suất sinh lời trung bình hình học (Geometric Average):} $\bar{R}_{g,P} = \sqrt{(1 + 0.025)(1 + 0.05)} - 1 = 3.74\%$.
 \end{enumerate}
+\begin{examtip}
+\textbf{Hướng dẫn bấm máy BA II Plus tính tỷ suất sinh lời trung bình hình học:}
+\begin{enumerate}
+	\item Bấm \textbf{1.025} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.05} $\rightarrow$ \textbf{[=]} (màn hình hiển thị \textbf{1.07625}).
+	\item Bấm \textbf{[2nd]} $\rightarrow$ \textbf{[Vx]} để lấy căn bậc hai (màn hình hiển thị \textbf{1.03742}).
+	\item Bấm \textbf{[-]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (màn hình hiển thị \textbf{0.03742} hay \textbf{3.74\%}).
+\end{enumerate}
+\end{examtip}
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -117,39 +125,47 @@ Calculate the portfolio returns and weights at each step, and determine the cumu
 
 \textbf{Solution:}
 \begin{itemize}
-	\item \textbf{Period 1:}
+	\item \textbf{Kỳ 1 (Period 1):}
 	      \begin{itemize}
-		      \item Portfolio Return: $R_{P,1} = 0.5(20\%) + 0.5(5\%) = 12.5\%$.
-		      \item End Values: Asset A = EUR $1.20$; Asset B = EUR $1.05$. Total = EUR 2.25.
-		      \item Drifting Weights for Period 2: $w_{A,1} = \frac{1.20}{2.25} \approx 53.33\%$; $w_{B,1} = \frac{1.05}{2.25} \approx 46.67\%$.
+		      \item Tỷ suất sinh lời danh mục: $R_{P,1} = 0.5(20\%) + 0.5(5\%) = 12.5\%$.
+		      \item Giá trị cuối kỳ: Tài sản A = EUR $1.20$; Tài sản B = EUR $1.05$. Tổng giá trị = EUR 2.25.
+		      \item Tỷ trọng trôi nổi cho Kỳ 2: $w_{A,1} = \frac{1.20}{2.25} \approx 53.33\%$; $w_{B,1} = \frac{1.05}{2.25} \approx 46.67\%$.
 	      \end{itemize}
-	\item \textbf{Period 2:}
+	\item \textbf{Kỳ 2 (Period 2):}
 	      \begin{itemize}
-		      \item Portfolio Return: $R_{P,2} = 0.5333(-10\%) + 0.4667(15\%) = 1.67\%$.
-		      \item End Values: Asset A = EUR $1.08$; Asset B = EUR $1.2075$. Total = EUR 2.2875.
-		      \item Drifting Weights for Period 3: $w_{A,2} = \frac{1.08}{2.2875} \approx 47.21\%$; $w_{B,2} = \frac{1.2075}{2.2875} \approx 52.79\%$.
+		      \item Tỷ suất sinh lời danh mục: $R_{P,2} = 0.5333(-10\%) + 0.4667(15\%) = 1.67\%$.
+		      \item Giá trị cuối kỳ: Tài sản A = EUR $1.08$; Tài sản B = EUR $1.2075$. Tổng giá trị = EUR 2.2875.
+		      \item Tỷ trọng trôi nổi cho Kỳ 3: $w_{A,2} = \frac{1.08}{2.2875} \approx 47.21\%$; $w_{B,2} = \frac{1.2075}{2.2875} \approx 52.79\%$.
 	      \end{itemize}
-	\item \textbf{Period 3:}
+	\item \textbf{Kỳ 3 (Period 3):}
 	      \begin{itemize}
-		      \item Portfolio Return: $R_{P,3} = 0.4721(25\%) + 0.5279(-5\%) = 9.16\%$.
-		      \item End Values: Asset A = EUR $1.35$; Asset B = EUR $1.1471$. Total = EUR 2.4971.
-		      \item Final Weights: $w_{A,3} = \frac{1.35}{2.4971} \approx 54.06\%$; $w_{B,3} = \frac{1.1471}{2.4971} \approx 45.94\%$.
+		      \item Tỷ suất sinh lời danh mục: $R_{P,3} = 0.4721(25\%) + 0.5279(-5\%) = 9.16\%$.
+		      \item Giá trị cuối kỳ: Tài sản A = EUR $1.35$; Tài sản B = EUR $1.1471$. Tổng giá trị = EUR 2.4971.
+		      \item Tỷ trọng cuối cùng: $w_{A,3} = \frac{1.35}{2.4971} \approx 54.06\%$; $w_{B,3} = \frac{1.1471}{2.4971} \approx 45.94\%$.
 	      \end{itemize}
-	\item \textbf{Cumulative Returns:}
+	\item \textbf{Tỷ suất sinh lời lũy kế (Cumulative Returns):}
 	      \begin{itemize}
-		      \item Cumulative Arithmetic Return: $R_{P,T} = R_{P,1} + R_{P,2} + R_{P,3} = 12.5\% + 1.67\% + 9.16\% = 23.33\%$.
-		      \item Arithmetic Average Return: $\bar{R}_P = \frac{23.33\%}{3} \approx 7.78\%$.
-		      \item Cumulative Geometric Return: $R_{P,T} = (1.125 \times 1.0167 \times 1.0916) - 1 \approx 24.86\%$.
-		      \item Geometric Average Return: $\bar{R}_{g,P} = (1.125 \times 1.0167 \times 1.0916)^{\frac{1}{3}} - 1 \approx 7.68\%$.
+		      \item Tỷ suất sinh lời cộng số học lũy kế: $R_{P,T} = R_{P,1} + R_{P,2} + R_{P,3} = 12.5\% + 1.67\% + 9.16\% = 23.33\%$.
+		      \item Tỷ suất sinh lời trung bình cộng: $\bar{R}_P = \frac{23.33\%}{3} \approx 7.78\%$.
+		      \item Tỷ suất sinh lời hình học lũy kế: $R_{P,T} = (1.125 \times 1.0167 \times 1.0916) - 1 \approx 24.86\%$.
+		      \item Tỷ suất sinh lời trung bình hình học: $\bar{R}_{g,P} = (1.125 \times 1.0167 \times 1.0916)^{\frac{1}{3}} - 1 \approx 7.68\%$.
 	      \end{itemize}
 \end{itemize}
+\begin{examtip}
+\textbf{Hướng dẫn bấm máy BA II Plus tính tỷ suất sinh lời trung bình hình học lũy kế:}
+\begin{enumerate}
+	\item Tính tích liên kết: \textbf{1.125} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.0167} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.0916} $\rightarrow$ \textbf{[=]} (kết quả hiển thị: \textbf{1.2486}).
+	\item Tính căn bậc ba: Bấm phím lũy thừa \textbf{[yx]} $\rightarrow$ mở ngoặc \textbf{[(]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[/]} $\rightarrow$ \textbf{3} $\rightarrow$ đóng ngoặc \textbf{[)]} $\rightarrow$ \textbf{[=]} (kết quả hiển thị: \textbf{1.0768}).
+	\item Trừ đi 1: Bấm \textbf{-} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (kết quả hiển thị: \textbf{0.0768} hoặc \textbf{7.68\%}).
+\end{enumerate}
+\end{examtip}
 \end{tcolorbox}
 
 \begin{table}[!htbp]
 \centering
 \caption{Portfolio Drift Characteristics by Weighting Scheme}
 \label{tab:portfolio_drift_comparison_m8}
-\begin{tabular}{p{0.22\linewidth} | p{0.32\linewidth} | p{0.30\linewidth}}
+\begin{tabular}{p{0.22\linewidth}  p{0.32\linewidth}  p{0.30\linewidth}}
 	\toprule
 	\textbf{Weighting Method} & \textbf{Impact of Drift} & \textbf{Resulting Portfolio Behavior} \\
 	\midrule
@@ -210,23 +226,32 @@ Calculate the expected portfolio return, variance, and standard deviation.
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Expected Return:} $E[R_P] = 0.8(9.93\%) + 0.2(18.20\%) = 11.58\%$.
-	\item \textbf{Portfolio Variance:}
+	\item \textbf{Tỷ suất sinh lời kỳ vọng (Expected Return):} $E[R_P] = 0.8(9.93\%) + 0.2(18.20\%) = 11.58\%$.
+	\item \textbf{Phương sai danh mục (Portfolio Variance):}
 	      \[
 	      E[\sigma_P^2] = (0.8^2 \times 0.1621^2) + (0.2^2 \times 0.3311^2) + (2 \times 0.8 \times 0.2 \times 0.0050)
 	      \]
 	      \[
 	      E[\sigma_P^2] = 0.01684 + 0.00439 + 0.00160 \approx 0.02283
 	      \]
-	\item \textbf{Standard Deviation:} $\sigma_P = \sqrt{0.02283} \approx 15.11\%$.
+	\item \textbf{Độ lệch chuẩn (Standard Deviation):} $\sigma_P = \sqrt{0.02283} \approx 15.11\%$.
 \end{enumerate}
+\begin{examtip}
+\textbf{Hướng dẫn bấm máy BA II Plus tính độ lệch chuẩn danh mục:}
+\begin{enumerate}
+	\item Tính phương sai phần 1 và lưu vào bộ nhớ: Bấm \textbf{0.8} $\rightarrow$ \textbf{[x2]} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.1621} $\rightarrow$ \textbf{[x2]} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[STO]} $\rightarrow$ \textbf{1} (Lưu phần 1 $\approx 0.016839$).
+	\item Tính phương sai phần 2 và cộng vào: Bấm \textbf{0.2} $\rightarrow$ \textbf{[x2]} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.3311} $\rightarrow$ \textbf{[x2]} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[+]} $\rightarrow$ \textbf{[RCL]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[STO]} $\rightarrow$ \textbf{1} (Lưu tổng phần 1 và 2 $\approx 0.021224$).
+	\item Tính phần 3 (hiệp phương sai) và cộng vào: Bấm \textbf{2} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.8} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.2} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.005} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[+]} $\rightarrow$ \textbf{[RCL]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (màn hình hiển thị phương sai $\approx 0.022824$).
+	\item Lấy căn bậc hai tính độ lệch chuẩn: Bấm \textbf{[2nd]} $\rightarrow$ \textbf{[Vx]} (màn hình hiển thị $\approx 0.151076$ hay \textbf{15.11\%}).
+\end{enumerate}
+\end{examtip}
 \end{tcolorbox}
 
 \begin{table}[!htbp]
 \centering
 \caption{Portfolio Return and Risk under Different Weights (S\&P 500 vs. MSCI EM)}
 \label{tab:portfolio_properties_weights_m8}
-\begin{tabular}{p{0.12\linewidth} | p{0.18\linewidth} | p{0.18\linewidth} | p{0.18\linewidth} | p{0.12\linewidth}}
+\begin{tabular}{p{0.12\linewidth}  p{0.18\linewidth}  p{0.18\linewidth}  p{0.18\linewidth}  p{0.12\linewidth}}
 	\toprule
 	\textbf{Portfolio} & \textbf{S\&P 500 Weight (\%)} & \textbf{MSCI EM Weight (\%)} & \textbf{Expected Return (\%)} & \textbf{Risk / SD (\%)} \\
 	\midrule
@@ -252,7 +277,7 @@ Calculate the expected portfolio return, variance, and standard deviation.
 	\label{fig:SP500_MSCI_Feasible}
 \end{figure}
 
-\textcolor{blue}{\textit{Giảng viên lưu ý: Do hệ số tương quan giữa S\&P 500 và MSCI EM ở mức thấp, đồ thị rủi ro - tỷ suất sinh lời có dạng hình cong lõm (concave). Điểm thú vị là Portfolio 9 có độ lệch chuẩn ($14.59\%$) thấp hơn cả danh mục an toàn hơn là S\&P 500 đơn lẻ ($16.21\%$). Đây chính là minh chứng cốt lõi của lợi ích đa dạng hóa: kết hợp hai tài sản rủi ro có thể tạo ra một danh mục ít rủi ro hơn từng tài sản đơn lẻ.}}
+\textcolor{blue}{\textit{Tương quan S\&P 500 và MSCI EM thấp tạo đồ thị rủi ro - sinh lời cong lõm (concave), giúp Portfolio 9 có độ lệch chuẩn ($14.59\%$) thấp hơn cả S\&P 500 ($16.21\%$). Chúng ta hãy suy nghĩ: Nếu tương quan bằng +1.0, liệu có thể giảm rủi ro danh mục? Tại sao tương quan thấp lại là \"chén thánh\"?}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -269,12 +294,12 @@ Calculate the expected portfolio return, variance, and standard deviation.
 Asset 1 has expected return $7.0\%$ and standard deviation $12.0\%$. Asset 2 has expected return $15.0\%$ and standard deviation $25.0\%$. Compare the portfolio risk ($\sigma_P$) for different asset weights under correlations ($\rho$) of $+1.0$, $+0.5$, $+0.2$, and $-1.0$.
 
 \textbf{Solution:}
-The resulting portfolio standard deviations are summarized in Table~\ref{tab:portfolio_var_correlations_m8}.
+Các kết quả tính toán độ lệch chuẩn danh mục ($\sigma_P$) tương ứng được tổng hợp chi tiết trong Bảng~\ref{tab:portfolio_var_correlations_m8} dưới đây.
 \begin{table}[H]
 \centering
 \caption{Portfolio Return and Risk Under Different Correlations}
 \label{tab:portfolio_var_correlations_m8}
-\begin{tabular}{p{0.15\linewidth} | p{0.13\linewidth} | p{0.12\linewidth} | p{0.12\linewidth} | p{0.12\linewidth} | p{0.12\linewidth}}
+\begin{tabular}{p{0.15\linewidth}  p{0.13\linewidth}  p{0.12\linewidth}  p{0.12\linewidth}  p{0.12\linewidth}  p{0.12\linewidth}}
 	\toprule
 	\textbf{Weight of} & \textbf{Portfolio} & \multicolumn{4}{c}{\textbf{Portfolio Standard Deviation (\%) with $\rho$ of:}} \\
 	\textbf{Asset 1 (\%)} & \textbf{Return (\%)} & \textbf{$+1.0$} & \textbf{$+0.5$} & \textbf{$+0.2$} & \textbf{$-1.0$} \\
@@ -332,7 +357,7 @@ The matching normalized matrix is the \textbf{correlation matrix} $\boldsymbol{\
 	\label{eq:correlation_matrix_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Giảng viên lưu ý: Trong thực tế, Bloomberg và các phần mềm tài chính thường nhân ma trận hiệp phát sai (covariance matrix) với $10^4$ (scaling) để hiển thị số liệu dễ đọc hơn dưới dạng phần trăm bình phương ($\%^2$). Ví dụ, hiệp phương sai thực tế là $0.0310$ sẽ được hiển thị là $310.07$. Nhà phân tích cần chú ý quy đổi lại khi tính toán.}}
+\textcolor{blue}{\textit{Thực tế: Bloomberg thường nhân covariance matrix với $10^4$ để hiển thị dưới dạng $\%^2$. Chúng ta hãy lưu ý: Khi đổi hệ số ($310.07$) về số thập phân để tính, phải chia cho bao nhiêu? (Đáp án: $10^4$). Nhầm lẫn này gây kết quả lệch hàng ngàn lần!}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -362,22 +387,22 @@ A portfolio contains three assets. The expected returns, standard deviations, an
 Construct the variance-covariance matrix $\mathbf{V}$.
 
 \textbf{Solution:}
-Using $\sigma_{i,j} = \sigma_i \sigma_j \rho_{i,j}$:
+Sử dụng công thức liên hệ giữa hiệp phương sai và tương quan $\sigma_{i,j} = \sigma_i \sigma_j \rho_{i,j}$:
 \begin{enumerate}
-	\item Variances (Diagonal):
+	\item \textbf{Phương sai các tài sản (Đường chéo chính của ma trận):}
 	      \begin{itemize}
 		      \item $\sigma_1^2 = 0.15^2 = 0.0225$
 		      \item $\sigma_2^2 = 0.20^2 = 0.0400$
 		      \item $\sigma_3^2 = 0.10^2 = 0.0100$
 	      \end{itemize}
-	\item Covariances (Off-diagonal):
+	\item \textbf{Hiệp phương sai giữa các cặp tài sản (Các phần tử ngoài đường chéo chính):}
 	      \begin{itemize}
 		      \item $\sigma_{1,2} = \sigma_{2,1} = 0.15 \times 0.20 \times 0.2 = 0.0060$
 		      \item $\sigma_{1,3} = \sigma_{3,1} = 0.15 \times 0.10 \times (-0.3) = -0.0045$
 		      \item $\sigma_{2,3} = \sigma_{3,2} = 0.20 \times 0.10 \times 0.4 = 0.0080$
 	      \end{itemize}
 \end{enumerate}
-Therefore, the variance-covariance matrix is:
+Do đó, ma trận hiệp phương sai (variance-covariance matrix) $\mathbf{V}$ là:
 \[
 \mathbf{V} = \begin{bmatrix}
 	0.0225 & 0.0060 & -0.0045 \\
@@ -404,11 +429,11 @@ Calculate the expected portfolio return and standard deviation.
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Expected Portfolio Return:}
+	\item \textbf{Tỷ suất sinh lời danh mục kỳ vọng (Expected Return):}
 	      \[
 	      E[R_P] = (0.4 \times 10\%) + (0.3 \times 12\%) + (0.3 \times 8\%) = 10\%
 	      \]
-	\item \textbf{Expected Portfolio Variance:}
+	\item \textbf{Phương sai danh mục kỳ vọng (Expected Portfolio Variance):}
 	      \[
 	      \sigma_P^2 = \sum_{i=1}^3 \sum_{j=1}^3 w_i w_j \sigma_{i,j}
 	      \]
@@ -424,7 +449,7 @@ Calculate the expected portfolio return and standard deviation.
 	      \[
 	      \sigma_P^2 = 0.0036 + 0.0036 + 0.0009 + 0.00144 - 0.00108 + 0.00144 = 0.0099
 	      \]
-	\item \textbf{Standard Deviation:} $\sigma_P = \sqrt{0.0099} \approx 9.95\%$.
+	\item \textbf{Độ lệch chuẩn danh mục (Standard Deviation):} $\sigma_P = \sqrt{0.0099} \approx 9.95\%$.
 \end{enumerate}
 \end{tcolorbox}
 
@@ -461,7 +486,7 @@ The portfolio variance is the weighted sum of squared deviations from the expect
 ]
 Consider three assets, A, B, and C, with weights $w_A = 0.4$, $w_B = 0.3$, $w_C = 0.3$. Their scenario returns are:
 \begin{center}
-\begin{tabular}{p{0.25\linewidth} | p{0.13\linewidth} | p{0.13\linewidth} | p{0.13\linewidth} | p{0.13\linewidth}}
+\begin{tabular}{p{0.25\linewidth}  p{0.13\linewidth}  p{0.13\linewidth}  p{0.13\linewidth}  p{0.13\linewidth}}
 	\toprule
 	\textbf{Scenario} & \textbf{Probability} & \textbf{Asset A (\%)} & \textbf{Asset B (\%)} & \textbf{Asset C (\%)} \\
 	\midrule
@@ -475,26 +500,26 @@ Calculate the expected portfolio return and standard deviation.
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Scenario Portfolio Returns:}
+	\item \textbf{Tỷ suất sinh lời danh mục theo từng kịch bản (Scenario Returns):}
 	      \begin{itemize}
-		      \item Scenario 1: $R_{P,1} = 0.4(15) + 0.3(10) + 0.3(5) = 10.5\%$.
-		      \item Scenario 2: $R_{P,2} = 0.4(10) + 0.3(12) + 0.3(8) = 10.0\%$.
-		      \item Scenario 3: $R_{P,3} = 0.4(-5) + 0.3(20) + 0.3(12) = 7.6\%$.
+		      \item Kịch bản 1 (Tăng trưởng): $R_{P,1} = 0.4(15) + 0.3(10) + 0.3(5) = 10.5\%$.
+		      \item Kịch bản 2 (Ổn định): $R_{P,2} = 0.4(10) + 0.3(12) + 0.3(8) = 10.0\%$.
+		      \item Kịch bản 3 (Suy thoái): $R_{P,3} = 0.4(-5) + 0.3(20) + 0.3(12) = 7.6\%$.
 	      \end{itemize}
-	\item \textbf{Expected Portfolio Return:}
+	\item \textbf{Tỷ suất sinh lời danh mục kỳ vọng (Expected Portfolio Return):}
 	      \[
 	      E[R_P] = 0.3(10.5\%) + 0.5(10.0\%) + 0.2(7.6\%) = 9.67\%
 	      \]
-	\item \textbf{Expected Portfolio Variance:}
+	\item \textbf{Phương sai danh mục kỳ vọng (Expected Portfolio Variance):}
 	      \begin{itemize}
-		      \item Cont. 1: $0.3 \times (10.5\% - 9.67\%)^2 = 0.3 \times (0.83\%)^2 \approx 0.0000207$
-		      \item Cont. 2: $0.5 \times (10.0\% - 9.67\%)^2 = 0.5 \times (0.33\%)^2 \approx 0.0000054$
-		      \item Cont. 3: $0.2 \times (7.6\% - 9.67\%)^2 = 0.2 \times (-2.07\%)^2 \approx 0.0000857$
+		      \item Đóng góp KB 1: $0.3 \times (10.5\% - 9.67\%)^2 = 0.3 \times (0.83\%)^2 \approx 0.0000207$
+		      \item Đóng góp KB 2: $0.5 \times (10.0\% - 9.67\%)^2 = 0.5 \times (0.33\%)^2 \approx 0.0000054$
+		      \item Đóng góp KB 3: $0.2 \times (7.6\% - 9.67\%)^2 = 0.2 \times (-2.07\%)^2 \approx 0.0000857$
 	      \end{itemize}
 	      \[
 	      \sigma_P^2 = 0.0000207 + 0.0000054 + 0.0000857 = 0.0001118
 	      \]
-	\item \textbf{Portfolio Standard Deviation:} $\sigma_P = \sqrt{0.0001118} \approx 1.06\%$.
+	\item \textbf{Độ lệch chuẩn danh mục (Portfolio Standard Deviation):} $\sigma_P = \sqrt{0.0001118} \approx 1.06\%$.
 \end{enumerate}
 \end{tcolorbox}
 
@@ -506,7 +531,7 @@ For portfolios with a large number of assets, matrix notation provides a compact
 \centering
 \caption{Comparison of Summation and Matrix Notation}
 \label{tab:summation_matrix_comparison_m8}
-\begin{tabular}{p{0.20\linewidth} | p{0.32\linewidth} | p{0.28\linewidth}}
+\begin{tabular}{p{0.20\linewidth}  p{0.32\linewidth}  p{0.28\linewidth}}
 	\toprule
 	\textbf{Concept} & \textbf{Summation Notation} & \textbf{Matrix Notation} \\
 	\midrule
@@ -542,12 +567,12 @@ Using the data from Example 5, confirm the return and variance using matrix mult
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Expected Return:}
+	\item \textbf{Tỷ suất sinh lời kỳ vọng (Expected Return):}
 	      \[
 	      E[R_P] = \mathbf{w}^T \boldsymbol{\mu} = \begin{bmatrix} 0.4 & 0.3 & 0.3 \end{bmatrix} \begin{bmatrix} 0.10 \\ 0.12 \\ 0.08 \end{bmatrix} = 0.4(0.10) + 0.3(0.12) + 0.3(0.08) = 10\%
 	      \]
-	\item \textbf{Portfolio Variance ($\mathbf{w}^T \mathbf{V} \mathbf{w}$):}
-	      First calculate $\mathbf{V}\mathbf{w}$:
+	\item \textbf{Phương sai danh mục ($\mathbf{w}^T \mathbf{V} \mathbf{w}$):}
+	      Trước hết, tính ma trận nhân vectơ $\mathbf{V}\mathbf{w}$:
 	      \[
 	      \mathbf{V}\mathbf{w} = \begin{bmatrix}
 		      0.0225(0.4) + 0.006(0.3) - 0.0045(0.3) \\
@@ -555,12 +580,12 @@ Using the data from Example 5, confirm the return and variance using matrix mult
 		      -0.0045(0.4) + 0.008(0.3) + 0.010(0.3)
 	      \end{bmatrix} = \begin{bmatrix} 0.00945 \\ 0.01680 \\ 0.00360 \end{bmatrix}
 	      \]
-	      Next, multiply $\mathbf{w}^T (\mathbf{V}\mathbf{w})$:
+	      Tiếp theo, nhân vectơ hàng $\mathbf{w}^T$ với vectơ cột $(\mathbf{V}\mathbf{w})$:
 	      \[
 	      \sigma_P^2 = 0.4(0.00945) + 0.3(0.0168) + 0.3(0.0036) = 0.00378 + 0.00504 + 0.00108 = 0.0099
 	      \]
 \end{enumerate}
-This yields $\sigma_P^2 = 0.0099$, which perfectly matches the summation result.
+Kết quả cho ra $\sigma_P^2 = 0.0099$, hoàn toàn trùng khớp với kết quả từ phép tính tổng rời rạc ở Ví dụ 6.
 \end{tcolorbox}
 
 \subsection{The Benefits of Diversification}
@@ -584,7 +609,7 @@ This leaves only the average covariance term to determine the portfolio's risk:
 	\label{eq:limit_variance_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Giảng viên lưu ý: Phương trình này cho thấy rủi ro của một danh mục đầu tư đa dạng hóa cao chỉ phụ thuộc vào hiệp phương sai trung bình giữa các tài sản (rủi ro hệ thống), chứ không phụ thuộc vào rủi ro riêng lẻ của từng tài sản (rủi ro phi hệ thống). Rủi ro phi hệ thống sẽ hoàn toàn bị triệt tiêu khi số lượng tài sản đủ lớn.}}
+\textcolor{blue}{\textit{Rủi ro danh mục đa dạng hóa cao chỉ phụ thuộc covariance trung bình giữa các tài sản (rủi ro hệ thống) chứ không phụ thuộc rủi ro riêng lẻ (phi hệ thống). Chúng ta hãy tự hỏi: Tại sao thị trường chỉ bù đắp lợi nhuận cho rủi ro hệ thống mà không bù đắp rủi ro phi hệ thống?}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -603,18 +628,18 @@ Calculate the exact portfolio standard deviation and compare it to the large-$N$
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Exact Portfolio Variance (Equation~\ref{eq:equal_weighted_variance_m8}):}
+	\item \textbf{Phương sai danh mục chính xác (Exact Portfolio Variance) theo Phương trình~\ref{eq:equal_weighted_variance_m8}:}
 	      \[
 	      \sigma_P^2 = \frac{0.04}{50} + \left(1 - \frac{1}{50}\right)(0.3)(0.04) = 0.0008 + 0.98(0.012) = 0.01256
 	      \]
-	      Standard Deviation: $\sigma_P = \sqrt{0.01256} \approx 11.21\%$.
-	\item \textbf{Approximation (Equation~\ref{eq:limit_variance_m8}):}
+	      Độ lệch chuẩn chính xác: $\sigma_P = \sqrt{0.01256} \approx 11.21\%$.
+	\item \textbf{Giá trị xấp xỉ (Approximation) theo Phương trình~\ref{eq:limit_variance_m8}:}
 	      \[
 	      \sigma_P^2 \approx \bar{\rho} \sigma^2 = 0.3(0.04) = 0.0120
 	      \]
-	      Standard Deviation: $\sigma_P \approx \sqrt{0.0120} \approx 10.95\%$.
+	      Độ lệch chuẩn xấp xỉ: $\sigma_P \approx \sqrt{0.0120} \approx 10.95\%$.
 \end{enumerate}
-The approximation is extremely close, proving that covariance dominates in large portfolios.
+Kết quả xấp xỉ cực kỳ sát với thực tế, chứng minh rằng khi danh mục đủ lớn, rủi ro tổng thể sẽ bị chi phối hoàn toàn bởi hiệp phương sai trung bình giữa các tài sản.
 \end{tcolorbox}
 
 \begin{figure}[!htbp]
@@ -639,8 +664,8 @@ The approximation is extremely close, proving that covariance dominates in large
 A simulation generates 250 daily returns for 100 randomly selected assets using geometric Brownian motion (GBM). Portfolios ranging from $N = 2$ to $50$ assets are constructed. 
 As shown in Exhibit~\ref{fig:GBM_Simulation}, the standard deviation of portfolio returns decreases sharply as $N$ increases from 2 to 20, but the marginal benefit of adding more assets diminishes beyond $N = 30$.
 
-\textbf{Key Takeaway:}
-A portfolio of 20 to 30 assets captures the vast majority of diversification benefits, provided the assets have low correlations. Adding assets beyond this level does not reduce the systematic market risk, which remains undiversifiable.
+\textbf{Điểm cốt lõi rút ra (Key Takeaway):}
+Một danh mục gồm 20 đến 30 tài sản đã hấp thụ được phần lớn lợi ích của việc đa dạng hóa đầu tư, với điều kiện các tài sản này có tương quan thấp với nhau. Việc bổ sung thêm tài sản vượt quá ngưỡng này hầu như không giúp giảm thêm rủi ro hệ thống của thị trường, là loại rủi ro không thể đa dạng hóa được.
 \end{tcolorbox}
 
 \begin{figure}[!htbp]
@@ -667,7 +692,7 @@ A portfolio of 20 to 30 assets captures the vast majority of diversification ben
 ]
 A portfolio manager creates a portfolio with the following two securities:
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{c  c  c}
 	\toprule
 	\textbf{Security} & \textbf{Weight (\%)} & \textbf{Standard Deviation (\%)} \\
 	\midrule
@@ -684,7 +709,7 @@ If the correlation of returns between the two securities is $0.40$, the expected
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} 
+\textbf{C là phương án đúng.} Áp dụng công thức tính độ lệch chuẩn danh mục hai tài sản:
 \[
 \sigma_P = \sqrt{w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{1,2} \sigma_1 \sigma_2}
 \]
@@ -694,7 +719,7 @@ If the correlation of returns between the two securities is $0.40$, the expected
 \[
 \sigma_P = \sqrt{0.0036 + 0.007056 + 0.004032} = \sqrt{0.014688} \approx 12.12\%
 \]
-\textit{Alternative A represents the portfolio variance (1.47\% or 0.0147). Alternative B incorrectly subtracts the covariance term.}
+\textit{Phương án A sai vì đây là phương sai danh mục (1.47\% hoặc 0.0147). Phương án B sai do trừ nhầm phần hiệp phương sai thay vì cộng.}
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -717,7 +742,7 @@ Using the same weights and standard deviations from Question 1, if the covarianc
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{B is correct.} Note that we are given the covariance ($\sigma_{1,2} = -0.0240$), not the correlation.
+\textbf{B là phương án đúng.} Lưu ý rằng đề bài đã cho trực tiếp hiệp phương sai ($\sigma_{1,2} = -0.0240$) chứ không phải hệ số tương quan.
 \[
 \sigma_P^2 = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_{1,2}
 \]
@@ -727,8 +752,8 @@ Using the same weights and standard deviations from Question 1, if the covarianc
 \[
 \sigma_P^2 = 0.0036 + 0.007056 - 0.01008 = 0.000576
 \]
-Standard Deviation: $\sigma_P = \sqrt{0.000576} = 2.40\%$.
-\textit{Alternative A represents the variance (0.0576\% or 0.0006). Alternative C incorrectly treats the covariance value as the correlation coefficient.}
+Độ lệch chuẩn danh mục: $\sigma_P = \sqrt{0.000576} = 2.40\%$.
+\textit{Phương án A biểu thị phương sai danh mục (0.0576\% hoặc 0.0006). Phương án C sai do coi nhầm giá trị hiệp phương sai là hệ số tương quan.}
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -751,12 +776,12 @@ A portfolio of two securities has a return of 15\%. Security 1 has a return of 1
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} Let $w_1$ be the weight of Security 1:
+\textbf{C là phương án đúng.} Gọi $w_1$ là tỷ trọng đầu tư vào Security 1:
 \[
 R_P = w_1 R_1 + (1 - w_1) R_2 \implies 15\% = w_1(16\%) + (1 - w_1)(12\%)
 \]
 \[
-15\% = 16\% w_1 + 12\% - 12\% w_1 \implies 3\% = 4\% w_1 \implies w_1 = 0.75 \text{ (or 75\%)}
+15\% = 16\% w_1 + 12\% - 12\% w_1 \implies 3\% = 4\% w_1 \implies w_1 = 0.75 \text{ (hoặc 75\%)}
 \]
 \end{tcolorbox}
 
@@ -780,7 +805,7 @@ As the number of assets in an equally weighted portfolio increases, if all asset
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{B is correct.} Based on Equation~\ref{eq:equal_weighted_variance_m8}, as $N$ increases, the individual asset variance term ($\frac{\sigma^2}{N}$) declines and becomes negligible, meaning the individual risk is diversified away. The portfolio variance is driven almost entirely by the average covariance term.
+\textbf{B là phương án đúng.} Dựa trên Phương trình~\ref{eq:equal_weighted_variance_m8}, khi số lượng tài sản $N$ tăng lên, cấu phần phương sai riêng lẻ của từng tài sản ($\frac{\sigma^2}{N}$) giảm dần về 0 và trở nên không đáng kể, phản ánh rủi ro phi hệ thống bị đa dạng hóa hoàn toàn. Phương sai danh mục lúc này được quyết định gần như toàn bộ bởi hiệp phương sai trung bình giữa các tài sản.
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -797,7 +822,7 @@ As the number of assets in an equally weighted portfolio increases, if all asset
 ]
 An analyst projects returns for three assets under three equally likely scenarios:
 \begin{center}
-\begin{tabular}{c | c | c | c}
+\begin{tabular}{c  c  c  c}
 	\toprule
 	\textbf{Asset} & \textbf{Scenario 1 Return (\%)} & \textbf{Scenario 2 Return (\%)} & \textbf{Scenario 3 Return (\%)} \\
 	\midrule
@@ -815,13 +840,13 @@ If the analyst constructs equally weighted two-asset portfolios, which combinati
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} Asset 2 and Asset 3 are perfectly negatively correlated ($\rho = -1.0$). An equally weighted combination of Asset 2 and Asset 3 yields:
+\textbf{C là phương án đúng.} Tài sản 2 và Tài sản 3 có tương quan nghịch biến hoàn hảo ($\rho = -1.0$). Một danh mục phân bổ tỷ trọng bằng nhau (50/50) giữa hai tài sản này sẽ mang lại suất sinh lời:
 \begin{itemize}
-	\item Scenario 1: $\frac{12\% + 0\%}{2} = 6\%$
-	\item Scenario 2: $\frac{6\% + 6\%}{2} = 6\%$
-	\item Scenario 3: $\frac{0\% + 12\%}{2} = 6\%$
+	\item Kịch bản 1: $\frac{12\% + 0\%}{2} = 6\%$
+	\item Kịch bản 2: $\frac{6\% + 6\%}{2} = 6\%$
+	\item Kịch bản 3: $\frac{0\% + 12\%}{2} = 6\%$
 \end{itemize}
-Since the portfolio return is a constant 6\% in every scenario, the standard deviation is exactly 0. 
+Do suất sinh lời của danh mục luôn là một hằng số $6\%$ trong mọi kịch bản, độ lệch chuẩn (đo lường rủi ro biến động) sẽ bằng chính xác 0. 
 \end{tcolorbox}
 
 
@@ -910,15 +935,16 @@ Calculate the weights, return, and standard deviation of the global minimum-vari
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Optimal Weights (Equation~\ref{eq:MVP_weight_A_m8}):}
+	\item \textbf{Tỷ trọng tối ưu (Optimal Weights) theo Phương trình~\ref{eq:MVP_weight_A_m8}:}
 	      \[
 	      w_A^* = \frac{0.1096 - 0.0107}{0.0263 + 0.1096 - 2(0.0107)} = \frac{0.0989}{0.1145} \approx 86.4\%
 	      \]
+	      Tỷ trọng của tài sản B:
 	      \[
 	      w_B^* = 1 - 0.864 = 13.6\%
 	      \]
-	\item \textbf{Expected Return:} $E[R_P] = 0.864(9.93\%) + 0.136(18.20\%) = 11.05\%$.
-	\item \textbf{Portfolio Risk (Standard Deviation):}
+	\item \textbf{Tỷ suất sinh lời kỳ vọng (Expected Return):} $E[R_P] = 0.864(9.93\%) + 0.136(18.20\%) = 11.05\%$.
+	\item \textbf{Rủi ro danh mục / Độ lệch chuẩn (Portfolio Risk):}
 	      \[
 	      \sigma_P = \sqrt{(0.864^2 \times 0.0263) + (0.136^2 \times 0.1096) + 2(0.864)(0.136)(0.0107)}
 	      \]
@@ -947,14 +973,14 @@ Calculate the weights, return, and standard deviation of the global minimum-vari
 	after skip=6pt,
 	breakable
 ]
-We examine the efficient frontier of S\&P 500 and MSCI EM under $\sigma_{A,B} = 0.0050$ (Exhibit~\ref{fig:Frontier_Selected}).
+Chúng ta xem xét đường biên hiệu quả (efficient frontier) được thiết lập giữa S\&P 500 và MSCI EM dưới giả định hiệp phương sai $\sigma_{A,B} = 0.0050$ (như thể hiện ở Exhibit~\ref{fig:Frontier_Selected}).
 \begin{itemize}
-	\item Portfolio P6 (Global MVP): $71.8\%$ S\&P 500, $28.2\%$ MSCI EM. Return: $12.26\%$, Risk: $14.96\%$.
-	\item Portfolio P4: $68.5\%$ S\&P 500, $31.5\%$ MSCI EM. Return: $12.53\%$, Risk: $15.27\%$.
-	\item Portfolio P5: $49.8\%$ S\&P 500, $50.2\%$ MSCI EM. Return: $14.08\%$, Risk: $18.52\%$.
-	\item Portfolio P1: $16.3\%$ S\&P 500, $83.7\%$ MSCI EM. Return: $16.85\%$, Risk: $27.85\%$.
+	\item Danh mục P6 (Global MVP): $71.8\%$ S\&P 500, $28.2\%$ MSCI EM. Suất sinh lời: $12.26\%$, Rủi ro: $14.96\%$.
+	\item Danh mục P4: $68.5\%$ S\&P 500, $31.5\%$ MSCI EM. Suất sinh lời: $12.53\%$, Rủi ro: $15.27\%$.
+	\item Danh mục P5: $49.8\%$ S\&P 500, $50.2\%$ MSCI EM. Suất sinh lời: $14.08\%$, Rủi ro: $18.52\%$.
+	\item Danh mục P1: $16.3\%$ S\&P 500, $83.7\%$ MSCI EM. Suất sinh lời: $16.85\%$, Rủi ro: $27.85\%$.
 \end{itemize}
-Portfolios below P6 (with lower expected return for the same level of risk) are inefficient.
+Các danh mục nằm phía dưới danh mục P6 (có suất sinh lời kỳ vọng thấp hơn ứng với cùng một mức độ rủi ro) đều là các danh mục không hiệu quả (inefficient portfolios).
 \end{tcolorbox}
 
 \begin{figure}[!htbp]
@@ -963,6 +989,8 @@ Portfolios below P6 (with lower expected return for the same level of risk) are 
 	\caption{The Efficient Frontier and Selected Opportunity Portfolios}
 	\label{fig:Frontier_Selected}
 \end{figure}
+
+\textcolor{blue}{\textit{MVP phân chia đường biên tối thiểu làm hai phần. Chúng ta hãy suy nghĩ: Tại sao nhà đầu tư duy lý không chọn danh mục ở nửa dưới (dưới MVP)? Có phải vì cùng mức rủi ro, họ luôn tìm được danh mục ở nửa trên có tỷ suất sinh lời cao hơn?}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -981,15 +1009,15 @@ Calculate the weights and portfolio standard deviation.
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Weights:} Let $w_M$ be the weight of the MSCI World:
+	\item \textbf{Tỷ trọng (Weights):} Gọi $w_M$ là tỷ trọng đầu tư vào MSCI World:
 	      \[
 	      R_P = w_M R_M + (1 - w_M) R_f \implies 9\% = 10.4\% w_M + 1\%(1 - w_M)
 	      \]
 	      \[
 	      8\% = 9.4\% w_M \implies w_M = \frac{8\%}{9.4\%} \approx 85.1\%
 	      \]
-	      Weight of risk-free asset: $w_f = 1 - 0.851 = 14.9\%$.
-	\item \textbf{Standard Deviation:} Since the risk-free asset has zero variance and zero covariance:
+	      Tỷ trọng đầu tư vào tài sản phi rủi ro: $w_f = 1 - 0.851 = 14.9\%$.
+	\item \textbf{Độ lệch chuẩn (Standard Deviation):} Vì tài sản phi rủi ro có phương sai và hiệp phương sai bằng 0:
 	      \[
 	      \sigma_P = w_M \sigma_M = 0.851 \times 14.80\% \approx 12.59\%
 	      \]
@@ -1009,17 +1037,19 @@ Calculate the weights and portfolio standard deviation.
 	breakable
 ]
 An analyst aims to optimize a traditional 60/40 stock/bond portfolio ($R_{60/40} = 10\%$, $\sigma_{60/40} = 13\%$) using five assets: Global Developed Equities ($12\%$, $20\%$), Emerging Market Equities ($16\%$, $33\%$), Long-Term Bonds ($5\%$, $8\%$), International Bonds ($7\%$, $15\%$), and Short-Term Bills ($3\%$, $1\%$).
+
+\textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Return-Constrained Optimization:} Minimize risk for a target return of 11\%.
-	\item \textbf{Risk-Constrained Optimization:} Maximize return for a target risk of 12\%.
+	\item \textbf{Tối ưu hóa ràng buộc suất sinh lời (Return-Constrained):} Tối thiểu hóa rủi ro với mức lợi nhuận mục tiêu là 11\%.
+	\item \textbf{Tối ưu hóa ràng buộc rủi ro (Risk-Constrained):} Tối đa hóa suất sinh lời với mức rủi ro mục tiêu là 12\%.
 \end{enumerate}
-The resulting allocations are shown in Table~\ref{tab:optimized_weights_m8}.
+Các tỷ trọng phân bổ tài sản tối ưu tương ứng được trình bày chi tiết trong Bảng~\ref{tab:optimized_weights_m8}.
 
 \begin{table}[H]
 \centering
 \caption{Optimal Portfolio Weights vs. Traditional 60/40 Portfolio}
 \label{tab:optimized_weights_m8}
-\begin{tabular}{p{0.32\linewidth} | p{0.22\linewidth} | p{0.22\linewidth}}
+\begin{tabular}{p{0.32\linewidth}  p{0.22\linewidth}  p{0.22\linewidth}}
 	\toprule
 	\textbf{Asset / Metric} & \textbf{Return-Constrained} & \textbf{Risk-Constrained} \\
 	\midrule
@@ -1067,7 +1097,7 @@ The efficient frontier is the set of asset portfolios that offers the lowest:
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{B is correct.} The efficient frontier represents the set of portfolios that minimize risk for each level of expected return, or maximize expected return for each level of risk.
+\textbf{B là phương án đúng.} Đường biên hiệu quả (efficient frontier) đại diện cho tập hợp các danh mục tối ưu hóa suất sinh lời kỳ vọng ứng với từng mức rủi ro, hoặc tối thiểu hóa rủi ro ứng với từng mức suất sinh lời kỳ vọng.
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -1096,11 +1126,11 @@ The asset weights that minimize the portfolio variance are closest to:
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} 
+\textbf{C là phương án đúng.} Áp dụng công thức tính tỷ trọng danh mục tối thiểu phương sai toàn cầu:
 \[
-w_A^* = \frac{\sigma_B^2 - \sigma_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\sigma_{A,B}} = \frac{0.09 - 0.01}{0.04 + 0.09 - 2(0.01)} = \frac{0.08}{0.11} \approx 0.727 \text{ (or 72.7\%)}
+w_A^* = \frac{\sigma_B^2 - \sigma_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\sigma_{A,B}} = \frac{0.09 - 0.01}{0.04 + 0.09 - 2(0.01)} = \frac{0.08}{0.11} \approx 0.727 \text{ (hoặc 72.7\%)}
 \]
-Weight of Asset B: $w_B^* = 1 - 0.727 = 0.273$ (or 27.3\%).
+Tỷ trọng của tài sản B: $w_B^* = 1 - 0.727 = 0.273$ (hoặc 27.3\%).
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -1123,7 +1153,7 @@ The portfolio on the efficient frontier with the lowest standard deviation is be
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{B is correct.} The global minimum-variance portfolio is the leftmost point on the minimum-variance frontier and represents the minimum risk achievable.
+\textbf{B là phương án đúng.} Danh mục tối thiểu phương sai toàn cầu (global minimum-variance portfolio) là điểm cực bên trái trên đường biên tối thiểu phương sai, đại diện cho mức rủi ro thấp nhất có thể đạt được từ các tài sản rủi ro.
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -1146,7 +1176,7 @@ Which of the following is most appropriate for an investor whose risk tolerance 
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} Investors seeking higher expected returns must assume greater volatility. Such portfolios are located on the upper-right portion of the efficient frontier.
+\textbf{C là phương án đúng.} Các nhà đầu tư tìm kiếm suất sinh lời kỳ vọng cao hơn bắt buộc phải chấp nhận mức độ biến động (rủi ro) lớn hơn. Các danh mục này nằm ở góc phía trên bên phải của đường biên hiệu quả.
 \end{tcolorbox}
 
 
@@ -1176,7 +1206,7 @@ An \textbf{indifference curve} maps the combinations of risk and expected return
 \centering
 \caption{Risk Preferences and Indifference Curves}
 \label{tab:risk_preferences_indifference_curves_m8}
-\begin{tabular}{p{0.18\linewidth} | p{0.15\linewidth} | p{0.22\linewidth} | p{0.22\linewidth}}
+\begin{tabular}{p{0.18\linewidth}  p{0.15\linewidth}  p{0.22\linewidth}  p{0.22\linewidth}}
 	\toprule
 	\textbf{Preference} & \textbf{Aversion ($A$)} & \textbf{Indifference Slope} & \textbf{Utility Curve Shape} \\
 	\midrule
@@ -1212,7 +1242,7 @@ Steeper indifference curves represent higher risk aversion ($A$), meaning the in
 ]
 An investor evaluates three investments:
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{c  c  c}
 	\toprule
 	\textbf{Investment} & \textbf{Expected Return $E[R]$ (\%)} & \textbf{Standard Deviation $\sigma$ (\%)} \\
 	\midrule
@@ -1318,7 +1348,7 @@ Assuming a risk-free rate of 1.0\%, compare:
 \begin{itemize}
 	\item $\text{SR}_A = \frac{9\% - 1\%}{12.59\%} \approx 0.635$
 	\item $\text{SR}_B = \frac{12\% - 1\%}{17.32\%} \approx 0.635$
-	\item Both portfolios lie on the same CAL, sharing the same Sharpe ratio. Portfolio B uses leverage by borrowing $17.1\%$ of its capital at the risk-free rate to invest in the risky assets.
+	\item Cả hai danh mục đều nằm trên cùng một đường phân bổ vốn CAL và có cùng tỷ số Sharpe. Danh mục B đã sử dụng đòn bẩy bằng cách vay thêm $17.1\%$ vốn với lãi suất phi rủi ro để đầu tư thêm vào danh mục tài sản rủi ro.
 \end{itemize}
 \end{tcolorbox}
 
@@ -1378,6 +1408,9 @@ The graphical representation of CAPM is the \textbf{Security Market Line (SML)},
 	\label{eq:SML_covariance_form_m8}
 \end{equation}
 
+\textcolor{blue}{\textit{CML dùng tổng rủi ro ($\sigma$) cho danh mục hiệu quả. SML (CAPM) dùng rủi ro hệ thống ($\beta$) cho mọi tài sản. Chúng ta hãy thảo luận: Điểm khác biệt cốt lõi về rủi ro giữa CML và SML là gì? Tại sao cổ phiếu đơn lẻ có độ lệch chuẩn lớn không nằm trên CML nhưng vẫn nằm trên SML?}}
+
+
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
@@ -1393,7 +1426,7 @@ The graphical representation of CAPM is the \textbf{Security Market Line (SML)},
 The risk-free rate is $3.0\%$ and the expected market return is $8.0\%$. Calculate the expected return of an asset with a Beta of $1.2$.
 
 \textbf{Solution:}
-Using CAPM (Equation~\ref{eq:CAPM_equation_m8}):
+Áp dụng mô hình định giá tài sản vốn CAPM (Phương trình~\ref{eq:CAPM_equation_m8}):
 \[
 E[R_i] = 3.0\% + 1.2(8.0\% - 3.0\%) = 3.0\% + 1.2(5.0\%) = 3.0\% + 6.0\% = 9.0\%
 \]
@@ -1433,7 +1466,7 @@ Consider: $R_f = 2.0\%$, $E[R_M] = 8.0\%$, $\sigma_M = 15.0\%$, and an investor'
 	      \[
 	      E[R_P] = R_f + \beta_P (E[R_M] - R_f) = 2\% + 0.6667(8\% - 2\%) = 2\% + 4\% = 6\%
 	      \]
-	      The results match exactly, confirming consistency between CML and CAPM for efficient portfolios.
+	      Kết quả tính toán khớp nhau hoàn toàn, xác nhận tính nhất quán giữa CML và CAPM đối với các danh mục đầu tư hiệu quả.
 	\item \textbf{Sharpe ratio:} $\text{SR}_M = \frac{8\% - 2\%}{15\%} = 0.40$.
 \end{enumerate}
 \end{tcolorbox}
@@ -1469,8 +1502,8 @@ The expected market return is $9.577\%$ and the risk-free rate is $2.560\%$. Cal
 
 \textbf{Solution:}
 \begin{enumerate}
-	\item \textbf{Beta interpretation:} A Beta of $0.939$ indicates that LVMH has slightly lower systematic risk than the French market CAC 40 index.
-	\item \textbf{Expected Return (CAPM):}
+	\item \textbf{Giải thích ý nghĩa Beta:} Chỉ số Beta bằng $0.939$ cho thấy cổ phiếu LVMH có rủi ro hệ thống thấp hơn một chút so với mức trung bình của thị trường chứng khoán Pháp (CAC 40 index).
+	\item \textbf{Tỷ suất sinh lời kỳ vọng (CAPM):}
 	      \[
 	      E[R_{\text{LVMH}}] = R_f + \beta (E[R_M] - R_f) = 2.56\% + 0.939(9.577\% - 2.56\%)
 	      \]
@@ -1530,7 +1563,7 @@ The line depicting the total risk and expected return of portfolio combinations 
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} The Capital Allocation Line (CAL) describes the combinations of a risk-free asset and any risky portfolio. CML is a special case of the CAL where the risky portfolio is the Market Portfolio. SML represents expected returns versus systematic risk (Beta) rather than total risk.
+\textbf{C là phương án đúng.} Đường phân bổ vốn (CAL) mô tả các kết hợp giữa tài sản phi rủi ro và một danh mục tài sản rủi ro bất kỳ. CML là một trường hợp đặc biệt của CAL khi danh mục tài sản rủi ro chính là Danh mục thị trường (Market Portfolio). SML mô tả mối quan hệ giữa suất sinh lời kỳ vọng và rủi ro hệ thống (Beta) chứ không phải tổng rủi ro.
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -1553,7 +1586,7 @@ The standard deviation of a stock's returns is $30\%$ and the standard deviation
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{A is correct.} 
+\textbf{A là phương án đúng.} Áp dụng công thức tính hệ số Beta của cổ phiếu:
 \[
 \beta_i = \rho_{i,M} \frac{\sigma_i}{\sigma_M} = 0.75 \left(\frac{30\%}{25\%}\right) = 0.75 \times 1.20 = 0.90
 \]
@@ -1573,7 +1606,7 @@ The standard deviation of a stock's returns is $30\%$ and the standard deviation
 ]
 An analyst gathers the following information when the risk-free rate is $3\%$ and the expected market return is $9\%$ (implying a market risk premium of 6\%):
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{c  c  c}
 	\toprule
 	\textbf{Security} & \textbf{Standard Deviation (\%)} & \textbf{Beta} \\
 	\midrule
@@ -1591,7 +1624,7 @@ Based on the Capital Asset Pricing Model, the expected return for Security 1 is:
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{B is correct.} 
+\textbf{B là phương án đúng.} Áp dụng mô hình định giá tài sản vốn CAPM:
 \[
 E[R_1] = R_f + \beta_1 (E[R_M] - R_f) = 3\% + 1.50(9\% - 3\%) = 3\% + 1.50(6\%) = 12\%
 \]
@@ -1617,7 +1650,7 @@ Using the table from Question 3, if the risk-free rate is 3\% and the expected m
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{A is correct.} The expected market return is explicitly stated as $9.0\%$. (Alternatively, applying CAPM to the market index using $\beta_M = 1.0$ yields $E[R_M] = 3\% + 1.0(6\%) = 9\%$).
+\textbf{A là phương án đúng.} Suất sinh lời kỳ vọng của thị trường được nêu rõ ràng trong đề bài là $9.0\%$ (Hoặc có thể kiểm chứng lại bằng cách áp dụng CAPM cho danh mục thị trường với $\beta_M = 1.0$: $E[R_M] = 3\% + 1.0(6\%) = 9\%$).
 \end{tcolorbox}
 
 \begin{tcolorbox}[
@@ -1640,7 +1673,7 @@ Based on the table in Question 3, a change in the expected market return will ha
 \end{enumerate}
 
 \textbf{Solution:}
-\textbf{C is correct.} Security 3 has the highest Beta ($\beta = 1.60$), making it the most sensitive to movements in the overall market.
+\textbf{C là phương án đúng.} Security 3 có hệ số Beta cao nhất ($\beta = 1.60$), nghĩa là nó nhạy cảm nhất trước các biến động của thị trường chung.
 \end{tcolorbox}
 
 
@@ -1674,7 +1707,7 @@ Based on the table in Question 3, a change in the expected market return will ha
 \begin{enumerate}
 	\item An analyst projects returns for three assets under three equally likely scenarios:
 	      \begin{center}
-	      \begin{tabular}{c | c | c | c}
+	      \begin{tabular}{c  c  c  c}
 		      \toprule
 		      \textbf{Asset} & \textbf{Scenario 1 Return} & \textbf{Scenario 2 Return} & \textbf{Scenario 3 Return} \\
 		      \midrule
@@ -1700,7 +1733,7 @@ Based on the table in Question 3, a change in the expected market return will ha
 
 	\item To answer Questions 3 and 4, use the following table:
 	      \begin{center}
-	      \begin{tabular}{c | c | c | c}
+	      \begin{tabular}{c  c  c  c}
 		      \toprule
 		      \textbf{Security} & \textbf{Expected Return (\%)} & \textbf{Standard Deviation (\%)} & \textbf{Correlation with Market} \\
 		      \midrule
@@ -1727,7 +1760,7 @@ Based on the table in Question 3, a change in the expected market return will ha
 
 	\item An analyst gathers the following security Betas:
 	      \begin{center}
-	      \begin{tabular}{c | c}
+	      \begin{tabular}{c  c}
 		      \toprule
 		      \textbf{Security} & \textbf{Beta} \\
 		      \midrule
@@ -1761,7 +1794,7 @@ Based on the table in Question 3, a change in the expected market return will ha
 
 	\item A portfolio consists of three assets:
 	      \begin{center}
-	      \begin{tabular}{c | c | c}
+	      \begin{tabular}{c  c  c}
 		      \toprule
 		      \textbf{Asset} & \textbf{Expected Return (\%)} & \textbf{Standard Deviation (\%)} \\
 		      \midrule
@@ -1806,44 +1839,41 @@ Based on the table in Question 3, a change in the expected market return will ha
 \label{sec:Solutions}
 
 \begin{enumerate}
-	\item \textbf{C is correct.} Asset 2 and Asset 3 are perfectly negatively correlated ($\rho = -1.0$) because their scenario returns are symmetric offsets of each other. An equally weighted portfolio of these two assets yields a constant $6.0\%$ return under all outcomes, resulting in a standard deviation of exactly 0.0\%.
+	\item \textbf{C là phương án đúng.} Tài sản 2 và Tài sản 3 tương quan nghịch biến hoàn hảo ($\rho = -1.0$) do suất sinh lời trong các kịch bản đối xứng triệt tiêu lẫn nhau. Một danh mục đầu tư phân bổ đều (50/50) giữa hai tài sản này đem lại suất sinh lời không đổi $6.0\%$ trong mọi kịch bản, dẫn đến độ lệch chuẩn bằng đúng 0.0\%.
 	
-	\item \textbf{C is correct.} An increase in correlation coefficients ($\rho$) between assets increases the covariance terms, which increases the portfolio variance and standard deviation (Equation~\ref{eq:portfolio_variance_sum_m8}). It reduces the benefits of diversification.
+	\item \textbf{C là phương án đúng.} Việc gia tăng hệ số tương quan ($\rho$) giữa các tài sản làm tăng cấu phần hiệp phương sai, từ đó làm tăng phương sai và độ lệch chuẩn của danh mục (Phương trình~\ref{eq:portfolio_variance_sum_m8}). Điều này trực tiếp làm giảm lợi ích của việc đa dạng hóa danh mục đầu tư.
 	
-	\item \textbf{C is correct.} 
-	      \[
-	      \beta_i = \rho_{i,M} \frac{\sigma_i}{\sigma_M}
-	      \]
+	\item \textbf{C là phương án đúng.} Tính Beta của từng tài sản bằng công thức $\beta_i = \rho_{i,M} \frac{\sigma_i}{\sigma_M}$:
 	      \begin{itemize}
 		      \item $\beta_1 = 0.6 \times \left(\frac{25\%}{15\%}\right) = 1.00$
 		      \item $\beta_2 = 0.7 \times \left(\frac{20\%}{15\%}\right) = 0.93$
 		      \item $\beta_3 = 0.8 \times \left(\frac{20\%}{15\%}\right) = 1.07$
 	      \end{itemize}
-	      Security 3 has the highest Beta ($\beta = 1.07$).
+	      Security 3 có hệ số Beta lớn nhất ($\beta = 1.07$).
 	      
-	\item \textbf{B is correct.} Systematic risk is measured by Beta ($\beta$). Based on the calculations in Solution 3, Security 2 has the lowest Beta ($\beta_2 = 0.93$), which represents the least systematic risk.
+	\item \textbf{B là phương án đúng.} Rủi ro hệ thống được đo lường bằng hệ số Beta ($\beta$). Dựa trên các kết quả tính toán ở Lời giải 3, Security 2 có hệ số Beta thấp nhất ($\beta_2 = 0.93$), đại diện cho mức rủi ro hệ thống nhỏ nhất.
 	
-	\item \textbf{C is correct.} Security 3 has the highest Beta ($\beta = 1.60$). Under CAPM, the expected return is positively related to Beta. Since Security 3 has the highest Beta, it has the highest expected return: $E[R_3] = 3\% + 1.60(6\%) = 12.6\%$.
+	\item \textbf{C là phương án đúng.} Security 3 có hệ số Beta cao nhất ($\beta = 1.60$). Theo mô hình CAPM, lợi nhuận kỳ vọng tỷ lệ thuận với hệ số Beta. Do Security 3 nhạy cảm nhất với thị trường nên suất sinh lời kỳ vọng của nó cũng lớn nhất: $E[R_3] = 3\% + 1.60(6\%) = 12.6\%$.
 	
-	\item \textbf{B is correct.} A risk-neutral investor has a risk-aversion coefficient of $A = 0$, meaning the utility function simplifies to $U = E[R]$. They evaluate investments solely based on expected returns.
+	\item \textbf{B là phương án đúng.} Nhà đầu tư trung dung với rủi ro (risk-neutral) có hệ số ngại rủi ro $A = 0$, khi đó hàm thỏa dụng rút gọn thành $U = E[R]$. Họ đánh giá và đưa ra quyết định đầu tư thuần túy dựa trên suất sinh lời kỳ vọng mà không quan tâm đến biến động rủi ro.
 	
-	\item \textbf{B is correct.} 
-	      First calculate the covariance: $\sigma_{S,B} = 0.5 \times 15\% \times 8\% = 60$ (or $0.0060$ in decimal form).
+	\item \textbf{B là phương án đúng.} 
+	      Trước tiên, tính hiệp phương sai: $\sigma_{S,B} = 0.5 \times 15\% \times 8\% = 60$ (hoặc $0.0060$ dưới dạng thập phân).
 	      \[
 	      w_S^* = \frac{\sigma_B^2 - \sigma_{S,B}}{\sigma_S^2 + \sigma_B^2 - 2\sigma_{S,B}} = \frac{8^2 - 60}{15^2 + 8^2 - 2(60)} = \frac{64 - 60}{225 + 64 - 120} = \frac{4}{169} \approx 2.37\%
 	      \]
-	      The weight of stocks in the global MVP is $2.37\%$ (closest to 2.4\%).
+	      Tỷ trọng cổ phiếu trong danh mục tối thiểu phương sai toàn cầu là $2.37\%$ (gần nhất với phương án 2.4\% ở B).
 	      
-	\item \textbf{A is correct.} 
-	      Weights: $w_X = 0.35, w_Y = 0.40, w_Z = 0.25$.
-	      Variances and Covariances:
+	\item \textbf{A là phương án đúng.} 
+	      Tỷ trọng phân bổ: $w_X = 0.35, w_Y = 0.40, w_Z = 0.25$.
+	      Tính phương sai và hiệp phương sai của các tài sản đơn lẻ:
 	      \begin{itemize}
 		      \item $\sigma_X^2 = 18^2 = 324$; $\sigma_Y^2 = 12^2 = 144$; $\sigma_Z^2 = 16^2 = 256$
 		      \item $\sigma_{X,Y} = 0.3 \times 18 \times 12 = 64.8$
 		      \item $\sigma_{X,Z} = -0.2 \times 18 \times 16 = -57.6$
 		      \item $\sigma_{Y,Z} = 0.4 \times 12 \times 16 = 76.8$
 	      \end{itemize}
-	      Portfolio Variance:
+	      Phương sai của danh mục ba tài sản:
 	      \[
 	      \begin{aligned}
 		      \sigma_P^2 &= (0.35^2 \times 324) + (0.40^2 \times 144) + (0.25^2 \times 256) \\
@@ -1853,17 +1883,17 @@ Based on the table in Question 3, a change in the expected market return will ha
 	      \[
 	      \sigma_P^2 = 39.69 + 23.04 + 16.00 + 18.144 - 10.08 + 15.36 = 102.154
 	      \]
-	      Standard Deviation: $\sigma_P = \sqrt{102.154} \approx 10.11\%$.
+	      Độ lệch chuẩn danh mục: $\sigma_P = \sqrt{102.154} \approx 10.11\%$.
 	      
-	\item \textbf{B is correct.} 
-	      $\sigma_{S,B} = 0.6 \times 15\% \times 8\% = 72$ (or $0.0072$).
+	\item \textbf{B là phương án đúng.} 
+	      Tính hiệp phương sai: $\sigma_{S,B} = 0.6 \times 15\% \times 8\% = 72$ (hoặc $0.0072$).
 	      \[
 	      \sigma_P^2 = (0.6^2 \times 15^2) + (0.4^2 \times 8^2) + 2(0.6)(0.4)(72) = (0.36 \times 225) + (0.16 \times 64) + 0.48(72)
 	      \]
 	      \[
 	      \sigma_P^2 = 81.00 + 10.24 + 34.56 = 125.80\%^2 = 0.01258 \approx 1.26\%
 	      \]
-	      The portfolio variance is closest to 1.26\%.
+	      Phương sai danh mục bằng 1.26\%.
 	      
-	\item \textbf{B is correct.} Under CAPM, the optimal risky portfolio (tangency portfolio) is the point of tangency between the Capital Allocation Line (CAL) and the efficient frontier of risky assets. This portfolio maximizes the Sharpe ratio for all investors.
+	\item \textbf{B là phương án đúng.} Theo mô hình CAPM, danh mục đầu tư tài sản rủi ro tối ưu (danh mục tiếp tuyến) là điểm tiếp xúc giữa đường phân bổ vốn CAL và đường biên hiệu quả của các tài sản rủi ro. Danh mục này giúp tối đa hóa tỷ số Sharpe cho mọi nhà đầu tư trên thị trường.
 \end{enumerate}

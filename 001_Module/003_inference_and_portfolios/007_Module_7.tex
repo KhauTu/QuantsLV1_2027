@@ -24,7 +24,7 @@
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Lưu ý từ Giảng viên: Phần này rất quan trọng cho cả kỳ thi lẫn công việc phân tích dữ liệu thực tế. Định lý giới hạn trung tâm (Central Limit Theorem - CLT) giải thích tại sao Phân phối chuẩn lại được sử dụng rộng rãi như vậy: Cho dù biến ngẫu nhiên gốc có phân phối kỳ dị thế nào đi nữa, chỉ cần kích thước mẫu đủ lớn ($n \ge 30$), số trung bình mẫu sẽ xấp xỉ phân phối chuẩn. Khoảng tin cậy (Confidence Interval) giúp chúng ta lượng hóa mức độ chính xác của ước lượng điểm, còn các phương pháp chọn mẫu (Sampling) là bước nền tảng để đảm bảo dữ liệu đầu vào không bị thiên lệch.}}
+\textcolor{blue}{\textit{Chúng ta lưu ý: (1) CLT giải thích tại sao trung bình mẫu xấp xỉ phân phối chuẩn khi $n \ge 30$ với mọi biến gốc; (2) Khoảng tin cậy (Confidence Interval) lượng hóa độ chính xác ước lượng; (3) Sampling là bước nền tảng tránh thiên lệch dữ liệu.}}
 
 \subsection{The Central Limit Theorem (CLT)}
 The law of large numbers provides context for using the sample mean, $\bar{X}$, to estimate the population mean, $\mu$. The central limit theorem (CLT) is a fundamental concept in statistics. It states that if random samples are taken from any distribution with a finite mean $\mu$ and finite variance $\sigma^2$, then the sample means, $\bar{X}$, will converge to a normal distribution as the sample size $n$ increases. 
@@ -257,7 +257,7 @@ Based on 1,258 daily return observations of a global small-cap stock index, the 
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Lưu ý từ Giảng viên: Quy trình kiểm định giả thuyết gồm 4 bước chính (Exhibit~\ref{fig:mod7_exhibit_7}). Hãy đặc biệt lưu ý lỗi Loại I (Type I error - bác bỏ $H_0$ khi $H_0$ thực sự đúng) và lỗi Loại II (Type II error - không bác bỏ $H_0$ khi $H_0$ thực sự sai). Lực lượng kiểm định (Power of a test) bằng $1 - \beta$, tức là xác suất bác bỏ đúng một $H_0$ sai. Đối với các kiểm định tham số, hãy nhớ rõ phân phối đi kèm với từng loại thống kê kiểm định: kiểm định trung bình đơn sử dụng phân phối $t$, kiểm định phương sai đơn dùng Chi-square, so sánh hai phương sai dùng phân phối $F$.}}
+\textcolor{blue}{\textit{Quy trình kiểm định giả thuyết gồm 4 bước (Exhibit~\ref{fig:mod7_exhibit_7}). Chúng ta đặc biệt lưu ý lỗi Loại I ($\alpha$ - bác bỏ $H_0$ đúng), lỗi Loại II ($\beta$ - không bác bỏ $H_0$ sai) và lực lượng kiểm định ($1 - \beta$). Nhớ phân phối tương ứng: kiểm định trung bình ($t$), một phương sai ($\chi^2$), hai phương sai ($F$).}}
 
 \subsection{The Hypothesis Testing Process}
 Hypothesis testing involves four steps, as outlined in Exhibit~\ref{fig:mod7_exhibit_7}:
@@ -706,7 +706,7 @@ Inverse Right-tail F & \texttt{=F.INV.RT(prob, df1, df2)} & \texttt{=F.INV.RT(pr
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Mẹo thực tế: Khi dữ liệu không tuân theo phân phối chuẩn (ví dụ tỷ suất sinh lời của cổ phiếu thường có đuôi béo và lệch), hoặc dữ liệu ở dạng định danh/thứ bậc, kiểm định phi tham số (Non-parametric) như Spearman rank correlation hoặc Chi-square test of independence là lựa chọn bắt buộc để tránh kết luận sai lệch.}}
+\textcolor{blue}{\textit{Thực tế: Khi dữ liệu không chuẩn (đuôi béo, lệch) hoặc ở dạng định danh/thứ bậc, kiểm định phi tham số (Non-parametric) như Spearman hoặc Chi-square test of independence là bắt buộc để tránh kết luận sai lệch.}}
 
 \subsection{Comparison of Parametric and Non-Parametric Tests}
 \begin{itemize}

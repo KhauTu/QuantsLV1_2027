@@ -37,7 +37,7 @@
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Chào các bạn! Giá trị thời gian của tiền (Time Value of Money - TVM) là nguyên lý nền tảng nhất trong tài chính: Một đồng nhận được hôm nay luôn có giá trị hơn một đồng nhận được trong tương lai. Sự chênh lệch này được phản ánh qua tỷ lệ chiết khấu (discount rate) hoặc suất sinh lời yêu cầu (required rate of return) dựa trên mức độ rủi ro và kỳ hạn của dòng tiền. Trong phần này, chúng ta sẽ áp dụng các công thức TVM cơ bản và liên tục để định giá hai lớp công cụ tài chính cốt lõi: công cụ nợ (Fixed-Income) và công cụ vốn (Equity). Hãy cùng bắt đầu!}}
+	\textit{Giá trị thời gian của tiền (TVM): Một đồng hôm nay giá trị hơn một đồng tương lai. Chúng ta sẽ áp dụng TVM cơ bản và liên tục để định giá công cụ nợ (Fixed-Income) và công cụ vốn (Equity).}}
 
 \section{TIME VALUE OF MONEY IN FIXED INCOME AND EQUITY}
 \begin{center}
@@ -99,7 +99,7 @@ For three securities in a portfolio held for different durations:
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Giải thích ý nghĩa: Việc quy đổi lợi nhuận về cùng một năm (annualization) giúp chúng ta so sánh khách quan các khoản đầu tư có kỳ hạn khác nhau. Trong ví dụ này, dù Security B có tỷ suất sinh lời kỳ hạn thấp nhất (2.0\%), nó lại là khoản đầu tư hiệu quả nhất khi được chuẩn hóa theo năm (29.36\%) nhờ thời gian nắm giữ ngắn (4 tuần) và giả định tái đầu tư kép liên tục.}}
+	\textit{Quy đổi lợi nhuận về cùng năm (annualization) giúp chúng ta so sánh các kỳ hạn khách quan. Ở đây, Security B tuy suất sinh lời thấp nhất ($2.0\%$) nhưng hiệu quả nhất năm ($29.36\%$) nhờ nắm giữ ngắn (4 tuần).}}
 \end{tcolorbox}
 
 \subsection{Fixed-Income Instruments and the Time Value of Money}
@@ -153,7 +153,7 @@ The present value calculation for a discount bond with principal $FV_t$ repaid f
 \end{enumerate}
 
 \textcolor{blue}{
-	\textit{Giải thích thêm: Khi lãi suất dương, giá của trái phiếu chiết khấu tăng dần (accretes) về mệnh giá theo thời gian. Ngược lại, khi lãi suất âm, nhà đầu tư sẵn sàng trả phí (trái phiếu phát hành ở mức thặng dư - premium) để giữ vốn an toàn, khiến giá trái phiếu giảm dần (amortizes) về mệnh giá tại ngày đáo hạn.}}
+	\textit{Khi lãi suất dương, giá trái phiếu chiết khấu tăng dần (accretes) về mệnh giá. Khi lãi suất âm, nhà đầu tư trả phí giữ vốn an toàn, khiến giá trái phiếu giảm dần (amortizes) về mệnh giá tại ngày đáo hạn.}}
 \end{tcolorbox}
 
 \subsubsection{Coupon Instruments}
@@ -205,7 +205,7 @@ Using the sum of a geometric series, this simplifies to:
 \end{enumerate}
 
 \textcolor{blue}{
-	\textit{Chú ý: Khi định giá trái phiếu, tần suất ghép lãi rất quan trọng. So sánh một khoản thanh toán đơn lẻ INR 100 ở năm thứ 20: ghép lãi năm cho ra giá trị hiện tại là INR 27.33, trong khi ghép lãi nửa năm (40 kỳ) cho ra INR 26.77. Việc ghép lãi thường xuyên hơn làm giảm giá trị hiện tại của dòng tiền nhận được ở tương lai.}}
+	\textit{Khi định giá trái phiếu, tần suất ghép lãi rất quan trọng. Khoản INR 100 ở năm 20: ghép năm có PV = INR 27.33, ghép nửa năm (40 kỳ) có PV = INR 26.77. Ghép lãi thường xuyên hơn làm giảm PV.}}
 \end{tcolorbox}
 
 \subsubsection{Floating-Rate and Perpetual Bonds}
@@ -289,7 +289,7 @@ The amortization breakdown for the first two months is:
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Giải thích bản chất: Mặc dù tổng số tiền thanh toán hàng tháng cố định ở mức USD 4,417.63, cấu phần của nó thay đổi liên tục. Phần trả lãi giảm dần do dư nợ gốc giảm đi, trong khi phần trả nợ gốc tăng dần. Đây là đặc trưng tiêu biểu của dư nợ giảm dần.}}
+	\textit{Dư nợ giảm dần: Dù tổng tiền trả hàng tháng cố định ở USD 4,417.63, cấu phần lãi giảm dần do dư nợ gốc giảm, và cấu phần gốc tăng dần.}}
 \end{tcolorbox}
 
 \section{EQUITY INSTRUMENTS AND THE TIME VALUE OF MONEY}
@@ -365,7 +365,7 @@ The expected stock price is:
 \[ PV_0 = \frac{\text{GBP } 1.59}{0.15 - 0.06} \approx \text{GBP } 17.67 \]
 
 \textcolor{blue}{
-	\textit{Lưu ý về mức độ nhạy cảm: Chênh lệch $r - g$ ở mẫu số cực kỳ quan trọng. Khi chênh lệch này nhỏ (hệ số tăng trưởng sát với tỷ suất sinh lời yêu cầu), giá cổ phiếu sẽ cực kỳ nhạy cảm với bất kỳ thay đổi nhỏ nào của $r$ hoặc $g$.}}
+	\textit{Chênh lệch $r - g$ ở mẫu số cực kỳ quan trọng. Khi chênh lệch này nhỏ (tốc độ tăng trưởng sát tỷ suất sinh lời yêu cầu), giá cổ phiếu cực kỳ nhạy cảm với bất kỳ thay đổi nhỏ nào của $r$ hoặc $g$.}}
 \end{tcolorbox}
 
 \subsection{Two-Stage Dividend Growth Model}
@@ -474,7 +474,7 @@ For discount bonds, the implied return is:
 \end{enumerate}
 
 \textcolor{blue}{
-	\textit{Nhận xét: Trong ví dụ trái phiếu Hy Lạp, khoản lỗ vốn (capital loss) từ EUR 100 xuống EUR 93.091 lớn hơn số tiền lãi cộng dồn nhận được (EUR 4.04), dẫn đến suất sinh lời thực tế của nhà đầu tư bị âm trong 2 năm đầu, bất chấp việc trái phiếu có chi trả coupon dương.}}
+	\textit{Nhận xét: Ở ví dụ trái phiếu Hy Lạp, khoản lỗ vốn (từ EUR 100 xuống EUR 93.091) lớn hơn coupon tích lũy (EUR 4.04), khiến suất sinh lời thực tế bị âm trong 2 năm đầu dù coupon dương.}}
 \end{tcolorbox}
 
 The relationship between a coupon bond's price and its implied return (YTM) is illustrated in Exhibit \ref{fig:mod4_exhibit_10}.
@@ -580,7 +580,7 @@ Consider two strategies with an initial investment of $\text{GBP } 100$ and $r=1
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Nhận xét: Kế toán cộng dồn dòng tiền (additivity) chỉ ra rằng hai danh mục đầu tư tạo ra các dòng tiền có giá trị hiện tại tương đương nhau thì phải giao dịch ở cùng một mức giá để loại bỏ cơ hội đầu cơ trục lợi.}}
+	\textit{Tính cộng dồn dòng tiền (additivity): Hai danh mục tạo ra dòng tiền có PV tương đương phải giao dịch cùng giá để loại bỏ cơ hội arbitrage.}}
 \end{tcolorbox}
 
 \subsection{Implied Forward Interest Rates Using Cash Flow Additivity}
@@ -687,7 +687,7 @@ The forward exchange rate $F$ (expressed as price/base) under continuous compoun
 \end{enumerate}
 
 \textcolor{blue}{
-	\textit{Giải thích thêm: Khi lãi suất của Mỹ ($r_{\text{USD}}$) tăng mạnh hơn Anh ($r_{\text{GBP}}$), chênh lệnh lãi suất nới rộng khiến đồng USD mất giá trên thị trường kỳ hạn (forward depreciation) so với GBP, thể hiện qua tỷ giá kỳ hạn tăng từ 1.2693 lên 1.2742.}}
+	\textit{Khi lãi suất Mỹ ($r_{\text{USD}}$) tăng mạnh hơn Anh ($r_{\text{GBP}}$), chênh lệch nới rộng khiến USD mất giá kỳ hạn (forward depreciation) so với GBP, tỷ giá kỳ hạn tăng từ 1.2693 lên 1.2742.}}
 \end{tcolorbox}
 
 \subsection{Option Pricing Using Cash Flow Additivity}
@@ -778,7 +778,7 @@ A desalination project in Malaysia (MYR 10.5 million initial investment) has a l
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Giải thích ý nghĩa: Quyền chọn thực tế (Real Option) mang lại cho người quản lý sự linh hoạt trong việc đưa ra quyết định đầu tư (ở đây là nâng cấp hệ thống). Bằng cách thực hiện quyền chọn này ở năm thứ 10, giá trị ròng của dự án tăng thêm MYR 2.87 triệu so với việc không có quyền chọn.}}
+	\textit{Quyền chọn thực tế (Real Option) tạo sự linh hoạt trong đầu tư. Thực hiện quyền chọn ở năm 10 tăng giá trị ròng dự án thêm MYR 2.87 triệu so với không có quyền chọn.}}
 \end{tcolorbox}
 
 The outcomes and decision tree of the desalination project with and without the real option are illustrated in Exhibit \ref{fig:mod4_exhibit_22}.

@@ -42,18 +42,16 @@
 \end{center}
 
 \textcolor{blue}{
-	\textit{Lãi suất hay lợi suất là đối tượng thống kê chính trong hoạt động đầu tư. 
-Có thể hiểu, thị trường tài chính là nơi buôn bán một loại hàng hóa đặc biệt, là Vốn.
-Và lãi suất chính là mức giá cho loại hàng hóa đặc biệt đó. Hãy bắt đầu tìm hiểu cách chúng ta đo lường mức giá này.}}
+	\textit{Lãi suất (lợi suất) là giá của Vốn - hàng hóa đặc biệt trên thị trường tài chính. Hãy bắt đầu tìm hiểu cách đo lường mức giá này.}}
 
 \subsection{Total Return}
 \begin{equation}
-\begin{alignedat}{2}
-\text{Total Return}
-    &={} \text{Capital Appreciation Return} &+{} & \text{Capital Distribution Return} \\
-r   &={} r_{\text{price}} &+{} & r_{\text{distribution}} \\
-    &={} \frac{P_1-P_0}{P_0} &+{} & \frac{Inc}{P_0}
-\end{alignedat}
+\renewcommand{\arraystretch}{2.0}
+\begin{array}{r @{{}={}} c @{{}+{}} c}
+\text{Total Return} & \text{Capital Appreciation Return} & \text{Capital Distribution Return} \\
+r & r_{\text{price}} & r_{\text{distribution}} \\
+  & \dfrac{P_1-P_0}{P_0} & \dfrac{\text{Inc}}{P_0}
+\end{array}
 \label{eq:total_return}
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 1, Page 8
@@ -128,7 +126,7 @@ Consider a bank deposit with a 3-month periodic interest rate of $1.50\%$.
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Ví dụ thực tế tại Việt Nam: Con số 6.136\% này lớn hơn mức 6.0\% nếu chỉ nhân đơn thuần kỳ hạn với 4 ($1.5\% \times 4$). Điều này phản ánh lãi suất ghép khi tiền lãi kỳ trước được tái đầu tư để sinh lãi ở kỳ sau.}}
+	\textit{Thực tế: Lãi suất 6.136\% lớn hơn mức 6.0\% nhân đơn ($1.5\% \times 4$), phản ánh lãi kép khi tiền lãi kỳ trước được tái đầu tư sinh lãi kỳ sau.}}
 \end{tcolorbox}
 
 \subsection{Continuous Compounding}
@@ -159,7 +157,7 @@ The additive property of continuously compounded returns provides calculation ad
 \end{align*}
 
 \textcolor{blue}{
-	\textit{Tại sao trong phân tích định lượng nâng cao, người ta lại thích dùng suất sinh lời ghép lãi liên tục (continuously compounded return) hơn là suất sinh lời rời rạc thông thường? Đó chính là nhờ tính chất cộng gộp qua thời gian ở trên (time-additivity). Tổng log return của từng ngày chính bằng log return của cả năm, giúp đơn giản hóa các mô hình toán học và thống kê phức tạp.}}
+	\textit{Tại sao suất sinh lời ghép lãi liên tục (log return) được ưa chuộng hơn suất sinh lời rời rạc? Nhờ tính cộng gộp thời gian (time-additivity): tổng log return các ngày bằng log return cả năm, giúp đơn giản hóa mô hình toán học.}}
 
 \section{COMMON RETURN MEASURES}
 \begin{center}
@@ -295,7 +293,7 @@ Leverage increases investible capital, magnifying both returns and risks.
 \end{itemize}
 
 \textcolor{blue}{
-	\textit{Hãy chú ý: Đòn bẩy tài chính là con dao hai lưỡi. Khi hiệu quả đầu tư trên tài sản ($R_A$) lớn hơn chi phí đi vay ($R_D$), đòn bẩy sẽ phóng đại suất sinh lời trên vốn tự có ($R_L$). Nhưng nếu $R_A < R_D$, điều gì sẽ xảy ra với tỷ suất sinh lời của bạn? Nó sẽ sụt giảm nhanh hơn rất nhiều so với trường hợp không sử dụng đòn bẩy!}}
+	\textit{Đòn bẩy là dao hai lưỡi. Khi suất sinh lời tài sản ($R_A$) lớn hơn chi phí đi vay ($R_D$), đòn bẩy phóng đại suất sinh lời vốn tự có ($R_L$). Nhưng nếu $R_A < R_D$, tỷ suất sinh lời của chúng ta sẽ sụt giảm rất nhanh!}}
 
 The potential financial outcomes for owning a stock outright versus owning a call option on the stock (another form of leverage) are illustrated in Exhibit \ref{fig:mod1_exhibit_18}:
 \begin{figure}[H]
