@@ -2,13 +2,13 @@
 \label{chap:Applications of Simple Linear Regression in Finance}
 
 \begin{center}
-\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
 	\toprule
 	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
 	\midrule
 	a & describe, interpret, and explain simple linear regression, including coefficient estimation using the least squares criterion \\
 	\midrule
-	b & describe and compare the assumptions of simple linear regression, identify violations through analyzing residuals, evaluate the estimated mode's goodness-of-fit and regression coefficients, and results of ANOVA estimates \\
+	b & describe and compare the assumptions of simple linear regression, identify violations through analyzing residuals, evaluate the estimated model's goodness-of-fit and regression coefficients, and results of ANOVA estimates \\
 	\midrule
 	c & calculate and interpret predicted values, the standard error of the estimate, and prediction intervals for the dependent variable in a simple linear regression model and describe different functional forms \\
 	\midrule
@@ -17,29 +17,587 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
 
+\section{Linear Regression Estimation}
+\label{sec:Linear Regression Estimation}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	a & describe, interpret, and explain simple linear regression, including coefficient estimation using the least squares criterion \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Hồi quy tuyến tính (Linear Regression) là nền tảng của mọi mô hình định lượng trong tài chính. Bản chất của nó là gì? Đó là đi tìm một đường thẳng mô tả tốt nhất mối quan hệ nhân quả giữa hai biến số. Bằng cách sử dụng tiêu chuẩn OLS (Bình phương tối thiểu), chúng ta có thể tối thiểu hóa sai số dự báo. Nhưng hãy lưu ý: mối quan hệ hồi quy thu được có thực sự mang tính nhân quả, hay chỉ đơn thuần là một sự tương quan ngẫu nhiên trong quá khứ? Chúng ta cần rà soát kỹ lưỡng các giả định đằng sau mô hình này.}}
+
+\subsection{Linear Regression Analysis}
+Regression analysis estimates the relationship between a dependent variable ($Y$), whose variation we want to explain, and an independent variable ($X$), which is hypothesized to influence or explain changes in $Y$. 
+
+In simple linear regression, the population model is expressed as:
+\begin{equation}
+	Y_i = \beta_0 + \beta_1 X_i + \epsilon_i, \quad i = 1, \dots, n
+	\label{eq:pop_regression_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.1, Page 524
+where:
 \begin{itemize}
-	\item[] \textbf{Linear Regression Estimation}
-	      \begin{itemize}
-			\item[] Linear Regression Analysis
-			\item[] Coefficient Estimation of Linear Regression
-			\item[] Estimation Residuals
-			\item[] Data Types
-	      \end{itemize}
-	\item[] \textbf{Limitations of Linear Regression Models}
-	      \begin{itemize}
-			\item[] Assumptions of the Simple Linear Regression Model
-			\item[] Residual Analysis
-			\item[] Evaluating Goodness-of-Fit and Regression Coefficients
-			\item[] Hypothesis Testing
-	      \end{itemize}
-	\item[] \textbf{Using Linear Regression Models for Prediction}
-	      \begin{itemize}
-			\item[] Prediction Using a Simple Regression
-			\item[] Modeling Non-Linear Relationships in Economic and Financial Data
-			\item[] Practical Implementation
-			\item[] Hypothesis Testing
-	      \end{itemize}
-	\item[] \textbf{Using Linear Regression Models to Evaluate Financial Assets: The Capital Asset Pricing Model}
+	\item $Y_i$ is the dependent variable (or response variable) for observation $i$.
+	\item $X_i$ is the independent variable (or explanatory variable) for observation $i$.
+	\item $\beta_0$ is the intercept coefficient, representing the expected value of $Y$ when $X = 0$.
+	\item $\beta_1$ is the slope coefficient, representing the change in the expected value of $Y$ for a one-unit change in $X$.
+	\item $\epsilon_i$ is the error term (or disturbance), capturing random noise and variables omitted from the model.
 \end{itemize}
+
+The estimated regression line is:
+\begin{equation}
+	\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i
+	\label{eq:est_regression_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.1, Page 524
+where $\hat{Y}_i$ is the predicted value of the dependent variable for observation $i$, and $\hat{\beta}_0$ and $\hat{\beta}_1$ are the sample estimates of $\beta_0$ and $\beta_1$.
+
+\subsection{Coefficient Estimation of Linear Regression}
+The Ordinary Least Squares (OLS) estimation criterion determines the coefficients $\hat{\beta}_0$ and $\hat{\beta}_1$ by minimizing the Sum of Squared Errors (SSE), which is the sum of the squared differences between the observed values $Y_i$ and the predicted values $\hat{Y}_i$:
+\begin{equation}
+	\text{SSE} = \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 = \sum_{i=1}^n e_i^2
+	\label{eq:sse_definition_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.2, Page 527
+
+The OLS estimators for the slope and intercept are calculated as:
+\begin{equation}
+	\hat{\beta}_1 = \frac{\text{Cov}(X, Y)}{\text{Var}(X)} = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}
+	\label{eq:slope_estimator_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.2, Page 527
+\begin{equation}
+	\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}
+	\label{eq:intercept_estimator_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.2, Page 527
+where $\bar{X}$ and $\bar{Y}$ are the sample means of the independent and dependent variables, respectively.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.2-Interest vs Inflation.png}
+	\caption{OLS Regression: Inflation versus Real GDP Growth}
+	\label{fig:mod10_exhibit_1}
+\end{figure}
+
+\textcolor{blue}{\textit{Tại sao OLS lại được ưa chuộng? Phương pháp này đảm bảo tổng các sai số bằng không ($\sum e_i = 0$) và đường hồi quy luôn đi qua điểm tọa độ trung bình mẫu $(\bar{X}, \bar{Y})$. Tuy nhiên, hãy nhớ rằng việc bình phương các phần sai số ($e_i^2$) sẽ phạt cực kỳ nặng các điểm dữ liệu dị biệt (outliers), từ đó làm lệch đường hồi quy nếu dữ liệu có nhiều biến động bất thường.}}
+
+\subsection{Estimation Residuals}
+The difference between the observed value $Y_i$ and the estimated/predicted value $\hat{Y}_i$ is the residual ($e_i$):
+\begin{equation}
+	e_i = Y_i - \hat{Y}_i
+	\label{eq:residual_definition_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.3, Page 530
+The residuals are the sample counterparts to the population error terms ($\epsilon_i$). Figure~\ref{fig:mod10_exhibit_3} illustrates the residuals plotted around a horizontal line at $e_i = 0$, reflecting the vertical distance of each observation from the regression line.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.4-Quarterly Rev vs Time.png}
+	\caption{Residuals of the Estimated OLS Equation (Inflation vs Real GDP)}
+	\label{fig:mod10_exhibit_3}
+\end{figure}
+
+\subsection{Data Types}
+Financial regression models typically utilize three types of data structures:
+\begin{itemize}
+	\item \textbf{Cross-sectional data:} Observations on multiple entities (e.g., different companies, sectors, or countries) at a single point in time. It is indexed by $i = 1, \dots, n$.
+	\item \textbf{Time-series data:} Repeated observations of a single entity (e.g., a country's GDP growth or a company's stock return) across multiple time periods. It is indexed by $t = 1, \dots, T$.
+	\item \textbf{Panel data:} A combination of cross-sectional and time-series data, observing multiple entities repeatedly over time.
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Estimating Inflation using Real GDP Growth},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst estimates the linear relationship between annual inflation ($Y$, dependent variable) and annual real GDP growth ($X$, independent variable) for a country over 24 periods. The estimated OLS model yields the following equation:
+\[ \hat{Y}_i = 1.59\% + 1.27 X_i \]
+
+\textbf{Interpretation:}
+\begin{itemize}
+	\item \textbf{Intercept ($\hat{\beta}_0 = 1.59\%$):} If the real GDP growth rate is $0\%$, the expected annual inflation rate is $1.59\%$.
+	\item \textbf{Slope ($\hat{\beta}_1 = 1.27$):} For every $1\%$ increase in the annual real GDP growth rate, the expected annual inflation rate increases by $1.27\%$.
+\end{itemize}
+If the real GDP growth is projected to be $3\%$, the predicted inflation rate is:
+\[ \hat{Y} = 1.59\% + 1.27 \times 3\% = 5.40\% \]
+\end{tcolorbox}
+
+\section{Limitations of Linear Regression Models}
+\label{sec:Limitations of Linear Regression Models}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	b & describe and compare the assumptions of simple linear regression, identify violations through analyzing residuals, evaluate the estimated model's goodness-of-fit and regression coefficients, and results of ANOVA estimates \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Một mô hình hồi quy tuyến tính OLS chỉ đáng tin cậy khi các giả định cơ bản được thỏa mãn. Nếu các giả định này bị vi phạm (như phương sai sai số thay đổi - Heteroskedasticity hoặc các sai số tự tương quan với nhau - Autocorrelation), kết quả ước lượng và các khoảng tin cậy sẽ bị lệch lạc. Hãy học cách phân tích đồ thị phần dư (Residual Plots) - đây chính là công cụ trực quan mạnh mẽ nhất để phát hiện các lỗi hệ thống này.}}
+
+\subsection{Assumptions of the Simple Linear Regression Model}
+To ensure that the OLS estimators are Blue (Best Linear Unbiased Estimators) and that statistical inferences are valid, 5 key assumptions must hold:
+\begin{enumerate}
+	\item \textbf{Linearity:} The relationship between the dependent variable $Y$ and the independent variable $X$ is linear in parameters.
+	\item \textbf{Homoskedasticity:} The variance of the error terms ($\epsilon_i$) is constant across all observations: $\text{Var}(\epsilon_i) = \sigma^2$ for all $i$.
+	\item \textbf{Independence:} The error terms are independent of one another, implying they are uncorrelated across observations: $\text{Cov}(\epsilon_i, \epsilon_j) = 0$ for all $i \neq j$.
+	\item \textbf{Normality:} The error terms ($\epsilon_i$) are normally distributed. This is crucial for small sample hypothesis testing.
+	\item \textbf{Exogeneity:} The expected value of the error term conditional on the independent variable is zero: $\text{E}(\epsilon_i | X_i) = 0$.
+\end{enumerate}
+
+\subsection{Residual Analysis}
+Residual plots (plotting residuals $e_i$ against $X_i$ or time $t$) are crucial diagnostics to identify violations of OLS assumptions:
+\begin{itemize}
+	\item \textbf{Violation of Linearity:} Residuals show a distinct curved (e.g., U-shaped) pattern when plotted against $X$, suggesting that a linear form is inappropriate. Figure~\ref{fig:mod10_exhibit_5} illustrates this violation.
+	
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.1-Nonlinear.png}
+		\caption{Fitting a Linear and a Non-Linear Model to Non-Linear Data}
+		\label{fig:mod10_exhibit_5}
+	\end{figure}
+	
+	\item \textbf{Heteroskedasticity:} The spread of the residuals increases or decreases systematically with $X$ (creating a funnel shape). Non-constant variance invalidates standard error estimates, making $t$-statistics unreliable. Figure~\ref{fig:mod10_exhibit_7} shows a comparison of regressions on data with two variance regimes.
+	
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.3-Residual Plots.png}
+		\caption{Regressions on Data with Two Different Regimes and Residuals}
+		\label{fig:mod10_exhibit_7}
+	\end{figure}
+	
+	\item \textbf{Autocorrelation (Serial Correlation):} Residuals exhibit a systematic trend or cyclical pattern over time (e.g., positive residuals followed by positive residuals). Common in time-series data, this violates the independence assumption. Figure~\ref{fig:mod10_exhibit_8} compares independent and autocorrelated residuals.
+	
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.5-Residual Quarterly Rev vs Time.png}
+		\caption{Comparison of Residual Plots: Independence (Left) and Autocorrelation (Right)}
+		\label{fig:mod10_exhibit_8}
+	\end{figure}
+\end{itemize}
+
+\subsection{Evaluating Goodness-of-Fit and Regression Coefficients}
+Goodness-of-fit measures how well the independent variable explains variation in the dependent variable. Total variation is decomposed into:
+\begin{equation}
+	\text{SST} = \text{SSR} + \text{SSE}
+	\label{eq:sst_decomposition_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.3, Page 540
+where:
+\begin{itemize}
+	\item \textbf{Total Sum of Squares (SST):} Total variation of the dependent variable around its mean: $\text{SST} = \sum (Y_i - \bar{Y})^2$.
+	\item \textbf{Regression Sum of Squares (SSR):} Variation explained by the regression line: $\text{SSR} = \sum (\hat{Y}_i - \bar{Y})^2$.
+	\item \textbf{Sum of Squared Errors (SSE):} Unexplained variation (residuals): $\text{SSE} = \sum (Y_i - \hat{Y}_i)^2$.
+\end{itemize}
+
+The \textbf{Coefficient of Determination ($R^2$)} measures the proportion of total variation in $Y$ explained by the regression model:
+\begin{equation}
+	R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}
+	\label{eq:r2_definition_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.3, Page 541
+In simple linear regression, the correlation coefficient $r$ is related to $R^2$ by:
+\begin{equation}
+	r = \text{sign}(\hat{\beta}_1) \times \sqrt{R^2}
+	\label{eq:correlation_r2_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.3, Page 541
+
+\subsection{Hypothesis Testing and ANOVA Estimates}
+Analysis of Variance (ANOVA) summarizes the regression outputs to test the overall model significance. Table~\ref{tab:mod10_anova_template} shows the standard ANOVA layout.
+
+\begin{table}[!htbp]
+\centering
+\caption{ANOVA Table for Simple Linear Regression}
+\label{tab:mod10_anova_template}
+\begin{tabular}{p{0.20\linewidth} p{0.15\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.15\linewidth}}
+	\toprule
+	\textbf{Source} & \textbf{df} & \textbf{Sum of Squares} & \textbf{Mean Square} & \textbf{F-statistic} \\
+	\midrule
+	\textbf{Regression} & $1$ & $\text{SSR}$ & $\text{MSR} = \text{SSR} / 1$ & $F = \text{MSR} / \text{MSE}$ \\
+	\midrule
+	\textbf{Residual} & $n - 2$ & $\text{SSE}$ & $\text{MSE} = \text{SSE} / (n - 2)$ & -- \\
+	\midrule
+	\textbf{Total} & $n - 1$ & $\text{SST}$ & -- & -- \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+The \textbf{Standard Error of the Estimate (SEE)} measures the dispersion of the observed values around the regression line:
+\begin{equation}
+	s_e = \sqrt{\text{MSE}} = \sqrt{\frac{\text{SSE}}{n - 2}}
+	\label{eq:see_definition_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.4, Page 544
+
+To test whether the independent variable has a significant linear relationship with the dependent variable, we conduct a hypothesis test on the slope coefficient:
+\[ H_0: \beta_1 = 0 \quad \text{vs} \quad H_a: \beta_1 \neq 0 \]
+The test statistic follows a $t$-distribution with $n-2$ degrees of freedom:
+\begin{equation}
+	t = \frac{\hat{\beta}_1 - 0}{s_{\hat{\beta}_1}}
+	\label{eq:t_stat_slope_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.4, Page 546
+where the standard error of the slope estimator $s_{\hat{\beta}_1}$ is:
+\begin{equation}
+	s_{\hat{\beta}_1} = \frac{s_e}{\sqrt{\sum_{i=1}^n (X_i - \bar{X})^2}}
+	\label{eq:se_slope_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.4, Page 546
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Evaluating FIRN AG Stock Regression},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst regresses the excess returns of FIRN AG stock ($Y$) on the market risk premium ($X$) using 24 monthly observations. The regression output is shown below:
+
+\begin{center}
+\begin{tabular}{p{0.3\linewidth} p{0.15\linewidth} p{0.15\linewidth} p{0.15\linewidth} p{0.15\linewidth}}
+	\toprule
+	\textbf{Source} & \textbf{df} & \textbf{SS} & \textbf{MS} & \textbf{F-statistic} \\
+	\midrule
+	Regression & 1 & 0.029 & 0.029 & 63.81 \\
+	Residual & 22 & 0.010 & 0.000455 & -- \\
+	Total & 23 & 0.039 & -- & -- \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{p{0.3\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
+	\toprule
+	\textbf{Variable} & \textbf{Coefficient} & \textbf{Standard Error} & \textbf{t-statistic} \\
+	\midrule
+	Intercept & 0.0077 & 0.0007 & 11.328 \\
+	Market Premium & 0.8260 & 0.1030 & 7.988 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Calculations \& Analysis:}
+\begin{enumerate}
+	\item \textbf{Goodness-of-Fit ($R^2$):}
+	\[ R^2 = \frac{\text{SSR}}{\text{SST}} = \frac{0.029}{0.039} = 0.7436 \, (74.36\%) \]
+	Interpretation: $74.36\%$ of the monthly excess returns variation of FIRN AG is explained by the market risk premium.
+	\item \textbf{Correlation Coefficient ($r$):}
+	\[ r = \sqrt{0.7436} = 0.8623 \]
+	Since the slope coefficient is positive ($0.8260$), the correlation between FIRN AG and the market is $+0.8623$.
+	\item \textbf{Standard Error of the Estimate (SEE):}
+	\[ s_e = \sqrt{\text{MSE}} = \sqrt{0.000455} = 0.0213 \]
+	\item \textbf{Significance of the Slope:}
+	At a $5\%$ significance level, the critical $t$-value with $22$ degrees of freedom is $2.074$.
+	Since the calculated $t$-statistic for the slope is $7.988 > 2.074$, we reject the null hypothesis $H_0: \beta_1 = 0$. The slope is statistically significant.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Using Linear Regression Models for Prediction}
+\label{sec:Using Linear Regression Models for Prediction}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	c & calculate and interpret predicted values, the standard error of the estimate, and prediction intervals for the dependent variable in a simple linear regression model and describe different functional forms \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Dự báo giá trị tương lai là mục đích tối thượng của phân tích hồi quy. Khi dự báo, chúng ta không chỉ tính ra một giá trị điểm đơn lẻ mà phải tính toán được khoảng dự báo (Prediction Interval) phản ánh sự không chắc chắn của dự báo đó. Ngoài ra, thế giới thực thường phi tuyến: hãy nắm vững các phương pháp biến đổi logarith (Log-Lin, Lin-Log, Log-Log) để làm mượt các mối quan hệ tăng trưởng mũ hay co giãn trong tài chính.}}
+
+\subsection{Prediction Using a Simple Regression}
+For a given value of the independent variable ($X_p$), the predicted value of the dependent variable ($\hat{Y}_p$) is:
+\begin{equation}
+	\hat{Y}_p = \hat{\beta}_0 + \hat{\beta}_1 X_p
+	\label{eq:predicted_value_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 3.1, Page 550
+
+To capture the uncertainty of our prediction, we calculate the \textbf{Prediction Interval} for the dependent variable. The variance of the prediction error ($s_{pred}^2$) is:
+\begin{equation}
+	s_{pred}^2 = s_e^2 \left[ 1 + \frac{1}{n} + \frac{(X_p - \bar{X})^2}{\sum_{i=1}^n (X_i - \bar{X})^2} \right]
+	\label{eq:variance_prediction_error_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 3.1, Page 550
+
+The $1-\alpha$ confidence level prediction interval for the estimated value is:
+\begin{equation}
+	\hat{Y}_p \pm t_{crit} \times s_{pred}
+	\label{eq:prediction_interval_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 3.1, Page 550
+where $t_{crit}$ is the critical value of the $t$-distribution with $n-2$ degrees of freedom at the significance level $\alpha/2$.
+
+\begin{examtip}
+Notice in Equation~\ref{eq:variance_prediction_error_m10} that the variance of the prediction error increases as $X_p$ moves further away from the sample mean $\bar{X}$. This means our predictions are much more precise when $X_p$ is close to the average of our historical data, and become highly uncertain for extreme inputs!
+\end{examtip}
+
+\subsection{Modeling Non-Linear Relationships}
+If the relationship between variables is non-linear, we can apply logarithmic transformations to achieve linearity. Table~\ref{tab:mod10_functional_forms} summarizes the three primary logarithmic functional forms.
+
+\begin{table}[!htbp]
+\centering
+\caption{Logarithmic Regression Functional Forms}
+\label{tab:mod10_functional_forms}
+\begin{tabular}{p{0.15\linewidth} p{0.30\linewidth} p{0.45\linewidth}}
+	\toprule
+	\textbf{Model} & \textbf{Regression Equation} & \textbf{Slope Coefficient Interpretation} \\
+	\midrule
+	\textbf{Log-Lin} & $\ln(Y_i) = \beta_0 + \beta_1 X_i + \epsilon_i$ & A 1-unit change in $X$ is associated with an approximate $\beta_1 \times 100\%$ relative change in $Y$. \\
+	\midrule
+	\textbf{Lin-Log} & $Y_i = \beta_0 + \beta_1 \ln(X_i) + \epsilon_i$ & A $1\%$ relative change in $X$ is associated with an approximate $\beta_1 / 100$ unit change in $Y$. \\
+	\midrule
+	\textbf{Log-Log} & $\ln(Y_i) = \beta_0 + \beta_1 \ln(X_i) + \epsilon_i$ & A $1\%$ relative change in $X$ is associated with an approximate $\beta_1\%$ relative change in $Y$ (constant elasticity $\beta_1$). \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\textcolor{blue}{\textit{Làm thế nào để chọn đúng dạng hàm?
+1. Sử dụng \textbf{Log-Lin} khi biến phụ thuộc tăng trưởng theo cấp số nhân (ví dụ: quy mô doanh thu của doanh nghiệp qua các năm).
+2. Sử dụng \textbf{Lin-Log} khi tốc độ tăng trưởng giảm dần theo quy mô (hiệu ứng lợi ích cận biên giảm dần).
+3. Sử dụng \textbf{Log-Log} để tìm độ co giãn của cầu theo giá hoặc tìm mức độ nhạy cảm không đổi giữa hai đại lượng tỷ lệ.}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Example: Log-Lin Regression of Swiss Company Cap on Revenue},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst collects a sample of $34$ Swiss companies to evaluate the relationship between revenue per share ($X$, in CHF) and the natural logarithm of market capitalization ($Y = \ln(\text{Market Cap})$, in CHF billions). The OLS regression yields:
+\[ \ln(\text{Market Capitalization}_i) = 0.5987 + 0.2951 \times \text{Revenue per Share}_i \]
+with $s_{\hat{\beta}_1} = 0.0077$.
+
+\textbf{Analysis:}
+\begin{enumerate}
+	\item \textbf{Interpretation of the Slope ($\hat{\beta}_1 = 0.2951$):}
+	For every 1 CHF increase in revenue per share, the market capitalization increases by approximately $29.51\%$.
+	Specifically, the exact relative change is:
+	\[ e^{0.2951} - 1 \approx 0.3432 \, (34.32\%) \]
+	\item \textbf{Hypothesis Testing:}
+	To test if the relationship is statistically significant at the $1\%$ significance level ($t_{crit} \approx 2.75$ with $32$ df):
+	\[ t = \frac{0.2951}{0.0077} = 38.32 \]
+	Since $38.32 > 2.75$, we reject $H_0$. The slope is highly statistically significant.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{The Capital Asset Pricing Model (CAPM)}
+\label{sec:CAPM}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	d & calculate and interpret the variable estimates of the capital asset pricing model (CAPM) \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{CAPM là ứng dụng kinh điển nhất của hồi quy tuyến tính đơn trong đầu tư tài chính. Phương trình hồi quy CAPM (còn gọi là Security Characteristic Line - SCL) biểu diễn phần bù rủi ro của tài sản ($R_i - R_f$) theo phần bù rủi ro của thị trường ($R_m - R_f$). Hệ số góc của phương trình này chính là hệ số Beta ($\beta_i$), đại diện cho mức độ rủi ro hệ thống của cổ phiếu. Nếu một cổ phiếu có Beta lớn hơn 1, nó sẽ biến động mạnh hơn thị trường và ngược lại.}}
+
+\subsection{CAPM Regression Framework}
+The CAPM asserts that the expected excess return on an asset is linearly related to the market risk premium. We express it as a simple linear regression:
+\begin{equation}
+	R_{i,t} - R_{f,t} = \alpha_i + \beta_i (R_{m,t} - R_{f,t}) + \epsilon_{i,t}
+	\label{eq:capm_regression_m10}
+\end{equation}
+% Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 4.1, Page 566
+where:
+\begin{itemize}
+	\item $R_{i,t} - R_{f,t}$ is the excess return of asset $i$ over the risk-free rate at time $t$ (dependent variable $Y$).
+	\item $R_{m,t} - R_{f,t}$ is the market risk premium at time $t$ (independent variable $X$).
+	\item $\beta_i$ is the systematic risk (or market beta) of the asset, reflecting its sensitivity to market movements.
+	\item $\alpha_i$ is the intercept, representing the abnormal return (Jensen's alpha). Under market efficiency, the expected value of $\alpha_i$ is zero.
+\end{itemize}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Calculating LVMH's Beta},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst estimates the beta of LVMH Moët Hennessy Louis Vuitton (LVMH) using $104$ weeks of historical data. The CAC 40 Index excess return is used as the proxy for the market risk premium ($X$), and LVMH's excess return is the dependent variable ($Y$). The OLS regression yields the following results:
+
+\begin{center}
+\begin{tabular}{p{0.3\linewidth} p{0.15\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
+	\toprule
+	\textbf{Source} & \textbf{df} & \textbf{Sum of Squares} & \textbf{Mean Square} \\
+	\midrule
+	Regression & 1 & 0.108622 & 0.108622 \\
+	Residual & 102 & 0.041994 & 0.000412 \\
+	Total & 103 & 0.150616 & -- \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{p{0.3\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
+	\toprule
+	\textbf{Parameter} & \textbf{Coefficient} & \textbf{Standard Error} & \textbf{t-statistic} \\
+	\midrule
+	Intercept ($\alpha$) & 0.0010 & 0.0020 & 0.5250 \\
+	Market Slope ($\beta$) & 1.3684 & 0.0840 & 16.2430 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Interpretation \& Key Estimates:}
+\begin{enumerate}
+	\item \textbf{Estimated Beta ($\hat{\beta}_{LVMH} = 1.3684$):}
+	LVMH has a beta of approximately $1.37$. Since $\beta > 1.0$, LVMH is more volatile than the market CAC 40. A $1\%$ increase in the CAC 40 market risk premium is expected to lead to a $1.37\%$ increase in the excess return of LVMH.
+	\item \textbf{Statistical Significance of Beta:}
+	The calculated $t$-statistic for the slope coefficient is $16.243$. Compared to the critical $t$-value at the $5\%$ level of significance ($t_{crit} \approx 1.96$), $16.243 > 1.96$. Thus, LVMH's beta is statistically significant.
+	\item \textbf{Model R-squared ($R^2$):}
+	\[ R^2 = \frac{\text{SSR}}{\text{SST}} = \frac{0.108622}{0.150616} = 0.7212 \, (72.1\%) \]
+	This indicates that $72.1\%$ of the variation in LVMH's weekly excess returns is explained by the market risk premium. The remaining $27.9\%$ is due to firm-specific (unsystematic) factors.
+	\item \textbf{Intercept Alpha ($\hat{\alpha} = 0.0010$):}
+	The intercept represents the abnormal excess return of LVMH. The calculated $t$-statistic is $0.525 < 1.96$, showing that the alpha is not statistically different from zero, which is consistent with the CAPM.
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Practice Problems}
+\label{sec:mod10_Practice_Problems}
+
+\begin{enumerate}
+	\item Ordinary least squares (OLS) regression minimizes the sum of:
+	\begin{enumerate}[label=\Alph*.]
+		\item residuals.
+		\item absolute residuals.
+		\item squared residuals.
+	\end{enumerate}
+
+	\item Homoskedasticity in OLS residuals implies that the variance of the error terms is:
+	\begin{enumerate}[label=\Alph*.]
+		\item zero.
+		\item normally distributed.
+		\item constant across observations.
+	\end{enumerate}
+
+	\item In the context of CAPM, a financial asset with a negative beta is expected to:
+	\begin{enumerate}[label=\Alph*.]
+		\item move inversely to the market.
+		\item be riskier than the market portfolio.
+		\item have a lower return than the market portfolio.
+	\end{enumerate}
+
+	\item The coefficient of determination ($R^2$) represents the:
+	\begin{enumerate}[label=\Alph*.]
+		\item standard error of the slope coefficient.
+		\item correlation coefficient between variables.
+		\item proportion of the total variation in the dependent variable explained by the regression.
+	\end{enumerate}
+
+	\item An analyst runs a simple linear regression using 30 observations. The total sum of squares (SST) is 150.00 and the sum of squared errors (SSE) is 45.00. The regression sum of squares (SSR) and $R^2$ are closest to:
+	\begin{enumerate}[label=\Alph*.]
+		\item $\text{SSR} = 105.00$ and $R^2 = 30.0\%$.
+		\item $\text{SSR} = 105.00$ and $R^2 = 70.0\%$.
+		\item $\text{SSR} = 195.00$ and $R^2 = 70.0\%$.
+	\end{enumerate}
+
+	\item An analyst estimates the regression model: $Y_i = \beta_0 + \beta_1 X_i + \epsilon_i$. Given a slope estimate $\hat{\beta}_1 = 1.50$, sample mean $\bar{X} = 4.00$, and sample mean $\bar{Y} = 10.00$, the intercept estimate $\hat{\beta}_0$ is closest to:
+	\begin{enumerate}[label=\Alph*.]
+		\item $4.00$
+		\item $6.00$
+		\item $10.00$
+	\end{enumerate}
+
+	\item In a simple linear regression model, if the slope coefficient $\hat{\beta}_1$ is negative, the correlation coefficient $r$ between $X$ and $Y$ must be:
+	\begin{enumerate}[label=\Alph*.]
+		\item negative.
+		\item positive.
+		\item zero.
+	\end{enumerate}
+
+	\item If the variance of the residuals of a simple linear regression increases as the independent variable increases, the model violates the assumption of:
+	\begin{enumerate}[label=\Alph*.]
+		\item linearity.
+		\item homoskedasticity.
+		\item independence of residuals.
+	\end{enumerate}
+
+	\item For a simple linear regression model with $n=32$ observations, the degrees of freedom for the denominator (residual variance) in the F-test of overall significance are:
+	\begin{enumerate}[label=\Alph*.]
+		\item 30
+		\item 31
+		\item 32
+	\end{enumerate}
+
+	\item An analyst fits a Log-Lin regression model: $\ln(Y_i) = b_0 + b_1 X_i + e_i$ and obtains $b_1 = 0.05$. This coefficient indicates that for a one-unit change in $X$, the expected value of $Y$ changes by approximately:
+	\begin{enumerate}[label=\Alph*.]
+		\item $0.05\%$
+		\item $5.0\%$
+		\item $50.0\%$
+	\end{enumerate}
+\end{enumerate}
+
+\section{Solutions to Practice Problems}
+\label{sec:mod10_Solutions}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} Tiêu chuẩn OLS tối thiểu hóa tổng bình phương các phần sai số/phần dư (squared residuals, SSE). Phương án A và B sai vì chúng không đặc trưng cho OLS mà có thể tương ứng với các mô hình tối thiểu hóa khác.
+	
+	\item \textbf{C là phương án đúng.} Homoskedasticity (phương sai không đổi) là hiện tượng phương sai của sai số $\epsilon_i$ duy trì một hằng số $\sigma^2$ đối với mọi quan sát trong mẫu.
+	
+	\item \textbf{A là phương án đúng.} Một tài sản có hệ số Beta âm sẽ di chuyển ngược chiều với thị trường chung, từ đó hoạt động giống như một công cụ phòng ngừa rủi ro (hedging asset).
+	
+	\item \textbf{C là phương án đúng.} Hệ số xác định $R^2$ là tỷ lệ biến động của biến phụ thuộc được giải thích bởi mô hình hồi quy ($R^2 = \text{SSR}/\text{SST}$).
+	
+	\item \textbf{B là phương án đúng.}
+	Ta có $\text{SST} = \text{SSR} + \text{SSE} \Rightarrow \text{SSR} = \text{SST} - \text{SSE} = 150.00 - 45.00 = 105.00$.
+	Hệ số xác định:
+	\[ R^2 = \frac{\text{SSR}}{\text{SST}} = \frac{105.00}{150.00} = 70.0\% \]
+	
+	\item \textbf{A là phương án đúng.}
+	Áp dụng công thức tính hệ số chặn:
+	\[ \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X} = 10.00 - (1.50 \times 4.00) = 10.00 - 6.00 = 4.00 \]
+	
+	\item \textbf{A là phương án đúng.}
+	Mối quan hệ giữa hệ số tương quan $r$ và hệ số xác định $R^2$ là $r = \text{sign}(\hat{\beta}_1) \times \sqrt{R^2}$. Do hệ số góc $\hat{\beta}_1$ âm, nên hệ số tương quan $r$ bắt buộc phải mang dấu âm.
+	
+	\item \textbf{B là phương án đúng.}
+	Khi phương sai của phần dư thay đổi (tăng hoặc giảm) theo giá trị của biến độc lập, mô hình đã vi phạm giả định phương sai phần dư không đổi (homoskedasticity), dẫn đến hiện tượng phương sai thay đổi (heteroskedasticity).
+	
+	\item \textbf{A là phương án đúng.}
+	Trong mô hình hồi quy tuyến tính đơn, bậc tự do của phần dư (Residual df) là $n - 2$. Với $n = 32$, số bậc tự do là $32 - 2 = 30$.
+	
+	\item \textbf{B là phương án đúng.}
+	Đối với mô hình Log-Lin, hệ số góc $b_1$ biểu thị rằng khi biến độc lập $X$ thay đổi 1 đơn vị, biến phụ thuộc $Y$ sẽ thay đổi một lượng tương đối xấp xỉ bằng $b_1 \times 100\%$. Với $b_1 = 0.05$, biến phụ thuộc thay đổi xấp xỉ $0.05 \times 100\% = 5.0\%$.
+\end{enumerate}
