@@ -2,7 +2,7 @@
 \label{chap:Simulation of Financial Asset Prices and Returns}
 
 \begin{center}
-\begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
 	\toprule
 	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
 	\midrule
@@ -15,27 +15,1476 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
+
+\section{Historical Simulation}
+\label{sec:Historical Simulation}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	a & describe historical simulation and explain how it can be used in investment applications \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Mô phỏng lịch sử (Historical Simulation) là phương pháp phi tham số đơn giản nhất: thay vì giả định phân phối xác suất, chúng ta "tái hiện" lại quá khứ bằng cách áp dụng trực tiếp các biến động lịch sử lên danh mục hiện tại. Ưu điểm lớn nhất là gì? Đó là bảo toàn nguyên vẹn các hiện tượng thực tế như đuôi béo (fat tails) hay tương quan tài sản mà không cần mô hình hóa phức tạp. Nhưng liệu quá khứ có luôn lặp lại đúng như vậy không?}}
+
+\subsection{Overview of Simulation Methods}
+Simulation predicts potential outcomes for a system based on theoretical scenarios by defining objectives, selecting variables, assigning values, evaluating scenarios, and interpreting results. Figure~\ref{fig:mod9_exhibit_1} outlines the key steps.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_1.png}
+	\caption{Steps in the Simulation Process}
+	\label{fig:mod9_exhibit_1}
+\end{figure}
+
+The simulation process comprises:
+\begin{itemize}
+	\item \textbf{Step 1: Setup/parameterize.} Define the target output variable (e.g., risk-adjusted return) and identify the necessary inputs and mathematical relationships.
+	\item \textbf{Step 2: Scenario generation.} Generate input values (scenarios) representing different market conditions.
+	\item \textbf{Step 3: Scenario evaluation/calculation engine.} Process scenarios through a mathematical model to calculate outputs.
+	\item \textbf{Step 4: Result compilation/analysis.} Aggregate outputs into a probability distribution to assess risks.
+\end{itemize}
+
+Three common simulation approaches differ primarily in how they generate scenarios (Step 2):
+\begin{itemize}
+	\item \textbf{Historical simulation} applies actual past market movements directly to current portfolio factors.
+	\item \textbf{Bootstrap simulation} resamples observed historical data with replacement to generate synthetic datasets.
+	\item \textbf{Monte Carlo simulation} generates random scenarios based on assumed probability distributions.
+\end{itemize}
+Table~\ref{tab:mod9_exhibit_2} compares these approaches.
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparing the Steps for Different Simulation Approaches}
+\label{tab:mod9_exhibit_2}
+\begin{tabular}{p{0.14\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
+	\toprule
+	\textbf{Simulation Approach} & \textbf{Step 1: Setup/ Parameterize} & \textbf{Step 2: Scenario Generation} & \textbf{Step 3: Scenario Evaluation} & \textbf{Step 4: Result Analysis} \\
+	\midrule
+	\textbf{Historical Simulation} & Use historical data to initialize model parameters. & Incorporate actual past observations for scenario inputs. & Run the model using each historical scenario. & Examine performance under real-world conditions encountered in the past. \\
+	\midrule
+	\textbf{Bootstrap Simulation} & Adopt historical data to define parameters (with replacement). & Formulate synthetic scenarios by resampling the observed dataset. & Conduct calculations for each resampled scenario. & Assess variability while preserving the original data structure. \\
+	\midrule
+	\textbf{Monte Carlo Simulation} & Specify probability distributions for model inputs. & Draw random samples from these distributions to shape scenario inputs. & Execute calculations using each random input vector. & Evaluate the resulting distribution of outputs to determine risks and probabilities. \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+The three simulation approaches differ primarily in Step 2 (scenario generation); the other steps remain functionally identical.
+
+\subsection{Historical Simulation Overview}
+Historical simulation uses historical prices and returns to model future outcomes under the assumption that past patterns approximate future risks. This non-parametric approach captures empirical features like fat tails, kurtosis, and volatility clustering without distributional assumptions. However, it relies on the assumption that past patterns represent the future, which fails during structural shifts.
+
+\subsection{Implementing Historical Simulation}
+In historical simulation, scenarios are assembled from observed historical changes in each variable, as shown in Figure~\ref{fig:mod9_exhibit_3}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_3.png}
+	\caption{Simulation Framework Applied to Historical Simulation}
+	\label{fig:mod9_exhibit_3}
+\end{figure}
+
+To construct a robust simulation, key valuation and risk factors need to be identified, which serve as the fundamental inputs in the simulation process. For equities, the primary variables are usually continuously compounded (logarithmic) price returns:
+\begin{equation}
+	r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
+	\label{eq:log_return_m9}
+\end{equation}
+For fixed-income instruments, the simulation models changes in the yield curve. The price of a bond is determined by discounting future cash flows using simulated yields:
+\begin{equation}
+	PV_B = \sum_{t=1}^T \frac{CF_t}{(1 + y_t)^t}
+	\label{eq:bond_pricing_m9}
+\end{equation}
+Historical simulation is commonly used to calculate portfolio Value at Risk (VaR). The case study below applies this method to a long-only portfolio.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Historical Simulation of a Long-Only Portfolio},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A portfolio manager wants to determine the daily Value at Risk (VaR) of a portfolio at the 95% confidence level. The portfolio replicates the HKD performance of investing in two assets:
+\begin{itemize}
+	\item HSI (Hang Seng Index): HKD 55,000,000
+	\item CSI 300 Index: HKD 40,000,000
+\end{itemize}
+The manager uses a one-year history of daily log returns (246 trading days).
+
+\textbf{Step 1: Calculate log returns.} \\
+Daily log returns for both indexes are calculated as: $r = \ln(P_1 / P_0)$. For example, on Day 1:
+\[
+r_{HS,1} = \ln\left(\frac{20,145.29}{19,781.41}\right) = 1.82\%
+\]
+Returns are shown in Figure~\ref{fig:mod9_exhibit_4} and Table~\ref{tab:mod9_exhibit_5}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_4.png}
+	\captionof{figure}{Comparison of Hang Seng Index and Shanghai Shenzhen CSI 300 Index Daily Log Returns}
+	\label{fig:mod9_exhibit_4}
+\end{center}
+
+\begin{center}
+\centering
+\captionof{table}{Hang Seng Index and CSI 300 Daily Log Returns}
+\label{tab:mod9_exhibit_5}
+\begin{tabular}{c c c c c}
+	\toprule
+	\textbf{Scenario No.} & \textbf{Hang Seng Index in HKD} & \textbf{CSI 300 in HKD} & \textbf{Hang Seng Index Log Return} & \textbf{CSI 300 Log Return} \\
+	\midrule
+	0, $t = 0$ & 19,781.41 & 4,381.91 & -- & -- \\
+	1 & 20,145.29 & 4,391.77 & 1.82\% & 0.22\% \\
+	2 & 20,793.11 & 4,416.16 & 3.17\% & 0.55\% \\
+	3 & 21,052.17 & 4,504.74 & 1.24\% & 1.99\% \\
+	4 & 20,991.64 & 4,543.39 & -0.29\% & 0.85\% \\
+	\dots & \dots & \dots & \dots & \dots \\
+	244 & 16,624.84 & 3,648.65 & 1.73\% & -0.14\% \\
+	245 & 17,043.53 & 3,752.58 & 2.49\% & 2.81\% \\
+	246 & 17,047.39 & 3,772.51 & 0.02\% & 0.53\% \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Step 2: Calculate daily profit and loss (P/L).} \\
+For each day, the P/L is computed as: $P/L = \text{Position value} \times (e^{r} - 1)$. For Day 1:
+\[
+\text{Total P/L} = 55\text{M} \times (e^{1.82\%} - 1) + 40\text{M} \times (e^{0.22\%} - 1) = \text{HKD } 1,098,262
+\]
+The P/L across all scenarios are compiled in Table~\ref{tab:mod9_exhibit_6}.
+
+\begin{center}
+\centering
+\captionof{table}{Portfolio P/L for the Long-Only Portfolio}
+\label{tab:mod9_exhibit_6}
+\begin{tabular}{c c c c c c}
+	\toprule
+	\textbf{Scenario} & \textbf{HSI Log Return} & \textbf{CSI 300 Log Return} & \textbf{HSI P/L (HKD)} & \textbf{CSI 300 P/L (HKD)} & \textbf{Total Portfolio P/L (HKD)} \\
+	\midrule
+	1 & 1.82\% & 0.22\% & 1,010,165 & 88,097 & 1,098,262 \\
+	2 & 3.17\% & 0.55\% & 1,771,429 & 220,606 & 1,992,035 \\
+	3 & 1.24\% & 1.99\% & 686,246 & 803,973 & 1,490,219 \\
+	4 & -0.29\% & 0.85\% & -159,269 & 341,449 & 182,180 \\
+	\dots & \dots & \dots & \dots & \dots & \dots \\
+	244 & 1.73\% & -0.14\% & 959,778 & -55,961 & 903,817 \\
+	245 & 2.49\% & 2.81\% & 1,386,693 & 1,139,941 & 2,526,634 \\
+	246 & 0.02\% & 0.53\% & 11,001 & 212,563 & 223,564 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Step 3: Create the P/L distribution.} \\
+Daily P/L results generate the empirical distribution shown in Figure~\ref{fig:mod9_exhibit_7}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_7.png}
+	\captionof{figure}{Distribution of Total Portfolio Daily Profit and Loss}
+	\label{fig:mod9_exhibit_7}
+\end{center}
+
+\textbf{Step 4: Determine the VaR.} \\
+The daily P/L estimates are ranked from lowest to highest (Table~\ref{tab:mod9_exhibit_8}).
+
+\begin{center}
+\centering
+\captionof{table}{Ranking of Total Portfolio Daily Profit and Loss}
+\label{tab:mod9_exhibit_8}
+\begin{tabular}{c c c}
+	\toprule
+	\textbf{Rank} & \textbf{Day} & \textbf{Total P/L (HKD)} \\
+	\midrule
+	1 & 262 & -2,226,893 \\
+	2 & 157 & -1,949,811 \\
+	3 & 39 & -1,888,929 \\
+	\dots & \dots & \dots \\
+	11 & 49 & -1,651,318 \\
+	12 & 43 & -1,624,801 \\
+	13 & 25 & -1,607,739 \\
+	\dots & \dots & \dots \\
+	246 & 176 & 3,684,974 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+For 246 observations, the 5% tail corresponds to the 12.3rd rank from the bottom. Using linear interpolation between the 12th (HKD -1,624,801) and 13th (HKD -1,607,739) observations:
+\[
+\text{VaR}_{95\%} = 0.3 \times 1,607,739 + 0.7 \times 1,624,801 = \text{HKD } 1,619,682
+\]
+For comparison, a parametric VaR is calculated assuming a joint normal distribution with parameters in Table~\ref{tab:mod9_exhibit_9}.
+
+\begin{center}
+\centering
+\captionof{table}{Descriptive Statistics}
+\label{tab:mod9_exhibit_9}
+\begin{tabular}{p{0.3\linewidth} p{0.3\linewidth} p{0.3\linewidth}}
+	\toprule
+	\textbf{Statistic} & \textbf{Hang Seng Index} & \textbf{CSI 300 (in HKD)} \\
+	\midrule
+	Average Log Return, $\mu$ & -0.0607\% & -0.0611\% \\
+	Standard Deviation, $\sigma$ & 1.3948\% & 0.9741\% \\
+	Correlation, $\rho$ & 0.6609 & -- \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+Assuming zero mean returns for daily calculations, the portfolio value variance (for $D_{HS} = 55\text{M}$ and $D_{SS} = 40\text{M}$) is:
+\begin{equation}
+	\sigma_p^2 = D_{HS}^2 \sigma_{HS}^2 + D_{SS}^2 \sigma_{SS}^2 + 2 D_{HS} D_{SS} \rho \sigma_{HS} \sigma_{SS} = 1.1354 \, (\text{million HKD})^2
+\end{equation}
+The standard deviation is $\sigma_p = \text{HKD } 1.0656\text{ million}$. The 95% confidence level parametric VaR ($z = 1.96$) is:
+\[
+\text{VaR}_{95\%} = 1.96 \times 1.0656 = \text{HKD } 2.0885 \text{ million}
+\]
+The difference arises because parametric VaR relies on the normality assumption, whereas historical VaR directly reflects empirical tail behavior and any inherent drift.
+\end{tcolorbox}
+
+\textcolor{blue}{\textit{Chúng ta lưu ý lý do thực tế tại sao VaR tham số dùng $z = 1.96$ ở đây lớn hơn VaR lịch sử: giả định phân phối chuẩn phân bổ đều xác suất về hai phía đuôi, trong khi dữ liệu thực tế ít biến động cực đại hơn. Điều này phản ánh rõ: VaR tham số phụ thuộc vào mô hình toán, còn VaR lịch sử phụ thuộc vào mẫu dữ liệu cụ thể.}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Modeling Investment Scenarios for a Sustainable Energy Startup},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A venture capital firm is evaluating an investment with a five- to seven-year horizon. It analyzes 50 past investments to estimate risks by reviewing deviations between projected and realized revenues.
+
+\textbf{Step 1: Determine the historical distribution of returns.} \\
+Figure~\ref{fig:mod9_exhibit_10} and Table~\ref{tab:mod9_exhibit_11} show the distribution of revenue forecast deviations.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_10.png}
+	\captionof{figure}{Deviations from Revenue Forecasts}
+	\label{fig:mod9_exhibit_10}
+\end{center}
+
+\begin{center}
+\centering
+\captionof{table}{The Two Tail Ends of the Revenue Forecast Deviations}
+\label{tab:mod9_exhibit_11}
+\begin{tabular}{c c}
+	\toprule
+	\textbf{Investment} & \textbf{Return Deviation (\%)} \\
+	\midrule
+	1 & -28.56 \\
+	2 & -25.60 \\
+	3 & -25.56 \\
+	\dots & \dots \\
+	48 & 5.49 \\
+	49 & 7.30 \\
+	50 & 9.69 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+The deviations range from $-28.56\%$ to $9.69\%$, suggesting optimistic forecasts and a heavily left-skewed, high-variance distribution.
+
+\textbf{Step 2: Establish the return deviation distribution.} \\
+To find the 2.5th and 97.5th percentiles of the return deviations, we interpolate linearly:
+\begin{itemize}
+	\item \textbf{2.5th percentile} (between ranks 2 and 3):
+	\begin{equation}
+		x = -25.60 + \frac{2.5 - 2}{3 - 2} \times (-25.56 - (-25.60)) = -25.58\%
+	\end{equation}
+	\item \textbf{97.5th percentile} (between ranks 48 and 49):
+	\[
+	x = 5.49 + \frac{97.5 - 96}{98 - 96} \times (7.30 - 5.49) = 6.89\%
+	\]
+\end{itemize}
+Thus, the 2.5th percentile deviation is $-25.58\%$, and the 97.5th percentile is $6.89\%$.
+
+\textbf{Step 3: Calculate the Net Present Value (NPV) range.} \\
+The baseline NPV is GBP 1,000,000. Every 1\% deviation in revenue changes NPV by GBP 123,897.22. Extreme scenario NPVs are calculated as:
+\begin{itemize}
+	\item \textbf{Downside (2.5th percentile):}
+	\[
+	\text{NPV} = 1,000,000 + (-25.58 \times 123,897.22) \approx -\text{GBP } 2,170,000
+	\]
+	\item \textbf{Upside (97.5th percentile):}
+	\[
+	\text{NPV} = 1,000,000 + (6.89 \times 123,897.22) \approx \text{GBP } 1,854,000
+	\]
+\end{itemize}
+The potential NPV ranges from $-\text{GBP } 2,170,000$ to $\text{GBP } 1,854,000$.
+
+Using empirical data to define realistic outcomes allows the firm to adjust expectations and mitigate overconfidence in forecast models.
+\end{tcolorbox}
+
+\subsection{Features of Historical Simulation}
+Historical simulation is a valuable tool for financial analysis, but its implementation requires attention to data quality and availability.
+
+Missing data in global investment portfolios may be caused by:
+\begin{itemize}
+	\item \textbf{Asynchronous global markets:} Different trading holidays and time zones.
+	\item \textbf{Non-existence of securities:} A security listing after the simulation window begins.
+	\item \textbf{Thinly traded securities:} Sparse or stale pricing due to low volume.
+\end{itemize}
+To compensate for missing data, analysts often use a \textbf{proxy}—a substitute financial instrument or index representing the missing security's risk factor.
+
+For fixed-income securities, applying historical price changes directly can be misleading. Instead, simulations model changes in benchmark yields (e.g., zero-coupon curves at specific maturities) rather than the bond prices directly.
+
+Strengths of historical simulation:
+\begin{itemize}
+	\item \textbf{Simplicity:} Straightforward implementation without complex statistical models.
+	\item \textbf{No distribution assumptions:} Preserves empirical distribution features like fat tails and kurtosis.
+	\item \textbf{Implicit correlation:} Preserves natural historical correlations between assets.
+	\item \textbf{Low computational cost:} Scenarios are sourced directly from past observations.
+\end{itemize}
+
+Disadvantages of historical simulation:
+\begin{itemize}
+	\item \textbf{Backward looking:} Relies on the assumption that past risk distributions represent the future.
+	\item \textbf{Limited scenario variety:} Cannot simulate extreme events that have not occurred in the historical sample.
+	\item \textbf{Data dependency:} Results depend entirely on the quality and completeness of historical datasets.
+\end{itemize}
+
+\subsection{Question Set 1}
+\label{subsec:mod9_Question_Set_1}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 1},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A limitation of historical simulation is its:
+\begin{enumerate}[label=\Alph*.]
+	\item inability to analyze highly non-linear exposures.
+	\item difficulty in incorporating instruments driven by new factors.
+	\item more difficult implementation relative to other simulation approaches.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{B là phương án đúng.} Để mô phỏng lịch sử hoạt động hiệu quả cho một công cụ cụ thể, chúng ta cần có đủ dữ liệu lịch sử của các yếu tố chính thúc đẩy biến số đó. Các công cụ mới sẽ không có dữ liệu lịch sử để đối chiếu (ví dụ: cổ phiếu của doanh nghiệp vừa IPO được 2 tuần). \\
+Phương án A sai vì mô phỏng lịch sử hoàn toàn có thể áp dụng cho các cấu phần phi tuyến tính. \\
+Phương án C sai vì mô phỏng lịch sử thực chất đơn giản và dễ triển khai hơn các phương pháp khác.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 2},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+One potential criticism of using historical simulation is that it may:
+\begin{enumerate}[label=\Alph*.]
+	\item be overly sensitive to outliers.
+	\item heavily rely on normal distributions to deliver reliable results.
+	\item require additional correlation modeling between simulation variables.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{A là phương án đúng.} Do phương pháp này dùng trực tiếp dữ liệu quá khứ, kết quả mô phỏng sẽ nhạy cảm và bị ảnh hưởng lớn bởi các điểm dữ liệu dị biệt (outliers) xuất hiện trong chuỗi thời gian quan sát. \\
+Phương án B sai vì mô phỏng lịch sử không yêu cầu giả định phân phối chuẩn. \\
+Phương án C sai vì tương quan giữa các biến số được bảo toàn tự nhiên trong dữ liệu lịch sử.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 3},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Assume a historical sample of asset return data has a positive average return. How would this fact affect the difference between VaR calculated using historical simulation and VaR calculated using the standard parametric approach, conducted according to market best practices?
+\begin{enumerate}[label=\Alph*.]
+	\item The VaR using historical simulation will be biased to be greater than the VaR using the standard parametric approach.
+	\item The VaR using historical simulation will be biased to be less than the VaR using the standard parametric approach.
+	\item We cannot infer an answer from the information given.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{C là phương án đúng.} Suất sinh lời trung bình dương không cung cấp đủ thông tin để kết luận sự khác biệt giữa hai ước lượng VaR, vì VaR tập trung vào các kịch bản tồi tệ nhất ở phần đuôi trái của phân phối (các khoản lỗ cực đại). Việc xuất hiện một vài kịch bản sinh lời lớn không ảnh hưởng đến giá trị VaR.
+\end{tcolorbox}
+
+\section{Bootstrapping}
+\label{sec:Bootstrapping}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	b & describe bootstrap resampling, and explain how it can be used in investment applications \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Bootstrapping (tái lấy mẫu lặp) cho phép chọn mẫu có thay thế (with replacement) từ tập mẫu ban đầu để tạo ra vô số kịch bản tổng hợp. Điểm khác biệt mấu chốt là: bootstrapping coi mẫu hiện tại là đại diện cho toàn bộ quần thể, còn mô phỏng lịch sử coi dữ liệu quá khứ là cố định và duy nhất.}}
+
+\subsection{Bootstrapping Overview}
+Resampling repeatedly draws samples from observed data to make statistical inferences. It is particularly useful when population distributions are unknown or sample sizes are small.
+
+Bootstrapping is a resampling method that generates a simulated distribution by resampling with replacement from the observed sample (treating the sample as a proxy for the population).
+
+Resampling with replacement means each data point has a probability of $1/n$ (where $n$ is sample size) of being selected in each draw, allowing the same value to be selected multiple times. For example, from sample $[2, 5, 8]$, bootstrap samples could be $[5, 5, 8]$ or $[2, 2, 5]$.
+
+Bootstrapping differs from historical simulation:
+\begin{itemize}
+	\item \textbf{Bootstrapping} resamples with replacement to create synthetic datasets, preserving the empirical distribution structure while generating new combinations.
+	\item \textbf{Historical simulation} applies the actual chronological sequence of past market movements directly as fixed scenarios.
+\end{itemize}
+Table~\ref{tab:mod9_exhibit_12} compares these two non-parametric approaches.
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison of Historical Simulation and Bootstrapping}
+\label{tab:mod9_exhibit_12}
+\begin{tabular}{p{0.20\linewidth} p{0.38\linewidth} p{0.38\linewidth}}
+	\toprule
+	\textbf{Feature} & \textbf{Historical Simulation} & \textbf{Bootstrapping} \\
+	\midrule
+	Source of data & Historical dataset & Observed sample \\
+	\midrule
+	Sampling method & Simple sampling of historical data & Resampling with replacement from the sample \\
+	\midrule
+	Assumptions & Assumes past data reflects future & Assumes sample represents population \\
+	\midrule
+	Primary use cases & Risk management, financial stress tests & Estimating confidence intervals, standard errors \\
+	\midrule
+	Computational intensity & Low to moderate & Moderate \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+By using the observed sample as a proxy for the unknown population, bootstrapping eliminates the need for external data or theoretical models, making it extremely flexible and widely applicable in situations where we have little prior information about the population distribution.
+
+\subsection{Implementing Bootstrapping}
+Bootstrapping is non-parametric, flexible, and simple to implement. Its accuracy depends on how well the sample represents the true distribution; larger samples are always preferred.
+
+The only functional change when using the bootstrap method is the source of scenarios (Step 2), as shown in Figure~\ref{fig:mod9_exhibit_13}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_13.png}
+	\caption{Bootstrap Resampling}
+	\label{fig:mod9_exhibit_13}
+\end{figure}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Bootstrapping Techniques to Value a European-Style Call Option on Brighton Rock plc Stock},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+We value a 10-week European call option on Brighton Rock plc stock using bootstrapping. The strike price is equal to the current stock price ($K = P_0 = \text{GBP } 141.25$).
+
+\textbf{Step 1: Setup/parameterization} \\
+- Option Payoff: $V_{\text{Call option}} = \max[P_T - K, 0]$ where $K = \text{GBP } 141.25$.
+- Steps: $n = 10$ weeks.
+- Interest rate: $r = 5.0\%$ annualized (continuously compounded).
+- Sample data: 25 weekly log returns ($t = 1$ to $t = 25$) calculated from 26 weeks of historical price data (Table~\ref{tab:mod9_exhibit_15}).
+
+\begin{center}
+\centering
+\captionof{table}{Weekly Closing Prices and Log Returns for Brighton Rock plc}
+\label{tab:mod9_exhibit_15}
+\begin{tabular}{c c c | c c c}
+	\toprule
+	\textbf{Week} & \textbf{Price (GBP)} & \textbf{Log Return ($r_i$)} & \textbf{Week} & \textbf{Price (GBP)} & \textbf{Log Return ($r_i$)} \\
+	\midrule
+	0, $t = 0$ & 100.00 & NA & 13 & 114.07 & -0.0056 \\
+	1, $t = 1$ & 100.26 & 0.0026 & 14 & 115.83 & 0.0153 \\
+	2 & 102.36 & 0.0207 & 15 & 123.01 & 0.0601 \\
+	3 & 102.92 & 0.0055 & 16 & 128.71 & 0.0453 \\
+	4 & 103.55 & 0.0061 & 17 & 131.07 & 0.0182 \\
+	5 & 103.75 & 0.0019 & 18 & 131.88 & 0.0062 \\
+	6 & 109.44 & 0.0534 & 19 & 132.15 & 0.0020 \\
+	7 & 112.79 & 0.0302 & 20 & 129.54 & -0.0199 \\
+	8 & 109.26 & -0.0318 & 21 & 133.28 & 0.0285 \\
+	9 & 108.96 & -0.0027 & 22 & 134.02 & 0.0055 \\
+	10 & 110.69 & 0.0158 & 23 & 135.02 & 0.0074 \\
+	11 & 111.57 & 0.0079 & 24 & 137.09 & 0.0152 \\
+	12 & 114.71 & 0.0278 & 25, $t = 25$ & 141.25 & 0.0299 \\
+	\midrule
+	\textbf{Average} & & \textbf{0.0138} & \textbf{Cumulative} & & \textbf{0.3454} \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+We run 500 simulations to estimate the option value.
+
+\textbf{Step 2: Scenario generation.} \\
+We construct simulated price paths by drawing 10 random integers between 1 and 25 (with replacement) for each scenario and assigning the corresponding historical return. Table~\ref{tab:mod9_exhibit_16} lists Scenario 1's details.
+
+\begin{center}
+\centering
+\captionof{table}{Random Numbers and Corresponding Log Returns for a Scenario}
+\label{tab:mod9_exhibit_16}
+\begin{tabular}{c c}
+	\toprule
+	\textbf{Pull (Random Number)} & \textbf{Corresponding Log Return ($r_i$)} \\
+	\midrule
+	21 & 0.0285 \\
+	25 & 0.0299 \\
+	4 & 0.0061 \\
+	13 & -0.0056 \\
+	16 & 0.0453 \\
+	8 & -0.0318 \\
+	7 & 0.0302 \\
+	8 & -0.0318 \\
+	15 & 0.0601 \\
+	10 & 0.0158 \\
+	\midrule
+	\textbf{Total return} & \textbf{0.1467} \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Step 3: Scenario evaluation/calculation engine.} \\
+Log returns are additive, so for Scenario 1:
+\[
+r_{\text{Scenario 1}} = \sum_{i=1}^{10} r_i = 0.1467
+\]
+The terminal stock price is:
+\[
+P_T = \text{GBP } 141.25 \times e^{0.1467} = \text{GBP } 163.57
+\]
+The option payoff at maturity is:
+\[
+\text{Payoff} = \max(163.57 - 141.25, 0) = \text{GBP } 22.32
+\]
+Figure~\ref{fig:mod9_exhibit_17} shows the price paths of 500 simulations.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_17.png}
+	\captionof{figure}{Bootstrap Share Price Path Evolution Graph}
+	\label{fig:mod9_exhibit_17}
+\end{center}
+
+\textbf{Step 4: Result compilation/analysis.} \\
+Figure~\ref{fig:mod9_exhibit_18} shows the resulting histograms for 500 simulations (mean option value is $\approx$ GBP 20.90).
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_18.png}
+	\captionof{figure}{Stock Price and Option Final Value Distribution Comparison after 500 Simulations}
+	\label{fig:mod9_exhibit_18}
+\end{center}
+
+Figure~\ref{fig:mod9_exhibit_19} shows the histograms for 10,000 simulations (mean option value is $\approx$ GBP 21.34), showing smoother tails.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_19.png}
+	\captionof{figure}{Stock Price and Option Value Distribution Comparison after 10,000 Simulations}
+	\label{fig:mod9_exhibit_19}
+\end{center}
+
+Under the standard risk-free BSM model, this option is worth $<$ GBP 5. The bootstrapped price ($\approx$ GBP 21) is much higher because bootstrapping uses historical returns, incorporating the large positive drift (1.38\% weekly) observed in the sample data, whereas BSM assumes a risk-neutral drift.
+\end{tcolorbox}
+
+\textcolor{blue}{\textit{Chúng ta chú ý sự chênh lệch lớn này: định giá quyền chọn bằng bootstrapping ra khoảng GBP 21, khi công thức BSM chỉ ra kết quả dưới GBP 5! Lý do là vì bootstrapping sử dụng tăng trưởng lịch sử trung bình tuần $1.38\%$ (hơn $70\%$ một năm) làm drift, trong khi lý thuyết định giá quyền chọn chuẩn tắc bắt buộc sử dụng suất sinh lời phi rủi ro ($5.0\%$ một năm) làm drift. Đây là minh chứng rõ ràng: mô hình đúng số liệu nhưng sai nguyên lý tài chính sẽ dẫn đến kết quả sai lệch nghiêm trọng.}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Analyzing Portfolio Volatility of a Target Date Fund Using Bootstrapping},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A company evaluates a target date retirement fund with only 24 months of available return data. To estimate its volatility over various horizons, bootstrapping is used to generate robust standard error estimates.
+
+\textbf{Step 1: Setup and parameterization.} \\
+Table~\ref{tab:mod9_exhibit_20} lists the observed monthly returns and corresponding NAVs starting from USD 100. Figure~\ref{fig:mod9_exhibit_21} illustrates their evolution.
+
+\begin{center}
+\centering
+\captionof{table}{Monthly Returns and NAVs}
+\label{tab:mod9_exhibit_20}
+\begin{tabular}{c c c | c c c}
+	\toprule
+	\textbf{Month} & \textbf{Monthly Return (\%)} & \textbf{NAV (USD)} & \textbf{Month} & \textbf{Monthly Return (\%)} & \textbf{NAV (USD)} \\
+	\midrule
+	0 & 0.00\% & 100.00 & 13 & -0.77\% & 134.50 \\
+	1 & -4.46\% & 95.54 & 14 & 11.00\% & 149.30 \\
+	2 & 9.16\% & 104.29 & 15 & 10.26\% & 164.62 \\
+	3 & -3.94\% & 100.18 & 16 & 7.64\% & 177.20 \\
+	4 & 13.55\% & 113.75 & 17 & -3.94\% & 170.22 \\
+	5 & 6.02\% & 120.60 & 18 & 14.53\% & 194.95 \\
+	6 & -6.33\% & 112.97 & 19 & -6.70\% & 181.89 \\
+	7 & -1.97\% & 110.74 & 20 & -7.20\% & 168.79 \\
+	8 & 8.71\% & 120.39 & 21 & -7.80\% & 155.62 \\
+	9 & 3.75\% & 124.90 & 22 & -4.34\% & 148.87 \\
+	10 & -5.56\% & 117.96 & 23 & -4.50\% & 142.17 \\
+	11 & 6.09\% & 125.14 & 24 & 8.79\% & 154.67 \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_21.png}
+	\captionof{figure}{Returns and NAV of the Fund}
+	\label{fig:mod9_exhibit_21}
+\end{center}
+
+\textbf{Step 2: Scenario generation with bootstrapping.} \\
+We construct 1,000 scenarios, each simulating a 50-month path by randomly drawing 50 returns from the 24-month sample (with replacement). For example:
+- Random draws: $[8, 7, 22, \dots, 18]$.
+- Assigned returns: $[8.71\%, -1.97\%, -4.34\%, \dots, 14.53\%]$. The sample standard deviation is $7.61\%$.
+
+\textbf{Step 3: Scenario evaluation and calculation.} \\
+For each scenario, the monthly returns' standard deviation is computed. The resulting frequency distribution is shown in Figure~\ref{fig:mod9_exhibit_22}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_22.png}
+	\captionof{figure}{Distribution of Monthly Return Standard Deviations}
+	\label{fig:mod9_exhibit_22}
+\end{center}
+
+\textbf{Step 4: Result compilation and analysis.} \\
+The 95% confidence interval for the monthly volatility (2.5th to 97.5th percentiles) ranges from $6.55\%$ to $7.94\%$. This range allows the company to compare the fund's risk profile against competitors and determine if its volatility is acceptable.
+\end{tcolorbox}
+
+\subsection{Features of Bootstrapping Simulations}
+Bootstrapping avoids parametric distribution assumptions, allows constructing confidence intervals, and assesses estimator stability. Its effectiveness depends on sample representativeness. Larger sample sizes yield more accurate results.
+
+Strengths of bootstrapping:
+\begin{itemize}
+	\item \textbf{No distribution assumptions:} Works directly with the empirical sample distribution.
+	\item \textbf{Small sample efficiency:} Provides robust estimates of standard errors and confidence intervals for limited datasets.
+	\item \textbf{Versatility:} Applicable to a wide range of statistical estimators and valuation tasks.
+\end{itemize}
+
+Disadvantages of bootstrapping:
+\begin{itemize}
+	\item \textbf{Sample dependency:} Highly sensitive to sample quality; cannot generate values outside the sample range.
+	\item \textbf{Time-series limitations:} Simple bootstrapping breaks down autocorrelation in time-series data.
+	\item \textbf{Computational cost:} Requires running many iterations to build the simulated distribution.
+\end{itemize}
+
+\subsection{Question Set 2}
+\label{subsec:mod9_Question_Set_2}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 1},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Bootstrapping scenarios are typically generated by:
+\begin{enumerate}[label=\Alph*.]
+	\item sampling historical observations with replacement.
+	\item drawing from analytical distribution, such as the normal distribution.
+	\item assembling a set of scenarios based on actual historical market movements and analyzing in a sequential manner.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{A là phương án đúng.} Bootstrapping tạo kịch bản mô phỏng bằng cách lấy mẫu lặp từ tập dữ liệu lịch sử quan sát có thay thế. \\
+Phương án B mô tả phương pháp mô phỏng Monte Carlo dựa trên phân phối toán học xác định. \\
+Phương án C mô tả phương pháp mô phỏng lịch sử (Historical Simulation) thuần túy.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 2},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Will bootstrapping and historical simulation produce similar results when a dataset includes significant outliers?
+\begin{enumerate}[label=\Alph*.]
+	\item Yes.
+	\item No, bootstrapping would be preferable in this case.
+	\item No, historical simulation would be preferable in this case.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{B là phương án đúng.} Trong trường hợp dữ liệu chứa các outliers dị biệt, bootstrapping có ưu thế hơn nhờ kỹ thuật lấy mẫu lặp lại ngẫu nhiên giúp làm giảm độ nhạy cảm tổng thể của phân phối trước các điểm dị biệt này, so với việc áp dụng chuỗi thời gian cố định trực tiếp như mô phỏng lịch sử.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 3},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An implicit assumption in a bootstrapping simulation is that:
+\begin{enumerate}[label=\Alph*.]
+	\item past data reflect future data.
+	\item the sample represents the population.
+	\item the distribution characteristics are known.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{B là phương án đúng.} Giả định cốt lõi của bootstrapping là mẫu dữ liệu quan sát đại diện tốt cho tổng thể (quần thể), và việc lặp lại mẫu quan sát phản ánh đúng cấu trúc phân phối của tổng thể. \\
+Phương án A là giả định của mô phỏng lịch sử. \\
+Phương án C là đặc trưng của mô phỏng Monte Carlo dựa trên phân phối đã biết.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 4},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An advantage of the bootstrapping approach to simulation is that it:
+\begin{enumerate}[label=\Alph*.]
+	\item is not overly sensitive to sample quality.
+	\item can be used with autocorrelated time-series data.
+	\item can generate reliable estimates from limited data.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{C là phương án đúng.} Kỹ thuật bootstrapping đặc biệt hữu ích khi xử lý các mẫu dữ liệu nhỏ (dữ liệu hạn chế), giúp tạo ra ước lượng vững chắc về sai số tiêu chuẩn và khoảng tin cậy của tham số. \\
+Phương án A sai vì bootstrapping cực kỳ nhạy cảm với chất lượng mẫu. \\
+Phương án B sai vì bootstrapping thông thường phá vỡ tính tự tương quan (autocorrelation) của chuỗi thời gian.
+\end{tcolorbox}
+
+\section{Monte Carlo Simulation}
+\label{sec:Monte Carlo Simulation}
+
+\begin{center}
+\begin{tabular}{p{0.06\linewidth} p{0.88\linewidth}}
+	\toprule
+	\multicolumn{2}{l}{\textbf{LEARNING OUTCOMES}} \\
+	\midrule
+	c & describe Monte Carlo simulation and explain how it can be used in investment applications \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{\textit{Mô phỏng Monte Carlo là phương pháp mô phỏng tham số: thay vì dùng dữ liệu quá khứ, chúng ta giả định phân phối toán học (như chuẩn, log-normal) và chạy hàng chục ngàn kịch bản ngẫu nhiên. Đây là công cụ hữu ích nhất để định giá tài sản phi tuyến tính hoặc phụ thuộc đường đi (path-dependent) như quyền chọn kiểu Á hay chứng khoán bảo đảm bằng thế chấp (MBS).}}
+
+\subsection{Monte Carlo Simulation Overview}
+A Monte Carlo simulation generates a large number of random samples from a specified probability distribution or distributions to produce a simulated frequency distribution of outcomes.
+
+Unlike historical simulation and bootstrapping, Monte Carlo simulation is a parametric method that requires explicit assumptions about the input variables' probability distributions. This allows analysts to evaluate the sensitivity of output variables to changes in parameters like mean, variance, and correlation.
+
+In finance, Monte Carlo simulation is widely used to value complex securities and derivatives (e.g., path-dependent contingent claims) that lack analytical closed-form pricing formulas.
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: European Call Option Valuation Using Monte Carlo Simulation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+We evaluate a European call option using Monte Carlo simulation and compare the results to the analytic BSM formula:
+\begin{itemize}
+	\item Option Type: European Call, Strike ($K$): CAD 90
+	\item Current Price ($P_0$): CAD 85, Time ($T$): 1 Year
+	\item Volatility ($\sigma$): 25%, Risk-free rate ($r$): 5.0%
+\end{itemize}
+
+\textbf{Step 1: Setup/parameterization} \\
+- Valuation: $V_{\text{Call option}} = \max[P_T - K, 0]$ where $K = \text{CAD } 90$.
+- Under risk-neutral pricing, stock price paths are assumed to follow a log-normal distribution.
+
+\textbf{Step 2: Scenario generation} \\
+The log return return is simulated using Geometric Brownian Motion over one step ($s = 1.0$):
+\begin{equation}
+	r_t = \left(r_f - \frac{\sigma^2}{2}\right) \times s + \sigma \sqrt{s} Z
+	\label{eq:gbm_log_return_m9}
+\end{equation}
+where $Z \sim N(0, 1)$ and the drift is: $0.05 - (0.25^2 / 2) = 0.01875$. The ending stock price is $P_T = P_0 \times e^{r_t}$.
+
+\textbf{Step 3: Scenario evaluation/calculation engine} \\
+We run 5,000 simulations to generate ending prices (Figure~\ref{fig:mod9_exhibit_23}).
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_23.png}
+	\captionof{figure}{Distribution of Stock Prices, Simulation Result}
+	\label{fig:mod9_exhibit_23}
+\end{center}
+
+\textbf{Step 4: Result compilation/analysis} \\
+The resulting option value distribution is shown in Figure~\ref{fig:mod9_exhibit_24}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_24.png}
+	\captionof{figure}{Distribution of European Call Option Values for Simulation}
+	\label{fig:mod9_exhibit_24}
+\end{center}
+
+The mean option payoff is CAD 8.61. Discounted at the risk-free rate of 5.0%:
+\[
+V_0 = 8.61 \times e^{-0.05 \times 1} = \text{CAD } 8.19
+\]
+This closely matches the BSM formula value of CAD 8.18.
+\end{tcolorbox}
+
+\textcolor{blue}{\textit{Chúng ta lưu ý: Mô phỏng Monte Carlo hội tụ về giá trị của công thức BSM khi tăng số lượng kịch bản. Cả hai cho kết quả giống nhau vì cùng giả định chuyển động Brown hình học (Geometric Brownian Motion): phân phối log-normal, biến động không đổi và drift bằng lãi suất phi rủi ro. Nhưng nếu tài sản phụ thuộc vào đường đi giá (như quyền chọn kiểu Á) thì sao?}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Asian Option Valuation Using Monte Carlo Simulation},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An Asian call option's payoff depends on the average price of the underlying asset: $V_{\text{Payoff}} = \max[P_T - \text{Average price}, 0]$. We value a 21-day Asian option on a stock denominated in Swiss francs (CHF).
+
+\textbf{Step 1: Setup/Parameterization} \\
+- Objective: Estimate $V_0 = E[\max[P_{21} - \text{Average price (Days 1--21)}, 0]] \times e^{-rT}$.
+- Input parameters: $P_0 = \text{CHF } 25.00$, $T = 21$ days, $\sigma = 25\%$, $r = 5.0\%$.
+
+\textbf{Step 2: Scenario Generation} \\
+Daily stock returns follow a log-normal distribution:
+\begin{equation}
+	\text{Log price change}_t = \left(0.05 - \frac{0.25^2}{2}\right) \times \left(\frac{1}{252}\right) + 0.25 \times \sqrt{\frac{1}{252}} \times Z
+\end{equation}
+where $Z \sim N(0, 1)$. Prices evolve as $P_t = P_{t-1} \times e^{r_t}$. Table~\ref{tab:mod9_exhibit_25} shows one simulated run.
+
+\begin{center}
+\centering
+\captionof{table}{Asian Option Valuation: Daily Log Returns and Prices for One Simulated Run}
+\label{tab:mod9_exhibit_25}
+\begin{tabular}{c c c | c c c}
+	\toprule
+	\textbf{Day} & \textbf{Return (\%)} & \textbf{Price (CHF)} & \textbf{Day} & \textbf{Return (\%)} & \textbf{Price (CHF)} \\
+	\midrule
+	1 & -2.32\% & 24.43 & 12 & 0.22\% & 24.80 \\
+	2 & -0.70\% & 24.26 & 13 & -1.43\% & 24.45 \\
+	3 & 1.45\% & 24.61 & 14 & 4.87\% & 25.67 \\
+	4 & 0.49\% & 24.73 & 15 & -2.80\% & 24.96 \\
+	5 & -1.01\% & 24.48 & 16 & -1.25\% & 24.65 \\
+	6 & 1.15\% & 24.76 & 17 & -1.54\% & 24.27 \\
+	7 & 1.16\% & 25.05 & 18 & 0.24\% & 24.33 \\
+	8 & 0.46\% & 25.16 & 19 & -4.29\% & 23.31 \\
+	9 & -0.58\% & 25.01 & 20 & 0.41\% & 23.41 \\
+	10 & 0.12\% & 25.04 & 21 & -1.28\% & 23.11 \\
+	11 & -1.17\% & 24.75 & & & \\
+	\midrule
+	\textbf{Average} & & & & & \textbf{24.54} \\
+	\bottomrule
+\end{tabular}
+\end{center}
+
+For this run, the ending price is CHF 23.11, which is below the average price of CHF 24.54, yielding a payoff of zero. Figure~\ref{fig:mod9_exhibit_26} shows the price path of this run.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_26.png}
+	\captionof{figure}{Asian Option Valuation: Daily Log Return and Prices for the Same Run}
+	\label{fig:mod9_exhibit_26}
+\end{center}
+
+\textbf{Step 3: Scenario evaluation/calculation engine.} \\
+We run 500 price path simulations (Figure~\ref{fig:mod9_exhibit_27}).
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_27.png}
+	\captionof{figure}{Asian Option Valuation: 500 Simulated Stock Price Paths}
+	\label{fig:mod9_exhibit_27}
+\end{center}
+
+\textbf{Step 4: Result compilation/analysis.} \\
+The distribution of payoffs is shown in Figure~\ref{fig:mod9_exhibit_28}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_28.png}
+	\captionof{figure}{Asian Option Valuation: Distribution of Option Payoffs}
+	\label{fig:mod9_exhibit_28}
+\end{center}
+
+The average payoff across all 500 simulations was CHF 0.35. Discounting using the risk-free rate yields:
+\[
+V_0 = 0.35 \times e^{-0.05 \times \frac{21}{252}} = 0.35 \times 0.9958 = \text{CHF } 0.3485
+\]
+\end{tcolorbox}
+
+\subsection{Multivariate Monte Carlo Simulation}
+Simulating multiple variables simultaneously is necessary to capture complex correlations and dependencies in financial portfolios or multi-asset derivatives. 
+
+Correlated variables are generated by drawing independent standard normal variables and transforming them using the Cholesky decomposition—a matrix factorization technique that decomposes a covariance or correlation matrix. The framework is shown in Figure~\ref{fig:mod9_exhibit_29}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_29.png}
+	\caption{Simulation Framework Applied to Multivariate Monte Carlo}
+	\label{fig:mod9_exhibit_29}
+\end{figure}
+
+\textbf{Step 1: Setup/parameterize} \\
+We assume a joint normal distribution for the two variables with standard deviations $\sigma_1$ and $\sigma_2$ and correlation $\rho$.
+
+\textbf{Step 2: Scenario generation} \\
+The Cholesky decomposition transforms independent standard normal variables $Z_1$ and $Z_2$ into correlated variables $X_1$ and $X_2$:
+\begin{equation}
+	X_1 = \sigma_1 Z_1
+\end{equation}
+\begin{equation}
+	X_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+\end{equation}
+This approach ensures that the final variables, $X_1$ and $X_2$, adhere to our calibration:
+\begin{equation}
+	E[X_1] = \sigma_1 E[Z_1] = 0
+\end{equation}
+\begin{equation}
+	E[X_2] = \sigma_2 E[\rho Z_1 + \sqrt{1 - \rho^2} Z_2] = 0
+\end{equation}
+The variances are:
+\begin{equation}
+	E[X_1^2] = \sigma_1^2; \quad E[X_2^2] = \sigma_2^2
+\end{equation}
+Since $Z_1$ and $Z_2$ are independent, the covariance is:
+\begin{equation}
+	\sigma_{X_1, X_2} = E[X_1 X_2] = \rho \sigma_1 \sigma_2
+\end{equation}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Knowledge Check},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+An analyst is reviewing intermediate outputs from a Monte Carlo simulation designed to model log price changes. The simulation involves two normally distributed variables, both of which have a mean of 0 and standard deviations of 1.5\% and 2.0\%, respectively. The analyst has specified a correlation of 30\% between the two variables, and the simulations are conducted using the Cholesky decomposition method.
+
+In a specific scenario, the random draws from independent standard normal distributions are $Z_1 = 0.4$ and $Z_2 = -1.2$. The first variable, $x_1$, is calculated using:
+\[
+x_1 = \sigma_1 \times Z_1 = 1.5\% \times 0.4 = 0.60\%
+\]
+The value of the second variable, $x_2$, is closest to:
+\begin{enumerate}[label=\Alph*.]
+	\item -2.40\%.
+	\item -2.05\%.
+	\item -1.80\%.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{B là phương án đúng.} Áp dụng công thức liên kết hai biến số tương quan bằng Cholesky decomposition:
+\[
+x_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+\]
+\[
+x_2 = 2.0\% \times \left(0.3 \times 0.4 + \sqrt{1 - 0.3^2} \times (-1.2)\right)
+\]
+\[
+x_2 = 2.0\% \times \left(0.12 + 0.9539 \times (-1.2)\right) = 2.0\% \times (0.12 - 1.1447) = 2.0\% \times (-1.0247) \approx -2.05\%
+\]
+Phương án A tính sai khi bỏ qua yếu tố tương quan và nhân trực tiếp: $2.0\% \times Z_2 = -2.40\%$. \\
+Phương án C sai vì dùng sai tỷ lệ của $x_1$.
+\end{tcolorbox}
+
+\textcolor{blue}{\textit{Chúng ta lưu ý: Biến đổi Cholesky duy trì cấu trúc hiệp phương sai trong mô hình Monte Carlo đa biến. Thiếu bước này, các biến ngẫu nhiên sẽ độc lập, làm mất đi tính tương quan thực tế giữa các tài sản và tác động đa dạng hóa (portfolio diversification).}}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Case Study: Analyzing the Potential Distribution of a Long–Short Strategy},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A manager implements a daily long–short strategy, investing EUR 10 million (long) in the DAX (Germany) and shorting EUR 10 million in the MADX (Spain) (Figure~\ref{fig:mod9_exhibit_30}). We simulate the portfolio's P/L distribution.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_30.png}
+	\captionof{figure}{The Distribution of the Daily Log Returns for the DAX and MADX over One Year}
+	\label{fig:mod9_exhibit_30}
+\end{center}
+
+We make the following parameters:
+- Model: Bivariate normal distribution on log returns.
+- Standard deviations: DAX $\sigma_1 = 0.82\%$, MADX $\sigma_2 = 0.86\%$.
+- Correlation coefficient: $\rho = 0.8276$.
+- Expected returns: Assumed to be zero.
+
+We generate independent standard normals $Z_1, Z_2$ and apply Cholesky decomposition:
+\[
+X_1 = \sigma_{\text{DAX}} \times Z_1 = 0.0082 Z_1
+\]
+\[
+X_2 = 0.0086 \times \left(0.8276 Z_1 + \sqrt{1 - 0.8276^2} Z_2\right) = 0.0071 Z_1 + 0.0048 Z_2
+\]
+The portfolio return is $R_P = X_1 - X_2$ (due to shorting MADX). Using 250 simulations, the resulting P/L distribution is shown in Figure~\ref{fig:mod9_exhibit_31}.
+
+\begin{center}
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/009_Module_9/exhibit_31.png}
+	\captionof{figure}{Portfolio Value Change Distributions: Simulation Results}
+	\label{fig:mod9_exhibit_31}
+\end{center}
+
+The simulation results show an average value change of -EUR 2,434.94 (theoretically zero) and standard deviation of EUR 50,234.11. Increasing the number of simulations would reduce simulation noise and move the mean closer to the theoretical zero.
+\end{tcolorbox}
+
+\subsection{Features of Monte Carlo Simulation}
+Monte Carlo simulation is highly flexible because the modeler controls the probability distributions, parameters, and relationships of the inputs.
+
+Strengths of Monte Carlo simulation:
+\begin{itemize}
+	\item \textbf{Flexibility:} Can simulate complex, non-linear, and path-dependent cash flows.
+	\item \textbf{Sensitivity analysis:} Allows testing portfolio behavior under different distributional parameters and stress scenarios.
+	\item \textbf{No historical data constraint:} Can be applied to new instruments by defining pricing parameters.
+\end{itemize}
+
+Disadvantages of Monte Carlo simulation:
+\begin{itemize}
+	\item \textbf{Model risk:} Results depend entirely on input distribution and correlation assumptions (``garbage in, garbage out'').
+	\item \textbf{High computational cost:} Requires simulating thousands of trials, which can be computationally intensive.
+	\item \textbf{Complexity:} Harder to design, calibrate, and explain compared to historical simulation.
+\end{itemize}
+Table~\ref{tab:mod9_exhibit_32} compares the three simulation approaches.
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison of Simulation Approaches}
+\label{tab:mod9_exhibit_32}
+\begin{tabular}{p{0.18\linewidth} p{0.25\linewidth} p{0.25\linewidth} p{0.25\linewidth}}
+	\toprule
+	\textbf{Feature} & \textbf{Historical Simulation} & \textbf{Bootstrapping} & \textbf{Monte Carlo Simulation} \\
+	\midrule
+	Source of data & Historical dataset & Observed sample & Assumed distribution \\
+	\midrule
+	Sampling method & Sampling from historical data & Resampling with replacement & Random sampling from predefined distribution \\
+	\midrule
+	Assumptions & Assumes past reflects future & Assumes sample represents population & Assumes generation process can be modeled statistically \\
+	\midrule
+	Flexibility & Limited to historical patterns & Limited by sample size & Highly flexible \\
+	\midrule
+	Computational intensity & Low to moderate & Moderate & High \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Practical Implementation of Simulation Approaches Using Excel and Other Tools}
+Excel and Google Sheets provide functions to implement these techniques. Table~\ref{tab:mod9_exhibit_33} summarizes these functions.
+
+\begin{table}[!htbp]
+\centering
+\caption{Functions Used for Simulation}
+\label{tab:mod9_exhibit_33}
+\begin{tabular}{p{0.18\linewidth} p{0.26\linewidth} p{0.26\linewidth} p{0.22\linewidth}}
+	\toprule
+	\textbf{Technique} & \textbf{Excel Functions} & \textbf{Google Sheets} & \textbf{Description} \\
+	\midrule
+	\textbf{Monte Carlo} & RAND(), NORM.INV(), LOGNORM.INV(), RANDBETWEEN(), IF(), SUM(), AVERAGE(), STDEV(), CONFIDENCE.NORM() & RAND(), NORMINV(), LOGNORMINV(), RANDBETWEEN(), IF(), SUM(), AVERAGE(), STDEV(), CONFIDENCE() & Generate random values from normal, log-normal, or uniform distributions. \\
+	\midrule
+	\textbf{Historical} & INDEX(), SORT(), PERCENTILE.EXC(), PERCENTILE.INC(), LARGE(), SMALL(), AVERAGE(), STDEV(), IFERROR() & INDEX(), SORT(), PERCENTILE.EXC(), PERCENTILE.INC(), LARGE(), SMALL(), AVERAGE(), STDEV(), IFERROR() & Sort, rank, and calculate percentiles of historical return series. \\
+	\midrule
+	\textbf{Bootstrapping} & RAND(), INDEX(), MATCH(), COUNTIF(), SUM(), AVERAGE(), STDEV(), LARGE(), SMALL(), CONFIDENCE.NORM() & RAND(), INDEX(), MATCH(), COUNTIF(), SUM(), AVERAGE(), STDEV(), LARGE(), SMALL(), CONFIDENCE() & Resample with replacement using RAND() and INDEX(). \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:mod9_exhibit_34} provides more detail on Excel functions used in simulations.
+
+\begin{table}[!htbp]
+\centering
+\caption{Detail on Excel Functions in Simulations}
+\label{tab:mod9_exhibit_34}
+\begin{tabular}{p{0.25\linewidth} p{0.45\linewidth} p{0.25\linewidth}}
+	\toprule
+	\textbf{Function} & \textbf{Use Case} & \textbf{Example} \\
+	\midrule
+	RAND() & Generates uniform random numbers between 0 and 1 & =RAND() \\
+	NORM.INV() & Converts random numbers to normally distributed values & =NORM.INV(0.5,100,15) \\
+	LOGNORM.INV() & Converts random numbers to log-normally distributed values & =LOGNORM.INV(0.5,0,1) \\
+	RANDBETWEEN() & Generates random integers for discrete simulations & =RANDBETWEEN(1,100) \\
+	IF() & Performs conditional logic & =IF(A1>100,"Profit","Loss") \\
+	SUM() & Adds values; aggregates returns & =SUM(A1:A10) \\
+	AVERAGE() & Calculates the mean of a dataset & =AVERAGE(A1:A10) \\
+	STDEV() & Estimates the standard deviation (volatility) & =STDEV(A1:A10) \\
+	CONFIDENCE.NORM() & Calculates confidence intervals for normal distribution & =CONFIDENCE.NORM(...) \\
+	INDEX() & Retrieves a value from a specified row in a range & =INDEX(A1:A10,5) \\
+	SORT() & Sorts a range of values & =SORT(A1:A10,1,TRUE) \\
+	PERCENTILE.EXC() & Calculates percentiles, excluding extreme values & =PERCENTILE.EXC(A1:A10,0.05) \\
+	PERCENTILE.INC() & Calculates percentiles, inclusive of extreme values & =PERCENTILE.INC(A1:A10,0.05) \\
+	LARGE() & Returns the k-th largest value & =LARGE(A1:A10,2) \\
+	SMALL() & Returns the k-th smallest value & =SMALL(A1:A10,3) \\
+	IFERROR() & Returns an alternative value if an error occurs & =IFERROR(A1/B1,"Error") \\
+	MATCH() & Finds the position of a specified value in a range & =MATCH(100,A1:A10,0) \\
+	COUNTIF() & Counts cells that meet a condition & =COUNTIF(A1:A10,">100") \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Implementing Historical Simulation in Excel:}
+\begin{itemize}
+	\item Input historical price or return data in Column A.
+	\item Calculate returns in Column B.
+	\item Sort returns in Column C: \texttt{=SORT(B:B, 1, TRUE)}.
+	\item Calculate VaR using percentile functions: \texttt{=PERCENTILE.EXC(B:B, 0.05)}.
+\end{itemize}
+
+\textbf{Implementing Bootstrapping in Excel:}
+\begin{itemize}
+	\item Input historical data in Column A and calculate returns in Column B.
+	\item Resample returns with replacement in Column C: \texttt{=INDEX(B:B, RANDBETWEEN(2, N))}, which randomly selects a row.
+	\item Replicate the formula across multiple rows and columns to generate paths.
+\end{itemize}
+
+\textbf{Implementing Monte Carlo in Excel:}
+\begin{itemize}
+	\item Define initial stock price, volatility, risk-free rate, and time steps.
+	\item Generate standard normal variables: \texttt{=NORM.INV(RAND(), 0, 1)}.
+	\item Simulate price paths using geometric Brownian motion:
+	\begin{equation}
+		P_{t+\Delta t} = P_t \times e^{(r-0.5\sigma^2)\Delta t + \sigma \sqrt{\Delta t} Z}
+	\end{equation}
+	In Excel, this is implemented as:
+	\texttt{=P\_t * EXP((r - 0.5 * o\textsuperscript{2}) * dt + o * SQRT(dt) * NORM.INV(RAND(), 0, 1))} (where \texttt{o} is volatility $\sigma$).
+\end{itemize}
+
+\subsection{Question Set 3}
+\label{subsec:mod9_Question_Set_3}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 1},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A strength of Monte Carlo simulation, in comparison to analytical methods for valuing financial assets and liabilities, is the:
+\begin{enumerate}[label=\Alph*.]
+	\item speed of calculations.
+	\item ability to conduct sensitivity analyses.
+	\item increased scope of assets and liabilities that can be analyzed.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{C là phương án đúng.} Mô phỏng Monte Carlo không yêu cầu công cụ phải có công thức nghiệm đóng (closed-form solution), do đó mở rộng phạm vi định giá cho các tài sản phức tạp, phi tuyến tính như quyền chọn kiểu Mỹ, kiểu Á hay chứng khoán bảo đảm bằng thế chấp (MBS). \\
+Phương án A sai vì Monte Carlo rất nặng về tính toán và chậm hơn công thức đóng. \\
+Phương án B sai vì cả hai phương pháp đều làm được phân tích độ nhạy.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 2},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Relative to analytical methods, a limitation of Monte Carlo simulation is the:
+\begin{enumerate}[label=\Alph*.]
+	\item inability to perform ``what if'' analysis.
+	\item requirement of needing historical data.
+	\item lower precision in specifying cause-and-effect relationships.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{C là phương án đúng.} Mô phỏng Monte Carlo chỉ cung cấp các ước lượng thống kê xấp xỉ chứ không cho kết quả chính xác tuyệt đối như công thức giải tích. Các công thức giải tích giúp hiểu sâu hơn về mối quan hệ nhân quả giữa các tham số đầu vào và đầu ra.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 3},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+Which of the following best summarizes the main idea behind using the Cholesky decomposition in a simulation process?
+\begin{enumerate}[label=\Alph*.]
+	\item Correlated random normal variables can be obtained from simple random normal variables through applying a mathematical technique.
+	\item Excess noise from the input data can be eliminated, leading to stronger results.
+	\item More efficient simulations can be conducted by being more strategic on how random scenarios are generated.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{A là phương án đúng.} Cholesky decomposition là phương pháp toán học giúp biến đổi các biến số ngẫu nhiên độc lập chuẩn hóa thành các biến số ngẫu nhiên chuẩn hóa có tương quan, từ đó mô phỏng các tài sản có mối liên hệ với nhau.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	colback=gray!5!white,
+	colframe=black!15!white,
+	boxrule=0.5pt,
+	arc=3pt,
+	title=\textbf{Question 4},
+	coltitle=black,
+	colbacktitle=black!5!white,
+	before skip=6pt,
+	after skip=6pt,
+	breakable
+]
+A typical implicit assumption when conducting a Monte Carlo simulation to produce a risk-neutral valuation of a contingent claim is that:
+\begin{enumerate}[label=\Alph*.]
+	\item the underlying security has zero drift.
+	\item each generated path is equally probable.
+	\item the calculated value of the contingent claim increases as volatility increases.
+\end{enumerate}
+
+\textbf{Solution:} \\
+\textbf{B là phương án đúng.} Trong định giá trung lập rủi ro (risk-neutral valuation) bằng Monte Carlo, giả định ngầm định là mỗi đường đi của giá cổ phiếu được mô phỏng có xác suất xảy ra như nhau. Giá trị quyền chọn được tính bằng trung bình cộng các giá trị thanh toán cuối cùng của mọi đường đi rồi chiết khấu về hiện tại.
+\end{tcolorbox}
+
+\section{Summary}
+\label{sec:mod9_Summary}
 
 \begin{itemize}
-	\item[] \textbf{Historical Simulation}
-	      \begin{itemize}
-			\item[] Overview of Simulation Methods
-			\item[] Historical Simulation Overview
-			\item[] Implementing Historical Simulation
-			\item[] Features of Historical Simulation
-	      \end{itemize}
-	\item[] \textbf{Bootstrapping}
-	      \begin{itemize}
-			\item[] Bootstrapping Overview
-			\item[] Implementing Bootstrapping
-			\item[] Features of Bootstrapping Simulations
-	      \end{itemize}
-	\item[] \textbf{Monte Carlo Simulation}
-	      \begin{itemize}
-			\item[] Monte Carlo Simulation Overview
-			\item[] Multivariate Monte Carlo Simulation
-			\item[] Features of Monte Carlo Simulation
-			\item[] Practical Implementation of Simulation Approaches Using Excel and Other Tools
-	      \end{itemize}
+	\item Simulation is a widely used tool in finance to evaluate non-linear exposures or payoffs dependent on the path of market variables.
+	\item The quality of a simulation depends on how well its explicit or implicit distributional assumptions allow an analyst to forecast the future distributions of the variables of interest, such as asset prices and returns.
+	\item In finance applications, historical simulation uses past observations of changes in risk factors or market variables to assess their impact on portfolio or contract values; it is commonly used in risk management, and regulators often require its use by large banks.
+	\item Bootstrapping involves sampling with replacement from historical data to create a distribution of future values; as a non-parametric method, it does not impose an analytical distribution but requires the sample to accurately reflect the true population.
+	\item Monte Carlo simulation starts with assumed distributions for the subject variables in a simulation and generates multiple random samples to produce a distribution of potential outcomes.
+	\item A well-designed simulation engine should be capable of accepting inputs derived from any of these three approaches.
 \end{itemize}
+
+\section{Practice Problems}
+\label{sec:mod9_Practice_Problems}
+
+\begin{enumerate}
+	\item Which of the following simulation methods is usually associated with the explicit selection of an analytical distribution?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Bootstrapping
+		      \item Historical simulation
+		      \item Monte Carlo simulation
+	      \end{enumerate}
+
+	\item Historical simulation may be preferred over Monte Carlo simulation because it:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item is less sensitive to the quality of the historical data.
+		      \item is regarded as being more intuitive and easier to explain.
+		      \item offers more flexibility in adjusting for changes in market conditions.
+	      \end{enumerate}
+
+	\item An analyst is running a Monte Carlo simulation on the joint distribution of the returns of two stocks, A and B. The analyst has the following data:
+	      \begin{center}
+	      \begin{tabular}{l c}
+		      \toprule
+		      \textbf{Statistic} & \textbf{Value} \\
+		      \midrule
+		      Volatility of Stock A & 1.0\% \\
+		      Volatility of Stock B & 2.0\% \\
+		      Correlation between Stocks A and B & 60\% \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      The analyst assumes a normal distribution and simulates 10,000 runs of $Z_1$ and $Z_2$; both variables are drawn from two independent $N(0, 1)$ distributions.
+	      She converts the randomly generated $Z_1$ draws to $S_1$---meant to be random scenarios for Stock A---using the following equation:
+	      \[
+	      S_1 = 0.01 \times Z_1
+	      \]
+	      Which of the following equations should be used for obtaining the scenarios for $S_2$?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item $S_2 = 0.02 \times Z_2$
+		      \item $S_2 = 0.012 \times Z_1 + 0.008 \times Z_2$
+		      \item $S_2 = 0.012 \times Z_1 + 0.016 \times Z_2$
+	      \end{enumerate}
+
+	\item Bootstrapping enables the:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item filling in of missing data.
+		      \item correction of biases in the original dataset.
+		      \item generation of multiple datasets from a single source sample.
+	      \end{enumerate}
+
+	\item Which of the following situations is best suited for simulation relative to using a parametric approach?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Determining the 90\% worst-case value of an FX rate
+		      \item Pricing a European call option on a stock with a given implied volatility
+		      \item Assessing the risk of a portfolio of mortgages that are callable at any time
+	      \end{enumerate}
+
+	\item An analyst uses 5 years of historical data to model the potential price movements of a bond with an original maturity of 10 years and remaining maturity of 3 years. The yield curve is flat and interest rate volatility is relatively constant. Will the results of this simulation most likely reflect future price movements?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Yes.
+		      \item No, it will probably overstate the potential for large movements.
+		      \item No, it will probably understate the potential for large movements in the price.
+	      \end{enumerate}
+
+	\item An analyst uses bootstrapping from a small set of 25 observations of price changes for a stock. Within the dataset, there are 4 observations of daily returns below -3\%, 10 between -3\% and 0\%, 7 between 0\% and 2\%, and 4 above 2\%. For each simulation run, the analyst will need five returns. On simulation X, the first pull takes an observation of -4.5\% and the next pull takes an observation of 0.1\%. What is the probability that the third pull will take an observation below -3\%?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 12.0\%
+		      \item 13.0\%
+		      \item 16.0\%
+	      \end{enumerate}
+
+	\item Compared to Monte Carlo simulation, which of the following is a limitation of the bootstrapping approach?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item It cannot model non-normal distributions.
+		      \item Scenarios are confined to the range of the sample set.
+		      \item Computational times are in general significantly higher.
+	      \end{enumerate}
+
+	\item In a typical well-constructed simulation, a set of calculations are defined in the setup phase. In which step of a simulation are those applied to each input scenario, producing the corresponding output values?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Scenario generation
+		      \item Scenario evaluation
+		      \item Result compilation
+	      \end{enumerate}
+
+	\item Which of the following simulation approaches introduces randomness by allowing repeated sampling of the same data points?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Historical
+		      \item Bootstrap
+		      \item Monte Carlo
+	      \end{enumerate}
+
+	\item A disadvantage of historical simulation is that:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item it requires correlation modeling.
+		      \item historical data may be incomplete.
+		      \item it requires assumptions about future return distributions.
+	      \end{enumerate}
+
+	\item In Monte Carlo simulation, the Cholesky decomposition is used to generate:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item correlated random normally distributed variables.
+		      \item uncorrelated random normally distributed variables.
+		      \item correlated random non-normally distributed variables.
+	      \end{enumerate}
+
+	\item A common criticism of Monte Carlo simulations is that they are:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item complex.
+		      \item imprecise.
+		      \item backward looking.
+	      \end{enumerate}
+\end{enumerate}
+
+\section{Solutions to Practice Problems}
+\label{sec:mod9_Solutions}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} Mô phỏng Monte Carlo thường bắt đầu bằng việc xác định rõ một phân phối giải tích cụ thể (ví dụ: phân phối chuẩn hoặc log-normal) và rút các mẫu ngẫu nhiên từ phân phối đó. \\
+	Phương án A và B sai vì chúng sử dụng phân phối thực nghiệm ngầm định của dữ liệu quá khứ.
+	
+	\item \textbf{B là phương án đúng.} Mô phỏng lịch sử được ưa chuộng nhờ tính trực quan và khả năng giải thích xuất sắc (ví dụ: ``danh mục sẽ lỗ X đồng nếu thị trường lặp lại đúng biến động ngày 16/7/2024''). Do đó kết quả của nó rất dễ trình bày và truyền đạt. \\
+	Phương án A sai vì mô phỏng lịch sử cực kỳ nhạy cảm với chất lượng dữ liệu quá khứ. \\
+	Phương án C sai vì Monte Carlo linh hoạt hơn nhiều trong việc điều chỉnh giả định biến động và tương quan.
+	
+	\item \textbf{C là phương án đúng.} Áp dụng biến đổi Cholesky cho hai biến ngẫu nhiên tương quan:
+	\[
+	S_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+	\]
+	Thay các giá trị $\sigma_2 = 2.0\% = 0.02$, $\rho = 0.60$:
+	\[
+	S_2 = 0.02 \times \left(0.60 Z_1 + \sqrt{1 - 0.60^2} Z_2\right)
+	\]
+	\[
+	S_2 = 0.02 \times (0.60 Z_1 + 0.80 Z_2) = 0.012 Z_1 + 0.016 Z_2
+	\]
+	Phương án A sai vì giả định hai biến không tương quan. \\
+	Phương án B sai vì tính nhầm $\sqrt{1 - 0.60^2} = 1 - 0.60 = 0.40$.
+	
+	\item \textbf{C là phương án đúng.} Bản chất của bootstrapping là tạo ra nhiều mẫu dữ liệu ngẫu nhiên (synthetic datasets) bằng cách lấy mẫu lặp có thay thế từ một mẫu dữ liệu gốc duy nhất. \\
+	Phương án A sai vì bootstrapping không điền dữ liệu khuyết thiếu. \\
+	Phương án B sai vì bootstrapping giữ nguyên các thiên lệch (biases) vốn có của mẫu dữ liệu gốc.
+	
+	\item \textbf{C là phương án đúng.} Danh mục các khoản vay thế chấp có quyền trả nợ trước (callable) bất kỳ lúc nào mang tính chất phụ thuộc đường đi dòng tiền (path-dependent). Những công cụ này không có công thức giải tích dạng đóng nên phương pháp mô phỏng là lựa chọn tối ưu nhất. \\
+	Phương án A và B sai vì có thể giải bằng công thức đóng giải tích thông thường.
+	
+	\item \textbf{B là phương án đúng.} Khi trái phiếu tiến dần về ngày đáo hạn (từ 10 năm xuống còn 3 năm), biến động giá của nó sẽ giảm đáng kể (hiệu ứng kéo về mệnh giá - pull-to-par effect). Việc sử dụng 5 năm dữ liệu lịch sử quá khứ sẽ phản ánh thời kỳ trái phiếu có kỳ hạn dài hơn, dẫn đến việc phóng đại (overstate) khả năng biến động giá của trái phiếu trong tương lai.
+	
+	\item \textbf{C là phương án đúng.} Trong kỹ thuật bootstrapping, quá trình lấy mẫu được thực hiện có thay thế. Do đó, các kết quả rút mẫu lần 1 và lần 2 độc lập và không ảnh hưởng đến xác suất rút mẫu lần 3. Xác suất rút được một quan sát có suất sinh lời dưới -3\% bằng đúng tỷ lệ số quan sát đó trong mẫu gốc: 4 quan sát trên tổng số 25 quan sát:
+	\[
+	P = \frac{4}{25} = 16.0\%
+	\]
+	
+	\item \textbf{B là phương án đúng.} Hạn chế lớn nhất của bootstrapping là các kịch bản mô phỏng hoàn toàn bị giới hạn trong phạm vi giá trị cực đại và cực tiểu của tập dữ liệu mẫu gốc (không thể suy rộng ngoại suy ra ngoài phạm vi). Nếu một kịch bản cực đoan chưa từng xảy ra trong mẫu quan sát, bootstrapping sẽ không bao giờ mô phỏng được nó.
+	
+	\item \textbf{B là phương án đúng.} Bước đánh giá kịch bản (Scenario evaluation / calculation engine) là bước chạy công cụ tính toán để áp dụng các công thức thiết lập từ bước 1 vào từng kịch bản đầu vào được tạo ra ở bước 2, nhằm tính toán các giá trị đầu ra.
+	
+	\item \textbf{B là phương án đúng.} Bootstrapping là phương pháp duy nhất trong ba phương pháp thực hiện lấy mẫu có thay thế từ một tập dữ liệu gốc để tạo ra tính ngẫu nhiên.
+	
+	\item \textbf{B là phương án đúng.} Một nhược điểm lớn của mô phỏng lịch sử là sự phụ thuộc hoàn toàn vào dữ liệu lịch sử. Nếu dữ liệu quá khứ bị thiếu hoặc không hoàn chỉnh, kết quả mô phỏng sẽ không đáng tin cậy.
+	
+	\item \textbf{A là phương án đúng.} Trong mô phỏng Monte Carlo, Cholesky decomposition được sử dụng để chuyển đổi các biến ngẫu nhiên chuẩn hóa độc lập thành các biến ngẫu nhiên chuẩn hóa có tương quan.
+	
+	\item \textbf{A là phương án đúng.} Một phê phán phổ biến đối với mô phỏng Monte Carlo là sự phức tạp và tốn thời gian thiết lập ban đầu, đặc biệt đối với các danh mục chứa nhiều loại tài sản phức tạp hoặc phái sinh.
+\end{enumerate}
+
