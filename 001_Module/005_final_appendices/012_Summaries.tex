@@ -1,0 +1,39 @@
+\chapter{Tóm tắt bài học (Summaries)}
+\label{chap:Summaries of Modules}
+
+\section{Module 8: The Return and Risk of a Financial Portfolio}
+\label{sec:app_Summary_Module_8}
+
+\begin{itemize}
+	\item \textbf{Expected Portfolio Return:} The weighted average of the expected returns of individual assets.
+	\item \textbf{Portfolio Variance:} Driven by the weights, individual variances, and covariances. As $N$ grows large, portfolio variance converges to the average covariance:
+	      \[
+	      \lim_{N \to \infty} \sigma_P^2 = \bar{\rho} \sigma^2
+	      \]
+	\item \textbf{Diversification benefits:} Portfolio standard deviation decreases as the number of assets $N$ increases. A well-diversified portfolio containing 20 to 30 assets captures most of the diversification benefits.
+	\item \textbf{Efficient Frontier:} The upper boundary of the feasible set starting from the global minimum-variance portfolio. It represents portfolios maximizing expected return for each level of risk.
+	\item \textbf{CAL and CML:} The CAL combines the risk-free asset with a risky portfolio. The CML is the CAL that uses the Market Portfolio. The slope of the CAL/CML is the Sharpe ratio:
+	      \[
+	      \text{Sharpe Ratio} = \frac{E[R_P] - R_f}{\sigma_P}
+	      \]
+	\item \textbf{Systematic and Unsystematic Risk:} Systematic risk (market risk) cannot be diversified away and is measured by Beta ($\beta$). Unsystematic risk (company-specific) can be completely eliminated.
+	\item \textbf{CAPM and SML:} The CAPM defines the relationship between expected return and systematic risk:
+	      \[
+	      E[R_i] = R_f + \beta_i (E[R_M] - R_f)
+	      \]
+	      The Security Market Line (SML) is the graphical representation of CAPM.
+\end{itemize}
+
+\newpage
+
+\section{Module 9: Simulation of Financial Asset Prices and Returns}
+\label{sec:app_Summary_Module_9}
+
+\begin{itemize}
+	\item Simulation is a widely used tool in finance to evaluate non-linear exposures or payoffs dependent on the path of market variables.
+	\item The quality of a simulation depends on how well its explicit or implicit distributional assumptions allow an analyst to forecast the future distributions of the variables of interest, such as asset prices and returns.
+	\item In finance applications, historical simulation uses past observations of changes in risk factors or market variables to assess their impact on portfolio or contract values; it is commonly used in risk management, and regulators often require its use by large banks.
+	\item Bootstrapping involves sampling with replacement from historical data to create a distribution of future values; as a non-parametric method, it does not impose an analytical distribution but requires the sample to accurately reflect the true population.
+	\item Monte Carlo simulation starts with assumed distributions for the subject variables in a simulation and generates multiple random samples to produce a distribution of potential outcomes.
+	\item A well-designed simulation engine should be capable of accepting inputs derived from any of these three approaches.
+\end{itemize}

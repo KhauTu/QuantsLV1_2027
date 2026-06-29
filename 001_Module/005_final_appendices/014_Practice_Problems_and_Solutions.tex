@@ -1,0 +1,555 @@
+\chapter{Bài tập ôn tập và Lời giải (Practice Problems \& Solutions)}
+\label{chap:Practice Problems and Solutions}
+
+\section{Module 8: The Return and Risk of a Financial Portfolio}
+\label{sec:app_Problems_M8}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M8}
+
+\begin{enumerate}
+	\item An analyst projects returns for three assets under three equally likely scenarios:
+	      \begin{center}
+	      \begin{tabular}{c  c  c  c}
+		      \toprule
+		      \textbf{Asset} & \textbf{Scenario 1 Return (\%)} & \textbf{Scenario 2 Return (\%)} & \textbf{Scenario 3 Return (\%)} \\
+		      \midrule
+		      1 & 12 & 0 & 6 \\
+		      2 & 12 & 6 & 0 \\
+		      3 & 0 & 6 & 12 \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      If the analyst constructs equally weighted two-asset portfolios, which combination has the lowest expected standard deviation?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Asset 1 and Asset 2.
+		      \item Asset 1 and Asset 3.
+		      \item Asset 2 and Asset 3.
+	      \end{enumerate}
+
+	\item An increase in the correlation coefficient between assets in a portfolio:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item increases portfolio standard deviation but does not affect risk.
+		      \item decreases portfolio standard deviation and reduces risk.
+		      \item increases portfolio standard deviation and reduces diversification benefits.
+	      \end{enumerate}
+
+	\item An analyst gathers the following information when market standard deviation is $15\%$:
+	      \begin{center}
+	      \begin{tabular}{c  c  c}
+		      \toprule
+		      \textbf{Security} & \textbf{Standard Deviation (\%)} & \textbf{Correlation with Market} \\
+		      \midrule
+		      Security 1 & 25 & 0.60 \\
+		      Security 2 & 20 & 0.70 \\
+		      Security 3 & 20 & 0.80 \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      Based on the CAPM, which security has the highest systematic risk?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Security 1.
+		      \item Security 2.
+		      \item Security 3.
+	      \end{enumerate}
+
+	\item Based on the table in Question 3, which security has the lowest systematic risk?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Security 1.
+		      \item Security 2.
+		      \item Security 3.
+	      \end{enumerate}
+
+	\item An analyst gathers the following information when the risk-free rate is $3\%$ and the expected market return is $9\%$ (implying a market risk premium of 6\%):
+	      \begin{center}
+	      \begin{tabular}{c  c  c}
+		      \toprule
+		      \textbf{Security} & \textbf{Standard Deviation (\%)} & \textbf{Beta} \\
+		      \midrule
+		      Security 1 & 25 & 1.50 \\
+		      Security 2 & 15 & 1.40 \\
+		      Security 3 & 20 & 1.60 \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      Based on the Capital Asset Pricing Model (CAPM), which security has the highest expected return?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Security 1.
+		      \item Security 2.
+		      \item Security 3.
+	      \end{enumerate}
+
+	\item A risk-neutral investor is characterized by a risk aversion coefficient ($A$) equal to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item negative.
+		      \item zero.
+		      \item positive.
+	      \end{enumerate}
+
+	\item A portfolio consists of two stocks, S and B. The variances and covariance of returns are:
+	      \begin{itemize}
+		      \item $\sigma_S^2 = 15\%^2 = 225$
+		      \item $\sigma_B^2 = 8\%^2 = 64$
+		      \item $\rho_{S,B} = 0.50$
+	      \end{itemize}
+	      The weight of stock S that minimizes the portfolio variance is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 2.4\%.
+		      \item 12.5\%.
+		      \item 87.5\%.
+	      \end{enumerate}
+
+	\item An analyst constructs a portfolio of three assets, X, Y, and Z, with weights of $35\%$, $40\%$, and $25\%$, respectively. The standard deviations of the assets are $\sigma_X = 18\%$, $\sigma_Y = 12\%$, and $\sigma_Z = 16\%$. The correlation coefficients are $\rho_{X,Y} = 0.30$, $\rho_{X,Z} = -0.20$, and $\rho_{Y,Z} = 0.40$. The standard deviation of the portfolio is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 10.1\%.
+		      \item 11.2\%.
+		      \item 12.5\%.
+	      \end{enumerate}
+
+	\item An investor holds a portfolio of two stocks, S and B, with weights $60\%$ and $40\%$, respectively. The standard deviations are $\sigma_S = 15\%$ and $\sigma_B = 8\%$, and the correlation is $\rho_{S,B} = 0.60$. The variance of the portfolio is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 1.12\%.
+		      \item 1.26\%.
+		      \item 11.22\%.
+	      \end{enumerate}
+
+	\item In the context of modern portfolio theory, the optimal risky portfolio is located:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item at the global minimum-variance portfolio.
+		      \item where the Capital Allocation Line (CAL) is tangential to the efficient frontier.
+		      \item at the point of maximum expected return on the efficient frontier.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M8}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} Tài sản 2 và Tài sản 3 tương quan nghịch biến hoàn hảo ($\rho = -1.0$) do suất sinh lời trong các kịch bản đối xứng triệt tiêu lẫn nhau. Một danh mục đầu tư phân bổ đều (50/50) giữa hai tài sản này đem lại suất sinh lời không đổi $6.0\%$ trong mọi kịch bản, dẫn đến độ lệch chuẩn bằng đúng 0.0\%.
+	
+	\item \textbf{C là phương án đúng.} Việc gia tăng hệ số tương quan ($\rho$) giữa các tài sản làm tăng cấu phần hiệp phương sai, từ đó làm tăng phương sai và độ lệch chuẩn của danh mục (Phương trình~\ref{eq:portfolio_variance_sum_m8}). Điều này trực tiếp làm giảm lợi ích của việc đa dạng hóa danh mục đầu tư.
+	
+	\item \textbf{C là phương án đúng.} Tính Beta của từng tài sản bằng công thức $\beta_i = \rho_{i,M} \frac{\sigma_i}{\sigma_M}$:
+	      \begin{itemize}
+		      \item $\beta_1 = 0.6 \times \left(\frac{25\%}{15\%}\right) = 1.00$
+		      \item $\beta_2 = 0.7 \times \left(\frac{20\%}{15\%}\right) = 0.93$
+		      \item $\beta_3 = 0.8 \times \left(\frac{20\%}{15\%}\right) = 1.07$
+	      \end{itemize}
+	      Security 3 có hệ số Beta lớn nhất ($\beta = 1.07$).
+	      
+	\item \textbf{B là phương án đúng.} Rủi ro hệ thống được đo lường bằng hệ số Beta ($\beta$). Dựa trên các kết quả tính toán ở Lời giải 3, Security 2 có hệ số Beta thấp nhất ($\beta_2 = 0.93$), đại diện cho mức rủi ro hệ thống nhỏ nhất.
+	
+	\item \textbf{C là phương án đúng.} Security 3 có hệ số Beta cao nhất ($\beta = 1.60$). Theo mô hình CAPM, lợi nhuận kỳ vọng tỷ lệ thuận với hệ số Beta. Do Security 3 nhạy cảm nhất với thị trường nên suất sinh lời kỳ vọng của nó cũng lớn nhất: $E[R_3] = 3\% + 1.60(6\%) = 12.6\%$.
+	
+	\item \textbf{B là phương án đúng.} Nhà đầu tư trung dung với rủi ro (risk-neutral) có hệ số ngại rủi ro $A = 0$, khi đó hàm thỏa dụng rút gọn thành $U = E[R]$. Họ đánh giá và đưa ra quyết định đầu tư thuần túy dựa trên suất sinh lời kỳ vọng mà không quan tâm đến biến động rủi ro.
+	
+	\item \textbf{B là phương án đúng.} 
+	      Trước tiên, tính hiệp phương sai: $\sigma_{S,B} = 0.5 \times 15\% \times 8\% = 60$ (hoặc $0.0060$ dưới dạng thập phân).
+	      \[
+	      w_S^* = \frac{\sigma_B^2 - \sigma_{S,B}}{\sigma_S^2 + \sigma_B^2 - 2\sigma_{S,B}} = \frac{8^2 - 60}{15^2 + 8^2 - 2(60)} = \frac{64 - 60}{225 + 64 - 120} = \frac{4}{169} \approx 2.37\%
+	      \]
+	      Tỷ trọng cổ phiếu trong danh mục tối thiểu phương sai toàn cầu là $2.37\%$ (gần nhất với phương án 2.4\% ở B).
+	      
+	\item \textbf{A là phương án đúng.} 
+	      Tỷ trọng phân bổ: $w_X = 0.35, w_Y = 0.40, w_Z = 0.25$.
+	      Tính phương sai và hiệp phương sai của các tài sản đơn lẻ:
+	      \begin{itemize}
+		      \item $\sigma_X^2 = 18^2 = 324$; $\sigma_Y^2 = 12^2 = 144$; $\sigma_Z^2 = 16^2 = 256$
+		      \item $\sigma_{X,Y} = 0.3 \times 18 \times 12 = 64.8$
+		      \item $\sigma_{X,Z} = -0.2 \times 18 \times 16 = -57.6$
+		      \item $\sigma_{Y,Z} = 0.4 \times 12 \times 16 = 76.8$
+	      \end{itemize}
+	      Phương sai của danh mục ba tài sản:
+	      \[
+	      \begin{aligned}
+		      \sigma_P^2 &= (0.35^2 \times 324) + (0.40^2 \times 144) + (0.25^2 \times 256) \\
+		      &\quad + 2(0.35)(0.40)(64.8) + 2(0.35)(0.25)(-57.6) + 2(0.40)(0.25)(76.8)
+	      \end{aligned}
+	      \]
+	      \[
+	      \sigma_P^2 = 39.69 + 23.04 + 16.00 + 18.144 - 10.08 + 15.36 = 102.154
+	      \]
+	      Độ lệch chuẩn danh mục: $\sigma_P = \sqrt{102.154} \approx 10.11\%$.
+	      
+	\item \textbf{B là phương án đúng.} 
+	      Tính hiệp phương sai: $\sigma_{S,B} = 0.6 \times 15\% \times 8\% = 72$ (hoặc $0.0072$).
+	      \[
+	      \sigma_P^2 = (0.6^2 \times 15^2) + (0.4^2 \times 8^2) + 2(0.6)(0.4)(72) = (0.36 \times 225) + (0.16 \times 64) + 0.48(72)
+	      \]
+	      \[
+	      \sigma_P^2 = 81.00 + 10.24 + 34.56 = 125.80\%^2 = 0.01258 \approx 1.26\%
+	      \]
+	      Phương sai danh mục bằng 1.26\%.
+	      
+	\item \textbf{B là phương án đúng.} Theo mô hình CAPM, danh mục đầu tư tài sản rủi ro tối ưu (danh mục tiếp tuyến) là điểm tiếp xúc giữa đường phân bổ vốn CAL và đường biên hiệu quả của các tài sản rủi ro. Danh mục này giúp tối đa hóa tỷ số Sharpe cho mọi nhà đầu tư trên thị trường.
+\end{enumerate}
+
+\newpage
+
+\section{Module 9: Simulation of Financial Asset Prices and Returns}
+\label{sec:app_Problems_M9}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M9}
+
+\begin{enumerate}
+	\item Standard parametric simulation typically begins with:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item generating multiple draws from an analytical distribution.
+		      \item resampling with replacement from the historical observations.
+		      \item using historical simulations without assuming any data properties.
+	      \end{enumerate}
+
+	\item A benefit of using historical simulation in comparison to Monte Carlo simulation is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item it is not sensitive to the choice of the historical period.
+		      \item the model outputs are generally easier to communicate to users.
+		      \item the ease of altering assumptions regarding volatility and correlation.
+	      \end{enumerate}
+
+	\item An analyst wishes to simulate correlated paths for two stocks, and has drawn independent standard normal random variables $Z_1 = 0.50$ and $Z_2 = -1.20$. If the target correlation is $\rho = 0.60$ and the volatility of Stock 2 is $\sigma_2 = 2.0\%$, the simulated return shock for Stock 2 ($S_2$) using the Cholesky decomposition is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item $0.60\%$.
+		      \item $-0.72\%$.
+		      \item $-1.32\%$.
+	      \end{enumerate}
+
+	\item In bootstrapping, simulated paths are generated by:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item replacing missing observations.
+		      \item adjusting parameter estimates to eliminate statistical biases.
+		      \item repeatedly sampling with replacement from the historical dataset.
+	      \end{enumerate}
+
+	\item Which of the following financial instruments is most appropriate to analyze using simulation rather than analytical methods?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item A vanilla European call option.
+		      \item A zero-coupon corporate bond with no embedded options.
+		      \item A mortgage-backed security (MBS) with prepayment options.
+	      \end{enumerate}
+
+	\item An analyst uses historical simulation to estimate the price risk of a corporate bond that matures in 3 years. The historical dataset covers the past 5 years. This approach is most likely to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item understate the bond's future price risk.
+		      \item overstate the bond's future price risk.
+		      \item accurately estimate the bond's future price risk.
+	      \end{enumerate}
+
+	\item A bootstrapping simulation is conducted using a historical sample of 25 stock returns, which includes exactly 4 observations with returns below $-3\%$. In each simulation trial, the analyst draws 3 returns with replacement. The probability that the third draw has a return below $-3\%$ is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 0.4\%.
+		      \item 12.0\%.
+		      \item 16.0\%.
+	      \end{enumerate}
+
+	\item A limitation of the bootstrapping method is that it:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item requires the assumption of a normal distribution.
+		      \item cannot generate values outside the range of the observed sample.
+		      \item is not useful when the population distribution is unknown.
+	      \end{enumerate}
+
+	\item In a simulation system, the step in which valuation models are applied to the simulated paths of market variables to calculate portfolio outcomes is called the:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item scenario generator.
+		      \item scenario evaluation.
+		      \item portfolio inputs.
+	      \end{enumerate}
+
+	\item Which simulation method relies on sampling with replacement to generate the simulated distribution?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Historical simulation.
+		      \item Bootstrapping.
+		      \item Monte Carlo simulation.
+	      \end{enumerate}
+
+	\item A primary limitation of historical simulation is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item the need to specify a probability distribution.
+		      \item the risk that the historical period chosen is not representative of the future.
+		      \item the high computational complexity compared to Monte Carlo simulation.
+	      \end{enumerate}
+
+	\item In Monte Carlo simulation, Cholesky decomposition is used to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item transform independent normal variables into correlated normal variables.
+		      \item estimate the parameters of the probability distribution.
+		      \item verify the accuracy of the random number generator.
+	      \end{enumerate}
+
+	\item Relative to analytical formulas, a disadvantage of Monte Carlo simulation is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item the high time and cost of model design and execution.
+		      \item the inability to model path-dependent options.
+		      \item the requirement to assume a normal distribution.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M9}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} Mô phỏng Monte Carlo thường bắt đầu bằng việc xác định rõ một phân phối giải tích cụ thể (ví dụ: phân phối chuẩn hoặc log-normal) và rút các mẫu ngẫu nhiên từ phân phối đó. \\
+	Phương án A và B sai vì chúng sử dụng phân phối thực nghiệm ngầm định của dữ liệu quá khứ.
+	
+	\item \textbf{B là phương án đúng.} Mô phỏng lịch sử được ưa chuộng nhờ tính trực quan và khả năng giải thích xuất sắc (ví dụ: ``danh mục sẽ lỗ X đồng nếu thị trường lặp lại đúng biến động ngày 16/7/2024''). Do đó kết quả của nó rất dễ trình bày và truyền đạt. \\
+	Phương án A sai vì mô phỏng lịch sử cực kỳ nhạy cảm với chất lượng dữ liệu quá khứ. \\
+	Phương án C sai vì Monte Carlo linh hoạt hơn nhiều trong việc điều chỉnh giả định biến động và tương quan.
+	
+	\item \textbf{C là phương án đúng.} Áp dụng biến đổi Cholesky cho hai biến ngẫu nhiên tương quan:
+	      \[
+	      S_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+	      \]
+	      Thay các giá trị $\sigma_2 = 2.0\% = 0.02$, $\rho = 0.60$:
+	      \[
+	      S_2 = 0.02 \times \left(0.60 Z_1 + \sqrt{1 - 0.60^2} Z_2\right)
+	      \]
+	      \[
+	      S_2 = 0.02 \times (0.60 Z_1 + 0.80 Z_2) = 0.012 Z_1 + 0.016 Z_2
+	      \]
+	      Phương án A sai vì giả định hai biến không tương quan. \\
+	      Phương án B sai vì tính nhầm $\sqrt{1 - 0.60^2} = 1 - 0.60 = 0.40$.
+	      
+	\item \textbf{C là phương án đúng.} Bản chất của bootstrapping là tạo ra nhiều mẫu dữ liệu ngẫu nhiên (synthetic datasets) bằng cách lấy mẫu lặp có thay thế từ một mẫu dữ liệu gốc duy nhất. \\
+	Phương án A sai vì bootstrapping không điền dữ liệu khuyết thiếu. \\
+	Phương án B sai vì bootstrapping giữ nguyên các thiên lệch (biases) vốn có của mẫu dữ liệu gốc.
+	
+	\item \textbf{C là phương án đúng.} Danh mục các khoản vay thế chấp có quyền trả nợ trước (callable) bất kỳ lúc nào mang tính chất phụ thuộc đường đi dòng tiền (path-dependent). Những công cụ này không có công thức giải tích dạng đóng nên phương pháp mô phỏng là lựa chọn tối ưu nhất. \\
+	Phương án A và B sai vì có thể giải bằng công thức đóng giải tích thông thường.
+	
+	\item \textbf{B là phương án đúng.} Khi trái phiếu tiến dần về ngày đáo hạn (từ 10 năm xuống còn 3 năm), biến động giá của nó sẽ giảm đáng kể (hiệu ứng kéo về mệnh giá - pull-to-par effect). Việc sử dụng 5 năm dữ liệu lịch sử quá khứ sẽ phản ánh thời kỳ trái phiếu có kỳ hạn dài hơn, dẫn đến việc phóng đại (overstate) khả năng biến động giá của trái phiếu trong tương lai.
+	
+	\item \textbf{C là phương án đúng.} Trong kỹ thuật bootstrapping, quá trình lấy mẫu được thực hiện có thay thế. Do đó, các kết quả rút mẫu lần 1 và lần 2 độc lập và không ảnh hưởng đến xác suất rút mẫu lần 3. Xác suất rút được một quan sát có suất sinh lời dưới -3\% bằng đúng tỷ lệ số quan sát đó trong mẫu gốc: 4 quan sát trên tổng số 25 quan sát:
+	      \[
+	      P = \frac{4}{25} = 16.0\%
+	      \]
+	      
+	\item \textbf{B là phương án đúng.} Hạn chế lớn nhất của bootstrapping là các kịch bản mô phỏng hoàn toàn bị giới hạn trong phạm vi giá trị cực đại và cực tiểu của tập dữ liệu mẫu gốc (không thể suy rộng ngoại suy ra ngoài phạm vi). Nếu một kịch bản cực đoan chưa từng xảy ra trong mẫu quan sát, bootstrapping sẽ không bao giờ mô phỏng được nó.
+	
+	\item \textbf{B là phương án đúng.} Bước đánh giá kịch bản (Scenario evaluation / calculation engine) là bước chạy công cụ tính toán để áp dụng các công thức thiết lập từ bước 1 vào từng kịch bản đầu vào được tạo ra ở bước 2, nhằm tính toán các giá trị đầu ra.
+	
+	\item \textbf{B là phương án đúng.} Bootstrapping là phương pháp duy nhất trong ba phương pháp thực hiện lấy mẫu có thay thế từ một tập dữ liệu gốc để tạo ra tính ngẫu nhiên.
+	
+	\item \textbf{B là phương án đúng.} Một nhược điểm lớn của mô phỏng lịch sử là sự phụ thuộc hoàn toàn vào dữ liệu lịch sử. Nếu dữ liệu quá khứ bị thiếu hoặc không hoàn chỉnh, kết quả mô phỏng sẽ không đáng tin cậy.
+	
+	\item \textbf{A là phương án đúng.} Trong mô phỏng Monte Carlo, Cholesky decomposition được sử dụng để chuyển đổi các biến ngẫu nhiên chuẩn hóa độc lập thành các biến ngẫu nhiên chuẩn hóa có tương quan.
+	
+	\item \textbf{A là phương án đúng.} Một phê phán phổ biến đối với mô phỏng Monte Carlo là sự phức tạp và tốn thời gian thiết lập ban đầu, đặc biệt đối với các danh mục chứa nhiều loại tài sản phức tạp hoặc phái sinh.
+\end{enumerate}
+
+\newpage
+
+\section{Module 10: Applications of Simple Linear Regression in Finance}
+\label{sec:app_Problems_M10}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M10}
+
+\begin{enumerate}
+	\item Ordinary least squares (OLS) regression minimizes the sum of:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item residuals.
+		      \item absolute residuals.
+		      \item squared residuals.
+	      \end{enumerate}
+
+	\item Homoskedasticity in OLS residuals implies that the variance of the error terms is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item zero.
+		      \item normally distributed.
+		      \item constant across observations.
+	      \end{enumerate}
+
+	\item In the context of CAPM, a financial asset with a negative beta is expected to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item move inversely to the market.
+		      \item be riskier than the market portfolio.
+		      \item have a lower return than the market portfolio.
+	      \end{enumerate}
+
+	\item The coefficient of determination ($R^2$) represents the:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item standard error of the slope coefficient.
+		      \item correlation coefficient between variables.
+		      \item proportion of the total variation in the dependent variable explained by the regression.
+	      \end{enumerate}
+
+	\item An analyst runs a simple linear regression using 30 observations. The total sum of squares (SST) is 150.00 and the sum of squared errors (SSE) is 45.00. The regression sum of squares (SSR) and $R^2$ are closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item $\text{SSR} = 105.00$ and $R^2 = 30.0\%$.
+		      \item $\text{SSR} = 105.00$ and $R^2 = 70.0\%$.
+		      \item $\text{SSR} = 195.00$ and $R^2 = 70.0\%$.
+	      \end{enumerate}
+
+	\item An analyst estimates the regression model: $Y_i = \beta_0 + \beta_1 X_i + \epsilon_i$. Given a slope estimate $\hat{\beta}_1 = 1.50$, sample mean $\bar{X} = 4.00$, and sample mean $\bar{Y} = 10.00$, the intercept estimate $\hat{\beta}_0$ is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item $4.00$
+		      \item $6.00$
+		      \item $10.00$
+	      \end{enumerate}
+
+	\item In a simple linear regression model, if the slope coefficient $\hat{\beta}_1$ is negative, the correlation coefficient $r$ between $X$ and $Y$ must be:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item negative.
+		      \item positive.
+		      \item zero.
+	      \end{enumerate}
+
+	\item If the variance of the residuals of a simple linear regression increases as the independent variable increases, the model violates the assumption of:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item linearity.
+		      \item homoskedasticity.
+		      \item independence of residuals.
+	      \end{enumerate}
+
+	\item For a simple linear regression model with $n=32$ observations, the degrees of freedom for the denominator (residual variance) in the F-test of overall significance are:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 30
+		      \item 31
+		      \item 32
+	      \end{enumerate}
+
+	\item An analyst fits a Log-Lin regression model: $\ln(Y_i) = b_0 + b_1 X_i + e_i$ and obtains $b_1 = 0.05$. This coefficient indicates that for a one-unit change in $X$, the expected value of $Y$ changes by approximately:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item $0.05\%$
+		      \item $5.0\%$
+		      \item $50.0\%$
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M10}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} Tiêu chuẩn OLS tối thiểu hóa tổng bình phương các phần sai số/phần dư (squared residuals, SSE). Phương án A và B sai vì chúng không đặc trưng cho OLS mà có thể tương ứng với các mô hình tối thiểu hóa khác.
+	
+	\item \textbf{C là phương án đúng.} Homoskedasticity (phương sai không đổi) là hiện tượng phương sai của sai số $\epsilon_i$ duy trì một hằng số $\sigma^2$ đối với mọi quan sát trong mẫu.
+	
+	\item \textbf{A là phương án đúng.} Một tài sản có hệ số Beta âm sẽ di chuyển ngược chiều với thị trường chung, từ đó hoạt động giống như một công cụ phòng ngừa rủi ro (hedging asset).
+	
+	\item \textbf{C là phương án đúng.} Hệ số xác định $R^2$ là tỷ lệ biến động của biến phụ thuộc được giải thích bởi mô hình hồi quy ($R^2 = \text{SSR}/\text{SST}$).
+	
+	\item \textbf{B là phương án đúng.}
+	      Ta có $\text{SST} = \text{SSR} + \text{SSE} \Rightarrow \text{SSR} = \text{SST} - \text{SSE} = 150.00 - 45.00 = 105.00$.
+	      Hệ số xác định:
+	      \[ R^2 = \frac{\text{SSR}}{\text{SST}} = \frac{105.00}{150.00} = 70.0\% \]
+	      
+	\item \textbf{A là phương án đúng.}
+	      Áp dụng công thức tính hệ số chặn:
+	      \[ \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X} = 10.00 - (1.50 \times 4.00) = 10.00 - 6.00 = 4.00 \]
+	      
+	\item \textbf{A là phương án đúng.}
+	      Mối quan hệ giữa hệ số tương quan $r$ và hệ số xác định $R^2$ là $r = \text{sign}(\hat{\beta}_1) \times \sqrt{R^2}$. Do hệ số góc $\hat{\beta}_1$ âm, nên hệ số tương quan $r$ bắt buộc phải mang dấu âm.
+	      
+	\item \textbf{B là phương án đúng.}
+	      Khi phương sai của phần dư thay đổi (tăng hoặc giảm) theo giá trị của biến độc lập, mô hình đã vi phạm giả định phương sai phần dư không đổi (homoskedasticity), dẫn đến hiện tượng phương sai thay đổi (heteroskedasticity).
+	      
+	\item \textbf{A là phương án đúng.}
+	      Trong mô hình hồi quy tuyến tính đơn, bậc tự do của phần dư (Residual df) là $n - 2$. Với $n = 32$, số bậc tự do là $32 - 2 = 30$.
+	      
+	\item \textbf{B là phương án đúng.}
+	      Đối với mô hình Log-Lin, hệ số góc $b_1$ biểu thị rằng khi biến độc lập $X$ thay đổi 1 đơn vị, biến phụ thuộc $Y$ sẽ thay đổi một lượng tương đối xấp xỉ bằng $b_1 \times 100\%$. Với $b_1 = 0.05$, biến phụ thuộc thay đổi xấp xỉ $0.05 \times 100\% = 5.0\%$.
+\end{enumerate}
+
+\newpage
+
+\section{Module 11: Introduction to Financial Data Science}
+\label{sec:app_Problems_M11}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M11}
+
+\begin{enumerate}
+	\item Which of the following is most representative of the "Veracity" characteristic of Big Data?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item The speed at which transaction data is updated in real time.
+		      \item The credibility and reliability of alternative data sources.
+		      \item The massive volume of transactions processed in a database.
+	      \end{enumerate}
+	
+	\item Underfitting in a machine learning model is most likely characterized by:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item treating true relationships in the training data as random noise.
+		      \item learning the training data too precisely, capturing random errors.
+		      \item requiring excessive computational resources to train hidden layers.
+	      \end{enumerate}
+
+	\item When splitting a financial time-series dataset for machine learning validation:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item random splitting is preferred to eliminate temporal selection bias.
+		      \item random splitting should be avoided to prevent forward data leakage.
+		      \item rolling-window validation cannot be applied due to non-stationarity.
+	      \end{enumerate}
+
+	\item An investment firm wants to group a diverse set of companies into peer groups based on similar accounting ratios without relying on pre-defined industry classifications. Which of the following machine learning approaches is most appropriate?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Supervised learning.
+		      \item Unsupervised learning.
+		      \item Reinforcement learning.
+	      \end{enumerate}
+
+	\item In an artificial neural network, the adjustment of weights based on the calculated loss gradient is executed by:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item the input layer during the forward pass.
+		      \item backpropagation and gradient descent.
+		      \item generative adversarial networks.
+	      \end{enumerate}
+
+	\item Large Language Models (LLMs) used in financial reporting are best described as:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item experts at arithmetic calculations that eliminate the need for traditional quantitative models.
+		      \item prone to hallucinations and requiring human oversight to verify textual interpretations of numerical data.
+		      \item trained exclusively on general linguistic corpora without need for specialized financial datasets.
+	      \end{enumerate}
+
+	\item How does Generative AI differ from standard Monte Carlo simulations in scenario generation?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Generative AI does not require historical data to initialize training.
+		      \item Generative AI learns complex underlying data structures rather than relying on predefined parametric distributions.
+		      \item Generative AI is constrained to direct replication and shuffling of historical data points.
+	      \end{enumerate}
+
+	\item Data generated by business processes, such as retail point-of-sale scanner data or credit card transactions, is typically:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item structured and serves as a leading indicator of performance.
+		      \item unstructured and serves as a lagging indicator of performance.
+		      \item qualitative and is generated directly by sensors.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M11}
+
+\begin{enumerate}
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Veracity (Độ xác thực) là thuộc tính biểu thị mức độ tin cậy và chính xác của nguồn dữ liệu. Trong bối cảnh Big Data (đặc biệt là dữ liệu thay thế - alternative data), Veracity cực kỳ quan trọng vì dữ liệu được thu thập từ nhiều nguồn phi truyền thống khác nhau có chất lượng không đồng đều. Phương án A nói về Velocity (Tốc độ). Phương án C nói về Volume (Thể tích).}}
+	      
+	\item \textbf{Đáp án đúng: A}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Underfitting (Chưa khớp/Dưới khớp) xảy ra khi mô hình quá đơn giản, coi các mối quan hệ thực tế là nhiễu ngẫu nhiên và không học được cấu trúc cơ bản của dữ liệu huấn luyện. Ngược lại, phương án B mô tả hiện tượng Overfitting (Quá khớp), khi mô hình học quá kỹ cả nhiễu của dữ liệu dẫn đến khả năng dự báo kém trên dữ liệu mới ($Error_{train} \ll Error_{test}$).}}
+	      
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Trong dữ liệu chuỗi thời gian tài chính, thứ tự thời gian là cốt lõi. Việc phân chia ngẫu nhiên (random splitting) sẽ phá vỡ cấu trúc thời gian và gây ra hiện tượng rò rỉ dữ liệu (data leakage) do dùng dữ liệu tương lai để dự báo quá khứ trong tập training. Do đó, cần tránh random splitting và chuyển sang dùng Time-based split hoặc Rolling-window validation.}}
+	      
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Phân nhóm các công ty dựa trên các đặc tính tương tự nhau mà không có nhãn trước (unlabeled data) là bài toán phân cụm (clustering), thuộc về Học không giám sát (Unsupervised learning). Học có giám sát (Supervised learning - phương án A) yêu cầu dữ liệu phải có nhãn (labeled data) mục tiêu từ trước. Học tăng cường (Reinforcement learning - phương án C) dựa trên cơ chế thử và sai để tối ưu hóa quyết định trong môi trường động.}}
+	      
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Trong quá trình huấn luyện mạng nơ-ron, thuật toán lan truyền ngược (backpropagation) được dùng để tính toán các đạo hàm riêng (gradient) của hàm mất mát (loss) đối với các trọng số, và thuật toán hạ cực trị gradient (gradient descent) sử dụng các gradient này để điều chỉnh trọng số nhằm giảm thiểu sai số dự báo. Quá trình này được lặp lại qua nhiều chu kỳ (epochs).}}
+	      
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: LLM có khả năng viết báo cáo rất tự nhiên nhưng bản chất là dự báo chuỗi từ tiếp theo chứ không có khả năng tính toán số học chuẩn xác. Chúng dễ gặp hiện tượng ``ảo giác'' (hallucinations - tạo ra thông tin sai lệch nhưng đọc rất thuyết phục) và hiểu sai các chỉ số tài chính. Vì vậy, đầu ra của LLM bắt buộc phải có sự kiểm duyệt của con người (human oversight) và nên kết hợp với mô hình định lượng truyền thống.}}
+	      
+	\item \textbf{Đáp án đúng: B}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Generative AI (như GANs hay VAEs) khác biệt với Monte Carlo ở chỗ nó tự động học các biểu diễn phân phối phức tạp phi tuyến từ dữ liệu lịch sử thay vì giả định một phân phối xác suất tham số (như phân phối chuẩn). Nó cũng khác Bootstrapping ở chỗ nó tạo ra các kịch bản mới hoàn toàn dựa trên cấu trúc đã học, chứ không chỉ đơn thuần là xáo trộn hay lấy mẫu lại từ dữ liệu lịch sử (phương án C sai).}}
+	      
+	\item \textbf{Đáp án đúng: A}
+	      
+	      \textcolor{blue}{\textit{Giải thích: Dữ liệu giao dịch từ quy trình kinh doanh (thanh toán thẻ tín dụng, máy quét POS) thường có cấu trúc rõ ràng (structured data) và có tính tức thời cao, hoạt động như các chỉ báo dẫn dắt (leading indicators) phản ánh doanh thu doanh nghiệp trước khi các báo cáo tài chính chính thức (thường là lagging indicators) được công bố định kỳ.}}
+\end{enumerate}
