@@ -15,9 +15,10 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
 
-\section{THE CENTRAL LIMIT THEOREM, CONFIDENCE INTERVALS, AND SAMPLING}
+\section{The Central Limit Theorem, Confidence Intervals, and Sampling}
+\label{sec:The Central Limit Theorem, Confidence Intervals, and Sampling}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	a & explain the central limit theorem and the application of confidence intervals and sampling methodologies \\
@@ -27,6 +28,7 @@
 \textcolor{blue}{\textit{Chúng ta lưu ý: (1) CLT giải thích tại sao trung bình mẫu xấp xỉ phân phối chuẩn khi $n \ge 30$ với mọi biến gốc; (2) Khoảng tin cậy (Confidence Interval) lượng hóa độ chính xác ước lượng; (3) Sampling là bước nền tảng tránh thiên lệch dữ liệu.}}
 
 \subsection{The Central Limit Theorem (CLT)}
+	\label{subsec:The Central Limit Theorem (CLT)}
 The law of large numbers provides context for using the sample mean, $\bar{X}$, to estimate the population mean, $\mu$. The central limit theorem (CLT) is a fundamental concept in statistics. It states that if random samples are taken from any distribution with a finite mean $\mu$ and finite variance $\sigma^2$, then the sample means, $\bar{X}$, will converge to a normal distribution as the sample size $n$ increases. 
 
 Specifically:
@@ -94,6 +96,7 @@ An estimator $\hat{\theta}$ is:
 \end{itemize}
 
 \subsection{Confidence Intervals}
+	\label{subsec:Confidence Intervals}
 Confidence intervals are probabilistic ranges that are likely to contain the true parameter value with a specified level of confidence ($1 - \alpha$). For large sample sizes, the confidence interval for the population mean $\mu$ is:
 \begin{equation}
 	\bar{X} \pm Z_{\alpha/2} \times \frac{\sigma}{\sqrt{n}}
@@ -211,6 +214,7 @@ There is a 1\% probability that the position will lose more than GBP 1,169,660 o
 \end{tcolorbox}
 
 \subsection{Sampling Methodologies}
+	\label{subsec:Sampling Methodologies}
 To extract information about a population, two sampling approaches can be used:
 \begin{enumerate}
 	\item \textbf{Probability Sampling:} Every member of the population has a known, non-zero chance of selection.
@@ -250,7 +254,8 @@ Based on 1,258 daily return observations of a global small-cap stock index, the 
 \end{figure}
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 334, Exhibit 6
 
-\section{HYPOTHESIS TESTING AND PARAMETRIC TESTING}
+\section{Hypothesis Testing and Parametric Testing}
+\label{sec:Hypothesis Testing and Parametric Testing}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	b & explain hypothesis testing and its components, including statistical significance, Type I and Type II errors, and the power of a test; construct appropriate hypothesis tests; and interpret the results \\
@@ -260,6 +265,7 @@ Based on 1,258 daily return observations of a global small-cap stock index, the 
 \textcolor{blue}{\textit{Quy trình kiểm định giả thuyết gồm 4 bước (Exhibit~\ref{fig:mod7_exhibit_7}). Chúng ta đặc biệt lưu ý lỗi Loại I ($\alpha$ - bác bỏ $H_0$ đúng), lỗi Loại II ($\beta$ - không bác bỏ $H_0$ sai) và lực lượng kiểm định ($1 - \beta$). Nhớ phân phối tương ứng: kiểm định trung bình ($t$), một phương sai ($\chi^2$), hai phương sai ($F$).}}
 
 \subsection{The Hypothesis Testing Process}
+	\label{subsec:The Hypothesis Testing Process}
 Hypothesis testing involves four steps, as outlined in Exhibit~\ref{fig:mod7_exhibit_7}:
 \begin{enumerate}
 	\item State the null hypothesis ($H_0$) and alternative hypothesis ($H_A$).
@@ -318,6 +324,7 @@ Exhibit~\ref{fig:mod7_exhibit_10} depicts the rejection areas for the three type
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 340, Exhibit 10
 
 \subsection{Type I and Type II Errors}
+	\label{subsec:Type I and Type II Errors}
 The decision-making process in hypothesis testing involves two types of errors:
 \begin{itemize}
 	\item \textbf{Type I Error (False Positive):} Rejecting a true null hypothesis. The probability of a Type I error is the level of significance, $\alpha$.
@@ -351,6 +358,7 @@ The relation between $\alpha$ and $\beta$ is shown in Exhibit~\ref{fig:mod7_exhi
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 343, Exhibit 13
 
 \subsection{Parametric Tests for a Single Variable}
+	\label{subsec:Parametric Tests for a Single Variable}
 We utilize annual return data from 1979 to 2023 ($n = 44$) for the MSCI World Value and Growth Indexes to illustrate parametric tests (Exhibit~\ref{fig:mod7_exhibit_14} \& Table~\ref{tab:msci_stats_m7}).
 
 \begin{figure}[!htbp]
@@ -487,6 +495,7 @@ We test whether the variance of the Value Index is greater than $0.0381$ ($H_0: 
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 353, Exhibit 19
 
 \subsection{Parametric Tests for Multiple Variables}
+	\label{subsec:Parametric Tests for Multiple Variables}
 We compare the means and variances of two populations.
 
 \subsubsection{Test of Equality of Two Unknown Means (Independent Samples)}
@@ -664,6 +673,7 @@ Since $1.903 < 2.032$, the correlation between Fund 3 and Fund 4 is not statisti
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 363
 
 \subsection{P-Value and P-Hacking}
+	\label{subsec:P-Value and P-Hacking}
 The p-value is the smallest level of significance at which we reject the null hypothesis:
 \begin{itemize}
 	\item \textbf{Decision Rule:} Reject $H_0$ if $p\text{-value} < \alpha$; otherwise, fail to reject.
@@ -676,6 +686,7 @@ p-hacking refers to the practice of manipulating data or models (such as trimmin
 \end{examtip}
 
 \subsection{Practical Implementation (Excel and Google Sheets)}
+	\label{subsec:Practical Implementation (Excel and Google Sheets)}
 Table~\ref{tab:excel_functions_m7} lists functions to compute critical values for hypothesis testing.
 
 \begin{table}[!htbp]
@@ -699,7 +710,8 @@ Inverse Right-tail F & \texttt{=F.INV.RT(prob, df1, df2)} & \texttt{=F.INV.RT(pr
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 366, Exhibit 25
 
-\section{NON-PARAMETRIC TESTS}
+\section{Non-Parametric Tests}
+\label{sec:Non-Parametric Tests}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	c & compare and contrast parametric and non-parametric tests, describe situations in which each is the more appropriate type of test, construct appropriate hypothesis tests, and interpret the results \\
@@ -709,12 +721,14 @@ Inverse Right-tail F & \texttt{=F.INV.RT(prob, df1, df2)} & \texttt{=F.INV.RT(pr
 \textcolor{blue}{\textit{Thực tế: Khi dữ liệu không chuẩn (đuôi béo, lệch) hoặc ở dạng định danh/thứ bậc, kiểm định phi tham số (Non-parametric) như Spearman hoặc Chi-square test of independence là bắt buộc để tránh kết luận sai lệch.}}
 
 \subsection{Comparison of Parametric and Non-Parametric Tests}
+	\label{subsec:Comparison of Parametric and Non-Parametric Tests}
 \begin{itemize}
 	\item \textbf{Parametric Tests:} Perform testing using parameters (mean, variance) and require specific distribution assumptions (e.g., normality). They are more powerful if assumptions are met.
 	\item \textbf{Non-Parametric Tests:} Do not make distribution assumptions. They are suitable for ordinal/categorical data, small sample sizes, or when outliers skew parametric estimations. However, they are less powerful when normality assumptions hold.
 \end{itemize}
 
 \subsection{Non-Parametric Test for Correlation (Spearman Rank Correlation)}
+	\label{subsec:Non-Parametric Test for Correlation (Spearman Rank Correlation)}
 The Spearman rank correlation coefficient ($r_s$) evaluates monotonic (not necessarily linear) relationships by analyzing the ranks of variables:
 \begin{equation}
 	r_s = 1 - \frac{6 \sum_{i=1}^n d_i^2}{n(n^2 - 1)}
@@ -765,6 +779,7 @@ Since $0.8127 < 1.96$, we fail to reject the null hypothesis of no monotonic cor
 % Reference: CFA Curriculum 2027, Volume 1, Module 7, Page 372, Exhibit 28
 
 \subsection{Chi-Square Test of Independence}
+	\label{subsec:Chi-Square Test of Independence}
 For categorical data, we test whether classifications are independent using a Chi-square test statistic with $df = (r - 1)(c - 1)$:
 \begin{equation}
 	\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}

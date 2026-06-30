@@ -13,7 +13,7 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
 
 \begin{itemize}
 	\item[] \textbf{Money-Weighted and Time-Weighted Rates of Return}
@@ -26,7 +26,8 @@
 	      \end{itemize}
 \end{itemize}
 
-\section{MONEY-WEIGHTED AND TIME-WEIGHTED RATES OF RETURN}
+\section{Money-Weighted and Time-Weighted Rates of Return}
+\label{sec:Money-Weighted and Time-Weighted Rates of Return}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	a & calculate and compare money-weighted and time-weighted rates of return \\
@@ -37,6 +38,7 @@
 	\textit{Chúng ta cần phân biệt Suất sinh lời theo thời gian (TWR) và theo dòng tiền (MWR) để đánh giá chính xác hiệu quả quản lý quỹ lẫn đầu tư thực tế cá nhân.}}
 
 \subsection{Time-Weighted Rate of Return (TWR)}
+	\label{subsec:Time-Weighted Rate of Return (TWR)}
 The time-weighted rate of return measures the compounded rate of growth of an investment portfolio over a specified horizon. To eliminate the distorting effects of external cash flows (which the investment manager typically does not control), the total investment horizon is broken down into subperiods at each cash flow event. The returns for each subperiod are calculated and then geometrically linked:
 \begin{equation}
 	r_{\text{TW}} = \prod_{t=1}^{T} (1 + r_t) - 1
@@ -54,6 +56,7 @@ Where:
 Because TWR measures performance between periods and filters out investor-driven contributions or withdrawals, it is the standard metric used to evaluate the investment skill of public market fund managers.
 
 \subsection{Money-Weighted Rate of Return (MWR)}
+	\label{subsec:Money-Weighted Rate of Return (MWR)}
 The money-weighted rate of return (or dollar-weighted rate of return) measures the internal rate of return (IRR) of the investment. It accounts for both the size and timing of all cash flows. The MWR is the discount rate that sets the net present value of all cash flows equal to zero:
 \begin{equation}
 	0 = \sum_{t=0}^{T} \frac{\text{CF}_t}{(1 + r_{\text{MW}})^t}
@@ -74,6 +77,7 @@ Where:
 	- Để tính MWR (giải phương trình bậc cao), chúng ta cần dùng máy tính tài chính hoặc Excel.}}
 
 \subsection{Case Study: The Albright Fund}
+	\label{subsec:Case Study: The Albright Fund}
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
@@ -133,6 +137,7 @@ Geometrically linking the returns:
 \end{tcolorbox}
 
 \subsection{Summary of Differences}
+	\label{subsec:Summary of Differences}
 Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between the two return methodologies.
 
 \begin{table}[H]
@@ -153,7 +158,8 @@ Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between th
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 94
 
-\section{INDEX DEFINITION AND CALCULATION}
+\section{Index Definition and Calculation}
+\label{sec:Index Definition and Calculation}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	b & describe the choices and the implications of the different weighting methods used in index construction and management, and calculate, interpret, and explain the value and the returns of an index \\
@@ -164,6 +170,7 @@ Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between th
 	\textit{Market Index làm Benchmark và cơ sở cho ETF. Khi thiết kế chỉ số, chúng ta lưu ý: (1) Cách tính (Price Return/Total Return) và (2) Phương pháp phân bổ tỷ trọng (Weighting Scheme).}}
 
 \subsection{Price Return vs. Total Return Indexes}
+	\label{subsec:Price Return vs. Total Return Indexes}
 \begin{itemize}
 	\item \textbf{Price Return Index ($r_{\text{PR}}$):} reflects only the prices of the constituent securities and measures capital appreciation:
 	      \begin{equation}
@@ -189,6 +196,7 @@ Over time, the total return index will significantly outperform the price return
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 100
 
 \subsection{Index Weighting Methodologies}
+	\label{subsec:Index Weighting Methodologies}
 The general formula for calculating an index value at time $t$ is:
 \begin{equation}
 	\text{Index Value}_t = \sum_{i=1}^{N} w_{i,t} \times P_{i,t}
@@ -259,6 +267,7 @@ Let's review the five primary weighting methodologies:
 \end{enumerate}
 
 \subsection{Summary of Weighting Methodologies}
+	\label{subsec:Summary of Weighting Methodologies}
 Table \ref{tab:index_weighting_methodologies_summary} compares the characteristics of these methodologies.
 
 \begin{table}[!htbp]
@@ -287,6 +296,7 @@ Table \ref{tab:index_weighting_methodologies_summary} compares the characteristi
 	- Nhược điểm: Bị ảnh hưởng bởi đà tăng (momentum bias), ép mua nhiều cổ phiếu định giá quá cao.}}
 
 \subsection{Index Management: Rebalancing and Reconstitution}
+	\label{subsec:Index Management: Rebalancing and Reconstitution}
 \begin{itemize}
 	\item \textbf{Periodic Rebalancing:} adjusts the weights of the constituents back to their target levels. This is critical for equal-weighted and fundamentally weighted indexes because price variations cause weights to drift. Equal-weighted indexes require counter-trend trading (selling winners and buying losers), which increases transaction costs and portfolio turnover.
 	\item \textbf{Reconstitution:} the periodic process of adding or removing constituent securities from the index based on eligibility rules. Widely followed indexes often apply a \textit{banding strategy} (e.g., Russell 2000's 5\% band) to reduce unnecessary index turnover at the breakpoints.
@@ -301,6 +311,7 @@ Table \ref{tab:index_weighting_methodologies_summary} compares the characteristi
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 115
 
 \subsection{Divisor Adjustment for Stock Splits}
+	\label{subsec:Divisor Adjustment for Stock Splits}
 In a price-weighted index, when a constituent stock splits, its price per share drops mechanically without any change in its actual economic value or the firm's market capitalization. To prevent the index value from dropping artificially, the divisor ($D$) must be adjusted downward:
 \begin{equation}
 	D_{\text{new}} = \frac{\sum P_{\text{new}}}{V_{\text{PRI, before}}}

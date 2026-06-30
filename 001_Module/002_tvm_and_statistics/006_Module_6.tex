@@ -17,7 +17,7 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
 
 \begin{itemize}
 	\item[] \textbf{Random Variables and Unconditional Expectations}
@@ -47,7 +47,8 @@
 2. Tập trung vào biến rời rạc (kỳ vọng, phương sai qua xác suất) và định lý Bayes.
 3. Ghi nhớ đặc trưng 4 moments các phân phối và lý do chọn (ví dụ: Log-normal cho giá $\ge 0$, Poisson cho vỡ nợ).}}
 
-\section{RANDOM VARIABLES AND UNCONDITIONAL EXPECTATIONS}
+\section{Random Variables and Unconditional Expectations}
+\label{sec:Random Variables and Unconditional Expectations}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	a & calculate, interpret, and evaluate unconditional expected values for mean, variance, and covariance \\
@@ -57,6 +58,7 @@
 This section outlines the characteristics of some of the most widely used statistical distributions to model prices and returns in finance, investments, and portfolio management.
 
 \subsection{Random Variables and Their Properties}
+	\label{subsec:Random Variables and Their Properties}
 A \textbf{random variable} is a function that assigns a number to each outcome of an experiment. In finance, random variables are often called \textbf{stochastic variables}, reflecting their inherent unpredictable nature. Random variables are categorized into two types:
 \begin{itemize}
 	\item A \textbf{discrete random variable} has a countable number of distinct outcomes. For example, a fair coin toss results in heads or tails, each with a probability of $p = 0.50$. Similarly, rolling a fair six-sided die yields outcomes of $1, 2, 3, 4, 5,$ or $6$, each with a probability of $p = \frac{1}{6}$.
@@ -180,6 +182,7 @@ An economist analyzes the PMF and CDF of the sum of outcomes from rolling two fa
 \end{figure}
 
 \subsection{Unconditional Expectations, Variance, and Covariance}
+	\label{subsec:Unconditional Expectations, Variance, and Covariance}
 Unconditional expectations, variance, and covariance provide foundational tools for assessing the behavior of financial assets without requiring prior knowledge of specific market conditions.
 \begin{itemize}
 	\item \textbf{Unconditional Mean (Expected Value):} The probability-weighted average of the outcomes of a random variable over an infinite number of trials:
@@ -276,6 +279,7 @@ The negative covariance of $-0.2625$ indicates that stocks and bonds tend to mov
 \end{tcolorbox}
 
 \subsection{The Law of Large Numbers (LLN)}
+	\label{subsec:The Law of Large Numbers (LLN)}
 The \textbf{Law of Large Numbers} states that as the number of trials (sample size) increases, the empirical sample mean converges to the true population parameter (unconditional mean), assuming the sample is randomly drawn and representative of the population.
 
 \begin{tcolorbox}[
@@ -319,7 +323,8 @@ An economist simulates $10,000$ throws of a pair of fair dice. Table~\ref{tab:ll
 	\label{fig:mod6_exhibit_8}
 \end{figure}
 
-\section{KEY STATISTICAL DISTRIBUTIONS IN FINANCE}
+\section{Key Statistical Distributions in Finance}
+\label{sec:Key Statistical Distributions in Finance}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	b & calculate, interpret, and evaluate the principal moments of key statistical distributions used in finance \\
@@ -351,6 +356,7 @@ Probability distributions are required to model the random behavior of financial
 \end{table}
 
 \subsection{Discrete Statistical Distributions}
+	\label{subsec:Discrete Statistical Distributions}
 
 \subsubsection{Discrete Uniform Distribution}
 A discrete uniform distribution consists of a finite number of equally spaced outcomes, each with equal probability of occurrence. For a variable $X$ taking $n$ outcomes in the range $[a, b]$, each outcome occurs with probability $\frac{1}{n}$.
@@ -492,6 +498,7 @@ Assume the hazard rate $\lambda$ for a corporate bond is $0.02$ per year.
 \end{figure}
 
 \subsection{Continuous Statistical Distributions}
+	\label{subsec:Continuous Statistical Distributions}
 
 \subsubsection{Continuous Uniform Distribution}
 The continuous uniform distribution is defined over an interval $[a, b]$, where any value within this interval is equally likely to occur.
@@ -643,6 +650,7 @@ The logistic distribution is widely used in logistic regression to predict binar
 \end{figure}
 
 \subsection{Practical Implementation}
+	\label{subsec:Practical Implementation}
 
 Table~\ref{tab:moments_all_m6} summarizes the moments of all distributions covered in this module, and Table~\ref{tab:distribution_formulas_m6} shows their density/mass functions and cumulative distributions.
 
@@ -709,7 +717,8 @@ Log-normal CDF & \texttt{=LOGNORM.DIST(x, mean, sd, TRUE)} & \texttt{=LOGNORM.DI
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 290, Exhibit 20
 
-\section{CONDITIONAL EXPECTATIONS, VARIANCES, AND COVARIANCES}
+\section{Conditional Expectations, Variances, and Covariances}
+\label{sec:Conditional Expectations, Variances, and Covariances}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	c & calculate, interpret, and evaluate conditional expectations, variances, and covariances \\
@@ -717,6 +726,7 @@ Log-normal CDF & \texttt{=LOGNORM.DIST(x, mean, sd, TRUE)} & \texttt{=LOGNORM.DI
 \end{center}
 
 \subsection{Joint Distributions of Random Variables}
+	\label{subsec:Joint Distributions of Random Variables}
 Joint distributions allow for examining the simultaneous distribution of two random variables. The bivariate cumulative distribution function (CDF) is defined as:
 \begin{equation}
 	F_{12}(x_1, x_2) = P(X_1 \le x_1, X_2 \le x_2)
@@ -784,6 +794,7 @@ $R \le 10\%$ & 300 & 40  & 340 \\
 % Reference: CFA Curriculum 2027, Volume 1, Module 6, Page 295, Exhibit 22
 
 \subsection{Conditional Expectations}
+	\label{subsec:Conditional Expectations}
 The conditional expectation $E[X | Y=y]$ is the expected value of $X$ given that $Y$ takes on the value $y$:
 \begin{equation}
 	\text{Discrete: } E[X|Y=y] = \sum_x x P(X=x | Y=y)
@@ -876,6 +887,7 @@ The unconditional variance is:
 \end{tcolorbox}
 
 \subsection{Conditional Means, Variances, and Covariances}
+	\label{subsec:Conditional Means, Variances, and Covariances}
 Incorporating conditioning information updates expected values:
 \begin{itemize}
 	\item \textbf{Conditional Mean:} $E[X|S] = \sum_{i=1}^n x_i P(X_i|S)$
@@ -965,7 +977,8 @@ Conditional on $P_2 = 100$ & 102 & 96 \\
 \end{tabular}
 \end{table}
 
-\section{BAYESIAN UPDATING}
+\section{Bayesian Updating}
+\label{sec:Bayesian Updating}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	d & formulate investment problems through Bayesian updating \\

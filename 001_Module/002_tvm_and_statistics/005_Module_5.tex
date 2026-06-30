@@ -17,7 +17,7 @@
 \end{tabular}
 \end{center}
 
-\vspace{1em}
+\vspace{1.5em}
 
 \begin{itemize}
 	\item[] \textbf{Measures of Central Tendency and Dispersion}
@@ -44,7 +44,8 @@
 
 \textcolor{blue}{\textit{Phân tích đặc trưng thống kê là bước đầu định lượng rủi ro và xây dựng danh mục. Chúng ta quan tâm toàn bộ hình dáng phân phối: độ lệch (skewness), đuôi dày (kurtosis) và sự đồng biến động giữa các tài sản.}}
 
-\section{MEASURES OF CENTRAL TENDENCY AND DISPERSION}
+\section{Measures of Central Tendency and Dispersion}
+\label{sec:Measures of Central Tendency and Dispersion}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	a & calculate, interpret, and evaluate various measures of (1) central tendency and location and (2) dispersion \\
@@ -54,6 +55,7 @@
 To describe a dataset systematically, statisticians rely on two concepts: the \textbf{population} (the entire set of observations, such as the entire exchange rate history) and the \textbf{sample} (a subset of that population, such as daily exchange rates during a specific period).
 
 \subsection{Measures of Central Tendency}
+	\label{subsec:Measures of Central Tendency}
 A measure of central tendency is a single numerical value that describes the center or typical position of a dataset.
 
 \begin{enumerate}
@@ -117,6 +119,7 @@ Mean & 0.35\% & 0.83\% & 0.99\% & 0.80\% & 0.80\% \\
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 210, Exhibit 9
 
 \subsection{Quantiles}
+	\label{subsec:Quantiles}
 Quantiles divide a sorted dataset into equal parts. Common quantile measures include quartiles (four parts), quintiles (five parts), deciles (ten parts), and percentiles (one hundred parts).
 The position $L_y$ of the $y$-th percentile in a sorted dataset of size $n$ is:
 \begin{equation}
@@ -149,6 +152,7 @@ Percentile & \texttt{=PERCENTILE.INC(A1:A5, K)} & \texttt{=PERCENTILE(A1:A5, K)}
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 211, Exhibit 11
 
 \subsection{Measures of Dispersion}
+	\label{subsec:Measures of Dispersion}
 Dispersion quantifies the variability of data around its central tendency, serving as a measure of investment risk.
 \begin{itemize}
 	\item \textbf{Range:} The difference between the highest and lowest values:
@@ -204,7 +208,8 @@ Consider a sample of $10$ observations: $-3, -11, 3, -18, 18, 20, -6, 9, 2, -16$
 \end{enumerate}
 \end{tcolorbox}
 
-\section{MEASURES OF SHAPE OF A DISTRIBUTION}
+\section{Measures of Shape of a Distribution}
+\label{sec:Measures of Shape of a Distribution}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	b & describe, interpret, and evaluate measures of skewness and kurtosis \\
@@ -214,6 +219,7 @@ Consider a sample of $10$ observations: $-3, -11, 3, -18, 18, 20, -6, 9, 2, -16$
 To describe a distribution's shape completely, analysts evaluate its higher-order moments, particularly its asymmetry (\textbf{skewness}) and tail heaviness (\textbf{kurtosis}).
 
 \subsection{Skewness}
+	\label{subsec:Skewness}
 Skewness is a measure of the asymmetry of a distribution.
 \begin{itemize}
 	\item \textbf{Symmetric Distribution:} Skewness is zero. Mean, Median, and Mode are equal.
@@ -230,6 +236,7 @@ Skewness is a measure of the asymmetry of a distribution.
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 217, Exhibit 20
 
 \subsection{Kurtosis}
+	\label{subsec:Kurtosis}
 Kurtosis measures the thickness or heaviness of the tails of a distribution relative to a normal distribution.
 \begin{itemize}
 	\item \textbf{Leptokurtic (Fat-tailed):} Kurtosis $>$ 3, Excess Kurtosis $>$ 0. Taller peaks and fatter tails, representing higher probability of extreme outcomes.
@@ -309,7 +316,8 @@ Excess Kurtosis & \texttt{=KURT(A1:A5)} & \texttt{=KURT(A1:A5)} \\
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 222, Exhibit 26
 
-\section{COVARIANCE AND CORRELATION}
+\section{Covariance and Correlation}
+\label{sec:Covariance and Correlation}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	c & calculate, interpret, and evaluate covariance and correlation \\
@@ -321,6 +329,7 @@ To quantify the co-movements and linear relationships between two variables, ana
 \textcolor{blue}{\textit{Hãy cẩn thận! Hệ số tương quan bằng 0 chỉ nghĩa là không có mối quan hệ TUYẾN TÍNH. Chúng ta đã nghe về Anscombe's Quartet chưa? Do đó, trực quan hóa dữ liệu bằng đồ thị (Scatter Plot) luôn là bước bắt buộc.}}
 
 \subsection{Covariance}
+	\label{subsec:Covariance}
 Covariance measures the joint variability of two random variables, indicating how they move in relation to each other.
 \begin{equation}
 	\sigma_{X,Y} = \frac{\sum_{i=1}^{N} (X_i - \mu_X)(Y_i - \mu_Y)}{N}
@@ -337,6 +346,7 @@ Covariance measures the joint variability of two random variables, indicating ho
 If covariance is positive, the variables tend to move in the same direction relative to their means. If negative, they tend to move in opposite directions.
 
 \subsection{Correlation}
+	\label{subsec:Correlation}
 Correlation standardizes covariance into a dimensionless measure that ranges between $-1$ and $+1$:
 \begin{equation}
 	\rho_{X,Y} = \frac{\sigma_{X,Y}}{\sigma_X \sigma_Y} \quad \text{or} \quad r_{X,Y} = \frac{s_{X,Y}}{s_X s_Y}
@@ -361,6 +371,7 @@ $\rho_{X,Y} < 0$ & Negative correlation & Moves in opposite directions; $-1$ rep
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 227, Exhibit 30
 
 \subsection{Anscombe's Quartet}
+	\label{subsec:Anscombe's Quartet}
 Anscombe's Quartet consists of four datasets that have nearly identical simple statistical properties (mean, variance, correlation), yet have completely different distributions and look completely different when graphed. This underscores the vital importance of visualizing data prior to performing correlation analysis.
 
 \begin{figure}[!htbp]
@@ -371,7 +382,8 @@ Anscombe's Quartet consists of four datasets that have nearly identical simple s
 \end{figure}
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 231, Exhibit 35
 
-\section{OTHER DISPERSION MEASURES}
+\section{Other Dispersion Measures}
+\label{sec:Other Dispersion Measures}
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	d & calculate, interpret, and evaluate semi-deviation and coefficient of variation \\
@@ -379,6 +391,7 @@ Anscombe's Quartet consists of four datasets that have nearly identical simple s
 \end{center}
 
 \subsection{Semi-Deviation and Target Downside Deviation}
+	\label{subsec:Semi-Deviation and Target Downside Deviation}
 While variance and standard deviation capture both upside and downside volatility, investors are primarily concerned with downside risk.
 \begin{itemize}
 	\item \textbf{Semi-deviation (Semi-variance):} Measures variability for observations below the mean.
@@ -415,6 +428,7 @@ Let's compute the sample target downside deviation for a portfolio with $12$ mon
 \end{tcolorbox}
 
 \subsection{Coefficient of Variation (CV)}
+	\label{subsec:Coefficient of Variation (CV)}
 The Coefficient of Variation measures the amount of risk per unit of return. It standardizes standard deviation, making it universally comparable:
 \begin{equation}
 	\text{CV} = \frac{s}{\bar{X}}
