@@ -1,5 +1,525 @@
 \chapter{Bài tập ôn tập và Lời giải (Practice Problems \& Solutions)}
 \label{chap:Practice Problems and Solutions}
+\section{Module 1: Returns of Financial Assets and Instruments}
+\label{sec:app_Problems_M1}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M1}
+
+\begin{enumerate}
+	\item An investor is evaluating the returns of three recently formed ETFs. Selected return information on the ETFs is presented in the table below:
+	      \begin{center}
+	      \begin{tabular}{l  c  c}
+		      \toprule
+		      \textbf{ETF} & \textbf{Time Since Inception} & \textbf{Return Since Inception (\%)} \\
+		      \midrule
+		      1 & 125 days & 4.25 \\
+		      2 & 8 weeks & 1.95 \\
+		      3 & 16 months & 17.18 \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      Which ETF has the highest annualized rate of return?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item ETF 1.
+		      \item ETF 2.
+		      \item ETF 3.
+	      \end{enumerate}
+
+	\item The quarterly returns on a portfolio are as follows:
+	      \begin{center}
+	      \begin{tabular}{c  c  c  c  c}
+		      \toprule
+		      \textbf{Quarter} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+		      \midrule
+		      Return & 20\% & -20\% & 10\% & -10\% \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      The time-weighted rate of return of the portfolio is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item -5.0\%.
+		      \item -1.3\%.
+		      \item 0.0\%.
+	      \end{enumerate}
+
+	\item Over the past four years, a portfolio experienced returns of $-8\%$, $4\%$, $17\%$, and $-12\%$. The geometric mean return of the portfolio over the four-year period is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item -0.37\%.
+		      \item 0.25\%.
+		      \item 0.99\%.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M1}
+
+\begin{enumerate}
+	\item \textbf{B là phương án đúng.} \textcolor{blue}{\textit{Tỷ suất sinh lời năm (annualized rate of return) của mỗi quỹ ETF được tính theo công thức tỷ suất sinh lời thực tế năm (Effective Annual Rate - EAR):
+	      \[
+	      \text{EAR} = (1 + \text{HPR})^{\frac{365}{n}} - 1
+	      \]
+	      Trong đó, HPR là tỷ suất sinh lời kỳ nắm giữ (dạng số thập phân), và $n$ là số ngày nắm giữ (lưu ý: 8 tuần = 56 ngày; 16 tháng = 480 ngày):
+	      \[
+	      \text{EAR}_1 = (1 + 0.0425)^{\frac{365}{125}} - 1 \approx 12.92\%
+	      \]
+	      \[
+	      \text{EAR}_2 = (1 + 0.0195)^{\frac{365}{56}} - 1 \approx 13.37\%
+	      \]
+	      \[
+	      \text{EAR}_3 = (1 + 0.1718)^{\frac{365}{480}} - 1 \approx 12.63\%
+	      \]
+	      Mặc dù có tỷ suất sinh lời định kỳ thấp nhất, ETF 2 lại có tỷ suất sinh lời năm hóa cao nhất do giả định tái đầu tư định kỳ và hiệu ứng lãi kép của tỷ suất sinh lời định kỳ.}}
+
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Tỷ suất sinh lời theo thời gian (Time-Weighted Rate of Return - TWR) của danh mục này được tính bằng tích số tích lũy của các suất sinh lời định kỳ:
+	      \[
+	      R_{TW} = (1 + r_1)(1 + r_2)(1 + r_3)(1 + r_4) - 1
+	      \]
+	      Trong đó, $r_1, r_2, r_3, r_4$ lần lượt là tỷ suất sinh lời kỳ nắm giữ (HPR) của quý 1, quý 2, quý 3 và quý 4:
+	      \[
+	      R_{TW} = (1 + 0.20)(1 - 0.20)(1 + 0.10)(1 - 0.10) - 1 = -4.96\% \approx -5.0\%
+	      \]
+	      Phương án B sai vì tính trung bình hình học không có tích lũy đầy đủ $[(1.20)(0.80)(1.10)(0.90)]^{1/4} - 1 = -1.26\%$. Phương án C sai do chỉ tính tổng đại số đơn giản của các tỷ suất sinh lời ($20\% - 20\% + 10\% - 10\% = 0\%$).}}
+
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Để tính tỷ suất sinh lời trung bình hình học (geometric mean return), ta cộng 1 vào mỗi mức sinh lời định kỳ, nhân chúng lại với nhau, lấy căn bậc bốn (do có 4 năm) của tích số thu được, rồi trừ đi 1:
+	      \[
+	      (0.92 \times 1.04 \times 1.17 \times 0.88)^{0.25} - 1 \approx -0.37\%
+	      \]
+	      Phương án B sai vì đây là trung bình cộng đơn giản của 4 số liệu. Phương án C sai do lấy tích số mà chưa trừ đi 1 hoặc chưa lấy căn bậc bốn.}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 2: Types of Financial Returns}
+\label{sec:app_Problems_M2}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M2}
+
+\begin{enumerate}
+	\item At the beginning of the year, an investor holds EUR10,000 in a hedge fund. The investor borrowed 25 percent of the purchase price, EUR2,500, at an annual interest rate of 6 percent and expects to pay a 30 percent tax on the return she earns from her investment. At the end of the year, the hedge fund reported the following information:
+	      \begin{center}
+	      \begin{tabular}{p{0.6\linewidth}  c}
+		      \toprule
+		      \textbf{Item} & \textbf{Percentage} \\
+		      \midrule
+		      Gross return & 8.46\% \\
+		      Trading expenses & 1.10\% \\
+		      Managerial and administrative expenses & 1.60\% \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      The investor's after-tax return on the hedge fund investment is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 3.60\%.
+		      \item 3.98\%.
+		      \item 5.00\%.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M2}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} \textcolor{blue}{\textit{Quy trình tính toán tỷ suất sinh lời sau thuế của nhà đầu tư trải qua 3 bước:
+	      \begin{itemize}
+		      \item Bước 1: Tính tỷ suất sinh lời ròng (net return) của quỹ. Tỷ suất sinh lời ròng bằng tỷ suất sinh lời gộp (gross return) trừ đi phí quản lý và phí hành chính (1.60\%). Lưu ý rằng chi phí giao dịch (trading expenses) đã được phản ánh trực tiếp trong gross return nên không cần trừ tiếp:
+		            \[
+		            R_{net} = 8.46\% - 1.60\% = 6.86\%
+		            \]
+		      \item Bước 2: Tính tỷ suất sinh lời sử dụng đòn bẩy (leveraged return), do nhà đầu tư vay 25\% số vốn (EUR2,500, nợ $V_B$) và tự có 75\% vốn (EUR7,500, vốn chủ sở hữu $V_E$):
+		            \[
+		            R_L = R_{net} + \frac{V_B}{V_E}(R_{net} - r_D)
+		            \]
+		            \[
+		            R_L = 6.86\% + \frac{\text{EUR2,500}}{\text{EUR7,500}}(6.86\% - 6.00\%) = 7.15\%
+		            \]
+		      \item Bước 3: Tính tỷ suất sinh lời sau thuế của nhà đầu tư:
+		            \[
+		            R_{AT} = R_L(1 - T) = 7.15\%(1 - 0.30) = 5.00\%
+		            \]
+	      \end{itemize}}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 3: Benchmarking Returns}
+\label{sec:app_Problems_M3}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M3}
+
+\begin{enumerate}
+	\item A fund receives investments at the beginning of each year and generates returns for three years as follows:
+	      \begin{center}
+	      \begin{tabular}{p{0.18\linewidth} | p{0.33\linewidth} | p{0.33\linewidth}}
+		      \toprule
+		      \textbf{Year of Investment} & \textbf{Assets under Management at the Beginning of each year} & \textbf{Return during Year of Investment} \\
+		      \midrule
+		      1 & USD1,000 & 15\% \\
+		      2 & USD4,000 & 14\% \\
+		      3 & USD45,000 & -4\% \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      Which return measure over the three-year period is negative?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Geometric mean return.
+		      \item Time-weighted rate of return.
+		      \item Money-weighted rate of return.
+	      \end{enumerate}
+
+	\item At the beginning of Year 1, a fund has USD10 million under management; it earns a return of 14 percent for the year. The fund attracts another net USD100 million at the start of Year 2 and earns a return of 8 percent for that year. The money-weighted rate of return of the fund is most likely to be:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item less than the time-weighted rate of return.
+		      \item the same as the time-weighted rate of return.
+		      \item greater than the time-weighted rate of return.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M3}
+
+\begin{enumerate}
+	\item \textbf{C là phương án đúng.} \textcolor{blue}{\textit{Tỷ suất sinh lời gia quyền theo tiền (Money-Weighted Return - MWR) chịu ảnh hưởng bởi cả thời điểm và quy mô dòng tiền bơm vào/rút ra khỏi quỹ. Ta lập bảng lưu chuyển tiền tệ hàng năm:
+	      \begin{center}
+	      \begin{tabular}{p{0.45\linewidth} c c c}
+		      \toprule
+		      \textbf{Chỉ tiêu (USD)} & \textbf{Năm 1} & \textbf{Năm 2} & \textbf{Năm 3} \\
+		      \midrule
+		      Số dư từ năm trước & 0 & 1,150 & 4,560 \\
+		      Vốn góp mới đầu năm & 1,000 & 2,850 & 40,440 \\
+		      Giá trị tài sản đầu năm (AUM) & 1,000 & 4,000 & 45,000 \\
+		      Tỷ suất sinh lời trong năm & 15\% & 14\% & -4\% \\
+		      Lợi nhuận (lỗ) trong năm & 150 & 560 & -1,800 \\
+		      Số dư tài sản cuối năm & 1,150 & 4,560 & 43,200 \\
+		      \bottomrule
+	      \end{tabular}
+	      \end{center}
+	      Các dòng tiền tương ứng:
+	      - Thời điểm 0: $CF_0 = -1,000$ (khoản góp vốn ban đầu)
+	      - Thời điểm 1: $CF_1 = -2,850$ (bơm thêm vốn đầu năm 2)
+	      - Thời điểm 2: $CF_2 = -40,440$ (bơm thêm vốn đầu năm 3)
+	      - Thời điểm 3: $CF_3 = +43,200$ (giá trị rút ra hoặc tài sản cuối năm 3)
+	      MWR (IRR) là nghiệm của phương trình dòng tiền chiết khấu:
+	      \[
+	      -1,000 + \frac{-2,850}{(1+r)^1} + \frac{-40,440}{(1+r)^2} + \frac{43,200}{(1+r)^3} = 0
+	      \]
+	      Giải ra $r \approx -2.22\%$. Do dòng tiền lớn nhất được bơm vào đầu Năm 3 ngay trước năm có hiệu suất âm (-4\%), tỷ suất sinh lời gia quyền theo tiền bị kéo xuống âm.
+	      Ngược lại, tỷ suất sinh lời theo thời gian (TWR) không phụ thuộc vào dòng tiền:
+	      \[
+	      R_{TW} = \sqrt[3]{(1.15)(1.14)(0.96)} - 1 \approx 7.97\%
+	      \]
+	      TWR bằng tỷ suất sinh lời trung bình hình học nên phương án A và B đều mang giá trị dương.}}
+
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Việc tính toán MWR ($r$) yêu cầu tìm tỷ suất chiết khấu làm cho tổng giá trị hiện tại của các dòng tiền bằng 0. Do phần lớn tài sản của quỹ được bơm vào ở đầu Năm 2 (USD100 triệu so với USD10 triệu ban đầu), hiệu suất MWR sẽ bị thiên lệch mạnh về phía hiệu suất của Năm 2 khi tỷ suất sinh lời chỉ đạt 8\% (thấp hơn mức 14\% của Năm 1).
+	      Dòng tiền cụ thể:
+	      - $CF_0 = -10$ triệu USD
+	      - $CF_1 = -100$ triệu USD
+	      - $CF_2 = +120.31$ triệu USD (giá trị cuối kỳ: $(10 \times 1.14 \times 1.08) + (100 \times 1.08) = 120.312$ triệu USD)
+	      Giải phương trình IRR:
+	      \[
+	      -10 + \frac{-100}{1+r} + \frac{120.31}{(1+r)^2} = 0 \implies r \approx 8.53\%
+	      \]
+	      Trong khi đó, tỷ suất sinh lời theo thời gian (TWR) không chịu ảnh hưởng của quy mô dòng tiền là:
+	      \[
+	      R_{TW} = \sqrt{(1.14)(1.08)} - 1 \approx 10.96\%
+	      \]
+	      Vì $8.53\% < 10.96\%$, nên MWR nhỏ hơn TWR.}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 4: The Time Value of Money in Finance}
+\label{sec:app_Problems_M4}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M4}
+
+\begin{enumerate}
+	\item A consumer purchases an automobile using a loan. The amount borrowed is €30,000, and the terms of the loan call for the loan to be repaid over five years using equal monthly payments with an annual nominal interest rate of 8\% and monthly compounding. The monthly payment is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item €608.29.
+		      \item €626.14.
+		      \item €700.00.
+	      \end{enumerate}
+
+	\item Suppose Mylandia announces that it expects significant cash flow growth over the next three years, and now plans to increase its recent CAD2.40 dividend by 10 percent in each of the next three years. Following the 10 percent growth period, Mylandia is expected to grow its annual dividend by a constant 3 percent indefinitely. Mylandia’s required return is 8 percent. Based upon these revised expectations, the expected share price of Mylandia stock is:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item CAD49.98.
+		      \item CAD55.84.
+		      \item CAD59.71.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M4}
+
+\begin{enumerate}
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Sử dụng máy tính tài chính BA II Plus để giải hệ phương trình:
+	      - $N = 5 \times 12 = 60$ kỳ thanh toán (tháng).
+	      - $I/Y = 8 / 12 = 0.6667\%$ (lãi suất theo tháng).
+	      - $PV = 30,000$ (giá trị hiện tại của khoản vay).
+	      - $FV = 0$ (sau 5 năm khoản vay được trả hết).
+	      - Tính $PMT \approx -608.29$ EUR (dấu âm thể hiện dòng tiền chi ra).
+	      Công thức toán học tính giá trị hiện tại của niên kim thường:
+	      \[
+	      PV = A \times \frac{1 - (1 + r)^{-N}}{r} \implies 30,000 = A \times \frac{1 - (1 + \frac{0.08}{12})^{-60}}{\frac{0.08}{12}}
+	      \]
+	      \[
+	      30,000 = A \times 49.3184 \implies A = \frac{30,000}{49.3184} \approx 608.29\text{ EUR}
+	      \]
+	      Phương án B sai vì dùng số năm $N=5$ và lãi suất năm $I/Y=8$, tính ra khoản thanh toán năm rồi chia cho 12. Phương án C sai do tính lãi đơn đơn giản.}}
+
+	\item \textbf{C là phương án đúng.} \textcolor{blue}{\textit{Quy trình định giá cổ phiếu tăng trưởng phi định hình (hai giai đoạn):
+	      \begin{itemize}
+		      \item Bước 1: Tính các khoản cổ tức dự kiến trong giai đoạn tăng trưởng nhanh (3 năm đầu, tốc độ $g_1 = 10\%$):
+		            + Năm 1: $D_1 = 2.40 \times 1.10 = 2.64$ CAD
+		            + Năm 2: $D_2 = 2.40 \times 1.10^2 = 2.904$ CAD
+		            + Năm 3: $D_3 = 2.40 \times 1.10^3 = 3.1944$ CAD
+		      \item Bước 2: Tính giá trị thanh lý kỳ vọng ở cuối năm thứ 3 ($P_3$) bằng mô hình tăng trưởng Gordon (giai đoạn 2 có tốc độ tăng trưởng ổn định $g_2 = 3\%$, tỷ suất sinh lời yêu cầu $r = 8\%$):
+		            + Cổ tức năm 4: $D_4 = D_3 \times (1 + g_2) = 3.1944 \times 1.03 = 3.2902$ CAD
+		            + Giá trị cuối kỳ: $P_3 = \frac{D_4}{r - g_2} = \frac{3.2902}{0.08 - 0.03} = 65.804$ CAD
+		      \item Bước 3: Chiết khấu toàn bộ các cổ tức và giá trị thanh lý cuối năm 3 về hiện tại (năm 0):
+		            \[
+		            PV = \frac{D_1}{1.08^1} + \frac{D_2}{1.08^2} + \frac{D_3}{1.08^3} + \frac{P_3}{1.08^3}
+		            \]
+		            \[
+		            PV = \frac{2.64}{1.08} + \frac{2.904}{1.08^2} + \frac{3.1944}{1.08^3} + \frac{65.804}{1.08^3} \approx 59.71\text{ CAD}
+		            \]
+	      \end{itemize}}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 5: Statistical Characteristics of Asset Returns}
+\label{sec:app_Problems_M5}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M5}
+
+\begin{enumerate}
+	\item The following 10 observations are a sample drawn from an approximately normal population:
+	      \begin{center}
+	      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+		      \hline
+		      \textbf{Observation} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+		      \hline
+		      \textbf{Value} & -3 & -11 & 3 & -18 & 18 & 20 & -6 & 9 & 2 & -16 \\
+		      \hline
+	      \end{tabular}
+	      \end{center}
+	      The sample standard deviation is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 13.18.
+		      \item 14.01.
+		      \item 15.49.
+	      \end{enumerate}
+
+	\item An analyst gathers the following information about a portfolio's returns:
+	      \begin{center}
+	      \begin{tabular}{|c|c|c|c|c|c|}
+		      \hline
+		      \textbf{Year} & 1 & 2 & 3 & 4 & 5 \\
+		      \hline
+		      \textbf{Return (\%)} & 6 & 7 & 3 & 2 & 4 \\
+		      \hline
+	      \end{tabular}
+	      \end{center}
+	      If the target return is 5\%, the target downside deviation is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 1.7\%.
+		      \item 1.9\%.
+		      \item 2.2\%.
+	      \end{enumerate}
+
+	\item The following table shows the volatility of a series of funds that belong to the same peer group, ranked in ascending order:
+	      \begin{center}
+	      \begin{tabular}{|c|c||c|c|}
+		      \hline
+		      \textbf{Fund} & \textbf{Volatility (\%)} & \textbf{Fund} & \textbf{Volatility (\%)} \\
+		      \hline
+		      Fund 1 & 9.81 & Fund 8 & 13.99 \\
+		      Fund 2 & 10.12 & Fund 9 & 14.47 \\
+		      Fund 3 & 10.84 & Fund 10 & 14.85 \\
+		      Fund 4 & 11.33 & Fund 11 & 15.00 \\
+		      Fund 5 & 12.25 & Fund 12 & 17.36 \\
+		      Fund 6 & 13.39 & Fund 13 & 17.98 \\
+		      Fund 7 & 13.42 & & \\
+		      \hline
+	      \end{tabular}
+	      \end{center}
+	      The approximate value of the first quintile is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 10.70\%.
+		      \item 11.09\%.
+		      \item 10.84\%.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M5}
+
+\begin{enumerate}
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Các bước tính toán độ lệch chuẩn mẫu:
+	      - Bước 1: Tính số trung bình mẫu ($\bar{X}$):
+	        \[
+	        \bar{X} = \frac{-3 - 11 + 3 - 18 + 18 + 20 - 6 + 9 + 2 - 16}{10} = \frac{-2.00}{10} = -0.20
+	        \]
+	      - Bước 2: Tính tổng các sai lệch bình phương so với số trung bình mẫu $\sum (X_i - \bar{X})^2$:
+	        + $(-3 - (-0.2))^2 = 7.84$
+	        + $(-11 - (-0.2))^2 = 116.64$
+	        + $(3 - (-0.2))^2 = 10.24$
+	        + $(-18 - (-0.2))^2 = 316.84$
+	        + $(18 - (-0.2))^2 = 331.24$
+	        + $(20 - (-0.2))^2 = 408.04$
+	        + $(-6 - (-0.2))^2 = 33.64$
+	        + $(9 - (-0.2))^2 = 84.64$
+	        + $(2 - (-0.2))^2 = 4.84$
+	        + $(-16 - (-0.2))^2 = 249.64$
+	        + Tổng bình phương sai lệch = 1563.60
+	      - Bước 3: Tính phương sai mẫu ($s^2$) bằng cách chia cho $n-1 = 9$:
+	        \[
+	        s^2 = \frac{1563.60}{9} \approx 173.7333
+	        \]
+	      - Bước 4: Lấy căn bậc hai của phương sai mẫu để tìm độ lệch chuẩn mẫu:
+	        \[
+	        s = \sqrt{173.7333} \approx 13.18
+	        \]
+	      Phương án B sai vì chia cho $n+1 = 11$. Phương án C sai do chia cho $n = 10$.}}
+
+	\item \textbf{B là phương án đúng.} \textcolor{blue}{\textit{Tỷ suất sinh lời mục tiêu $B = 5\%$. Công thức tính độ lệch chuẩn cận dưới mục tiêu (target downside deviation) chỉ lấy tổng đối với những quan sát nhỏ hơn hoặc bằng mục tiêu:
+	      \[
+	      s_{target} = \sqrt{\frac{\sum_{X_i \le B} (X_i - B)^2}{n - 1}}
+	      \]
+	      Lập bảng tính toán độ lệch:
+	      - Năm 1: 6\% $> 5\%$ $\implies$ lệch = 0, bình phương = 0
+	      - Năm 2: 7\% $> 5\%$ $\implies$ lệch = 0, bình phương = 0
+	      - Năm 3: 3\% $\le 5\%$ $\implies$ lệch = 3 - 5 = -2, bình phương = 4
+	      - Năm 4: 2\% $\le 5\%$ $\implies$ lệch = 2 - 5 = -3, bình phương = 9
+	      - Năm 5: 4\% $\le 5\%$ $\implies$ lệch = 4 - 5 = -1, bình phương = 1
+	      Tổng bình phương độ lệch dưới mục tiêu = $4 + 9 + 1 = 14$.
+	      Độ lệch chuẩn cận dưới:
+	      \[
+	      s_{target} = \sqrt{\frac{14}{5 - 1}} = \sqrt{3.5} \approx 1.87\% \approx 1.9\%
+	      \]
+	      Phương án A sai do dùng mẫu số là $n=5$ thay vì $n-1$. Phương án C sai do tính toán độ lệch cho toàn bộ quan sát kể cả lớn hơn 5\%.}}
+
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Vị trí phân vị của ngũ phân vị thứ nhất (first quintile, tương ứng phân vị thứ 20, $y = 20$) với số lượng mẫu $n=13$:
+	      \[
+	      L_{20} = (13 + 1) \times \frac{20}{100} = 2.80
+	      \]
+	      Vị trí 2.80 cho thấy giá trị nằm giữa quan sát thứ 2 (Fund 2) và quan sát thứ 3 (Fund 3).
+	      Nội suy tuyến tính để tìm giá trị xấp xỉ của ngũ phân vị thứ nhất:
+	      \[
+	      P_{20} \approx X_2 + (2.80 - 2) \times (X_3 - X_2)
+	      \]
+	      Với $X_2 = 10.12\%$ và $X_3 = 10.84\%$:
+	      \[
+	      P_{20} \approx 10.12\% + 0.80 \times (10.84\% - 10.12\%) = 10.70\%
+	      \]
+	      Phương án B sai vì đây là giá trị tứ phân vị thứ nhất ($L_{25} = 14 \times 0.25 = 3.50 \implies P_{25} \approx 10.84\% + 0.50 \times (11.33\% - 10.84\%) = 11.09\%$). Phương án C sai do làm tròn vị trí lên 3 rồi lấy trực tiếp giá trị của Fund 3 là 10.84\%.}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 6: Statistical Distributions for Financial Asset Prices and Returns}
+\label{sec:app_Problems_M6}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M6}
+
+\begin{enumerate}
+	\item An analyst expects that a stock has a 60\% probability of increasing in value and a 40\% probability of decreasing in value in any given month. Assuming stock price movements in successive months are independent, the probability that the stock price increases in exactly 3 out of the next 4 months is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 13.0\%.
+		      \item 34.6\%.
+		      \item 43.2\%.
+	      \end{enumerate}
+
+	\item An analyst gathers the following information:
+	      \begin{itemize}
+		      \item 60\% of companies in an industry are expected to exceed their earnings estimates.
+		      \item Of the companies that exceed estimates, 70\% have upgraded their IT systems.
+		      \item Of the companies that do not exceed estimates, 30\% have upgraded their IT systems.
+	      \end{itemize}
+	      If a company is randomly selected and is found to have upgraded its IT systems, the probability that the company exceeds its earnings estimate is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 54.0\%.
+		      \item 70.0\%.
+		      \item 77.8\%.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M6}
+
+\begin{enumerate}
+	\item \textbf{B là phương án đúng.} \textcolor{blue}{\textit{Áp dụng công thức tính xác suất của phân phối nhị thức (binomial distribution):
+	      \[
+	      P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}
+	      \]
+	      Trong đó $n = 4$ tháng, số tháng tăng giá mong muốn $k = 3$, và xác suất tăng giá mỗi tháng $p = 0.60$:
+	      \[
+	      P(X = 3) = \binom{4}{3} (0.60)^3 (0.40)^{4-3} = 4 \times 0.216 \times 0.40 = 34.56\% \approx 34.6\%
+	      \]}}
+
+	\item \textbf{C là phương án đúng.} \textcolor{blue}{\textit{Chúng ta áp dụng định lý Bayes để cập nhật xác suất:
+	      - Gọi $E$ là sự kiện doanh nghiệp vượt dự báo lợi nhuận: $P(E) = 0.60 \implies P(E^c) = 0.40$.
+	      - Gọi $IT$ là sự kiện doanh nghiệp nâng cấp hệ thống công nghệ thông tin:
+	        + Xác suất có điều kiện: $P(IT|E) = 0.70$ và $P(IT|E^c) = 0.30$.
+	      - Bước 1: Tính xác suất toàn phần doanh nghiệp nâng cấp hệ thống IT ($P(IT)$):
+	        \[
+	        P(IT) = P(IT|E)P(E) + P(IT|E^c)P(E^c) = (0.70 \times 0.60) + (0.30 \times 0.40) = 0.42 + 0.12 = 0.54
+	        \]
+	      - Bước 2: Tính xác suất doanh nghiệp vượt dự báo lợi nhuận khi biết đã nâng cấp hệ thống IT ($P(E|IT)$):
+	        \[
+	        P(E|IT) = \frac{P(IT|E)P(E)}{P(IT)} = \frac{0.42}{0.54} \approx 77.78\%
+	        \]}}
+\end{enumerate}
+
+\newpage
+
+\section{Module 7: Estimation and Hypothesis Testing}
+\label{sec:app_Problems_M7}
+
+\subsection{Practice Problems}
+\label{subsec:app_Problems_M7}
+
+\begin{enumerate}
+	\item An analyst draws a sample of 25 observations from a normally distributed population with unknown variance. The sample mean is 12\% and the sample standard deviation is 5\%. The t-distribution critical value for a 95\% confidence interval with 24 degrees of freedom is 2.064. The 95\% confidence interval for the population mean is closest to:
+	      \begin{enumerate}[label=\Alph*.]
+		      \item 10.00\% to 14.00\%.
+		      \item 9.94\% to 14.06\%.
+		      \item 10.35\% to 13.65\%.
+	      \end{enumerate}
+
+	\item An analyst is testing a null hypothesis that the mean return of a portfolio is zero. Which of the following statements regarding Type I and Type II errors is correct?
+	      \begin{enumerate}[label=\Alph*.]
+		      \item Type I error occurs when the null hypothesis is rejected when it is actually true.
+		      \item Type II error occurs when the null hypothesis is rejected when it is actually false.
+		      \item The probability of Type I error is minimized by increasing the significance level.
+	      \end{enumerate}
+\end{enumerate}
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:app_Solutions_M7}
+
+\begin{enumerate}
+	\item \textbf{B là phương án đúng.} \textcolor{blue}{\textit{Công thức tính khoảng tin cậy cho kỳ vọng tổng thể khi chưa biết phương sai tổng thể, sử dụng phân phối t:
+	      \[
+	      \bar{X} \pm t_c \times \frac{s}{\sqrt{n}}
+	      \]
+	      Trong đó $\bar{X} = 12\%$, $s = 5\%$, cỡ mẫu $n = 25$, và giá trị tới hạn $t_c = 2.064$ (bậc tự do $df = n - 1 = 24$):
+	      - Sai số chuẩn (Standard Error): $SE = \frac{s}{\sqrt{n}} = \frac{5\%}{\sqrt{25}} = 1.00\%$
+	      - Biên độ sai số (Margin of Error): $2.064 \times 1.00\% = 2.064\%$
+	      - Khoảng tin cậy 95\%: $12\% \pm 2.064\%$, tức là từ $9.936\%$ (làm tròn thành $9.94\%$) đến $14.064\%$ (làm tròn thành $14.06\%$).}}
+
+	\item \textbf{A là phương án đúng.} \textcolor{blue}{\textit{Sai lầm Loại I (Type I error) định nghĩa là bác bỏ giả thuyết không ($H_0$) khi thực tế nó đúng.
+	      Phương án B sai vì sai lầm Loại II xảy ra khi không bác bỏ được $H_0$ khi thực tế nó sai. Phương án C sai vì tăng mức ý nghĩa ($\alpha$) làm tăng xác suất xảy ra sai lầm Loại I chứ không phải giảm thiểu.}}
+\end{enumerate}
+
+\newpage
 
 \section{Module 8: The Return and Risk of a Financial Portfolio}
 \label{sec:app_Problems_M8}
