@@ -65,7 +65,7 @@ The geometric average return, or geometric return, is defined as:
 	\label{eq:portfolio_geometric_return_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Portfolio drift làm lệch tỷ trọng mục tiêu (style drift) do tài sản tăng trưởng không đều. Chúng ta cần đặt câu hỏi: Nếu không tái cân bằng (rebalancing) định kỳ, rủi ro danh mục sẽ thay đổi thế nào? Có tiệm cận rủi ro của tài sản sinh lời cao nhất?}}
+\textcolor{blue}{\textit{Portfolio drift (lệch tỷ trọng mục tiêu) do tài sản tăng trưởng không đều. Nếu không tái cân bằng (rebalancing) định kỳ, tỷ trọng sẽ dồn về tài sản tăng trưởng mạnh nhất, khiến rủi ro danh mục tiệm cận tài sản đó.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -283,7 +283,7 @@ Calculate the expected portfolio return, variance, and standard deviation.
 	\label{fig:SP500_MSCI_Feasible}
 \end{figure}
 
-\textcolor{blue}{\textit{Tương quan S\&P 500 và MSCI EM thấp tạo đồ thị rủi ro - sinh lời cong lõm (concave), giúp Portfolio 9 có độ lệch chuẩn ($14.59\%$) thấp hơn cả S\&P 500 ($16.21\%$). Chúng ta hãy suy nghĩ: Nếu tương quan bằng +1.0, liệu có thể giảm rủi ro danh mục? Tại sao tương quan thấp lại là \"chén thánh\"?}}
+\textcolor{blue}{\textit{Tương quan thấp giữa S\&P 500 và MSCI EM tạo đồ thị cong lõm (concave), giúp danh mục có rủi ro ($14.59\%$) thấp hơn cả S\&P 500 ($16.21\%$). Nếu tương quan bằng +1.0, đa dạng hóa sẽ hoàn toàn không có tác dụng giảm rủi ro.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -363,7 +363,7 @@ The matching normalized matrix is the \textbf{correlation matrix} $\boldsymbol{\
 	\label{eq:correlation_matrix_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Thực tế: Bloomberg thường nhân covariance matrix với $10^4$ để hiển thị dưới dạng $\%^2$. Chúng ta hãy lưu ý: Khi đổi hệ số ($310.07$) về số thập phân để tính, phải chia cho bao nhiêu? (Đáp án: $10^4$). Nhầm lẫn này gây kết quả lệch hàng ngàn lần!}}
+\textcolor{blue}{\textit{Thực tế: Bloomberg thường nhân covariance matrix với $10^4$ (đơn vị $\%^2$). Khi quy đổi về số thập phân để tính toán, bắt buộc phải chia cho $10^4$ để tránh sai số hàng ngàn lần.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -615,7 +615,7 @@ This leaves only the average covariance term to determine the portfolio's risk:
 	\label{eq:limit_variance_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{Rủi ro danh mục đa dạng hóa cao chỉ phụ thuộc covariance trung bình giữa các tài sản (rủi ro hệ thống) chứ không phụ thuộc rủi ro riêng lẻ (phi hệ thống). Chúng ta hãy tự hỏi: Tại sao thị trường chỉ bù đắp lợi nhuận cho rủi ro hệ thống mà không bù đắp rủi ro phi hệ thống?}}
+\textcolor{blue}{\textit{Nhận xét: Danh mục đa dạng hóa tốt chỉ còn chịu rủi ro hệ thống (covariance trung bình) do rủi ro phi hệ thống đã bị triệt tiêu. Thị trường chỉ bù đắp lợi nhuận cho rủi ro không thể đa dạng hóa (rủi ro hệ thống).}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -831,7 +831,7 @@ Portfolios lying below P6 (offering lower expected returns for the same level of
 	\label{fig:Frontier_Selected}
 \end{figure}
 
-\textcolor{blue}{\textit{MVP phân chia đường biên tối thiểu làm hai phần. Chúng ta hãy suy nghĩ: Tại sao nhà đầu tư duy lý không chọn danh mục ở nửa dưới (dưới MVP)? Có phải vì cùng mức rủi ro, họ luôn tìm được danh mục ở nửa trên có tỷ suất sinh lời cao hơn?}}
+\textcolor{blue}{\textit{MVP phân chia đường biên hiệu quả làm hai phần. Nhà đầu tư duy lý chỉ chọn danh mục ở nửa trên MVP (đường biên hiệu quả) vì mang lại tỷ suất sinh lời cao nhất cho cùng mức rủi ro.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -929,6 +929,10 @@ Both portfolios lie on the multi-asset efficient frontier (Exhibit~\ref{fig:Mult
 \end{center}
 
 Optimal portfolio selection balances expected returns with risk, matching the opportunity set against an investor's personal preferences.
+
+\begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
+Cấu phần "Optimal Portfolio Selection" bao gồm các khái niệm về Đường phân bổ vốn (CAL), Đường thị trường vốn (CML), Mô hình định giá tài sản vốn (CAPM) và Beta đã được chuyển từ phần Portfolio Management sang tích hợp trực tiếp vào Quantitative Methods năm 2027. Đây là phần lý thuyết cốt lõi và rất quan trọng cho kỳ thi.
+\end{examtip}
 
 \subsection{Investor Utility and Indifference Curves}
 \label{subsec:Investor Utility}
@@ -1153,7 +1157,7 @@ The graphical representation of CAPM is the \textbf{Security Market Line (SML)},
 	\label{eq:SML_covariance_form_m8}
 \end{equation}
 
-\textcolor{blue}{\textit{CML dùng tổng rủi ro ($\sigma$) cho danh mục hiệu quả. SML (CAPM) dùng rủi ro hệ thống ($\beta$) cho mọi tài sản. Chúng ta hãy thảo luận: Điểm khác biệt cốt lõi về rủi ro giữa CML và SML là gì? Tại sao cổ phiếu đơn lẻ có độ lệch chuẩn lớn không nằm trên CML nhưng vẫn nằm trên SML?}}
+\textcolor{blue}{\textit{So sánh: CML dùng tổng rủi ro ($\sigma$) áp dụng cho danh mục hiệu quả. SML dùng rủi ro hệ thống ($\beta$) áp dụng cho mọi tài sản đơn lẻ lẫn danh mục. Cổ phiếu đơn lẻ không nằm trên CML nhưng vẫn nằm trên SML.}}
 
 
 \begin{tcolorbox}[

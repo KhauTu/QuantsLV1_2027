@@ -28,7 +28,7 @@
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Hồi quy tuyến tính (Linear Regression) là nền tảng của mọi mô hình định lượng trong tài chính. Bản chất của nó là gì? Đó là đi tìm một đường thẳng mô tả tốt nhất mối quan hệ nhân quả giữa hai biến số. Bằng cách sử dụng tiêu chuẩn OLS (Bình phương tối thiểu), chúng ta có thể tối thiểu hóa sai số dự báo. Nhưng hãy lưu ý: mối quan hệ hồi quy thu được có thực sự mang tính nhân quả, hay chỉ đơn thuần là một sự tương quan ngẫu nhiên trong quá khứ? Chúng ta cần rà soát kỹ lưỡng các giả định đằng sau mô hình này.}}
+\textcolor{blue}{\textit{Hồi quy tuyến tính là nền tảng của mô hình định lượng tài chính. Bằng tiêu chuẩn OLS (Bình phương tối thiểu), ta tối thiểu hóa sai số dự báo để tìm đường thẳng mô tả tốt nhất quan hệ giữa hai biến. Cần lưu ý quan hệ hồi quy chưa chắc là quan hệ nhân quả thực tế.}}
 
 \subsection{Linear Regression Analysis}
 Regression analysis estimates the relationship between a dependent variable ($Y$), whose variation we want to explain, and an independent variable ($X$), which is hypothesized to influence or explain changes in $Y$. 
@@ -84,7 +84,7 @@ where $\bar{X}$ and $\bar{Y}$ are the sample means of the independent and depend
 	\label{fig:mod10_exhibit_1}
 \end{figure}
 
-\textcolor{blue}{\textit{Tại sao OLS lại được ưa chuộng? Phương pháp này đảm bảo tổng các sai số bằng không ($\sum e_i = 0$) và đường hồi quy luôn đi qua điểm tọa độ trung bình mẫu $(\bar{X}, \bar{Y})$. Tuy nhiên, hãy nhớ rằng việc bình phương các phần sai số ($e_i^2$) sẽ phạt cực kỳ nặng các điểm dữ liệu dị biệt (outliers), từ đó làm lệch đường hồi quy nếu dữ liệu có nhiều biến động bất thường.}}
+\textcolor{blue}{\textit{Nhận xét: OLS đảm bảo tổng sai số bằng 0 ($\sum e_i = 0$) và đường hồi quy đi qua điểm trung bình $(\bar{X}, \bar{Y})$. Tuy nhiên, việc bình phương sai số ($e_i^2$) khiến OLS rất nhạy cảm với các điểm dị biệt (outliers).}}
 
 \subsection{Estimation Residuals}
 The difference between the observed value $Y_i$ and the estimated/predicted value $\hat{Y}_i$ is the residual ($e_i$):
@@ -143,7 +143,7 @@ If the real GDP growth is projected to be $3\%$, the predicted inflation rate is
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Một mô hình hồi quy tuyến tính OLS chỉ đáng tin cậy khi các giả định cơ bản được thỏa mãn. Nếu các giả định này bị vi phạm (như phương sai sai số thay đổi - Heteroskedasticity hoặc các sai số tự tương quan với nhau - Autocorrelation), kết quả ước lượng và các khoảng tin cậy sẽ bị lệch lạc. Hãy học cách phân tích đồ thị phần dư (Residual Plots) - đây chính là công cụ trực quan mạnh mẽ nhất để phát hiện các lỗi hệ thống này.}}
+\textcolor{blue}{\textit{Lưu ý: Mô hình OLS chỉ đáng tin cậy khi thỏa mãn các giả định. Nếu vi phạm (như phương sai thay đổi - Heteroskedasticity hay tự tương quan - Autocorrelation), ước lượng sẽ lệch lạc. Đồ thị phần dư (Residual Plots) là công cụ trực quan tốt nhất để phát hiện vi phạm.}}
 
 \subsection{Assumptions of the Simple Linear Regression Model}
 To ensure that the OLS estimators are Blue (Best Linear Unbiased Estimators) and that statistical inferences are valid, 5 key assumptions must hold:
@@ -317,7 +317,7 @@ An analyst regresses the excess returns of FIRN AG stock ($Y$) on the market ris
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Dự báo giá trị tương lai là mục đích tối thượng của phân tích hồi quy. Khi dự báo, chúng ta không chỉ tính ra một giá trị điểm đơn lẻ mà phải tính toán được khoảng dự báo (Prediction Interval) phản ánh sự không chắc chắn của dự báo đó. Ngoài ra, thế giới thực thường phi tuyến: hãy nắm vững các phương pháp biến đổi logarith (Log-Lin, Lin-Log, Log-Log) để làm mượt các mối quan hệ tăng trưởng mũ hay co giãn trong tài chính.}}
+\textcolor{blue}{\textit{Lưu ý: Dự báo hồi quy cần đi kèm khoảng dự báo (Prediction Interval) để phản ánh mức độ không chắc chắn. Với quan hệ phi tuyến, ta dùng biến đổi logarit (Log-Lin, Lin-Log, Log-Log) để đưa về dạng tuyến tính.}}
 
 \subsection{Prediction Using a Simple Regression}
 For a given value of the independent variable ($X_p$), the predicted value of the dependent variable ($\hat{Y}_p$) is:
@@ -409,7 +409,11 @@ with $s_{\hat{\beta}_1} = 0.0077$.
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{CAPM là ứng dụng kinh điển nhất của hồi quy tuyến tính đơn trong đầu tư tài chính. Phương trình hồi quy CAPM (còn gọi là Security Characteristic Line - SCL) biểu diễn phần bù rủi ro của tài sản ($R_i - R_f$) theo phần bù rủi ro của thị trường ($R_m - R_f$). Hệ số góc của phương trình này chính là hệ số Beta ($\beta_i$), đại diện cho mức độ rủi ro hệ thống của cổ phiếu. Nếu một cổ phiếu có Beta lớn hơn 1, nó sẽ biến động mạnh hơn thị trường và ngược lại.}}
+\textcolor{blue}{\textit{CAPM là ứng dụng kinh điển của hồi quy tuyến tính đơn. Đường đặc trưng chứng khoán (SCL) hồi quy phần bù rủi ro tài sản ($R_i - R_f$) theo phần bù rủi ro thị trường ($R_m - R_f$). Hệ số góc chính là Beta ($\beta$), đo lường rủi ro hệ thống.}}
+
+\begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
+Ứng dụng hồi quy tuyến tính đơn biến để ước lượng hệ số Beta của cổ phiếu trong khung lý thuyết CAPM là phần ứng dụng thực tế được nhấn mạnh hơn trong chương trình 2027. Học viên cần hiểu rõ cách lập mô hình hồi quy và diễn giải các hệ số.
+\end{examtip}
 
 \subsection{CAPM Regression Framework}
 The CAPM asserts that the expected excess return on an asset is linearly related to the market risk premium. We express it as a simple linear regression:

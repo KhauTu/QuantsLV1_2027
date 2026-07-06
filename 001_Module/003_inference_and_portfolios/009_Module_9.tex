@@ -26,7 +26,7 @@
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Mô phỏng lịch sử (Historical Simulation) là phương pháp phi tham số đơn giản nhất: thay vì giả định phân phối xác suất, chúng ta "tái hiện" lại quá khứ bằng cách áp dụng trực tiếp các biến động lịch sử lên danh mục hiện tại. Ưu điểm lớn nhất là gì? Đó là bảo toàn nguyên vẹn các hiện tượng thực tế như đuôi béo (fat tails) hay tương quan tài sản mà không cần mô hình hóa phức tạp. Nhưng liệu quá khứ có luôn lặp lại đúng như vậy không?}}
+\textcolor{blue}{\textit{Mô phỏng lịch sử là phương pháp phi tham số đơn giản: áp dụng trực tiếp biến động quá khứ lên danh mục hiện tại. Ưu điểm: bảo toàn các hiện tượng thực tế như đuôi béo (fat tails) hay tương quan mà không cần giả định phân phối phức tạp.}}
 
 \subsection{Overview of Simulation Methods}
 Simulation predicts potential outcomes for a system based on theoretical scenarios by defining objectives, selecting variables, assigning values, evaluating scenarios, and interpreting results. Figure~\ref{fig:mod9_exhibit_1} outlines the key steps.
@@ -245,7 +245,7 @@ The standard deviation is $\sigma_p = \text{HKD } 1.0656\text{ million}$. The 95
 The difference arises because parametric VaR relies on the normality assumption, whereas historical VaR directly reflects empirical tail behavior and any inherent drift.
 \end{tcolorbox}
 
-\textcolor{blue}{\textit{Chúng ta lưu ý lý do thực tế tại sao VaR tham số dùng $z = 1.96$ ở đây lớn hơn VaR lịch sử: giả định phân phối chuẩn phân bổ đều xác suất về hai phía đuôi, trong khi dữ liệu thực tế ít biến động cực đại hơn. Điều này phản ánh rõ: VaR tham số phụ thuộc vào mô hình toán, còn VaR lịch sử phụ thuộc vào mẫu dữ liệu cụ thể.}}
+\textcolor{blue}{\textit{Lưu ý: VaR tham số ($z = 1.96$) lớn hơn VaR lịch sử vì giả định phân phối chuẩn phân bổ đều xác suất về hai đuôi, trong khi dữ liệu thực tế ít biến động cực đại hơn. VaR tham số phụ thuộc mô hình, còn VaR lịch sử phụ thuộc mẫu.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -364,7 +364,7 @@ Disadvantages of historical simulation:
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Bootstrapping (tái lấy mẫu lặp) cho phép chọn mẫu có thay thế (with replacement) từ tập mẫu ban đầu để tạo ra vô số kịch bản tổng hợp. Điểm khác biệt mấu chốt là: bootstrapping coi mẫu hiện tại là đại diện cho toàn bộ quần thể, còn mô phỏng lịch sử coi dữ liệu quá khứ là cố định và duy nhất.}}
+\textcolor{blue}{\textit{Bootstrapping (resampling with replacement) tạo ra các kịch bản tổng hợp bằng cách coi mẫu hiện tại là đại diện quần thể, khác với mô phỏng lịch sử coi dữ liệu quá khứ là cố định và duy nhất.}}
 
 \subsection{Bootstrapping Overview}
 Resampling repeatedly draws samples from observed data to make statistical inferences. It is particularly useful when population distributions are unknown or sample sizes are small.
@@ -535,7 +535,7 @@ Figure~\ref{fig:mod9_exhibit_19} shows the histograms for 10,000 simulations (me
 Under the standard risk-free BSM model, this option is worth $<$ GBP 5. The bootstrapped price ($\approx$ GBP 21) is much higher because bootstrapping uses historical returns, incorporating the large positive drift (1.38\% weekly) observed in the sample data, whereas BSM assumes a risk-neutral drift.
 \end{tcolorbox}
 
-\textcolor{blue}{\textit{Chúng ta chú ý sự chênh lệch lớn này: định giá quyền chọn bằng bootstrapping ra khoảng GBP 21, khi công thức BSM chỉ ra kết quả dưới GBP 5! Lý do là vì bootstrapping sử dụng tăng trưởng lịch sử trung bình tuần $1.38\%$ (hơn $70\%$ một năm) làm drift, trong khi lý thuyết định giá quyền chọn chuẩn tắc bắt buộc sử dụng suất sinh lời phi rủi ro ($5.0\%$ một năm) làm drift. Đây là minh chứng rõ ràng: mô hình đúng số liệu nhưng sai nguyên lý tài chính sẽ dẫn đến kết quả sai lệch nghiêm trọng.}}
+\textcolor{blue}{\textit{Lưu ý: Định giá quyền chọn bằng bootstrapping ra GBP 21 (so với BSM dưới GBP 5) vì dùng drift lịch sử ($1.38\%$/tuần) thay vì lãi suất phi rủi ro ($5\%$/năm) như lý thuyết bắt buộc. Đây là ví dụ về lỗi sai nguyên lý tài chính.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -634,7 +634,7 @@ Disadvantages of bootstrapping:
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Mô phỏng Monte Carlo là phương pháp mô phỏng tham số: thay vì dùng dữ liệu quá khứ, chúng ta giả định phân phối toán học (như chuẩn, log-normal) và chạy hàng chục ngàn kịch bản ngẫu nhiên. Đây là công cụ hữu ích nhất để định giá tài sản phi tuyến tính hoặc phụ thuộc đường đi (path-dependent) như quyền chọn kiểu Á hay chứng khoán bảo đảm bằng thế chấp (MBS).}}
+\textcolor{blue}{\textit{Mô phỏng Monte Carlo là phương pháp tham số: giả định phân phối xác suất và chạy hàng chục ngàn kịch bản ngẫu nhiên. Hữu ích nhất để định giá tài sản phi tuyến hoặc phụ thuộc đường đi (Asian options, MBS).}}
 
 \subsection{Monte Carlo Simulation Overview}
 A Monte Carlo simulation generates a large number of random samples from a specified probability distribution or distributions to produce a simulated frequency distribution of outcomes.
@@ -701,7 +701,7 @@ V_0 = 8.61 \times e^{-0.05 \times 1} = \text{CAD } 8.19
 This closely matches the BSM formula value of CAD 8.18.
 \end{tcolorbox}
 
-\textcolor{blue}{\textit{Chúng ta lưu ý: Mô phỏng Monte Carlo hội tụ về giá trị của công thức BSM khi tăng số lượng kịch bản. Cả hai cho kết quả giống nhau vì cùng giả định chuyển động Brown hình học (Geometric Brownian Motion): phân phối log-normal, biến động không đổi và drift bằng lãi suất phi rủi ro. Nhưng nếu tài sản phụ thuộc vào đường đi giá (như quyền chọn kiểu Á) thì sao?}}
+\textcolor{blue}{\textit{Lưu ý: Mô phỏng Monte Carlo hội tụ về giá trị BSM khi tăng số kịch bản do cùng giả định chuyển động Brown hình học. Tuy nhiên, với quyền chọn phụ thuộc đường đi (như kiểu Á), ta bắt buộc phải dùng mô phỏng.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -867,7 +867,7 @@ Phương án A tính sai khi bỏ qua yếu tố tương quan và nhân trực t
 Phương án C sai vì dùng sai tỷ lệ của $x_1$.
 \end{tcolorbox}
 
-\textcolor{blue}{\textit{Chúng ta lưu ý: Biến đổi Cholesky duy trì cấu trúc hiệp phương sai trong mô hình Monte Carlo đa biến. Thiếu bước này, các biến ngẫu nhiên sẽ độc lập, làm mất đi tính tương quan thực tế giữa các tài sản và tác động đa dạng hóa (portfolio diversification).}}
+\textcolor{blue}{\textit{Lưu ý: Biến đổi Cholesky duy trì cấu trúc hiệp phương sai trong Monte Carlo đa biến. Nếu thiếu, các biến ngẫu nhiên sẽ độc lập, làm mất đi tính tương quan và hiệu ứng đa dạng hóa danh mục.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,

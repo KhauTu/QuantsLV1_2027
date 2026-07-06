@@ -40,12 +40,9 @@
 	\item[] \textbf{Bayesian Updating}
 \end{itemize}
 
-\textcolor{blue}{\textit{Mục tiêu ở Module 6 là giúp chúng ta hiểu cách dùng các phân phối (Nhị thức, Poisson, Chuẩn, Log-normal) để mô hình hóa giá tài sản, sinh lời, rủi ro. Đặc biệt lưu ý định lý Bayes vì tính thực tế và tần suất xuất hiện cao.}}
+\textcolor{blue}{\textit{Mục tiêu Module 6: hiểu cách dùng các phân phối (Nhị thức, Poisson, Chuẩn, Log-normal) để mô hình hóa giá, sinh lời và rủi ro. Đặc biệt lưu ý định lý Bayes vì tần suất xuất hiện cao.}}
 
-\textcolor{blue}{\textit{Lộ trình học đơn giản hóa:
-1. Chúng ta chỉ cần hiểu xác suất biến liên tục là diện tích dưới đường cong PDF, không cần tính tích phân.
-2. Tập trung vào biến rời rạc (kỳ vọng, phương sai qua xác suất) và định lý Bayes.
-3. Ghi nhớ đặc trưng 4 moments các phân phối và lý do chọn (ví dụ: Log-normal cho giá $\ge 0$, Poisson cho vỡ nợ).}}
+\textcolor{blue}{\textit{Lộ trình học: (1) Xác suất biến liên tục là diện tích dưới đường cong PDF (không cần tính tích phân). (2) Tập trung vào biến rời rạc và định lý Bayes. (3) Ghi nhớ 4 moments của các phân phối và lý do lựa chọn (Log-normal cho giá $\ge 0$, Poisson cho số vụ vỡ nợ).}}
 
 \section{Random Variables and Unconditional Expectations}
 \label{sec:Random Variables and Unconditional Expectations}
@@ -65,7 +62,7 @@ A \textbf{random variable} is a function that assigns a number to each outcome o
 	\item A \textbf{continuous random variable} can take on an infinite number of possible values within a given range, such as picking a random number between $0$ and $1$ on the number line. When the number of observations is large, empirical distributions often converge to continuous distributions.
 \end{itemize}
 
-\textcolor{blue}{\textit{Biến rời rạc (Discrete) mô tả các sự kiện đếm được (vỡ nợ trái phiếu, số giao dịch). Ngược lại, tỷ suất sinh lời cổ phiếu dùng biến liên tục (Continuous) vì nhận bất kỳ giá trị thực nào.}}
+\textcolor{blue}{\textit{Biến rời rạc (Discrete) mô tả các sự kiện đếm được (số vụ vỡ nợ, giao dịch). Tỷ suất sinh lời cổ phiếu dùng biến liên tục (Continuous) vì có thể nhận bất kỳ giá trị thực nào.}}
 
 A random variable, $X$, is fully described by its distribution functions:
 \begin{itemize}
@@ -210,7 +207,7 @@ Unconditional expectations, variance, and covariance provide foundational tools 
 	\end{equation}
 \end{itemize}
 
-\textcolor{blue}{\textit{Trong phòng thi, chúng ta rất dễ gặp tính kỳ vọng và phương sai biến rời rạc. Công thức: nhân từng kết quả với xác suất rồi cộng lại (Mean); lấy bình phương khoảng cách tới trung bình nhân xác suất (Variance).}}
+\textcolor{blue}{\textit{Kỳ thường có câu hỏi tính kỳ vọng và phương sai biến rời rạc. Công thức: Mean = tổng của tích (kết quả $\times$ xác suất); Variance = tổng của tích (bình phương độ lệch $\times$ xác suất).}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -369,10 +366,7 @@ A discrete uniform distribution consists of a finite number of equally spaced ou
 	\label{eq:discrete_uniform_var_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối đều rời rạc:
-- Giả định: $N = b - a + 1$ kết quả đều nhau trong $[a, b]$, xác suất bằng $\frac{1}{N}$.
-- Mean: Kỳ vọng là trung bình cộng cấp số cộng của $a$ và $b$: $E[X] = \frac{a+b}{2}$.
-- Variance: Sử dụng biến chuẩn hóa $Y = X - a + 1$. Ta có $\text{Var}(X) = \text{Var}(Y) = E[Y^2] - (E[Y])^2$. Với các tổng chuẩn của dãy số, ta suy ra $\text{Var}(Y) = \frac{N^2-1}{12}$. Thay $N = b - a + 1$, ta được $\sigma^2 = \frac{(b - a + 1)^2 - 1}{12}$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối đều rời rạc: Với $N = b - a + 1$ kết quả đều nhau trong $[a, b]$, xác suất là $1/N$. Kỳ vọng $E[X] = (a+b)/2$. Sử dụng biến chuẩn hóa $Y = X - a + 1$ và các công thức tổng dãy số, ta suy ra phương sai $\sigma^2 = [(b - a + 1)^2 - 1] / 12$.}}
 
 \begin{figure}[!htbp]
 	\centering
@@ -398,12 +392,9 @@ The mean and variance are:
 	\label{eq:binomial_variance_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối Nhị thức:
-- Giả định: $n$ phép thử Bernoulli độc lập với xác suất thành công $p$.
-- Mean: Gọi $Y_i$ là phép thử thứ $i$ ($E[Y_i]=p$). Số lần thành công $X = \sum Y_i$. Theo tính tuyến tính: $E[X] = \sum E[Y_i] = n \times p$.
-- Variance: Do các phép thử độc lập, $\text{Var}(X) = \sum \text{Var}(Y_i)$. Mà $\text{Var}(Y_i) = E[Y_i^2] - E[Y_i]^2 = p - p^2 = p(1-p)$. Do đó $\text{Var}(X) = n \times p(1-p)$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối Nhị thức: Với $n$ phép thử độc lập có xác suất $p$. Kỳ vọng $E[X] = \sum E[Y_i] = n p$. Vì độc lập, $\text{Var}(X) = \sum \text{Var}(Y_i) = n p(1-p)$ do $\text{Var}(Y_i) = p(1-p)$.}}
 
-\textcolor{blue}{\textit{Thực tế: Phân phối nhị thức rất phổ biến, tiêu biểu là mô hình định giá quyền chọn nhị thức (BOPM) giả định giá đi lên/xuống cố định. Cây nhị thức giúp chúng ta định giá các hợp đồng tài chính phức tạp.}}
+\textcolor{blue}{\textit{Ứng dụng: Phân phối nhị thức là nền tảng của mô hình định giá quyền chọn nhị thức (BOPM) bằng cách giả định giá đi lên/xuống qua từng bước để định giá các hợp đồng tài chính phức tạp.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -457,10 +448,7 @@ The mean and variance of a Poisson distribution are identical:
 	\label{eq:poisson_moments_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối Poisson:
-- Giả định: Các sự kiện độc lập với tốc độ trung bình $\lambda$. Là giới hạn phân phối Nhị thức khi $n \to \infty, p \to 0, np = \lambda$.
-- Mean: Sử dụng khai triển Taylor cho $e^\lambda$: $E[X] = \sum k \frac{\lambda^k e^{-\lambda}}{k!} = \lambda e^{-\lambda} \sum \frac{\lambda^{k-1}}{(k-1)!} = \lambda$.
-- Variance: Tính $E[X(X-1)] = \sum k(k-1)\frac{\lambda^k e^{-\lambda}}{k!} = \lambda^2$. Suy ra $E[X^2] = \lambda^2 + \lambda$. Vậy $\text{Var}(X) = E[X^2] - E[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối Poisson: Là giới hạn của phân phối Nhị thức khi $n \to \infty, p \to 0$ và $n p = \lambda$. Sử dụng khai triển Taylor cho $e^\lambda$, ta có $E[X] = \lambda$. Tính tiếp $E[X(X-1)] = \lambda^2 \implies E[X^2] = \lambda^2 + \lambda$, do đó phương sai $\text{Var}(X) = \lambda$.}}
 Its skewness is $\frac{1}{\sqrt{\lambda}}$ and excess kurtosis is $\frac{1}{\lambda}$.
 
 In credit risk modeling, the Poisson distribution is widely used in \textbf{reduced-form models} where default is modeled as a random event governed by a hazard rate (default intensity) $\lambda$.
@@ -511,10 +499,7 @@ The continuous uniform distribution is defined over an interval $[a, b]$, where 
 	\label{eq:continuous_uniform_var_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối đều liên tục:
-- Giả định: $X$ nhận giá trị trong đoạn $[a, b]$, hàm mật độ $f(x) = \frac{1}{b-a}$.
-- Mean: $E[X] = \int_a^b \frac{x}{b-a} dx = \frac{b^2 - a^2}{2(b-a)} = \frac{a+b}{2}$.
-- Variance: Tính $E[X^2] = \int_a^b \frac{x^2}{b-a} dx = \frac{b^3 - a^3}{3(b-a)} = \frac{a^2 + ab + b^2}{3}$. Suy ra $\text{Var}(X) = E[X^2] - E[X]^2 = \frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} = \frac{(b-a)^2}{12}$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối đều liên tục: Hàm mật độ $f(x) = 1/(b-a)$ trong $[a, b]$. Tích phân cho $E[X] = (a+b)/2$. Tính tiếp $E[X^2] = (a^2+ab+b^2)/3$, suy ra phương sai $\text{Var}(X) = E[X^2] - E[X]^2 = (b-a)^2 / 12$.}}
 Its skewness is $0$ and kurtosis is $1.8$.
 
 \begin{figure}[!htbp]
@@ -575,10 +560,7 @@ Key probability intervals (Empirical Rule):
 	\item $\mu \pm 2.58\sigma$ contains approximately $99\%$ of the observations.
 \end{itemize}
 
-\textcolor{blue}{\textit{Chứng minh phân phối Chuẩn:
-- Giả định: $Z \sim N(0, 1)$ có hàm mật độ đối xứng $f(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}$. Biến tổng quát $X = \mu + \sigma Z$.
-- Mean: Do tích phân hàm lẻ đối xứng bằng $0$, $E[Z]=0$. Suy ra $E[X] = E[\mu + \sigma Z] = \mu$.
-- Variance: Tính $\text{Var}(Z) = E[Z^2]$ bằng tích phân từng phần (đặt $u=z, dv=ze^{-z^2/2}dz$), ta được $\text{Var}(Z) = 1$. Do đó $\text{Var}(X) = \sigma^2 \text{Var}(Z) = \sigma^2$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối Chuẩn: Với $Z \sim N(0, 1)$ và $X = \mu + \sigma Z$. Do đối xứng, $E[Z] = 0 \implies E[X] = \mu$. Tính phương sai $\text{Var}(Z) = E[Z^2] = 1$ bằng tích phân từng phần, suy ra $\text{Var}(X) = \sigma^2$.}}
 
 \subsubsection{Log-Normal Distribution}
 A random variable $Y$ is log-normally distributed if $X = \ln(Y)$ is normally distributed.
@@ -593,12 +575,9 @@ If $X \sim N(\mu_X, \sigma_X^2)$, the moments of $Y$ are:
 	\label{eq:lognormal_var_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối Log-normal:
-- Giả định: $Y = e^X$ với $X \sim N(\mu_X, \sigma_X^2)$.
-- Mean: Sử dụng hàm sinh mô-men $E[e^{tX}] = e^{\mu_X t + \sigma_X^2 t^2 / 2}$ với $t=1$: $E[Y] = e^{\mu_X + \frac{\sigma_X^2}{2}}$.
-- Variance: Tính $E[Y^2] = E[e^{2X}]$ bằng cách đặt $t=2$, ta có $E[Y^2] = e^{2\mu_X + 2\sigma_X^2}$. Suy ra $\text{Var}(Y) = E[Y^2] - E[Y]^2 = e^{2\mu_X + 2\sigma_X^2} - e^{2\mu_X + \sigma_X^2} = (e^{\sigma_X^2} - 1)e^{2\mu_X + \sigma_X^2}$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối Log-normal: Với $Y = e^X$ và $X \sim N(\mu_X, \sigma_X^2)$. Hàm sinh mô-men với $t=1$ cho $E[Y] = e^{\mu_X + \sigma_X^2/2}$. Đặt $t=2$ để tính $E[Y^2] = e^{2\mu_X + 2\sigma_X^2}$, suy ra phương sai $\text{Var}(Y) = (e^{\sigma_X^2} - 1) e^{2\mu_X + \sigma_X^2}$.}}
 
-\textcolor{blue}{\textit{Tại sao dùng Log-normal cho giá và Normal cho sinh lời? Vì giá cổ phiếu $\ge 0$, phù hợp Log-normal. Tỷ suất sinh lời có thể âm, phù hợp phân phối Chuẩn. Ngoài ra, Log returns cộng dồn (additive) giúp đơn giản hóa tính toán.}}
+\textcolor{blue}{\textit{Lưu ý: Giá cổ phiếu $\ge 0$ nên dùng phân phối Log-normal. Tỷ suất sinh lời có thể âm nên dùng phân phối Chuẩn. Log return có tính cộng dồn, giúp đơn giản hóa tính toán.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -635,10 +614,7 @@ The logistic distribution is a continuous distribution defined by location $\mu$
 	\label{eq:logistic_variance_m6}
 \end{equation}
 
-\textcolor{blue}{\textit{Chứng minh phân phối Logistic:
-- Giả định: $Z$ chuẩn hóa có CDF $F(z) = \frac{1}{1+e^{-z}}$. Biến tổng quát $X = \mu + s Z$.
-- Mean: Do tính đối xứng hoàn hảo quanh $\mu$, ta có $E[X] = \mu$.
-- Variance: Phương sai của $Z$ được tính bằng tích phân Riemann-Zeta: $\text{Var}(Z) = \frac{\pi^2}{3}$. Do đó, $\text{Var}(X) = s^2 \text{Var}(Z) = \frac{s^2 \pi^2}{3}$.}}
+\textcolor{blue}{\textit{Chứng minh phân phối Logistic: Với $X = \mu + s Z$ và $Z$ có CDF $F(z) = 1/(1+e^{-z})$. Do đối xứng, $E[X] = \mu$. Phương sai của $Z$ tính bằng tích phân Riemann-Zeta là $\pi^2/3$, do đó $\text{Var}(X) = s^2 \pi^2 / 3$.}}
 Its skewness is $0$, kurtosis is $4.2$, and excess kurtosis is $1.2$.
 The logistic distribution is widely used in logistic regression to predict binary outcomes in finance (e.g., probability of default).
 
@@ -1008,7 +984,7 @@ where:
 	\end{equation}
 \end{itemize}
 
-\textcolor{blue}{\textit{Thực tế: Định lý Bayes giúp chúng ta cập nhật nhận định khi có tin mới (ví dụ xác suất vỡ nợ, tăng trưởng cổ phiếu). Công thức: Posterior = (Conditional Likelihood / Total Probability) * Prior.}}
+\textcolor{blue}{\textit{Thực tế: Định lý Bayes giúp cập nhật nhận định khi có thông tin mới (như xác suất vỡ nợ, tăng trưởng). Công thức: Posterior = (Conditional Likelihood / Total Probability) * Prior.}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,

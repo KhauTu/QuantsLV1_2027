@@ -1,0 +1,61 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Matrix Mapping of Return Types across Assets, Instruments, and Indicators}}{12}{table.caption.8}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces OMX Copenhagen 25 Index vs. Ørsted A/S Equity Total Returns (2017--2023)}}{14}{table.caption.9}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Asset Class Returns and Allocation Summary}}{15}{table.caption.11}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Investor Asset Allocations and Portfolio Returns}}{16}{table.caption.12}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of Money-Weighted and Time-Weighted Returns}}{19}{table.caption.13}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Comparison of Index-Weighting Methodologies}}{21}{table.caption.15}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of Mean, Trimmed Mean, and Winsorized Mean for Brent Crude Returns}}{40}{table.caption.38}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Excel and Google Sheets Functions for Measures of Central Tendency}}{41}{table.caption.39}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces The Four Moments of Statistical Distributions}}{43}{table.caption.42}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Excel and Google Sheets Functions for Skewness and Kurtosis}}{43}{table.caption.43}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Correlation Levels and Interpretation}}{44}{table.caption.44}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Distribution of Outcomes for Rolling Two Six-Sided Dice}}{49}{table.caption.49}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Convergence of Sample Mean and Variance to Unconditional Values}}{51}{table.caption.51}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Classification Matrix of Statistical Distributions}}{52}{table.caption.53}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces The Four Statistical Moments of Distributions}}{58}{table.caption.70}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces CDFs, PMFs, and PDFs for Statistical Distributions}}{59}{table.caption.71}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Statistical Distribution Functions in Excel and Google Sheets}}{59}{table.caption.72}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Returns for Technology and Non-Technology Firms}}{60}{table.caption.74}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Expectation and Variance Under Different Conditions}}{62}{table.caption.78}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces General Formulation of Hypotheses}}{76}{table.caption.87}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Decisions in Hypothesis Testing}}{76}{table.caption.89}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Descriptive Statistics for MSCI World, Value, and Growth Indexes}}{78}{table.caption.92}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces Fund Correlations Matrix ($n=36$)}}{90}{table.caption.108}%
+\contentsline {table}{\numberline {7.5}{\ignorespaces Built-In Excel and Google Sheet Functions for Hypothesis Testing}}{92}{table.caption.109}%
+\contentsline {table}{\numberline {7.6}{\ignorespaces ESG Ratings Contingency Table ($N=500$)}}{95}{table.caption.112}%
+\contentsline {table}{\numberline {7.7}{\ignorespaces ETFs Classifications Contingency Table ($N=1,594$)}}{95}{table.caption.114}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Portfolio Drift Characteristics by Weighting Scheme}}{101}{table.caption.117}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Portfolio Return and Risk under Different Weights (S\&P 500 vs. MSCI EM)}}{102}{table.caption.118}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Portfolio Return and Risk Under Different Correlations}}{103}{table.caption.120}%
+\contentsline {table}{\numberline {8.4}{\ignorespaces Comparison of Summation and Matrix Notation}}{107}{table.caption.124}%
+\contentsline {table}{\numberline {8.5}{\ignorespaces Optimal Portfolio Weights vs. Traditional 60/40 Portfolio}}{114}{table.caption.131}%
+\contentsline {table}{\numberline {8.6}{\ignorespaces Risk Preferences and Indifference Curves}}{115}{table.caption.133}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {9.1}{\ignorespaces Comparing the Steps for Different Simulation Approaches}}{122}{table.caption.141}%
+\contentsline {table}{\numberline {9.2}{\ignorespaces Hang Seng Index and CSI 300 Daily Log Returns}}{123}{table.9.2}%
+\contentsline {table}{\numberline {9.3}{\ignorespaces Portfolio P/L for the Long-Only Portfolio}}{124}{table.9.3}%
+\contentsline {table}{\numberline {9.4}{\ignorespaces Ranking of Total Portfolio Daily Profit and Loss}}{125}{table.9.4}%
+\contentsline {table}{\numberline {9.5}{\ignorespaces Descriptive Statistics}}{125}{table.9.5}%
+\contentsline {table}{\numberline {9.6}{\ignorespaces The Two Tail Ends of the Revenue Forecast Deviations}}{126}{table.9.6}%
+\contentsline {table}{\numberline {9.7}{\ignorespaces Comparison of Historical Simulation and Bootstrapping}}{128}{table.caption.143}%
+\contentsline {table}{\numberline {9.8}{\ignorespaces Weekly Closing Prices and Log Returns for Brighton Rock plc}}{130}{table.9.8}%
+\contentsline {table}{\numberline {9.9}{\ignorespaces Random Numbers and Corresponding Log Returns for a Scenario}}{130}{table.9.9}%
+\contentsline {table}{\numberline {9.10}{\ignorespaces Monthly Returns and NAVs}}{133}{table.9.10}%
+\contentsline {table}{\numberline {9.11}{\ignorespaces Asian Option Valuation: Daily Log Returns and Prices for One Simulated Run}}{140}{table.9.11}%
+\contentsline {table}{\numberline {9.12}{\ignorespaces Comparison of Simulation Approaches}}{146}{table.caption.146}%
+\contentsline {table}{\numberline {9.13}{\ignorespaces Functions Used for Simulation}}{146}{table.caption.147}%
+\contentsline {table}{\numberline {9.14}{\ignorespaces Detail on Excel Functions in Simulations}}{147}{table.caption.148}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces ANOVA Table for Simple Linear Regression}}{154}{table.caption.154}%
+\contentsline {table}{\numberline {10.2}{\ignorespaces Logarithmic Regression Functional Forms}}{156}{table.caption.155}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {11.1}{\ignorespaces Examples of Big Data Sources in Finance}}{161}{table.caption.157}%
+\contentsline {table}{\numberline {11.2}{\ignorespaces Comparison of Machine Learning Approaches}}{164}{table.caption.159}%

@@ -1,0 +1,182 @@
+\contentsline {chapter}{\numberline {1}Returns of Financial Assets and Instruments}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Financial Returns}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Total Return}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Arithmetic and Geometric Holding Period Return}{6}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Compounding: Daily, Monthly, Quarterly, and Annual Returns}{6}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Continuous Compounding}{6}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Common Return Measures}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}The Required Rate of Return}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Excess Returns}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Real Returns}{8}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Gross and Net Return}{9}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Pre-Tax and After-Tax Nominal Return}{9}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Leveraged Returns}{9}{subsection.1.2.6}%
+\contentsline {chapter}{\numberline {2}Types of Returns for Financial Assets, Instruments, and Indicators}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Types of Returns}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Matrix Mapping of Return Types}{11}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Types of Returns: Financial Assets}{12}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Types of Returns: Financial Instruments}{12}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Types of Returns: Financial Indicators}{12}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Long-Term Financial Asset Returns}{14}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Historical Long-Term Asset Returns}{14}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Long-Term Asset Return Components}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Risks and Returns}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}The Risk--Return Trade-Off}{15}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Portfolio Return Calculation}{15}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Benchmarking Returns}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Money-Weighted and Time-Weighted Rates of Return}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Time-Weighted Rate of Return (TWR)}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Money-Weighted Rate of Return (MWR)}{18}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Case Study: The Albright Fund}{18}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Summary of Differences}{19}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Index Definition and Calculation}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Price Return vs. Total Return Indexes}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Index Weighting Methodologies}{20}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Summary of Weighting Methodologies}{21}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Index Management: Rebalancing and Reconstitution}{21}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Divisor Adjustment for Stock Splits}{22}{subsection.3.2.5}%
+\contentsline {chapter}{\numberline {4}The Time Value of Money in Finance}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Time Value of Money in Fixed Income and Equity}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Fixed-Income Instruments and the Time Value of Money}{24}{subsection.4.1.1}%
+\contentsline {subsubsection}{Discount Instruments}{24}{section*.17}%
+\contentsline {subsubsection}{Coupon Instruments}{25}{section*.19}%
+\contentsline {subsubsection}{Floating-Rate and Perpetual Bonds}{26}{section*.21}%
+\contentsline {subsubsection}{Annuities and Fully Amortizing Loans}{27}{section*.22}%
+\contentsline {section}{\numberline {4.2}Equity Instruments and the Time Value of Money}{27}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Constant Dividends}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Constant Dividend Growth (Gordon Growth Model)}{28}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Two-Stage Dividend Growth Model}{28}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Implied Return and Growth}{30}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Implied Return for Fixed-Income Instruments}{30}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Equity Implied Return, Implied Growth, and Forward P/E Ratios}{31}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Cash Flow Additivity}{33}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Implied Forward Interest Rates Using Cash Flow Additivity}{33}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Forward Exchange Rates Using No Arbitrage}{34}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Option Pricing Using Cash Flow Additivity}{36}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Statistical Characteristics of Asset Returns}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Measures of Central Tendency and Dispersion}{39}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Measures of Central Tendency}{40}{subsection.5.1.1}%
+\contentsline {subsubsection}{Dealing with Outliers}{40}{section*.37}%
+\contentsline {subsection}{\numberline {5.1.2}Quantiles}{40}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Measures of Dispersion}{41}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Measures of Shape of a Distribution}{41}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Skewness}{42}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Kurtosis}{42}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Covariance and Correlation}{42}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Covariance}{44}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Correlation}{44}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Anscombe's Quartet}{44}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Other Dispersion Measures}{44}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Semi-Deviation and Target Downside Deviation}{44}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Coefficient of Variation (CV)}{46}{subsection.5.4.2}%
+\contentsline {chapter}{\numberline {6}Statistical Distributions for Financial Asset Prices and Returns}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Random Variables and Unconditional Expectations}{47}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Random Variables and Their Properties}{48}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Unconditional Expectations, Variance, and Covariance}{49}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}The Law of Large Numbers (LLN)}{51}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Key Statistical Distributions in Finance}{51}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Discrete Statistical Distributions}{53}{subsection.6.2.1}%
+\contentsline {subsubsection}{Discrete Uniform Distribution}{53}{section*.54}%
+\contentsline {subsubsection}{Binomial Distribution}{53}{section*.56}%
+\contentsline {subsubsection}{Poisson Distribution}{54}{section*.59}%
+\contentsline {subsection}{\numberline {6.2.2}Continuous Statistical Distributions}{55}{subsection.6.2.2}%
+\contentsline {subsubsection}{Continuous Uniform Distribution}{55}{section*.61}%
+\contentsline {subsubsection}{Normal Distribution}{56}{section*.64}%
+\contentsline {subsubsection}{Log-Normal Distribution}{57}{section*.66}%
+\contentsline {subsubsection}{Logistic Distribution}{58}{section*.68}%
+\contentsline {subsection}{\numberline {6.2.3}Practical Implementation}{58}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Conditional Expectations, Variances, and Covariances}{58}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Joint Distributions of Random Variables}{59}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Conditional Expectations}{59}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Conditional Means, Variances, and Covariances}{62}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Bayesian Updating}{64}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Estimation and Hypothesis Testing}{67}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Central Limit Theorem, Confidence Intervals, and Sampling}{67}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}The Central Limit Theorem (CLT)}{67}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Confidence Intervals}{68}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Sampling Methodologies}{73}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Hypothesis Testing and Parametric Testing}{73}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}The Hypothesis Testing Process}{76}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Type I and Type II Errors}{76}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Parametric Tests for a Single Variable}{76}{subsection.7.2.3}%
+\contentsline {subsubsection}{Test of a Single Mean}{76}{section*.93}%
+\contentsline {subsubsection}{Test of a Single Variance}{81}{section*.96}%
+\contentsline {subsection}{\numberline {7.2.4}Parametric Tests for Multiple Variables}{85}{subsection.7.2.4}%
+\contentsline {subsubsection}{Test of Equality of Two Unknown Means (Independent Samples)}{85}{section*.99}%
+\contentsline {subsubsection}{Test of Difference in Two Variances ($F$-test)}{87}{section*.101}%
+\contentsline {subsubsection}{Test of Paired Differences (Dependent Samples)}{87}{section*.104}%
+\contentsline {subsubsection}{Parametric Test of Correlations}{87}{section*.106}%
+\contentsline {subsection}{\numberline {7.2.5}P-Value and P-Hacking}{92}{subsection.7.2.5}%
+\contentsline {subsection}{\numberline {7.2.6}Practical Implementation (Excel and Google Sheets)}{92}{subsection.7.2.6}%
+\contentsline {section}{\numberline {7.3}Non-Parametric Tests}{92}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Comparison of Parametric and Non-Parametric Tests}{92}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Non-Parametric Test for Correlation (Spearman Rank Correlation)}{92}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Chi-Square Test of Independence}{95}{subsection.7.3.3}%
+\contentsline {chapter}{\numberline {8}The Return and Risk of a Financial Portfolio}{99}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Calculating Portfolio Statistics}{99}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Returns of a Portfolio}{99}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Variance and Standard Deviation of Portfolio Returns}{101}{subsection.8.1.2}%
+\contentsline {subsubsection}{Matrix Notation of Portfolio Risk}{103}{section*.122}%
+\contentsline {subsection}{\numberline {8.1.3}Expected Return and Variance under Economic Scenarios}{106}{subsection.8.1.3}%
+\contentsline {subsubsection}{Summation vs. Matrix Notation Comparison}{107}{section*.123}%
+\contentsline {subsection}{\numberline {8.1.4}The Benefits of Diversification}{107}{subsection.8.1.4}%
+\contentsline {section}{\numberline {8.2}The Minimum-Variance Portfolio and the Efficient Frontier}{108}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}The Feasible Set and Efficient Frontier}{110}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Derivation of the Minimum-Variance Portfolio Weights}{111}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}Optimal Portfolio Selection}{114}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Investor Utility and Indifference Curves}{115}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}The Capital Allocation Line (CAL) and Sharpe Ratio}{116}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}The Capital Market Line (CML)}{117}{subsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.3.4}The Capital Asset Pricing Model (CAPM) and Beta}{117}{subsection.8.3.4}%
+\contentsline {subsubsection}{Estimating Beta using Linear Regression}{119}{section*.137}%
+\contentsline {subsection}{\numberline {8.3.5}Limitations of Portfolio Theory and CAPM}{119}{subsection.8.3.5}%
+\contentsline {chapter}{\numberline {9}Simulation of Financial Asset Prices and Returns}{121}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Historical Simulation}{121}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Overview of Simulation Methods}{121}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Historical Simulation Overview}{122}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Implementing Historical Simulation}{122}{subsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.1.4}Features of Historical Simulation}{127}{subsection.9.1.4}%
+\contentsline {section}{\numberline {9.2}Bootstrapping}{128}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Bootstrapping Overview}{128}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Implementing Bootstrapping}{128}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Features of Bootstrapping Simulations}{136}{subsection.9.2.3}%
+\contentsline {section}{\numberline {9.3}Monte Carlo Simulation}{137}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Monte Carlo Simulation Overview}{137}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Multivariate Monte Carlo Simulation}{142}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Features of Monte Carlo Simulation}{145}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Practical Implementation of Simulation Approaches Using Excel and Other Tools}{145}{subsection.9.3.4}%
+\contentsline {chapter}{\numberline {10}Applications of Simple Linear Regression in Finance}{149}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Linear Regression Estimation}{149}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Linear Regression Analysis}{149}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Coefficient Estimation of Linear Regression}{150}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}Estimation Residuals}{150}{subsection.10.1.3}%
+\contentsline {subsection}{\numberline {10.1.4}Data Types}{151}{subsection.10.1.4}%
+\contentsline {section}{\numberline {10.2}Limitations of Linear Regression Models}{151}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Assumptions of the Simple Linear Regression Model}{152}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Residual Analysis}{152}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Evaluating Goodness-of-Fit and Regression Coefficients}{154}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Hypothesis Testing and ANOVA Estimates}{154}{subsection.10.2.4}%
+\contentsline {section}{\numberline {10.3}Using Linear Regression Models for Prediction}{155}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Prediction Using a Simple Regression}{155}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Modeling Non-Linear Relationships}{156}{subsection.10.3.2}%
+\contentsline {section}{\numberline {10.4}The Capital Asset Pricing Model (CAPM)}{156}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}CAPM Regression Framework}{157}{subsection.10.4.1}%
+\contentsline {chapter}{\numberline {11}Introduction to Financial Data Science}{159}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Financial Data and Big Data}{159}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Quantitative vs. Qualitative Data}{159}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Characteristics of Big Data (The 4 Vs)}{159}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Data Types and Sources}{161}{subsection.11.1.3}%
+\contentsline {subsection}{\numberline {11.1.4}Alternative Data and Risks}{161}{subsection.11.1.4}%
+\contentsline {section}{\numberline {11.2}Financial Data Science and Fintech}{161}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Definitions}{161}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Unique Characteristics of Financial Data}{162}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Fintech Evolution}{162}{subsection.11.2.3}%
+\contentsline {section}{\numberline {11.3}Machine Learning and Artificial Intelligence}{162}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Dataset Splitting and Time-Series Validation}{162}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}Overfitting vs. Underfitting}{163}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Machine Learning Approaches}{163}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}Neural Networks and Generative Models}{163}{subsection.11.3.4}%
+\contentsline {section}{\numberline {11.4}Natural Language Processing and Generative AI}{165}{section.11.4}%
+\contentsline {subsection}{\numberline {11.4.1}Natural Language Processing (NLP)}{165}{subsection.11.4.1}%
+\contentsline {subsection}{\numberline {11.4.2}Large Language Models (LLMs)}{165}{subsection.11.4.2}%
+\contentsline {subsection}{\numberline {11.4.3}Generative AI vs. Traditional Simulations}{165}{subsection.11.4.3}%

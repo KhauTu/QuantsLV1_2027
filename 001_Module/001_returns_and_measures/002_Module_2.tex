@@ -41,14 +41,17 @@
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{
-	\textit{Total Return gồm Price Return (lãi/lỗ vốn) và Capital Distribution Return (cổ tức, tiền lãi). Cấu phần này thay đổi tùy thuộc vào việc chúng ta đánh giá tài sản, công cụ hay chỉ báo tài chính.}}
+\textcolor{blue}{\textit{Total Return gồm Price Return (lãi/lỗ vốn) và Capital Distribution Return (cổ tức, tiền lãi). Cấu phần này thay đổi tùy theo loại tài sản, công cụ hay chỉ báo tài chính.}}
+
+\begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
+Nội dung phân loại chi tiết suất sinh lời thành: Tài sản tài chính (Financial Assets), Công cụ tài chính (Financial Instruments) và Chỉ báo tài chính (Financial Indicators) là phần được cập nhật và làm rõ mới trong giáo trình 2027. Học viên cần lưu ý cách phân biệt và đặc trưng sinh lời của từng loại.
+\end{examtip}
 
 \subsection{Matrix Mapping of Return Types}
 	\label{subsec:Matrix Mapping of Return Types}
 To provide a scientific and intuitive overview, Table \ref{tab:return_matrix_m2} maps the characteristics of price return and capital distribution return across all assets, instruments, and indicators.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Matrix Mapping of Return Types across Assets, Instruments, and Indicators}
 \label{tab:return_matrix_m2}
@@ -77,8 +80,7 @@ To provide a scientific and intuitive overview, Table \ref{tab:return_matrix_m2}
 	\label{subsec:Types of Returns: Financial Assets}
 The main financial assets are cash, equity, and debt, as well as hybrids that combine their characteristics.
 
-\textcolor{blue}{
-	\textit{Khi chi trả cổ tức $X$, lý thuyết giá giảm ngay đúng bằng $X$, khiến phần sinh lời phân phối bù trừ Price Return trong ngắn hạn. Chúng ta đã bao giờ quan sát hiện tượng này tại sàn chứng khoán Việt Nam vào ngày giao dịch không hưởng quyền chưa?}}
+\textcolor{blue}{\textit{Khi trả cổ tức $X$, về lý thuyết giá cổ phiếu giảm đúng bằng $X$ vào ngày giao dịch không hưởng quyền, khiến phần sinh lời phân phối bù trừ với Price Return trong ngắn hạn.}}
 
 Let's detail the characteristics across major financial assets:
 \begin{itemize}
@@ -142,8 +144,7 @@ Consider a 90-day US Treasury Bill with a face value of USD 1,000 purchased at U
 	      \[ r_{\text{annual}} = (1 + 0.0101)^{\frac{365}{90}} - 1 \approx 4.16\% \]
 \end{itemize}
 
-\textcolor{blue}{
-	\textit{Thực tế: So sánh lãi suất năm thực tế ($4.16\%$ ghép lãi) và lãi suất đơn ($1.01\% \times \frac{365}{90} \approx 4.10\%$). Trong phòng thi, chúng ta hãy luôn ưu tiên phương pháp ghép lãi lũy thừa.}}
+\textcolor{blue}{\textit{Lãi năm thực tế ghép lãi cao hơn lãi đơn. Luôn ưu tiên phương pháp ghép lãi lũy thừa.}}
 \end{tcolorbox}
 
 \begin{itemize}
@@ -179,13 +180,12 @@ Where:
 A US dollar-based investor purchases a bond denominated in Euros (EUR).
 \begin{itemize}
 	\item \textbf{Foreign asset return:} $r_{\text{foreign}} = -2.91\%$.
-	\item \textbf{FX rate change (EUR to USD):} $r_{\text{FX}} = -6.90\%$ (the Euro depreciated from 1.2216 to 1.1373 USD/EUR).
+	\item \textbf{FX rate change (EUR to USD):} $r_{\text{FX}} = -6.90\%$.
 	\item \textbf{Home-currency return calculation:}
 	      \[ r_{\text{home}} = (1 - 0.0291)(1 - 0.0690) - 1 = -9.61\% \]
 \end{itemize}
 
-\textcolor{blue}{
-	\textit{Thực tế: Tác động kép từ trái phiếu giảm giá và EUR mất giá so với USD, khuếch đại khoản lỗ bằng USD từ $-2.91\%$ thành $-9.61\%$.}}
+\textcolor{blue}{\textit{Tác động kép từ trái phiếu giảm giá và EUR mất giá khuếch đại khoản lỗ bằng USD.}}
 \end{tcolorbox}
 
 \begin{itemize}
@@ -206,7 +206,7 @@ To evaluate and compare performance, we look at the arithmetic and geometric ave
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 67
 
 Let's review the historical performance numbers of the OMX Copenhagen 25 Index versus Ørsted A/S equity between 2017 and 2023:
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{OMX Copenhagen 25 Index vs. Ørsted A/S Equity Total Returns (2017--2023)}
 \label{tab:omx_vs_orsted}
@@ -229,14 +229,12 @@ Let's review the historical performance numbers of the OMX Copenhagen 25 Index v
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 66--67
 
-\textcolor{blue}{
-	\textit{Chúng ta thấy gì thú vị? Arithmetic Mean của Ørsted ($15.58\%$) cao hơn OMX ($12.13\%$), nhưng Geometric Mean lại thấp hơn nhiều ($6.86\%$ so với $10.81\%$), chứng minh tác động của biến động (volatility drag) lên lãi kép khi tăng giảm sâu.}}
+\textcolor{blue}{\textit{Nhận xét: Arithmetic Mean của Ørsted ($15.58\%$) lớn hơn OMX ($12.13\%$), nhưng Geometric Mean lại thấp hơn hẳn ($6.86\%$ so với $10.81\%$) do ảnh hưởng từ độ biến động lớn (volatility drag) lên lãi kép.}}
 
 \section{Long-Term Financial Asset Returns}
 \label{sec:Long-Term Financial Asset Returns}
 
-\textcolor{blue}{
-	\textit{Chúng ta hãy cùng rà soát số liệu thực tế 45 năm (1979–2023) tại thị trường Mỹ để so sánh lợi nhuận và cơ cấu sinh lời của các loại tài sản thay đổi thế nào qua thời gian.}}
+\textcolor{blue}{\textit{Rà soát số liệu 45 năm (1979–2023) tại Mỹ để so sánh hiệu suất và cơ cấu sinh lời.}}
 
 \subsection{Historical Long-Term Asset Returns}
 	\label{subsec:Historical Long-Term Asset Returns}
@@ -265,14 +263,12 @@ The relative contribution of capital appreciation and capital distributions has 
 	\item \textbf{Government Bonds:} income return (coupon payments) remains the dominant driver of total returns, historically accounting for approximately 85\% of total government bond returns. Capital appreciation plays a minor role, and bond prices suffer capital losses during periods of rising interest rates (such as the early 2020s).
 \end{itemize}
 
-\textcolor{blue}{
-	\textit{Mua lại cổ phiếu (Share Buybacks) được tính vào Price Return thay vì Capital Distribution. Điều này giải thích lợi nhuận tăng giá chiếm tỷ trọng ngày càng lớn ở các nước phát triển. Chúng ta có nghĩ đây là xu thế tất yếu nhằm tối ưu hóa thuế cho cổ đông?}}
+\textcolor{blue}{\textit{Share buybacks (mua lại cổ phiếu) được tính vào Price Return thay vì Capital Distribution, giải thích tại sao lợi nhuận tăng giá ngày càng chiếm ưu thế (đặc biệt tại các nước phát triển nhằm tối ưu hóa thuế).}}
 
 \section{Risks and Returns}
 \label{sec:Risks and Returns}
 
-\textcolor{blue}{
-	\textit{Chúng ta cùng rà soát định nghĩa, cách tính suất sinh lời danh mục, phân loại rủi ro (hệ thống, phi hệ thống) và nguyên lý đánh đổi rủi ro - lợi nhuận (Risk-Return Trade-Off).}}
+\textcolor{blue}{\textit{Nội dung chính: cách tính suất sinh lời danh mục, phân loại rủi ro (hệ thống và phi hệ thống), và nguyên lý đánh đổi rủi ro - lợi nhuận (Risk-Return Trade-Off).}}
 
 Risk represents the uncertainty of investment returns and can be categorized into macro and micro risks:
 \begin{itemize}
@@ -308,7 +304,7 @@ Where:
 \end{itemize}
 
 Let's review the asset allocations and long-term returns for three different investors (Investor A: Aggressive, Investor B: Balanced, and Investor C: Conservative):
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Asset Class Returns and Allocation Summary}
 \label{tab:investor_returns_m2}
@@ -324,7 +320,7 @@ Long-term Gov Bonds & 5.75\% & 0.75\% & 5.00\% \\
 \end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 2, Page 75
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering
 \caption{Investor Asset Allocations and Portfolio Returns}
 \label{tab:investor_allocations_m2}
@@ -369,8 +365,7 @@ Using the asset allocations and returns from Table \ref{tab:investor_returns_m2}
 	      \[ r_{\text{dist}} = 80\%(3.50\%) + 10\%(5.00\%) + 10\%(3.00\%) = 3.60\% \]
 \end{itemize}
 
-\textcolor{blue}{
-	\textit{Thực tế: Investor A tối đa hóa tăng trưởng giá ($6.88\%$), còn Investor C ưu tiên dòng thu nhập đều đặn ($4.15\%$). Chúng ta hãy thử tự giải cho Investor B và C để thực hành!}}
+\textcolor{blue}{\textit{Thực tế: Investor A tối đa hóa tăng trưởng giá ($6.88\%$), trong khi Investor C ưu tiên dòng tiền đều đặn ($4.15\%$). Hãy thử tự giải cho Investor B và C để ôn tập.}}
 \end{tcolorbox}
 
 
