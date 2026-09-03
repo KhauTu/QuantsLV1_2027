@@ -43,6 +43,12 @@ The time-weighted rate of return measures the compounded rate of growth of an in
 	r_{\text{TW}} = \prod_{t=1}^{T} (1 + r_t) - 1
 	\label{eq:twr_m3}
 \end{equation}
+Note that $r_{\text{TW}}$ gauges a return for the whole time of all subperiod. 
+If you want to estimate a mean return for \textbf{each} subperiod, you have to use $r_{\text{G}}$ 
+\begin{equation}
+	r_{\text{G}} = \sqrt[T]{\prod_{t=1}^{T} (1 + r_t)} - 1
+	\label{eq:twr_G}
+\end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 86
 
 Where:
@@ -71,58 +77,76 @@ Where:
 
 \textcolor{blue}{\textit{Quy ước dấu dòng tiền: Đầu tư ban đầu/góp thêm mang dấu âm (--); cổ tức, rút vốn/giá trị cuối kỳ mang dấu dương (+). Sử dụng máy tính tài chính (chức năng CF) hoặc Excel để giải MWR.}}
 
-\subsection{Case Study: The Albright Fund}
-	\label{subsec:Case Study: The Albright Fund}
+\subsection{Case Study}
+	\label{subsec:Case Study: MWR vs TWR}
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Case Study: The Albright Fund},
+	title=\textbf{Case Study: MWR vs TWR},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
 	after skip=6pt,
 	breakable
 ]
-The Albright Fund has a beginning asset value of EUR 100 million on 1 January. We evaluate its performance over a year with three 4-month subperiods:
-\begin{itemize}
-	\item \textbf{1 January ($t = 0$):} Initial portfolio value is EUR 100 million.
-	\item \textbf{30 April ($t = 1$):} Fund value before contribution is EUR 115 million. An additional EUR 20 million contribution is received (total value EUR 135 million). Received EUR 2 million in dividends (reinvested) and realized EUR 10 million in capital gains (reinvested).
-	\item \textbf{31 August ($t = 2$):} Received EUR 3 million in dividends (reinvested). Total fund value is EUR 130 million.
-	\item \textbf{31 December ($t = 3$):} Received EUR 3 million in dividends (not reinvested). Ending fund value is EUR 140 million (including the dividend).
-\end{itemize}
+	\begin{center}
+		\captionof{table}{Money-Weighted Return for a Dividend-Paying Stock}
+		% \label{tab:ex1}
+		\begin{tabular}{p{0.1\linewidth} | p{0.6\linewidth}}
+			\toprule
+			\textbf{Time} & \textbf{Outflows}                                            \\
+			\midrule
+			0             & USD200 to purchase the first share                           \\
+			1             & USD225 to purchase the second share                          \\
+			\midrule
+			\midrule
+			\textbf{Time} & \textbf{Inflows}                                            \\
+			\midrule
+			1             & USD5 dividend received from first share (and not reinvested) \\
+			2             & USD10 dividend (USD5 per share $\times$ 2 shares) received   \\
+			2             & USD470 received from selling two shares at USD235 per share  \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\begin{align*}
+	& \Rightarrow CF_0 = -200 \qquad CF_1 = -220 \qquad CF_2 = +480 \\
+	& \Rightarrow \frac{CF_0}{(1+IRR)^0} + \frac{CF_1}{(1+IRR)^1} + \frac{CF_2}{(1+IRR)^2}
+	= \frac{-200}{1} + \frac{-220}{(1+IRR)^1} + \frac{+480}{(1+IRR)^2} \\
+	& \Rightarrow IRR = 9.39\%
+\end{align*}
+Importantly, two investors in the same mutual fund or with the same portfolio of underlying investments may have diﬀerent money-weighted returns because they invested diﬀerent amounts in diﬀerent years.
 
-\textcolor{blue}{\textit{Dòng tiền Albright: $\text{CF}_0 = -100$tr; $\text{CF}_1 = -30$tr (gồm $-20$tr góp thêm và $-10$tr tái đầu tư lãi vốn; cổ tức $2$tr tái đầu tư nên triệt tiêu); $\text{CF}_2 = 0$; $\text{CF}_3 = +140$tr (gồm giá trị cuối 137tr và 3tr cổ tức rút ra).}}
+% \textcolor{blue}{\textit{Dòng tiền Albright: $\text{CF}_0 = -100$tr; $\text{CF}_1 = -30$tr (gồm $-20$tr góp thêm và $-10$tr tái đầu tư lãi vốn; cổ tức $2$tr tái đầu tư nên triệt tiêu); $\text{CF}_2 = 0$; $\text{CF}_3 = +140$tr (gồm giá trị cuối 137tr và 3tr cổ tức rút ra).}}
 
 \begin{examtip}
 	\textbf{Texas Instruments BA II Plus Keystrokes for MWR:}
 	\begin{enumerate}
-		\item Press \textbf{[CF]} $\rightarrow$ \textbf{[2nd]} $\rightarrow$ \textbf{[CLR CF]} to clear worksheet memory.
-		\item Enter $\text{CF}_0 = -100$: Press \textbf{100} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
+		\item Press \textbf{[CF]} $\rightarrow$ \textbf{[2nd]} \textbf{[CE|C]} $\rightarrow$ \textbf{[CLR WRK]} to clear worksheet memory.
+		\item Enter $\text{CF}_0 = -200$: Press \textbf{200} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
 		\item Press \textbf{[$\downarrow$]} to display \textbf{C01}.
-		\item Enter $\text{CF}_1 = -30$: Press \textbf{30} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
+		\item Enter $\text{CF}_1 = -220$: Press \textbf{220} $\rightarrow$ \textbf{[+/-]} $\rightarrow$ \textbf{[ENTER]}.
 		\item Press \textbf{[$\downarrow$]} $\rightarrow$ \textbf{[$\downarrow$]} to display \textbf{C02} (F01 defaults to 1).
-		\item Enter $\text{CF}_2 = 0$: Press \textbf{0} $\rightarrow$ \textbf{[ENTER]}.
-		\item Press \textbf{[$\downarrow$]} $\rightarrow$ \textbf{[$\downarrow$]} to display \textbf{C03} (F02 defaults to 1).
-		\item Enter $\text{CF}_3 = 140$: Press \textbf{140} $\rightarrow$ \textbf{[ENTER]}.
+		\item Enter $\text{CF}_2 = 480$: Press \textbf{480} $\rightarrow$ \textbf{[ENTER]}.
+		% \item Press \textbf{[$\downarrow$]} $\rightarrow$ \textbf{[$\downarrow$]} to display \textbf{C03} (F02 defaults to 1).
+		% \item Enter $\text{CF}_3 = 140$: Press \textbf{140} $\rightarrow$ \textbf{[ENTER]}.
 		\item Press \textbf{[IRR]} then \textbf{[CPT]}.
 	\end{enumerate}
-	Periodic 4-month IRR is $r_{\text{MW, period}} = 2.71\%$.
-	Annualized MWR:
-	\[ r_{\text{MW, annual}} = (1 + 0.027126)^3 - 1 = 8.35\% \]
 \end{examtip}
 
-\textbf{Time-Weighted Rate of Return (TWR) Calculation:}
-\begin{enumerate}
-	\item \textbf{Subperiod 1 (1 Jan to 30 Apr):} $r_1 = \frac{115 - 100}{100} = 15.00\%$
-	\item \textbf{Subperiod 2 (1 May to 31 Aug):} $r_2 = \frac{130 - 135}{135} = -3.70\%$
-	\item \textbf{Subperiod 3 (1 Sep to 31 Dec):} $r_3 = \frac{140 - 130}{130} = 7.69\%$
-\end{enumerate}
-Geometrically linking the returns:
-\[ r_{\text{TW}} = (1 + 0.1500)(1 - 0.0370)(1 + 0.0769) - 1 = 19.26\% \]
-
-\textcolor{blue}{\textit{So sánh: $r_{\text{TW}} = 19.26\% > r_{\text{MW}} = 8.35\%$. MWR thấp do quỹ nạp thêm 20 triệu EUR ngay trước thời kỳ lỗ ($-3.70\%$). TWR phản ánh khách quan hơn hiệu quả của người quản lý vì loại bỏ tác động của dòng tiền.}}
+\textcolor{blue}{\textit{
+$HPR_1 = 15\%, HPR_2 = 6.7\%$, trong khi đó $MWR = IRR = 9.39\%, TWR = 10.76\%$. Bằng một ước tính gần đúng, ta có: (bạn có thể tự tính lại để kiểm tra)
+\begin{align*}
+	TWR & \approx \frac{HPR_1 + HPR_2}{2}\\
+	MWR & \approx \frac{|CF_1|\cdot HPR_1 + |CF_2|\cdot HPR_2}{|CF_1|+|CF_2|}
+\end{align*}
+}}
+\textcolor{blue}{\textit{Như vậy, dựa trên quan sát kết quả, ta nhận thấy, lợi suất của tài sản trong kỳ đầu tiên là cao hơn tương đối so với kỳ thứ hai ($HPR_1 > HPR_2$).\\
+Dựa trên công thức xấp xỉ ở trên, ta có nhận xét rằng lợi suất bình quân tính theo MWR sẽ có trọng số dồn vào kỳ thứ hai nhiều hơn (do có dòng tiền phát sinh lớn hơn $|CF_2| > |CF_1|$, ở đây ta chỉ xét về độ lớn của dòng tiền, không xét về dấu).
+Vậy nên, có thể hiểu rằng, dòng tiền lớn hơn đang dồn về kỳ có lợi suất thấp, nên nhìn chung sẽ hạ mức lợi suất trung bình xuống (vì vậy mà mức lợi suất này có tên gọi là money-weighted).\\
+Còn nếu sử dụng TWR, ta coi mức lợi suất bình quân tính theo lợi suất từng kỳ với tỷ trọng như nhau, mà không phụ thuộc vào hiệu ứng dòng tiền đổ vào mỗi kỳ nhiều hay ít.
+}}
 \end{tcolorbox}
 
 \subsection{Summary of Differences}
@@ -133,7 +157,7 @@ Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between th
 \centering
 \caption{Comparison of Money-Weighted and Time-Weighted Returns}
 \label{tab:mwr_vs_twr_differences}
-\begin{tabular}{p{0.18\linewidth} p{0.31\linewidth} p{0.31\linewidth}}
+\begin{tabular}{p{0.2\linewidth} p{0.35\linewidth} p{0.35\linewidth}}
 \toprule
 \textbf{Dimension} & \textbf{Money-Weighted Return (MWR)} & \textbf{Time-Weighted Return (TWR)} \\
 \midrule
@@ -160,6 +184,13 @@ Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between th
 \begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
 Toàn bộ phần "Index Definition and Calculation" (xây dựng, quản lý chỉ số, các phương pháp trọng số giá/vốn hóa và tái cơ cấu danh mục chỉ số) là nội dung hoàn toàn mới được đưa vào cấu phần Quantitative Methods năm 2027. Trước đây nội dung này nằm ở các môn học khác (như Portfolio Management hay Equity).
 \end{examtip}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_6.png}
+	\caption{Steps in the Index Construction, Calculation, and Management Process}
+	\label{fig:mod3_exhibit_6}
+\end{figure}
 
 \subsection{Price Return vs. Total Return Indexes}
 	\label{subsec:Price Return vs. Total Return Indexes}
@@ -266,7 +297,7 @@ Table \ref{tab:index_weighting_methodologies_summary} compares the characteristi
 \centering
 \caption{Comparison of Index-Weighting Methodologies}
 \label{tab:index_weighting_methodologies_summary}
-\begin{tabular}{p{0.15\linewidth} p{0.13\linewidth} p{0.18\linewidth} p{0.18\linewidth} p{0.14\linewidth}}
+\begin{tabular}{p{0.15\linewidth} p{0.15\linewidth} p{0.15\linewidth} p{0.2\linewidth} p{0.2\linewidth}}
 \toprule
 \textbf{Index Type} & \textbf{Weighting Basis} & \textbf{Examples} & \textbf{Pros} & \textbf{Cons} \\
 \midrule
@@ -291,12 +322,12 @@ Table \ref{tab:index_weighting_methodologies_summary} compares the characteristi
 	\item \textbf{Reconstitution:} the periodic process of adding or removing constituent securities from the index based on eligibility rules. Widely followed indexes often apply a \textit{banding strategy} (e.g., Russell 2000's 5\% band) to reduce unnecessary index turnover at the breakpoints.
 \end{itemize}
 
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_15.png}
-	\caption{MSCI Europe Equal-Weighted vs. MSCI Europe Market Cap-Weighted (1999--2023)}
-	\label{fig:msci_europe_equal_vs_cap}
-\end{figure}
+% \begin{figure}[!htbp]
+% 	\centering
+% 	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_15.png}
+% 	\caption{MSCI Europe Equal-Weighted vs. MSCI Europe Market Cap-Weighted (1999--2023)}
+% 	\label{fig:msci_europe_equal_vs_cap}
+% \end{figure}
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 115
 
 \subsection{Divisor Adjustment for Stock Splits}

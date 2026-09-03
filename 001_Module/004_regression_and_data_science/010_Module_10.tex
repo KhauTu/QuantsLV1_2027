@@ -28,8 +28,6 @@
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Hồi quy tuyến tính là nền tảng của mô hình định lượng tài chính. Bằng tiêu chuẩn OLS (Bình phương tối thiểu), ta tối thiểu hóa sai số dự báo để tìm đường thẳng mô tả tốt nhất quan hệ giữa hai biến. Cần lưu ý quan hệ hồi quy chưa chắc là quan hệ nhân quả thực tế.}}
-
 \subsection{Linear Regression Analysis}
 Regression analysis estimates the relationship between a dependent variable ($Y$), whose variation we want to explain, and an independent variable ($X$), which is hypothesized to influence or explain changes in $Y$. 
 
@@ -77,13 +75,6 @@ The OLS estimators for the slope and intercept are calculated as:
 % Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 1.2, Page 527
 where $\bar{X}$ and $\bar{Y}$ are the sample means of the independent and dependent variables, respectively.
 
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.2-Interest vs Inflation.png}
-	\caption{OLS Regression: Inflation versus Real GDP Growth}
-	\label{fig:mod10_exhibit_1}
-\end{figure}
-
 \textcolor{blue}{\textit{Nhận xét: OLS đảm bảo tổng sai số bằng 0 ($\sum e_i = 0$) và đường hồi quy đi qua điểm trung bình $(\bar{X}, \bar{Y})$. Tuy nhiên, việc bình phương sai số ($e_i^2$) khiến OLS rất nhạy cảm với các điểm dị biệt (outliers).}}
 
 \subsection{Estimation Residuals}
@@ -97,9 +88,21 @@ The residuals are the sample counterparts to the population error terms ($\epsil
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.4-Quarterly Rev vs Time.png}
-	\caption{Residuals of the Estimated OLS Equation (Inflation vs Real GDP)}
-	\label{fig:mod10_exhibit_3}
+	\begin{subfigure}[b]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{002_figs/010_Module_10/10.2-Interest vs Inflation.png}
+		\caption{OLS Regression: Inflation vs Real GDP}
+		\label{fig:mod10_exhibit_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{002_figs/010_Module_10/10.4-Quarterly Rev vs Time.png}
+		\caption{Residuals of Estimated OLS Equation}
+		\label{fig:mod10_exhibit_3}
+	\end{subfigure}
+	\caption{OLS Regression Fit and Residual Analysis}
+	\label{fig:mod10_ols_and_residuals}
 \end{figure}
 
 \subsection{Data Types}
@@ -146,13 +149,13 @@ If the real GDP growth is projected to be $3\%$, the predicted inflation rate is
 \textcolor{blue}{\textit{Lưu ý: Mô hình OLS chỉ đáng tin cậy khi thỏa mãn các giả định. Nếu vi phạm (như phương sai thay đổi - Heteroskedasticity hay tự tương quan - Autocorrelation), ước lượng sẽ lệch lạc. Đồ thị phần dư (Residual Plots) là công cụ trực quan tốt nhất để phát hiện vi phạm.}}
 
 \subsection{Assumptions of the Simple Linear Regression Model}
-To ensure that the OLS estimators are Blue (Best Linear Unbiased Estimators) and that statistical inferences are valid, 5 key assumptions must hold:
+To ensure that the OLS estimators are Blue (Best Linear Unbiased Estimators) and that statistical inferences are valid, 4 key assumptions must hold:
 \begin{enumerate}
 	\item \textbf{Linearity:} The relationship between the dependent variable $Y$ and the independent variable $X$ is linear in parameters.
 	\item \textbf{Homoskedasticity:} The variance of the error terms ($\epsilon_i$) is constant across all observations: $\text{Var}(\epsilon_i) = \sigma^2$ for all $i$.
 	\item \textbf{Independence:} The error terms are independent of one another, implying they are uncorrelated across observations: $\text{Cov}(\epsilon_i, \epsilon_j) = 0$ for all $i \neq j$.
 	\item \textbf{Normality:} The error terms ($\epsilon_i$) are normally distributed. This is crucial for small sample hypothesis testing.
-	\item \textbf{Exogeneity:} The expected value of the error term conditional on the independent variable is zero: $\text{E}(\epsilon_i | X_i) = 0$.
+	% \item \textbf{Exogeneity:} The expected value of the error term conditional on the independent variable is zero: $\text{E}(\epsilon_i | X_i) = 0$.
 \end{enumerate}
 
 \subsection{Residual Analysis}
@@ -211,6 +214,14 @@ In simple linear regression, the correlation coefficient $r$ is related to $R^2$
 	r = \text{sign}(\hat{\beta}_1) \times \sqrt{R^2}
 	\label{eq:correlation_r2_m10}
 \end{equation}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{002_figs/010_Module_10/10.6-Total Variation.png}
+	\caption{The Components of Total Variation in Regression Analysis}
+	\label{fig:mod10_exhibit_10}
+\end{figure}
+
 % Reference: CFA Curriculum 2027, Vol 1, Module 10: Applications of Simple Linear Regression in Finance, Section 2.3, Page 541
 
 \subsection{Hypothesis Testing and ANOVA Estimates}
@@ -317,8 +328,6 @@ An analyst regresses the excess returns of FIRN AG stock ($Y$) on the market ris
 \end{tabular}
 \end{center}
 
-\textcolor{blue}{\textit{Lưu ý: Dự báo hồi quy cần đi kèm khoảng dự báo (Prediction Interval) để phản ánh mức độ không chắc chắn. Với quan hệ phi tuyến, ta dùng biến đổi logarit (Log-Lin, Lin-Log, Log-Log) để đưa về dạng tuyến tính.}}
-
 \subsection{Prediction Using a Simple Regression}
 For a given value of the independent variable ($X_p$), the predicted value of the dependent variable ($\hat{Y}_p$) is:
 \begin{equation}
@@ -357,7 +366,7 @@ If the relationship between variables is non-linear, we can apply logarithmic tr
 	\toprule
 	\textbf{Model} & \textbf{Regression Equation} & \textbf{Slope Coefficient Interpretation} \\
 	\midrule
-	\textbf{Log-Lin} & $\ln(Y_i) = \beta_0 + \beta_1 X_i + \epsilon_i$ & A 1-unit change in $X$ is associated with an approximate $\beta_1 \times 100\%$ relative change in $Y$. \\
+	\textbf{Log-Lin} & $\ln(Y_i) = \beta_0 + \beta_1 X_i + \epsilon_i$ & A 1-unit change in $X$ is associated with  a constant percentage ($g = e^{\beta_1} - 1$) change in $Y$. \\
 	\midrule
 	\textbf{Lin-Log} & $Y_i = \beta_0 + \beta_1 \ln(X_i) + \epsilon_i$ & A $1\%$ relative change in $X$ is associated with an approximate $\beta_1 / 100$ unit change in $Y$. \\
 	\midrule

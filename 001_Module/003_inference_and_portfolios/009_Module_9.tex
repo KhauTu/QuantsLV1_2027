@@ -58,7 +58,8 @@ Table~\ref{tab:mod9_exhibit_2} compares these approaches.
 \centering
 \caption{Comparing the Steps for Different Simulation Approaches}
 \label{tab:mod9_exhibit_2}
-\begin{tabular}{p{0.14\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.15\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth} p{0.20\linewidth}}
 	\toprule
 	\textbf{Simulation Approach} & \textbf{Step 1: Setup/ Parameterize} & \textbf{Step 2: Scenario Generation} & \textbf{Step 3: Scenario Evaluation} & \textbf{Step 4: Result Analysis} \\
 	\midrule
@@ -68,7 +69,8 @@ Table~\ref{tab:mod9_exhibit_2} compares these approaches.
 	\midrule
 	\textbf{Monte Carlo Simulation} & Specify probability distributions for model inputs. & Draw random samples from these distributions to shape scenario inputs. & Execute calculations using each random input vector. & Evaluate the resulting distribution of outputs to determine risks and probabilities. \\
 	\bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 The three simulation approaches differ primarily in Step 2 (scenario generation); the other steps remain functionally identical.
@@ -135,6 +137,7 @@ Returns are shown in Figure~\ref{fig:mod9_exhibit_4} and Table~\ref{tab:mod9_exh
 \centering
 \captionof{table}{Hang Seng Index and CSI 300 Daily Log Returns}
 \label{tab:mod9_exhibit_5}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{c c c c c}
 	\toprule
 	\textbf{Scenario No.} & \textbf{Hang Seng Index in HKD} & \textbf{CSI 300 in HKD} & \textbf{Hang Seng Index Log Return} & \textbf{CSI 300 Log Return} \\
@@ -149,7 +152,8 @@ Returns are shown in Figure~\ref{fig:mod9_exhibit_4} and Table~\ref{tab:mod9_exh
 	245 & 17,043.53 & 3,752.58 & 2.49\% & 2.81\% \\
 	246 & 17,047.39 & 3,772.51 & 0.02\% & 0.53\% \\
 	\bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{center}
 
 \textbf{Step 2: Calculate daily profit and loss (P/L).} \\
@@ -163,6 +167,7 @@ The P/L across all scenarios are compiled in Table~\ref{tab:mod9_exhibit_6}.
 \centering
 \captionof{table}{Portfolio P/L for the Long-Only Portfolio}
 \label{tab:mod9_exhibit_6}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{c c c c c c}
 	\toprule
 	\textbf{Scenario} & \textbf{HSI Log Return} & \textbf{CSI 300 Log Return} & \textbf{HSI P/L (HKD)} & \textbf{CSI 300 P/L (HKD)} & \textbf{Total Portfolio P/L (HKD)} \\
@@ -176,7 +181,8 @@ The P/L across all scenarios are compiled in Table~\ref{tab:mod9_exhibit_6}.
 	245 & 2.49\% & 2.81\% & 1,386,693 & 1,139,941 & 2,526,634 \\
 	246 & 0.02\% & 0.53\% & 11,001 & 212,563 & 223,564 \\
 	\bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{center}
 
 \textbf{Step 3: Create the P/L distribution.} \\
@@ -213,7 +219,7 @@ The daily P/L estimates are ranked from lowest to highest (Table~\ref{tab:mod9_e
 \end{tabular}
 \end{center}
 
-For 246 observations, the 5% tail corresponds to the 12.3rd rank from the bottom. Using linear interpolation between the 12th (HKD -1,624,801) and 13th (HKD -1,607,739) observations:
+For 246 observations, the 5\% tail corresponds to the 12.3rd rank from the bottom. Using linear interpolation between the 12th (HKD -1,624,801) and 13th (HKD -1,607,739) observations:
 \[
 \text{VaR}_{95\%} = 0.3 \times 1,607,739 + 0.7 \times 1,624,801 = \text{HKD } 1,619,682
 \]
@@ -235,9 +241,9 @@ For comparison, a parametric VaR is calculated assuming a joint normal distribut
 \end{center}
 
 Assuming zero mean returns for daily calculations, the portfolio value variance (for $D_{HS} = 55\text{M}$ and $D_{SS} = 40\text{M}$) is:
-\begin{equation}
+\[
 	\sigma_p^2 = D_{HS}^2 \sigma_{HS}^2 + D_{SS}^2 \sigma_{SS}^2 + 2 D_{HS} D_{SS} \rho \sigma_{HS} \sigma_{SS} = 1.1354 \, (\text{million HKD})^2
-\end{equation}
+\]
 The standard deviation is $\sigma_p = \text{HKD } 1.0656\text{ million}$. The 95% confidence level parametric VaR ($z = 1.96$) is:
 \[
 \text{VaR}_{95\%} = 1.96 \times 1.0656 = \text{HKD } 2.0885 \text{ million}
@@ -263,6 +269,9 @@ A venture capital firm is evaluating an investment with a five- to seven-year ho
 
 \textbf{Step 1: Determine the historical distribution of returns.} \\
 Figure~\ref{fig:mod9_exhibit_10} and Table~\ref{tab:mod9_exhibit_11} show the distribution of revenue forecast deviations.
+\[
+deviation = \frac{Actual - Forecast}{Forecast}
+\]
 
 \begin{center}
 	\centering
@@ -296,9 +305,9 @@ The deviations range from $-28.56\%$ to $9.69\%$, suggesting optimistic forecast
 To find the 2.5th and 97.5th percentiles of the return deviations, we interpolate linearly:
 \begin{itemize}
 	\item \textbf{2.5th percentile} (between ranks 2 and 3):
-	\begin{equation}
+	\[
 		x = -25.60 + \frac{2.5 - 2}{3 - 2} \times (-25.56 - (-25.60)) = -25.58\%
-	\end{equation}
+	\]
 	\item \textbf{97.5th percentile} (between ranks 48 and 49):
 	\[
 	x = 5.49 + \frac{97.5 - 96}{98 - 96} \times (7.30 - 5.49) = 6.89\%
@@ -307,7 +316,14 @@ To find the 2.5th and 97.5th percentiles of the return deviations, we interpolat
 Thus, the 2.5th percentile deviation is $-25.58\%$, and the 97.5th percentile is $6.89\%$.
 
 \textbf{Step 3: Calculate the Net Present Value (NPV) range.} \\
-The baseline NPV is GBP 1,000,000. Every 1\% deviation in revenue changes NPV by GBP 123,897.22. Extreme scenario NPVs are calculated as:
+The baseline NPV is GBP 1,000,000. Every 1\% deviation in revenue changes NPV by GBP 123,897.22 ($\beta$). 
+We have $NPV = NPV_{base} + \Delta NPV$, with:
+\[
+\Delta NPV = \beta \times \Delta Rev (\%)
+\]
+If Actual = Forecast, that means $\Delta Rev = 0$, $NPV = GBP 1,000,000$. Extreme scenario NPVs are calculated as:
+
+
 \begin{itemize}
 	\item \textbf{Downside (2.5th percentile):}
 	\[
@@ -574,6 +590,7 @@ Table~\ref{tab:mod9_exhibit_20} lists the observed monthly returns and correspon
 	9 & 3.75\% & 124.90 & 22 & -4.34\% & 148.87 \\
 	10 & -5.56\% & 117.96 & 23 & -4.50\% & 142.17 \\
 	11 & 6.09\% & 125.14 & 24 & 8.79\% & 154.67 \\
+	12 & 8.31\% & 135.54 &  &  &  \\
 	\bottomrule
 \end{tabular}
 \end{center}
@@ -601,7 +618,7 @@ For each scenario, the monthly returns' standard deviation is computed. The resu
 \end{center}
 
 \textbf{Step 4: Result compilation and analysis.} \\
-The 95% confidence interval for the monthly volatility (2.5th to 97.5th percentiles) ranges from $6.55\%$ to $7.94\%$. This range allows the company to compare the fund's risk profile against competitors and determine if its volatility is acceptable.
+The 95\% confidence interval for the monthly volatility (2.5th to 97.5th percentiles) ranges from $6.55\%$ to $7.94\%$. This range allows the company to compare the fund's risk profile against competitors and determine if its volatility is acceptable.
 \end{tcolorbox}
 
 \subsection{Features of Bootstrapping Simulations}
@@ -609,16 +626,19 @@ Bootstrapping avoids parametric distribution assumptions, allows constructing co
 
 Strengths of bootstrapping:
 \begin{itemize}
-	\item \textbf{No distribution assumptions:} Works directly with the empirical sample distribution.
-	\item \textbf{Small sample efficiency:} Provides robust estimates of standard errors and confidence intervals for limited datasets.
-	\item \textbf{Versatility:} Applicable to a wide range of statistical estimators and valuation tasks.
+	\item \textbf{Minimal assumptions:} Bootstrapping does not require assumptions about the underlying population distribution.
+	\item \textbf{Statistical robustness:} Unlike many other methods, bootstrapping is particularly useful when dealing with small datasets.
+	\item \textbf{Robust variability estimates:} Provides robust estimates of standard errors and confidence intervals for limited datasets.
+	\item \textbf{Adaptability:} Bootstrapping can be applied to almost any statistic (e.g., mean, median, variance, correlation) in various fields.
+	\item \textbf{No need for a "large" external dataset:} bootstrapping works directly from the sample at hand, making it ideal for situations where data are scarce.
 \end{itemize}
 
 Disadvantages of bootstrapping:
 \begin{itemize}
+	\item \textbf{Computationally intensive:} Requires running many iterations to build the simulated distribution.
 	\item \textbf{Sample dependency:} Highly sensitive to sample quality; cannot generate values outside the sample range.
 	\item \textbf{Time-series limitations:} Simple bootstrapping breaks down autocorrelation in time-series data.
-	\item \textbf{Computational cost:} Requires running many iterations to build the simulated distribution.
+	\item \textbf{No analytical insight:} Bootstrapping is purely empirical and does not provide theoretical insight into the population or the underlying process.
 \end{itemize}
 
 % \subsection{Question Set 2}
@@ -659,7 +679,7 @@ We evaluate a European call option using Monte Carlo simulation and compare the 
 \begin{itemize}
 	\item Option Type: European Call, Strike ($K$): CAD 90
 	\item Current Price ($P_0$): CAD 85, Time ($T$): 1 Year
-	\item Volatility ($\sigma$): 25%, Risk-free rate ($r$): 5.0%
+	\item Volatility ($\sigma$): 25\%, Risk-free rate ($r$): 5.0\%
 \end{itemize}
 
 \textbf{Step 1: Setup/parameterization} \\
@@ -723,9 +743,9 @@ An Asian call option's payoff depends on the average price of the underlying ass
 
 \textbf{Step 2: Scenario Generation} \\
 Daily stock returns follow a log-normal distribution:
-\begin{equation}
+\[
 	\text{Log price change}_t = \left(0.05 - \frac{0.25^2}{2}\right) \times \left(\frac{1}{252}\right) + 0.25 \times \sqrt{\frac{1}{252}} \times Z
-\end{equation}
+\]
 where $Z \sim N(0, 1)$. Prices evolve as $P_t = P_{t-1} \times e^{r_t}$. Table~\ref{tab:mod9_exhibit_25} shows one simulated run.
 
 \begin{center}
@@ -807,25 +827,32 @@ We assume a joint normal distribution for the two variables with standard deviat
 The Cholesky decomposition transforms independent standard normal variables $Z_1$ and $Z_2$ into correlated variables $X_1$ and $X_2$:
 \begin{equation}
 	X_1 = \sigma_1 Z_1
+	\label{eq:cholesky_x1_m9}
 \end{equation}
 \begin{equation}
 	X_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+	\label{eq:cholesky_x2_m9}
 \end{equation}
 This approach ensures that the final variables, $X_1$ and $X_2$, adhere to our calibration:
 \begin{equation}
 	E[X_1] = \sigma_1 E[Z_1] = 0
+	\label{eq:exp_x1_m9}
 \end{equation}
 \begin{equation}
 	E[X_2] = \sigma_2 E[\rho Z_1 + \sqrt{1 - \rho^2} Z_2] = 0
+	\label{eq:exp_x2_m9}
 \end{equation}
 The variances are:
 \begin{equation}
 	E[X_1^2] = \sigma_1^2; \quad E[X_2^2] = \sigma_2^2
+	\label{eq:var_x12_m9}
 \end{equation}
 Since $Z_1$ and $Z_2$ are independent, the covariance is:
 \begin{equation}
 	\sigma_{X_1, X_2} = E[X_1 X_2] = \rho \sigma_1 \sigma_2
+	\label{eq:cov_x12_m9}
 \end{equation}
+\textcolor{blue}{\textit{Xem thêm về mô phỏng 2 biến có tương quan, sử dụng Cholesky decomposition tại phần (\ref{sec:Cholesky_Decomposition})}}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -901,6 +928,9 @@ We generate independent standard normals $Z_1, Z_2$ and apply Cholesky decomposi
 X_1 = \sigma_{\text{DAX}} \times Z_1 = 0.0082 Z_1
 \]
 \[
+X_1 = \sigma_{\text{MADX}} \times (\rho Z_1 + \sqrt{1 - \rho^2} Z_2)
+\]
+\[
 X_2 = 0.0086 \times \left(0.8276 Z_1 + \sqrt{1 - 0.8276^2} Z_2\right) = 0.0071 Z_1 + 0.0048 Z_2
 \]
 The portfolio return is $R_P = X_1 - X_2$ (due to shorting MADX). Using 250 simulations, the resulting P/L distribution is shown in Figure~\ref{fig:mod9_exhibit_31}.
@@ -920,16 +950,19 @@ Monte Carlo simulation is highly flexible because the modeler controls the proba
 
 Strengths of Monte Carlo simulation:
 \begin{itemize}
-	\item \textbf{Flexibility:} Can simulate complex, non-linear, and path-dependent cash flows.
-	\item \textbf{Sensitivity analysis:} Allows testing portfolio behavior under different distributional parameters and stress scenarios.
+	\item \textbf{Wide applicability:} Can simulate complex, non-linear, and path-dependent cash flows.
+	\item \textbf{Correlation handling:} Monte Carlo simulation effectively models the correlations between assets.
+	\item \textbf{Forward looking:} Allows testing portfolio behavior under different distributional parameters and hypothetical future scenarios.
 	\item \textbf{No historical data constraint:} Can be applied to new instruments by defining pricing parameters.
+	\item \textbf{Flexibility for non-normal distributions:} Monte Carlo simulation is adaptable to non-normal return distributions, accounting for skewness and kurtosis.
 \end{itemize}
 
 Disadvantages of Monte Carlo simulation:
 \begin{itemize}
-	\item \textbf{Model risk:} Results depend entirely on input distribution and correlation assumptions (``garbage in, garbage out'').
-	\item \textbf{High computational cost:} Requires simulating thousands of trials, which can be computationally intensive.
+	\item \textbf{Computational intensity:} Requires simulating thousands of trials, which can be computationally intensive.
+	\item \textbf{Model dependency:} Results depend entirely on input distribution and correlation assumptions ("garbage in, garbage out").
 	\item \textbf{Complexity:} Harder to design, calibrate, and explain compared to historical simulation.
+	\item \textbf{Data requirements:} Monte Carlo simulation often relies on extensive historical data to estimate such parameters as volatility and correlation.
 \end{itemize}
 Table~\ref{tab:mod9_exhibit_32} compares the three simulation approaches.
 
@@ -937,6 +970,7 @@ Table~\ref{tab:mod9_exhibit_32} compares the three simulation approaches.
 \centering
 \caption{Comparison of Simulation Approaches}
 \label{tab:mod9_exhibit_32}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{p{0.18\linewidth} p{0.25\linewidth} p{0.25\linewidth} p{0.25\linewidth}}
 	\toprule
 	\textbf{Feature} & \textbf{Historical Simulation} & \textbf{Bootstrapping} & \textbf{Monte Carlo Simulation} \\
@@ -951,7 +985,8 @@ Table~\ref{tab:mod9_exhibit_32} compares the three simulation approaches.
 	\midrule
 	Computational intensity & Low to moderate & Moderate & High \\
 	\bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Practical Implementation of Simulation Approaches Using Excel and Other Tools}
@@ -961,7 +996,8 @@ Excel and Google Sheets provide functions to implement these techniques. Table~\
 \centering
 \caption{Functions Used for Simulation}
 \label{tab:mod9_exhibit_33}
-\begin{tabular}{p{0.18\linewidth} p{0.26\linewidth} p{0.26\linewidth} p{0.22\linewidth}}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{p{0.16\linewidth} p{0.27\linewidth} p{0.27\linewidth} p{0.22\linewidth}}
 	\toprule
 	\textbf{Technique} & \textbf{Excel Functions} & \textbf{Google Sheets} & \textbf{Description} \\
 	\midrule
@@ -971,39 +1007,8 @@ Excel and Google Sheets provide functions to implement these techniques. Table~\
 	\midrule
 	\textbf{Bootstrapping} & RAND(), INDEX(), MATCH(), COUNTIF(), SUM(), AVERAGE(), STDEV(), LARGE(), SMALL(), CONFIDENCE.NORM() & RAND(), INDEX(), MATCH(), COUNTIF(), SUM(), AVERAGE(), STDEV(), LARGE(), SMALL(), CONFIDENCE() & Resample with replacement using RAND() and INDEX(). \\
 	\bottomrule
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:mod9_exhibit_34} provides more detail on Excel functions used in simulations.
-
-\begin{table}[!htbp]
-\centering
-\caption{Detail on Excel Functions in Simulations}
-\label{tab:mod9_exhibit_34}
-\begin{tabular}{p{0.25\linewidth} p{0.45\linewidth} p{0.25\linewidth}}
-	\toprule
-	\textbf{Function} & \textbf{Use Case} & \textbf{Example} \\
-	\midrule
-	RAND() & Generates uniform random numbers between 0 and 1 & =RAND() \\
-	NORM.INV() & Converts random numbers to normally distributed values & =NORM.INV(0.5,100,15) \\
-	LOGNORM.INV() & Converts random numbers to log-normally distributed values & =LOGNORM.INV(0.5,0,1) \\
-	RANDBETWEEN() & Generates random integers for discrete simulations & =RANDBETWEEN(1,100) \\
-	IF() & Performs conditional logic & =IF(A1>100,"Profit","Loss") \\
-	SUM() & Adds values; aggregates returns & =SUM(A1:A10) \\
-	AVERAGE() & Calculates the mean of a dataset & =AVERAGE(A1:A10) \\
-	STDEV() & Estimates the standard deviation (volatility) & =STDEV(A1:A10) \\
-	CONFIDENCE.NORM() & Calculates confidence intervals for normal distribution & =CONFIDENCE.NORM(...) \\
-	INDEX() & Retrieves a value from a specified row in a range & =INDEX(A1:A10,5) \\
-	SORT() & Sorts a range of values & =SORT(A1:A10,1,TRUE) \\
-	PERCENTILE.EXC() & Calculates percentiles, excluding extreme values & =PERCENTILE.EXC(A1:A10,0.05) \\
-	PERCENTILE.INC() & Calculates percentiles, inclusive of extreme values & =PERCENTILE.INC(A1:A10,0.05) \\
-	LARGE() & Returns the k-th largest value & =LARGE(A1:A10,2) \\
-	SMALL() & Returns the k-th smallest value & =SMALL(A1:A10,3) \\
-	IFERROR() & Returns an alternative value if an error occurs & =IFERROR(A1/B1,"Error") \\
-	MATCH() & Finds the position of a specified value in a range & =MATCH(100,A1:A10,0) \\
-	COUNTIF() & Counts cells that meet a condition & =COUNTIF(A1:A10,">100") \\
-	\bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \textbf{Implementing Historical Simulation in Excel:}
@@ -1028,6 +1033,7 @@ Table~\ref{tab:mod9_exhibit_34} provides more detail on Excel functions used in 
 	\item Simulate price paths using geometric Brownian motion:
 	\begin{equation}
 		P_{t+\Delta t} = P_t \times e^{(r-0.5\sigma^2)\Delta t + \sigma \sqrt{\Delta t} Z}
+		\label{eq:gbm_price_step_m9}
 	\end{equation}
 	In Excel, this is implemented as:
 	\texttt{=P\_t * EXP((r - 0.5 * o\textsuperscript{2}) * dt + o * SQRT(dt) * NORM.INV(RAND(), 0, 1))} (where \texttt{o} is volatility $\sigma$).

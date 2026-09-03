@@ -1,6 +1,5 @@
 \chapter{The Return and Risk of a Financial Portfolio}
 \label{chap:The Return and Risk of a Financial Portfolio}
-
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	\toprule
@@ -14,23 +13,17 @@
 	\bottomrule
 \end{tabular}
 \end{center}
-
 \vspace{1.5em}
-
 \section{Calculating Portfolio Statistics}
 \label{sec:Calculating Portfolio Statistics}
-
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	a & calculate, interpret, and evaluate the expected return, variance, standard deviation, covariance, and correlation of portfolio returns \\
 \end{tabular}
 \end{center}
-
 Portfolio statistics, such as expected returns, standard deviations, and correlations, are fundamental for effective portfolio management and asset allocation. These statistics can be historical (factoring in past returns) or forward-looking (using model-based forecasts).
-
 \subsection{Returns of a Portfolio}
 \label{subsec:Returns of a Portfolio}
-
 The return of a portfolio is the weighted average of the returns of its individual assets. Historical portfolio returns are calculated by summing the products of the beginning-of-period asset weights and their corresponding realized returns:
 \begin{equation}
 	R_{P,t} = \sum_{i=1}^N w_{i,t-1} R_{i,t}
@@ -41,7 +34,6 @@ where $N$ is the number of assets, $w_{i,t-1}$ is the weight of asset $i$ at the
 	R_{i,t} = \frac{P_{i,t} - P_{i,t-1} + \text{Div}_{i,t}}{P_{i,t-1}}
 	\label{eq:asset_realized_return_m8}
 \end{equation}
-
 To evaluate returns over multiple periods from $t=1$ to $T$, if the weights are held constant at their initial values $w_{i,0}$ (which implies continuous rebalancing), the aggregate portfolio return is:
 \begin{equation}
 	R_{P,T} = \sum_{i=1}^N w_{i,0} R_{i,T}
@@ -53,7 +45,6 @@ The arithmetic average return of the portfolio across these periods is:
 	\bar{R}_P = \frac{1}{T} \sum_{t=1}^T R_{P,t}
 	\label{eq:portfolio_arithmetic_average_m8}
 \end{equation}
-
 When compounding returns over multiple periods without rebalancing, the asset weights will naturally shift as a result of varying asset performance. This phenomenon is known as \textbf{portfolio drift}. The cumulative return over $T$ periods with drifting weights is:
 \begin{equation}
 	R_{P,T} = \prod_{t=1}^T \left(1 + \sum_{i=1}^N w_{i,t-1} R_{i,t}\right) - 1
@@ -64,51 +55,17 @@ The geometric average return, or geometric return, is defined as:
 	\bar{R}_{g,P} = \left[ \prod_{t=1}^T (1 + R_{P,t}) \right]^{\frac{1}{T}} - 1 = (1 + R_{P,T})^{\frac{1}{T}} - 1
 	\label{eq:portfolio_geometric_return_m8}
 \end{equation}
+\textbf{Style drift}: where the portfolio deviates from its original investment strategy. 
+Style drift can occur even without portfolio drift when asset characteristics change over time. For instance, a small-capitalization company may grow into a large-capitalization company. 
+In some cases, portfolio drift may offset style drift, helping maintain the intended strategy.
 
 \textcolor{blue}{\textit{Portfolio drift (lệch tỷ trọng mục tiêu) do tài sản tăng trưởng không đều. Nếu không tái cân bằng (rebalancing) định kỳ, tỷ trọng sẽ dồn về tài sản tăng trưởng mạnh nhất, khiến rủi ro danh mục tiệm cận tài sản đó.}}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 1: Calculating Portfolio Return},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-Consider a portfolio with two assets, A and B, each with a 50\% initial weight ($w_A = w_B = 0.5$). The weights are held constant through rebalancing.
-\begin{itemize}
-	\item Year 1: Asset A returns $+10\%$, Asset B returns $-5\%$.
-	\item Year 2: Asset A returns $-10\%$, Asset B returns $+20\%$.
-\end{itemize}
-Calculate the arithmetic average return and geometric average return of the portfolio.
-
-\textbf{Solution:}
-\begin{enumerate}
-	\item \textbf{Year 1 Portfolio Return (Arithmetic Return):} $R_{P,1} = 0.5(10\%) + 0.5(-5\%) = 2.5\%$.
-	\item \textbf{Year 2 Portfolio Return (Arithmetic Return):} $R_{P,2} = 0.5(-10\%) + 0.5(20\%) = 5.0\%$.
-	\item \textbf{Arithmetic Average Portfolio Return:} $\bar{R}_P = \frac{2.5\% + 5\%}{2} = 3.75\%$.
-	\item \textbf{Geometric Average Portfolio Return:} $\bar{R}_{g,P} = \sqrt{(1 + 0.025)(1 + 0.05)} - 1 = 3.74\%$.
-\end{enumerate}
-\begin{examtip}
-\textbf{BA II Plus Keystrokes for Geometric Average Return:}
-\begin{enumerate}
-	\item Press \textbf{1.025} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.05} $\rightarrow$ \textbf{[=]} (screen displays \textbf{1.07625}).
-	\item Press \textbf{[2nd]} $\rightarrow$ \textbf{[Vx]} to take the square root (screen displays \textbf{1.03742}).
-	\item Press \textbf{[-]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (screen displays \textbf{0.03742} or \textbf{3.74\%}).
-\end{enumerate}
-\end{examtip}
-\end{tcolorbox}
-
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example 2: Portfolio Drift over Three Periods},
+	title=\textbf{Example 1: Portfolio Drift over Three Periods},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -128,7 +85,6 @@ An investor holds a portfolio of two assets, A and B, starting with EUR 1 invest
 \end{tabular}
 \end{center}
 Calculate the portfolio returns and weights at each step, and determine the cumulative arithmetic and geometric returns.
-
 \textbf{Solution:}
 \begin{itemize}
 	\item \textbf{Period 1:}
@@ -157,16 +113,7 @@ Calculate the portfolio returns and weights at each step, and determine the cumu
 		      \item Geometric average return: $\bar{R}_{g,P} = (1.125 \times 1.0167 \times 1.0916)^{\frac{1}{3}} - 1 \approx 7.68\%$.
 	      \end{itemize}
 \end{itemize}
-\begin{examtip}
-\textbf{BA II Plus Keystrokes for Cumulative Geometric Return:}
-\begin{enumerate}
-	\item Calculate cumulative factor: Press \textbf{1.125} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.0167} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{1.0916} $\rightarrow$ \textbf{[=]} (screen displays \textbf{1.2486}).
-	\item Calculate cube root: Press \textbf{[yx]} $\rightarrow$ \textbf{[(]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[/]} $\rightarrow$ \textbf{3} $\rightarrow$ \textbf{[)]} $\rightarrow$ \textbf{[=]} (screen displays \textbf{1.0768}).
-	\item Subtract 1: Press \textbf{-} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (screen displays \textbf{0.0768} or \textbf{7.68\%}).
-\end{enumerate}
-\end{examtip}
 \end{tcolorbox}
-
 \begin{table}[!htbp]
 \centering
 \caption{Portfolio Drift Characteristics by Weighting Scheme}
@@ -181,46 +128,34 @@ Calculate the portfolio returns and weights at each step, and determine the cumu
 	\bottomrule
 \end{tabular}
 \end{table}
-
 \subsection{Variance and Standard Deviation of Portfolio Returns}
 \label{subsec:Variance and Standard Deviation}
-
 The risk of a portfolio is measured by its variance and standard deviation. The variance of portfolio returns ($\sigma_P^2$) incorporates both individual asset variances and the covariances between all asset pairs:
 \begin{equation}
 	\sigma_P^2 = \sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{i,j}
 	\label{eq:portfolio_variance_sum_m8}
 \end{equation}
 where $\sigma_{i,j}$ represents the covariance between asset $i$ and asset $j$. Note that $\sigma_{i,i}$ is the variance of asset $i$ ($\sigma_i^2$).
-Standard deviation ($\sigma_P$) is the square root of variance:
-\begin{equation}
-	\sigma_P = \sqrt{\sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{i,j}}
-	\label{eq:portfolio_std_sum_m8}
-\end{equation}
-
+Standard deviation ($\sigma_P$) is the square root of variance.
 If covariances are modeled as random variables, the expected variance of portfolio returns is:
 \begin{equation}
 	E[\sigma_P^2] = \sum_{i=1}^N \sum_{j=1}^N w_i w_j E[\sigma_{i,j}]
 	\label{eq:portfolio_expected_variance_m8}
 \end{equation}
-Covariance is linked to the correlation coefficient ($\rho_{i,j}$) by:
-\begin{equation}
-	\sigma_{i,j} = \rho_{i,j} \sigma_i \sigma_j
-	\label{eq:covariance_correlation_relation_m8}
-\end{equation}
-Due to the non-linear interaction of volatility and correlation, the expected covariance $E[\sigma_{i,j}] \neq E[\rho_{i,j}] \times E[\sigma_i] \times E[\sigma_j]$ in the presence of joint dependencies.
+Covariance is linked to the correlation coefficient ($\rho_{i,j}$) by: $\sigma_{i,j} = \rho_{i,j} \sigma_i \sigma_j$
 
+Due to the non-linear interaction of volatility and correlation, the expected covariance $E[\sigma_{i,j}] \neq E[\rho_{i,j}] \times E[\sigma_i] \times E[\sigma_j]$ in the presence of joint dependencies.
 For a two-asset portfolio, the portfolio variance formula is:
 \begin{equation}
 	\sigma_P^2 = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_{1,2} = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{1,2} \sigma_1 \sigma_2
 	\label{eq:two_asset_variance_m8}
 \end{equation}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 3: Portfolio Allocation (Two-Asset)},
+	title=\textbf{Example 2: Portfolio Allocation (Two-Asset)},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -229,7 +164,6 @@ For a two-asset portfolio, the portfolio variance formula is:
 ]
 A portfolio allocates 80\% to the S\&P 500 Index ($w_A = 0.8$) and 20\% to the MSCI Emerging Markets Index ($w_B = 0.2$). Expected returns are $9.93\%$ and $18.20\%$, and standard deviations are $16.21\%$ and $33.11\%$, respectively. The covariance between the two is $0.0050$.
 Calculate the expected portfolio return, variance, and standard deviation.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Expected Portfolio Return:} $E[R_P] = 0.8(9.93\%) + 0.2(18.20\%) = 11.58\%$.
@@ -242,17 +176,7 @@ Calculate the expected portfolio return, variance, and standard deviation.
 	      \]
 	\item \textbf{Portfolio Standard Deviation:} $\sigma_P = \sqrt{0.02283} \approx 15.11\%$.
 \end{enumerate}
-\begin{examtip}
-\textbf{BA II Plus Keystrokes for Portfolio Standard Deviation:}
-\begin{enumerate}
-	\item Calculate Asset A variance and store in memory: Press \textbf{0.8} $\rightarrow$ \textbf{[x$^2$]} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.1621} $\rightarrow$ \textbf{[x$^2$]} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[STO]} $\rightarrow$ \textbf{1} (stores $\approx 0.016839$).
-	\item Calculate Asset B variance and add to memory: Press \textbf{0.2} $\rightarrow$ \textbf{[x$^2$]} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.3311} $\rightarrow$ \textbf{[x$^2$]} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[+]} $\rightarrow$ \textbf{[RCL]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[STO]} $\rightarrow$ \textbf{1} (stores sum $\approx 0.021224$).
-	\item Calculate covariance term and add to memory: Press \textbf{2} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.8} $\rightarrow$ \textbf{[*]} $\rightarrow$ \textbf{0.2} $\rightarrow$ \textbf{[*]} \textbf{0.005} $\rightarrow$ \textbf{[=]} $\rightarrow$ \textbf{[+]} $\rightarrow$ \textbf{[RCL]} $\rightarrow$ \textbf{1} $\rightarrow$ \textbf{[=]} (variance displays $\approx 0.022824$).
-	\item Take square root to get standard deviation: Press \textbf{[2nd]} $\rightarrow$ \textbf{[Vx]} (screen displays $\approx 0.151076$ or \textbf{15.11\%}).
-\end{enumerate}
-\end{examtip}
 \end{tcolorbox}
-
 \begin{table}[!htbp]
 \centering
 \caption{Portfolio Return and Risk under Different Weights (S\&P 500 vs. MSCI EM)}
@@ -275,22 +199,13 @@ Calculate the expected portfolio return, variance, and standard deviation.
 	\bottomrule
 \end{tabular}
 \end{table}
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_3.png}
-	\caption{Feasible Set of Portfolios from S\&P 500 and MSCI EM (Covariance = 0.0050)}
-	\label{fig:SP500_MSCI_Feasible}
-\end{figure}
-
 \textcolor{blue}{\textit{Tương quan thấp giữa S\&P 500 và MSCI EM tạo đồ thị cong lõm (concave), giúp danh mục có rủi ro ($14.59\%$) thấp hơn cả S\&P 500 ($16.21\%$). Nếu tương quan bằng +1.0, đa dạng hóa sẽ hoàn toàn không có tác dụng giảm rủi ro.}}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 4: Varying Correlations},
+	title=\textbf{Example 3: Varying Correlations},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -298,7 +213,6 @@ Calculate the expected portfolio return, variance, and standard deviation.
 	breakable
 ]
 Asset 1 has expected return $7.0\%$ and standard deviation $12.0\%$. Asset 2 has expected return $15.0\%$ and standard deviation $25.0\%$. Compare the portfolio risk ($\sigma_P$) for different asset weights under correlations ($\rho$) of $+1.0$, $+0.5$, $+0.2$, and $-1.0$.
-
 \textbf{Solution:}
 The calculated portfolio standard deviation ($\sigma_P$) for each scenario is summarized in Table~\ref{tab:portfolio_var_correlations_m8}.
 \begin{table}[H]
@@ -321,25 +235,30 @@ The calculated portfolio standard deviation ($\sigma_P$) for each scenario is su
 \end{tabular}
 \end{table}
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
+\centering
+\begin{minipage}[t]{0.52\linewidth}
 	\centering
-	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_5.png}
+	\includegraphics[width=\linewidth]{002_figs/008_Module_8/exhibit_3.png}
+	\caption{Feasible Set of Portfolios from S\&P 500 and MSCI EM (Covariance = 0.0050)}
+	\label{fig:SP500_MSCI_Feasible}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.452\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{002_figs/008_Module_8/exhibit_5.png}
 	\caption{Portfolio Opportunity Frontier for Different Correlation Coefficients}
 	\label{fig:Correlations_Frontier}
+\end{minipage}
 \end{figure}
-
 As correlation declines, the frontier curves further to the left, which indicates a greater reduction in portfolio risk for a given expected return. When $\rho = -1$, the portfolio risk can be reduced to zero.
-
 \subsubsection{Matrix Notation of Portfolio Risk}
-
 For a portfolio with $N$ assets, the number of unique covariances that must be computed is:
 \begin{equation}
 	\text{Unique Covariances} = \frac{N(N-1)}{2}
 	\label{eq:unique_covariances_m8}
 \end{equation}
 Along with the $N$ individual variances, the total parameters needed for an $N$-asset portfolio is $\frac{N(N+1)}{2}$. For example, a 100-security portfolio requires 4,950 unique covariances.
-
 This structure is organized into the symmetric \textbf{variance-covariance matrix} $\mathbf{V}$:
 \begin{equation}
 	\mathbf{V} = \begin{bmatrix}
@@ -362,15 +281,13 @@ The matching normalized matrix is the \textbf{correlation matrix} $\boldsymbol{\
 	\end{bmatrix}
 	\label{eq:correlation_matrix_m8}
 \end{equation}
-
 \textcolor{blue}{\textit{Thực tế: Bloomberg thường nhân covariance matrix với $10^4$ (đơn vị $\%^2$). Khi quy đổi về số thập phân để tính toán, bắt buộc phải chia cho $10^4$ để tránh sai số hàng ngàn lần.}}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 5: A Portfolio with Three Assets (Covariance Matrix)},
+	title=\textbf{Example 4: A Portfolio with Three Assets (Covariance Matrix)},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -391,7 +308,6 @@ A portfolio contains three assets. The expected returns, standard deviations, an
 	      \]
 \end{itemize}
 Construct the variance-covariance matrix $\mathbf{V}$.
-
 \textbf{Solution:}
 Using the relationship between covariance and correlation, $\sigma_{i,j} = \sigma_i \sigma_j \rho_{i,j}$:
 \begin{enumerate}
@@ -417,22 +333,20 @@ Therefore, the variance-covariance matrix $\mathbf{V}$ is:
 \end{bmatrix}
 \]
 \end{tcolorbox}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 6: Return and Risk of a Three-Asset Portfolio},
+	title=\textbf{Example 5: Return and Risk of a Three-Asset Portfolio},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
 	after skip=6pt,
 	breakable
 ]
-Using the data from Example 5, assume the portfolio weights are $w_1 = 0.4$, $w_2 = 0.3$, $w_3 = 0.3$.
+Using the data from Example 4, assume the portfolio weights are $w_1 = 0.4$, $w_2 = 0.3$, $w_3 = 0.3$.
 Calculate the expected portfolio return and standard deviation.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Expected Portfolio Return:}
@@ -458,10 +372,8 @@ Calculate the expected portfolio return and standard deviation.
 	\item \textbf{Portfolio Standard Deviation:} $\sigma_P = \sqrt{0.0099} \approx 9.95\%$.
 \end{enumerate}
 \end{tcolorbox}
-
 \subsection{Expected Return and Variance under Economic Scenarios}
 \label{subsec:Scenarios}
-
 Expected returns and covariances can be derived from joint probabilities over $M$ economic scenarios. Under scenario $M$ occurring with probability $p_M$, the portfolio return is:
 \begin{equation}
 	R_{P,M} = \sum_{i=1}^N w_i R_{i,M}
@@ -477,13 +389,12 @@ The portfolio variance is the weighted sum of squared deviations from the expect
 	\sigma_P^2 = \sum_{M=1}^M p_M \left( R_{P,M} - E[R_P] \right)^2
 	\label{eq:variance_scenarios_m8}
 \end{equation}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 7: Expected Portfolio Returns and Scenarios},
+	title=\textbf{Example 6: Expected Portfolio Returns and Scenarios},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -503,7 +414,6 @@ Consider three assets, A, B, and C, with weights $w_A = 0.4$, $w_B = 0.3$, $w_C 
 \end{tabular}
 \end{center}
 Calculate the expected portfolio return and standard deviation.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Scenario Returns:}
@@ -528,13 +438,11 @@ Calculate the expected portfolio return and standard deviation.
 	\item \textbf{Portfolio Standard Deviation:} $\sigma_P = \sqrt{0.0001118} \approx 1.06\%$.
 \end{enumerate}
 \end{tcolorbox}
-
 \subsubsection{Summation vs. Matrix Notation Comparison}
-
 For portfolios with a large number of assets, matrix notation provides a compact, computationally efficient mathematical representation.
-
 \begin{table}[!htbp]
 \centering
+\renewcommand{\arraystretch}{1.5}
 \caption{Comparison of Summation and Matrix Notation}
 \label{tab:summation_matrix_comparison_m8}
 \begin{tabular}{p{0.20\linewidth}  p{0.32\linewidth}  p{0.28\linewidth}}
@@ -553,13 +461,12 @@ For portfolios with a large number of assets, matrix notation provides a compact
 	\bottomrule
 \end{tabular}
 \end{table}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 8: The Three-Asset Portfolio Revisited (Matrix Form)},
+	title=\textbf{Example 7: The Three-Asset Portfolio Revisited (Matrix Form)},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -570,7 +477,6 @@ Using the data from Example 5, confirm the return and variance using matrix mult
 \[
 \mathbf{w} = \begin{bmatrix} 0.4 \\ 0.3 \\ 0.3 \end{bmatrix}, \quad \boldsymbol{\mu} = \begin{bmatrix} 0.10 \\ 0.12 \\ 0.08 \end{bmatrix}, \quad \mathbf{V} = \begin{bmatrix} 0.0225 & 0.0060 & -0.0045 \\ 0.0060 & 0.0400 & 0.0080 \\ -0.0045 & 0.0080 & 0.0100 \end{bmatrix}
 \]
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Expected Return:}
@@ -591,19 +497,16 @@ Using the data from Example 5, confirm the return and variance using matrix mult
 	      \sigma_P^2 = 0.4(0.00945) + 0.3(0.0168) + 0.3(0.0036) = 0.00378 + 0.00504 + 0.00108 = 0.0099
 	      \]
 \end{enumerate}
-This yields $\sigma_P^2 = 0.0099$, which perfectly matches the result from the summation formula in Example 6.
+This yields $\sigma_P^2 = 0.0099$, which perfectly matches the result from the summation formula in Example 5.
 \end{tcolorbox}
-
 \subsection{The Benefits of Diversification}
 \label{subsec:The Benefits of Diversification}
-
 The power of diversification lies in combining assets that are not perfectly positively correlated to reduce overall portfolio risk. 
 Consider an equally weighted portfolio ($w_i = 1/N$) where all assets have the same variance $\sigma^2$ and the average correlation coefficient is $\bar{\rho}$. The portfolio variance is:
 \begin{equation}
 	\sigma_P^2 = \frac{\sigma^2}{N} + \left(1 - \frac{1}{N}\right) \bar{\rho} \sigma^2
 	\label{eq:equal_weighted_variance_m8}
 \end{equation}
-
 As the number of assets $N \to \infty$:
 \begin{itemize}
 	\item The contribution of the individual asset variance, $\frac{\sigma^2}{N}$, converges to $0$.
@@ -614,15 +517,13 @@ This leaves only the average covariance term to determine the portfolio's risk:
 	\lim_{N \to \infty} \sigma_P^2 = \bar{\rho} \sigma^2 = \text{Average Covariance}
 	\label{eq:limit_variance_m8}
 \end{equation}
-
 \textcolor{blue}{\textit{Nhận xét: Danh mục đa dạng hóa tốt chỉ còn chịu rủi ro hệ thống (covariance trung bình) do rủi ro phi hệ thống đã bị triệt tiêu. Thị trường chỉ bù đắp lợi nhuận cho rủi ro không thể đa dạng hóa (rủi ro hệ thống).}}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 9: Approximating Standard Deviation of a Portfolio with Many Assets},
+	title=\textbf{Example 8: Approximating Standard Deviation of a Portfolio with Many Assets},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -631,7 +532,6 @@ This leaves only the average covariance term to determine the portfolio's risk:
 ]
 An equally weighted portfolio has 50 assets ($N=50$). The average asset variance is $\sigma^2 = 0.0400$ and the average correlation coefficient is $\bar{\rho} = 0.3$.
 Calculate the exact portfolio standard deviation and compare it to the large-$N$ approximation.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Exact Portfolio Variance using Equation~\ref{eq:equal_weighted_variance_m8}:}
@@ -647,20 +547,18 @@ Calculate the exact portfolio standard deviation and compare it to the large-$N$
 \end{enumerate}
 The approximation is very close to the exact value, demonstrating that for a sufficiently large portfolio, the portfolio variance is dominated by the average covariance between the assets.
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_11.png}
 	\caption{Portfolio Risk Reduction as the Number of Assets ($N$) Increases}
 	\label{fig:Diversification_Limit}
 \end{figure}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 10: Portfolio Size and Portfolio Variance (GBM Simulation)},
+	title=\textbf{Example 9: Portfolio Size and Portfolio Variance (GBM Simulation)},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -669,59 +567,47 @@ The approximation is very close to the exact value, demonstrating that for a suf
 ]
 A simulation generates 250 daily returns for 100 randomly selected assets using geometric Brownian motion (GBM). Portfolios ranging from $N = 2$ to $50$ assets are constructed. 
 As shown in Exhibit~\ref{fig:GBM_Simulation}, the standard deviation of portfolio returns decreases sharply as $N$ increases from 2 to 20, but the marginal benefit of adding more assets diminishes beyond $N = 30$.
-
 \textbf{Key Takeaway:}
 A portfolio of 20 to 30 assets captures most of the benefits of diversification, provided the assets have low correlations. Adding assets beyond this threshold yields negligible reduction in portfolio risk, as the remaining risk is systematic risk, which cannot be diversified away.
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_12.png}
 	\caption{GBM Simulation of Portfolio Standard Deviation vs. Number of Assets}
 	\label{fig:GBM_Simulation}
 \end{figure}
-
 % \subsection{Question Set 1}
 % \label{subsec:Question Set 1}
 % \textcolor{blue}{\textit{Bộ câu hỏi củng cố Question Set 1 đã được chuyển về Chương 13 (Câu hỏi củng cố) ở cuối sách. Xem câu hỏi tại trang \pageref{subsec:app_Question Set 1}.}}
-
 \section{The Minimum-Variance Portfolio and the Efficient Frontier}
 \label{sec:The Minimum-Variance Portfolio and the Efficient Frontier}
-
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	b & describe, calculate, and interpret the minimum-variance portfolio and portfolios that lie on the efficient frontier \\
 \end{tabular}
 \end{center}
-
 Portfolio optimization involves finding the optimal weights of assets to minimize risk for a given target return, or maximize expected return for a given risk level.
-
 \subsection{The Feasible Set and Efficient Frontier}
 \label{subsec:The Feasible Set and Efficient Frontier}
-
 The \textbf{feasible set} (or investment opportunity set) represents all possible portfolios that can be constructed from a given group of assets. When there are multiple risky assets, the feasible set forms a cloud of portfolios in risk-return space.
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_13.png}
 	\caption{The Cloud of Feasible Portfolios in Risk-Return Space}
 	\label{fig:Feasible_Cloud}
 \end{figure}
-
 The boundary of this cloud on the upper-left represents the optimal trade-off between risk and return:
 \begin{itemize}
 	\item The \textbf{Minimum-Variance Frontier} is the boundary that minimizes variance for each level of expected return.
 	\item The \textbf{Global Minimum-Variance Portfolio} is the single portfolio on the frontier that has the lowest possible risk.
 	\item The \textbf{Markowitz Efficient Frontier} is the portion of the minimum-variance frontier that lies above the Global Minimum-Variance portfolio. Risk-averse, utility-maximizing investors will only choose portfolios on this segment.
 \end{itemize}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_15.png}
 	\caption{The Minimum-Variance Frontier and the Efficient Frontier}
 	\label{fig:Efficient_Frontier}
 \end{figure}
-
 Mathematically, the optimization problem is formulated as:
 \begin{equation}
 	\text{Minimize } \sigma_P^2 = \sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{i,j} \quad \text{subject to } \sum_{i=1}^N w_i = 1, \quad w_i \ge 0, \quad E[R_P] = k
@@ -733,10 +619,8 @@ where $k$ is the target expected return. Under matrix form:
 	\label{eq:optimization_matrix_m8}
 \end{equation}
 The constraint $w_i \ge 0$ represents the \textbf{no-short-selling} constraint.
-
 \subsection{Derivation of the Minimum-Variance Portfolio Weights}
 \label{subsec:Derivation of MVP}
-
 For a two-asset portfolio, we can find the weights that minimize variance without complex optimization. Let $w_A$ be the weight of Asset A and $w_B = 1 - w_A$ be the weight of Asset B.
 \[
 \sigma_P^2 = w_A^2 \sigma_A^2 + (1 - w_A)^2 \sigma_B^2 + 2 w_A (1 - w_A) \sigma_{A,B}
@@ -758,22 +642,20 @@ Correspondingly, the weight for Asset B is:
 	w_B^* = 1 - w_A^* = \frac{\sigma_A^2 - \sigma_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\sigma_{A,B}}
 	\label{eq:MVP_weight_B_m8}
 \end{equation}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 11: Calculating Minimum-Variance Weights},
+	title=\textbf{Example 10: Calculating Minimum-Variance Weights},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
 	after skip=6pt,
 	breakable
 ]
-We revisit Example 3 where Asset A (S\&P 500) has standard deviation $\sigma_A = 16.21\%$ ($\sigma_A^2 = 0.0263$), Asset B (MSCI EM) has standard deviation $\sigma_B = 33.11\%$ ($\sigma_B^2 = 0.1096$), and the covariance is $\sigma_{A,B} = 0.0107$ (corresponding to a 20\% correlation).
+We revisit Example 2 where Asset A (S\&P 500) has standard deviation $\sigma_A = 16.21\%$ ($\sigma_A^2 = 0.0263$), Asset B (MSCI EM) has standard deviation $\sigma_B = 33.11\%$ ($\sigma_B^2 = 0.1096$), and the covariance is $\sigma_{A,B} = 0.0107$ (corresponding to a 20\% correlation).
 Calculate the weights, return, and standard deviation of the global minimum-variance portfolio.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Optimal Weights using Equation~\ref{eq:MVP_weight_A_m8}:}
@@ -794,20 +676,18 @@ Calculate the weights, return, and standard deviation of the global minimum-vari
 	      \]
 \end{enumerate}
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_16.png}
 	\caption{The Minimum-Variance Frontier and the S\&P 500 / MSCI EM Indices}
 	\label{fig:MVP_Frontier}
 \end{figure}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 12: Selected Frontier Portfolios},
+	title=\textbf{Example 11: Selected Frontier Portfolios},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -823,22 +703,19 @@ We examine selected portfolios on the efficient frontier established between the
 \end{itemize}
 Portfolios lying below P6 (offering lower expected returns for the same level of risk) are inefficient portfolios.
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_17.png}
 	\caption{The Efficient Frontier and Selected Opportunity Portfolios}
 	\label{fig:Frontier_Selected}
 \end{figure}
-
 \textcolor{blue}{\textit{MVP phân chia đường biên hiệu quả làm hai phần. Nhà đầu tư duy lý chỉ chọn danh mục ở nửa trên MVP (đường biên hiệu quả) vì mang lại tỷ suất sinh lời cao nhất cho cùng mức rủi ro.}}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 13: Capital Allocation weights},
+	title=\textbf{Example 12: Capital Allocation Weights},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -847,7 +724,6 @@ Portfolios lying below P6 (offering lower expected returns for the same level of
 ]
 An analyst creates a target portfolio return of $9.0\%$ by combining the MSCI World Index (expected return $10.4\%$, standard deviation $14.80\%$) and a risk-free asset returning $1.0\%$ ($\sigma_f = 0.0\%$).
 Calculate the weights and portfolio standard deviation.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Weights:} Let $w_M$ be the weight allocated to the MSCI World Index:
@@ -864,13 +740,28 @@ Calculate the weights and portfolio standard deviation.
 	      \]
 \end{enumerate}
 \end{tcolorbox}
-
+\subsection{Portfolio Optimization}
+\label{subsec:Portfolio Optimization}
+\begin{enumerate}
+	\item \textbf{Return-constrained optimization} by minimizing portfolio risk, $\sigma_p$, for a given level of return.
+	\item \textbf{Risk-constrained optimization} by finding the highest expected return $E[r_p]$, for a given level of risk.
+	\item \textbf{Risk-adjusted return optimization} by maximizing the Sharpe ratio,$\frac{E[r_p]-r_f}{\sigma_p}$, where $r_f$ represents the risk-free rate.
+\end{enumerate}
+The portfolio optimization process incorporates several key inputs:
+\begin{enumerate}
+	\item Expected returns, $E[r_i]$, for each individual asset.
+	\item Volatility, $\sigma_i$, for each individual asset.
+	\item Asset correlations, $\rho_{i,j}$, or the off-diagonal covariances from the variance-covariance matrix \textbf{V}.
+\end{enumerate}
+The optimization process must also account for investor-specific factors, such as \textbf{risk tolerance}, 
+the capacity and willingness to absorb losses, investment horizon, 
+cash return requirements, and other investment objectives. 
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 14: Portfolio Optimization with Several Assets},
+	title=\textbf{Example 13: Portfolio Optimization with Several Assets},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -878,14 +769,12 @@ Calculate the weights and portfolio standard deviation.
 	breakable
 ]
 An analyst aims to optimize a traditional 60/40 stock/bond portfolio ($R_{60/40} = 10\%$, $\sigma_{60/40} = 13\%$) using five assets: Global Developed Equities ($12\%$, $20\%$), Emerging Market Equities ($16\%$, $33\%$), Long-Term Bonds ($5\%$, $8\%$), International Bonds ($7\%$, $15\%$), and Short-Term Bills ($3\%$, $1\%$).
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Return-Constrained Optimization:} Minimize portfolio risk for a target expected return of $11\%$.
 	\item \textbf{Risk-Constrained Optimization:} Maximize expected return for a target portfolio risk of $12\%$.
 \end{enumerate}
 The resulting optimal asset weights are detailed in Table~\ref{tab:optimized_weights_m8}.
-
 \begin{table}[H]
 \centering
 \caption{Optimal Portfolio Weights vs. Traditional 60/40 Portfolio}
@@ -907,36 +796,28 @@ The resulting optimal asset weights are detailed in Table~\ref{tab:optimized_wei
 \end{table}
 Both portfolios lie on the multi-asset efficient frontier (Exhibit~\ref{fig:Multi_Asset_Frontier}), outperforming the traditional 60/40 allocation.
 \end{tcolorbox}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_21.png}
 	\caption{Efficient Frontier and Optimized Constrained Portfolios}
 	\label{fig:Multi_Asset_Frontier}
 \end{figure}
-
 % \subsection{Question Set 2}
 % \label{subsec:Question Set 2}
 % \textcolor{blue}{\textit{Bộ câu hỏi củng cố Question Set 2 đã được chuyển về Chương 13 (Câu hỏi củng cố) ở cuối sách. Xem câu hỏi tại trang \pageref{subsec:app_Question Set 2}.}}
-
 \section{Optimal Portfolio Selection}
 \label{sec:Optimal Portfolio Selection}
-
 \begin{center}
 \begin{tabular}{p{0.06\linewidth} | p{0.88\linewidth}}
 	c & explain the selection of an optimal portfolio, given an investor's risk aversion and the capital allocation line, and how this extends to the market portfolio and the capital market line \\
 \end{tabular}
 \end{center}
-
 Optimal portfolio selection balances expected returns with risk, matching the opportunity set against an investor's personal preferences.
-
 \begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
 Cấu phần "Optimal Portfolio Selection" bao gồm các khái niệm về Đường phân bổ vốn (CAL), Đường thị trường vốn (CML), Mô hình định giá tài sản vốn (CAPM) và Beta đã được chuyển từ phần Portfolio Management sang tích hợp trực tiếp vào Quantitative Methods năm 2027. Đây là phần lý thuyết cốt lõi và rất quan trọng cho kỳ thi.
 \end{examtip}
-
 \subsection{Investor Utility and Indifference Curves}
 \label{subsec:Investor Utility}
-
 The utility function represents an investor's satisfaction or ranking of portfolios based on risk and expected return. For a risk-averse investor, utility is formulated as:
 \begin{equation}
 	U = E[R] - \frac{1}{2} A \sigma^2
@@ -948,9 +829,7 @@ where $E[R]$ is expected return, $\sigma^2$ is variance of returns, and $A$ is t
 	\item $A = 0$: Risk-neutral investor. Utility depends solely on expected return.
 	\item $A < 0$: Risk-seeking investor. Utility increases with risk.
 \end{itemize}
-
 An \textbf{indifference curve} maps the combinations of risk and expected return that yield the same level of utility.
-
 \begin{table}[!htbp]
 \centering
 \caption{Risk Preferences and Indifference Curves}
@@ -967,16 +846,13 @@ An \textbf{indifference curve} maps the combinations of risk and expected return
 	\bottomrule
 \end{tabular}
 \end{table}
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_23.png}
 	\caption{Indifference Curves for Risk-Averse, Risk-Neutral, and Risk-Seeking Investors}
 	\label{fig:Indifference_Curves}
 \end{figure}
-
 Steeper indifference curves represent higher risk aversion ($A$), meaning the investor requires a much higher expected return to accept a small increase in risk.
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
@@ -1007,7 +883,6 @@ Determine the optimal choice for:
 	\item An investor with $A = 2$.
 	\item A risk-seeking investor with $A = -4$.
 \end{enumerate}
-
 \textbf{Solution:}
 Using $U = E[R] - \frac{1}{2} A \sigma^2$:
 \begin{enumerate}
@@ -1034,10 +909,8 @@ Using $U = E[R] - \frac{1}{2} A \sigma^2$:
 	      The investor chooses \textbf{Investment C}. Utility increases with both return and risk.
 \end{enumerate}
 \end{tcolorbox}
-
 \subsection{The Capital Allocation Line (CAL) and Sharpe Ratio}
 \label{subsec:CAL}
-
 When a risk-free asset (with return $R_f$ and standard deviation $\sigma_f = 0$) is introduced, investors can combine it with a risky portfolio $P$.
 The expected return of the combined portfolio is:
 \begin{equation}
@@ -1054,33 +927,29 @@ Substituting $(1 - w_f)$ into the expected return equation yields the \textbf{Ca
 	E[R_c] = R_f + \left( \frac{E[R_P] - R_f}{\sigma_P} \right) \sigma_c
 	\label{eq:CAL_equation_m8}
 \end{equation}
-
 The slope of the CAL is the \textbf{Sharpe ratio (SR)} of the risky portfolio:
 \begin{equation}
 	\text{Sharpe Ratio} = \frac{E[R_P] - R_f}{\sigma_P}
 	\label{eq:sharpe_ratio_m8}
 \end{equation}
 The optimal risky portfolio (tangency portfolio) is the point on the efficient frontier that maximizes the Sharpe ratio, creating the steepest possible CAL.
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_24.png}
 	\caption{Optimal Portfolio Selection via Tangency between Indifference Curves and CAL}
 	\label{fig:Optimal_Selection_CAL}
 \end{figure}
-
 The optimal portfolio for a specific investor lies at the point of tangency between their highest attainable indifference curve and the CAL:
 \begin{itemize}
 	\item More risk-averse investors select portfolios closer to the risk-free asset (left on the CAL).
 	\item Less risk-averse investors select portfolios closer to or beyond the tangency portfolio $P$, utilizing leverage (borrowing at the risk-free rate) to buy more of the risky portfolio.
 \end{itemize}
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 15: Calculating the Sharpe Ratio},
+	title=\textbf{Example 14: Calculating the Sharpe Ratio},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -1092,7 +961,6 @@ Assuming a risk-free rate of 1.0\%, compare:
 	\item Portfolio A: expected return $9.0\%$, weight in MSCI World $85.1\%$, standard deviation $12.59\%$.
 	\item Portfolio B: expected return $12.0\%$, weight in MSCI World $117.1\%$, standard deviation $17.32\%$.
 \end{itemize}
-
 \textbf{Solution:}
 \begin{itemize}
 	\item $\text{SR}_A = \frac{9\% - 1\%}{12.59\%} \approx 0.635$
@@ -1100,10 +968,8 @@ Assuming a risk-free rate of 1.0\%, compare:
 	\item Both portfolios lie on the same Capital Allocation Line (CAL) and have the same Sharpe ratio. Portfolio B is a leveraged portfolio, borrowing $17.1\%$ at the risk-free rate to increase investment in the risky asset portfolio.
 \end{itemize}
 \end{tcolorbox}
-
 \subsection{The Capital Market Line (CML)}
 \label{subsec:CML}
-
 If all investors share identical assumptions and hold mean-variance efficient portfolios, the optimal risky portfolio is the \textbf{Market Portfolio} ($M$). 
 The Market Portfolio theoretically contains all risky assets in the universe, weighted by their market values.
 The Capital Allocation Line using the Market Portfolio as the risky portfolio is called the \textbf{Capital Market Line (CML)}:
@@ -1112,26 +978,21 @@ The Capital Allocation Line using the Market Portfolio as the risky portfolio is
 	\label{eq:CML_equation_m8}
 \end{equation}
 where $E[R_M]$ and $\sigma_M$ are the expected return and standard deviation of the market portfolio.
-
 According to the \textbf{mutual fund theorem}, all rational investors can achieve optimal asset allocation by holding only two assets: the risk-free asset and the market portfolio. 
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_25.png}
 	\caption{The Capital Market Line (CML) and the Markowitz Efficient Frontier}
 	\label{fig:CML_Frontier}
 \end{figure}
-
 \subsection{The Capital Asset Pricing Model (CAPM) and Beta}
 \label{subsec:CAPM}
-
 Total risk consists of two parts:
 \begin{itemize}
 	\item \textbf{Unsystematic Risk} (diversifiable / idiosyncratic risk): Unique to a specific company or sector. Can be eliminated in a well-diversified portfolio.
 	\item \textbf{Systematic Risk} (undiversifiable / market risk): Driven by macroeconomic factors that affect all assets. Cannot be diversified away.
 \end{itemize}
 Since investors can eliminate unsystematic risk at no cost through diversification, they are not compensated for bearing it. The expected return of an asset depends solely on its systematic risk.
-
 Systematic risk is measured by \textbf{Beta} ($\beta$), which quantifies the sensitivity of an asset's returns to movements in the market portfolio:
 \begin{equation}
 	\beta_i = \frac{\sigma_{i,M}}{\sigma_M^2} = \frac{\rho_{i,M} \sigma_i \sigma_M}{\sigma_M^2} = \rho_{i,M} \frac{\sigma_i}{\sigma_M}
@@ -1143,43 +1004,18 @@ where $\sigma_{i,M}$ is the covariance between asset $i$ and the market, and $\s
 	\item $\beta > 1.0$: Asset is more volatile than the market (aggressive asset).
 	\item $\beta < 1.0$: Asset is less volatile than the market (defensive asset).
 \end{itemize}
-
 The \textbf{Capital Asset Pricing Model (CAPM)} states that the expected return of asset $i$ is:
 \begin{equation}
 	E[R_i] = R_f + \beta_i \left( E[R_M] - R_f \right)
 	\label{eq:CAPM_equation_m8}
 \end{equation}
 where $\left( E[R_M] - R_f \right)$ is the \textbf{market risk premium (MRP)}.
-
 The graphical representation of CAPM is the \textbf{Security Market Line (SML)}, which plots expected return against Beta. In contrast to the CML (which uses total risk / standard deviation and applies only to efficient portfolios), the SML uses systematic risk / Beta and applies to \textbf{all} assets, whether efficient or individual.
 \begin{equation}
 	E[R_i] = R_f + \left(\frac{E[R_M] - R_f}{\sigma_M^2}\right) \sigma_{i,M}
 	\label{eq:SML_covariance_form_m8}
 \end{equation}
-
 \textcolor{blue}{\textit{So sánh: CML dùng tổng rủi ro ($\sigma$) áp dụng cho danh mục hiệu quả. SML dùng rủi ro hệ thống ($\beta$) áp dụng cho mọi tài sản đơn lẻ lẫn danh mục. Cổ phiếu đơn lẻ không nằm trên CML nhưng vẫn nằm trên SML.}}
-
-
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example 16: CAPM Return Calculation},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-The risk-free rate is $3.0\%$ and the expected market return is $8.0\%$. Calculate the expected return of an asset with a Beta of $1.2$.
-
-\textbf{Solution:}
-Using the Capital Asset Pricing Model (CAPM) in Equation~\ref{eq:CAPM_equation_m8}:
-\[
-E[R_i] = 3.0\% + 1.2(8.0\% - 3.0\%) = 3.0\% + 1.2(5.0\%) = 3.0\% + 6.0\% = 9.0\%
-\]
-\end{tcolorbox}
 
 \begin{tcolorbox}[
 	colback=gray!5!white,
@@ -1200,7 +1036,6 @@ Consider: $R_f = 2.0\%$, $E[R_M] = 8.0\%$, $\sigma_M = 15.0\%$, and an investor'
 	\item Calculate the expected return using CAPM and confirm it matches the CML.
 	\item Calculate the Sharpe ratio of the market portfolio.
 \end{enumerate}
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{CML expected return:}
@@ -1219,22 +1054,19 @@ Consider: $R_f = 2.0\%$, $E[R_M] = 8.0\%$, $\sigma_M = 15.0\%$, and an investor'
 	\item \textbf{Sharpe ratio:} $\text{SR}_M = \frac{8\% - 2\%}{15\%} = 0.40$.
 \end{enumerate}
 \end{tcolorbox}
-
 \subsubsection{Estimating Beta using Linear Regression}
-
 In practice, Beta is estimated using ordinary least squares (OLS) linear regression of the asset's excess returns against the market's excess returns. This is known as the \textbf{Market Model}:
 \begin{equation}
 	R_{i,t} - R_{f,t} = \alpha_i + \beta_i \left( R_{M,t} - R_{f,t} \right) + \epsilon_{i,t}
 	\label{eq:market_model_m8}
 \end{equation}
 where $\alpha_i$ is the intercept, $\beta_i$ is the slope, and $\epsilon_{i,t}$ is the error term. Under CAPM, the expected alpha ($\alpha_i$) should be exactly 0 in equilibrium.
-
 \begin{tcolorbox}[
 	colback=gray!5!white,
 	colframe=black!15!white,
 	boxrule=0.5pt,
 	arc=3pt,
-	title=\textbf{Example 17: Estimating LVMH's Beta via Bloomberg},
+	title=\textbf{Example 15: Estimating LVMH's Beta via Bloomberg},
 	coltitle=black,
 	colbacktitle=black!5!white,
 	before skip=6pt,
@@ -1248,7 +1080,6 @@ An analyst regresses monthly returns of LVMH Moët Hennessy Louis Vuitton agains
 	\item Standard error of Beta: $0.101$
 \end{itemize}
 The expected market return is $9.577\%$ and the risk-free rate is $2.560\%$. Calculate LVMH's expected return.
-
 \textbf{Solution:}
 \begin{enumerate}
 	\item \textbf{Beta Interpretation:} A beta of $0.939$ indicates that LVMH has slightly lower systematic risk than the French equity market average (CAC 40 Index).
@@ -1261,24 +1092,8 @@ The expected market return is $9.577\%$ and the risk-free rate is $2.560\%$. Cal
 	      \]
 \end{enumerate}
 \end{tcolorbox}
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_26.png}
-	\caption{Bloomberg Regression Output (BETA) for LVMH vs. CAC 40 Index}
-	\label{fig:LVMH_Bloomberg_Beta}
-\end{figure}
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.75\linewidth]{002_figs/008_Module_8/exhibit_27.png}
-	\caption{Bloomberg Risk Premium Screen (EQRP) for LVMH Moët Hennessy Louis Vuitton}
-	\label{fig:LVMH_Bloomberg_EQRP}
-\end{figure}
-
 \subsection{Limitations of Portfolio Theory and CAPM}
 \label{subsec:Limitations}
-
 Several assumptions underlying Markowitz optimization and CAPM do not hold in real-world markets:
 \begin{itemize}
 	\item \textbf{Distributional Assumptions:} Financial returns are rarely normally distributed, exhibiting fat tails (high kurtosis) and skewness.
@@ -1288,7 +1103,6 @@ Several assumptions underlying Markowitz optimization and CAPM do not hold in re
 	\item \textbf{Historical limits:} Historical relationships may not persist in the future.
 	\item \textbf{Transaction Costs and Taxes:} Real-world investors must pay brokerage fees, spreads, and taxes. Capital distributions (dividends) and capital gains face differing tax structures, which reduces the after-tax efficient frontier.
 \end{itemize}
-
 % \subsection{Question Set 3}
 % \label{subsec:Question Set 3}
 % \textcolor{blue}{\textit{Bộ câu hỏi củng cố Question Set 3 đã được chuyển về Chương 13 (Câu hỏi củng cố) ở cuối sách. Xem câu hỏi tại trang \pageref{subsec:app_Question Set 3}.}}

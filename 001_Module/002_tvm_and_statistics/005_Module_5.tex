@@ -42,7 +42,7 @@
 	      \end{itemize}
 \end{itemize}
 
-\textcolor{blue}{\textit{Phân tích thống kê giúp định lượng rủi ro và xây dựng danh mục. Cần quan tâm đến toàn bộ hình dáng phân phối: độ lệch (skewness), độ nhọn (kurtosis) và sự đồng biến động (covariance/correlation).}}
+% \textcolor{blue}{\textit{Phân tích thống kê giúp định lượng rủi ro và xây dựng danh mục. Cần quan tâm đến toàn bộ hình dáng phân phối: độ lệch (skewness), độ nhọn (kurtosis) và sự đồng biến động (covariance/correlation).}}
 
 \section{Measures of Central Tendency and Dispersion}
 \label{sec:Measures of Central Tendency and Dispersion}
@@ -101,26 +101,17 @@ Outliers can occur due to measurement errors, data entry issues, or natural vari
 	\item \textbf{Trimmed Mean:} Excludes a stated percentage of the lowest and highest values before computing the mean. For example, a $1\%$ trimmed mean discards the bottom $0.5\%$ and top $0.5\%$ of values.
 	\item \textbf{Winsorized Mean:} Substitutes extreme values with specified percentiles (e.g., setting the lowest $2.5\%$ to the $2.5\text{th}$ percentile and the highest $2.5\%$ to the $97.5\text{th}$ percentile value).
 \end{itemize}
-
-\begin{table}[!htbp]
-\centering
-\caption{Comparison of Mean, Trimmed Mean, and Winsorized Mean for Brent Crude Returns}
-\label{tab:trimmed_winsorized_comparison_m5}
-\begin{tabular}{p{0.20\linewidth} p{0.18\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth}}
-\toprule
-\textbf{Measure} & \textbf{Original Data} & \multicolumn{2}{c}{\textbf{Trimmed Data}} & \multicolumn{2}{c}{\textbf{Winsorized Data}} \\
-\cmidrule(lr){3-4} \cmidrule(lr){5-6}
-& & \textbf{1\%} & \textbf{10\%} & \textbf{1\%} & \textbf{10\%} \\
-\midrule
-Mean & 0.35\% & 0.83\% & 0.99\% & 0.80\% & 0.80\% \\
-\bottomrule
-\end{tabular}
-\end{table}
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 210, Exhibit 9
 
-\subsection{Quantiles}
+\subsection{Measures of location}
 	\label{subsec:Quantiles}
-Quantiles divide a sorted dataset into equal parts. Common quantile measures include quartiles (four parts), quintiles (five parts), deciles (ten parts), and percentiles (one hundred parts).
+\textbf{Quantile} (or \textbf{fractile}): is a value at, or below which a stated proportion of the observations in a data set lie.
+\begin{itemize}
+	\item[-] \textbf{quartiles}, which divide the distribution in quarters or four equal parts.
+	\item[-] \textbf{quintiles}, which divide the distribution into fifths.
+	\item[-] \textbf{deciles}, which divide the data into tenths.
+	\item[-] \textbf{percentiles}, which divide the distribution into hundredths.
+\end{itemize}
 The position $L_y$ of the $y$-th percentile in a sorted dataset of size $n$ is:
 \begin{equation}
 	L_y = (n + 1) \frac{y}{100}
@@ -129,7 +120,19 @@ The position $L_y$ of the $y$-th percentile in a sorted dataset of size $n$ is:
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 211
 
 If $L_y$ is not an integer, we linearly interpolate between the two closest values.
-The **Box and Whisker Plot** visually summarizes these quartiles: the box spans the interquartile range ($\text{IQR} = Q_3 - Q_1$), a middle line marks the median, and the whiskers extend to the limits of normal data points. Outliers are typically identified as points beyond $1.5 \times \text{IQR}$ from the quartiles.
+\begin{itemize}
+	\item[-] The \textbf{interquartile range} (IQR) is the difference between the third quartile and the first quartile, or $IQR = Q_3 - Q_1$.
+	\item[-] A \textbf{box and whisker plot}: consists of a "box" with "whiskers" connected to the box.
+	      The "box" represents the lower bound of the second quartile and the upper bound of the third quartile, with the median or arithmetic average noted as a measure of central tendency of the entire distribution.
+	      The whiskers are the lines that run from the box and are bounded by the "fences", which represent the lowest and highest values of the distribution.
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{002_figs/005_Module_5/exhibit_12.png}
+	\caption{box and whisker}
+	\label{5.1-box and whisker}
+\end{figure}
+Outliers are typically identified as points beyond $1.5 \times \text{IQR}$ from the quartiles.
 
 \begin{table}[!htbp]
 \centering
@@ -154,6 +157,7 @@ Percentile & \texttt{=PERCENTILE.INC(A1:A5, K)} & \texttt{=PERCENTILE(A1:A5, K)}
 \subsection{Measures of Dispersion}
 	\label{subsec:Measures of Dispersion}
 Dispersion quantifies the variability of data around its central tendency, serving as a measure of investment risk.
+Below are \textbf{absolute dispersion}, some of \textbf{relative dispersion} are refered to \ref{subsec:Relative dispersion}.
 \begin{itemize}
 	\item \textbf{Range:} The difference between the highest and lowest values:
 	\begin{equation}
@@ -184,29 +188,9 @@ Dispersion quantifies the variability of data around its central tendency, servi
 
 	\item \textbf{Standard Deviation ($\sigma$ or $s$):} The square root of variance ($s = \sqrt{s^2}$). It is measured in the same units as the underlying data.
 \end{itemize}
-
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example: Calculating Sample Standard Deviation},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-Consider a sample of $10$ observations: $-3, -11, 3, -18, 18, 20, -6, 9, 2, -16$.
-\begin{enumerate}
-	\item \textbf{Calculate the sample mean $\bar{X}$:}
-	      \[ \bar{X} = \frac{-3 - 11 + 3 - 18 + 18 + 20 - 6 + 9 + 2 - 16}{10} = \frac{-2.00}{10} = -0.20 \]
-	\item \textbf{Calculate the sum of squared differences $\sum(X_i - \bar{X})^2$:}
-	      \[ (-3 - (-0.2))^2 + (-11 - (-0.2))^2 + \dots = 1563.60 \]
-	\item \textbf{Divide by $n - 1 = 9$ and take the square root:}
-	      \[ s = \sqrt{\frac{1563.60}{9}} = 13.18 \]
-\end{enumerate}
-\end{tcolorbox}
+\textbf{Root of time law}: The variance of returns scales linearly with time, while the standard deviation scales with the square root of time.
+\[\sigma^2_{Monthly} \approx T \times \sigma^2_{Daily}\]
+\[\sigma_{Monthly} \approx \sqrt{T \times \sigma^2_{Daily}} = \sqrt{T}\sigma_{Daily}\]
 
 \section{Measures of Shape of a Distribution}
 \label{sec:Measures of Shape of a Distribution}
@@ -229,7 +213,7 @@ Skewness is a measure of the asymmetry of a distribution.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/005_Module_5/exhibit_1.png}
+	\includegraphics[width=0.9\linewidth]{002_figs/005_Module_5/exhibit_1.png}
 	\caption{Skewness in Distributions}
 	\label{fig:mod5_exhibit_1}
 \end{figure}
@@ -308,7 +292,7 @@ Fourth & Kurtosis (Tail Heaviness) & $\text{Kurt} = \frac{1}{N}\sum\left(\frac{x
 \toprule
 \textbf{Calculation} & \textbf{Excel Formula} & \textbf{Google Sheets Formula} \\
 \midrule
-Population Skewness & \texttt{=SKEW.P(A1:A5)} & N/A \\
+Population Skewness & \texttt{=SKEW.P(A1:A5)} & \texttt{=SKEW.P(A1:A5)} \\
 Sample Skewness & \texttt{=SKEW(A1:A5)} & \texttt{=SKEW(A1:A5)} \\
 Excess Kurtosis & \texttt{=KURT(A1:A5)} & \texttt{=KURT(A1:A5)} \\
 \bottomrule
@@ -376,7 +360,7 @@ Anscombe's Quartet consists of four datasets that have nearly identical simple s
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/005_Module_5/exhibit_3.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/005_Module_5/exhibit_3.png}
 	\caption{The Four Cases for Anscombe's Quartet Scatter Plots}
 	\label{fig:mod5_exhibit_3}
 \end{figure}
@@ -403,41 +387,26 @@ While variance and standard deviation capture both upside and downside volatilit
 	% Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 236, Equation (16)
 \end{itemize}
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example: Calculating Target Downside Deviation},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-Let's compute the sample target downside deviation for a portfolio with $12$ monthly returns when the target return is $B = 3\%$:
-\[ 5\%, 3\%, -1\%, -4\%, 4\%, 2\%, 0\%, 4\%, 3\%, 0\%, 6\%, 5\% \]
+\subsection{Relative dispersion}
+	\label{subsec:Relative dispersion}
 \begin{enumerate}
-	\item \textbf{Identify values below or equal to the target $B = 3\%$:}
-	      \[ 3\% \ (0), \ -1\% \ (-4), \ -4\% \ (-7), \ 2\% \ (-1), \ 0\% \ (-3), \ 3\% \ (0), \ 0\% \ (-3) \]
-	\item \textbf{Calculate the squared deviations for these values:}
-	      \[ 0^2 + (-4)^2 + (-7)^2 + (-1)^2 + (-3)^2 + 0^2 + (-3)^2 = 0 + 16 + 49 + 1 + 9 + 0 + 9 = 84 \]
-	\item \textbf{Divide by total sample size $n - 1 = 11$ and take the square root:}
-	      \[ s_{\text{Target}} = \sqrt{\frac{84}{11}} \approx 2.76\% \]
-\end{enumerate}
-\end{tcolorbox}
-
-\subsection{Coefficient of Variation (CV)}
-	\label{subsec:Coefficient of Variation (CV)}
-The Coefficient of Variation measures the amount of risk per unit of return. It standardizes standard deviation, making it universally comparable:
-\begin{equation}
-	\text{CV} = \frac{s}{\bar{X}}
-	\label{eq:coefficient_of_variation_m5}
-\end{equation}
+	\item \textbf{Coefficient of variation}\\
+	      the ratio of the standard deviation of the data set to its mean.
+	      In the investment arena, CV is used to measure the \textit{risk per unit of return} in various investments.
+		\begin{equation}
+			\text{CV} = \frac{s}{\bar{X}}
+			\label{eq:coefficient_of_variation_m5}
+		\end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 5, Page 236, Equation (17)
-
 A lower CV represents a more favorable risk-to-return ratio.
-
+	\item \textbf{Sharpe ratio}\\
+	      the ratio of excess return over the risk-free rate from an investment to its standard deviation of returns.
+	      It basically measures \textit{excess return per unit of risk}.
+		  \begin{equation}
+			\text{Sharpe ratio} = \frac{R_i - r_f}{\sigma_i}
+			\label{eq:Sharpe_m5}
+		\end{equation}
+\end{enumerate}
 
 % \section{Practice Problems and Solutions}
 % \label{sec:Practice_Problems_Module_5}

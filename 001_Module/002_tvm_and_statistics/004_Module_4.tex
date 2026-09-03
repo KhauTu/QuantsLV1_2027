@@ -36,7 +36,7 @@
 	      \end{itemize}
 \end{itemize}
 
-\textcolor{blue}{\textit{TVM: Một đồng hôm nay giá trị hơn một đồng tương lai. Chúng ta áp dụng nguyên lý này để định giá công cụ nợ (Fixed-Income) và công cụ vốn (Equity).}}
+% \textcolor{blue}{\textit{TVM: Một đồng hôm nay giá trị hơn một đồng tương lai. Chúng ta áp dụng nguyên lý này để định giá công cụ nợ (Fixed-Income) và công cụ vốn (Equity).}}
 
 \section{Time Value of Money in Fixed Income and Equity}
 \label{sec:Time Value of Money in Fixed Income and Equity}
@@ -71,35 +71,35 @@ Conversely, we can solve for the present value of a future cash flow under simpl
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 138
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Case Study: Annualizing Returns across Different Horizons},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-Annualized returns provide a standardized framework for comparing investments with different holding periods:
-\begin{equation}
-	r_{\text{annualized}} = (1 + r_{\text{periodic}})^{\frac{365}{\text{Days}}} - 1
-	\label{eq:annualize_returns_m4}
-\end{equation}
-For three securities in a portfolio held for different durations:
-\begin{itemize}
-	\item \textbf{Security A:} Earned $6.2\%$ over 100 days. Annualized return:
-	      \[ r_{\text{annual}} = (1 + 0.062)^{365/100} - 1 \approx 24.55\% \]
-	\item \textbf{Security B:} Earned $2.0\%$ over four weeks (28 days). Annualized return:
-	      \[ r_{\text{annual}} = (1 + 0.02)^{52/4} - 1 \approx 29.36\% \]
-	\item \textbf{Security C:} Earned $5.0\%$ over three months (90 days). Annualized return:
-	      \[ r_{\text{annual}} = (1 + 0.05)^{365/90} - 1 \approx 21.55\% \]
-\end{itemize}
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Case Study: Annualizing Returns across Different Horizons},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% Annualized returns provide a standardized framework for comparing investments with different holding periods:
+% \begin{equation}
+% 	r_{\text{annualized}} = (1 + r_{\text{periodic}})^{\frac{365}{\text{Days}}} - 1
+% 	\label{eq:annualize_returns_m4}
+% \end{equation}
+% For three securities in a portfolio held for different durations:
+% \begin{itemize}
+% 	\item \textbf{Security A:} Earned $6.2\%$ over 100 days. Annualized return:
+% 	      \[ r_{\text{annual}} = (1 + 0.062)^{365/100} - 1 \approx 24.55\% \]
+% 	\item \textbf{Security B:} Earned $2.0\%$ over four weeks (28 days). Annualized return:
+% 	      \[ r_{\text{annual}} = (1 + 0.02)^{52/4} - 1 \approx 29.36\% \]
+% 	\item \textbf{Security C:} Earned $5.0\%$ over three months (90 days). Annualized return:
+% 	      \[ r_{\text{annual}} = (1 + 0.05)^{365/90} - 1 \approx 21.55\% \]
+% \end{itemize}
 
-\textcolor{blue}{\textit{Quy đổi lợi nhuận về cùng năm giúp so sánh các kỳ hạn khách quan. Security B tuy suất sinh lời định kỳ thấp nhất ($2.0\%$) nhưng hiệu quả nhất năm ($29.36\%$) do nắm giữ ngắn (4 tuần).}}
-\end{tcolorbox}
+% \textcolor{blue}{\textit{Quy đổi lợi nhuận về cùng năm giúp so sánh các kỳ hạn khách quan. Security B tuy suất sinh lời định kỳ thấp nhất ($2.0\%$) nhưng hiệu quả nhất năm ($29.36\%$) do nắm giữ ngắn (4 tuần).}}
+% \end{tcolorbox}
 
 \subsection{Fixed-Income Instruments and the Time Value of Money}
 	\label{subsec:Fixed-Income Instruments and the Time Value of Money}
@@ -128,32 +128,32 @@ The present value calculation for a discount bond with principal $FV_t$ repaid f
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 140
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Case Study: Discount Bonds under Positive and Negative Interest Rates},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-\begin{enumerate}
-	\item \textbf{Positive Rates (India STRIPS):} A 20-year stripped government bond with $FV = \text{INR } 100$ and required return $r = 6.70\%$:
-	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.067)^{20}} \approx \text{INR } 27.33 \]
-	      If rates remain unchanged, after three years ($t = 17$ remaining):
-	      \[ PV_3 = \frac{\text{INR } 100}{(1 + 0.067)^{17}} \approx \text{INR } 33.21 \]
-	      If rates immediately rise to $7.70\%$ at $t = 0$:
-	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.077)^{20}} \approx \text{INR } 22.68 \quad (\text{reflects the inverse price-yield relationship}) \]
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Case Study: Discount Bonds under Positive and Negative Interest Rates},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% \begin{enumerate}
+% 	\item \textbf{Positive Rates (India STRIPS):} A 20-year stripped government bond with $FV = \text{INR } 100$ and required return $r = 6.70\%$:
+% 	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.067)^{20}} \approx \text{INR } 27.33 \]
+% 	      If rates remain unchanged, after three years ($t = 17$ remaining):
+% 	      \[ PV_3 = \frac{\text{INR } 100}{(1 + 0.067)^{17}} \approx \text{INR } 33.21 \]
+% 	      If rates immediately rise to $7.70\%$ at $t = 0$:
+% 	      \[ PV_0 = \frac{\text{INR } 100}{(1 + 0.077)^{20}} \approx \text{INR } 22.68 \quad (\text{reflects the inverse price-yield relationship}) \]
 	
-	\item \textbf{Negative Rates (German Bund):} A 10-year sovereign bond with $FV = \text{EUR } 100$ issued at a negative yield $r = -0.05\%$:
-	      \[ PV_0 = \frac{\text{EUR } 100}{(1 - 0.0005)^{10}} \approx \text{EUR } 100.50 \]
-\end{enumerate}
+% 	\item \textbf{Negative Rates (German Bund):} A 10-year sovereign bond with $FV = \text{EUR } 100$ issued at a negative yield $r = -0.05\%$:
+% 	      \[ PV_0 = \frac{\text{EUR } 100}{(1 - 0.0005)^{10}} \approx \text{EUR } 100.50 \]
+% \end{enumerate}
 
-\textcolor{blue}{\textit{Khi lãi suất dương, giá trái phiếu chiết khấu tăng dần (accretes) về mệnh giá. Ngược lại khi lãi suất âm, giá trái phiếu giảm dần (amortizes) về mệnh giá.}}
-\end{tcolorbox}
+% \textcolor{blue}{\textit{Khi lãi suất dương, giá trái phiếu chiết khấu tăng dần (accretes) về mệnh giá. Ngược lại khi lãi suất âm, giá trái phiếu giảm dần (amortizes) về mệnh giá.}}
+% \end{tcolorbox}
 
 \subsubsection{Coupon Instruments}
 The cash flow pattern of a coupon bond is illustrated in Exhibit \ref{fig:mod4_exhibit_2}.
@@ -177,34 +177,34 @@ Using the sum of a geometric series, this simplifies to:
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 143
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Case Study: Coupon Pricing and Compounding Frequencies},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-\begin{enumerate}
-	\item \textbf{Annual Coupons (Greece):} A 7-year bond with a $2\%$ annual coupon ($FV = \text{EUR } 100$) and $r = 2.00\%$ yield:
-	      \[ PV = \frac{\text{EUR } 2}{0.02} \left[ 1 - \frac{1}{(1.02)^7} \right] + \frac{\text{EUR } 100}{(1.02)^7} = \text{EUR } 100 \quad (\text{Par Bond}) \]
-	      \begin{itemize}
-		      \item Coupon Rate = Yield $\implies PV = FV$ (Par Bond)
-		      \item Coupon Rate > Yield $\implies PV > FV$ (Premium Bond)
-		      \item Coupon Rate < Yield $\implies PV < FV$ (Discount Bond)
-	      \end{itemize}
-	\item \textbf{Semiannual Coupons (India):} A 20-year bond with a $6.70\%$ coupon ($FV = \text{INR } 100$) paid semiannually. Periodic coupon $PMT = \text{INR } 3.35$, periodic discount rate $r = 3.35\%$, total periods $T = 40$:
-	      \[ PV = \frac{3.35}{0.0335} \left[ 1 - \frac{1}{1.0335^{40}} \right] + \frac{100}{1.0335^{40}} = \text{INR } 100 \]
-	      If the yield-to-maturity immediately rises to $7.70\%$ (periodic rate $r = 3.85\%$):
-	      \[ PV = \frac{3.35}{0.0385} \left[ 1 - \frac{1}{1.0385^{40}} \right] + \frac{100}{1.0385^{40}} \approx \text{INR } 89.88 \]
-\end{enumerate}
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Case Study: Coupon Pricing and Compounding Frequencies},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% \begin{enumerate}
+% 	\item \textbf{Annual Coupons (Greece):} A 7-year bond with a $2\%$ annual coupon ($FV = \text{EUR } 100$) and $r = 2.00\%$ yield:
+% 	      \[ PV = \frac{\text{EUR } 2}{0.02} \left[ 1 - \frac{1}{(1.02)^7} \right] + \frac{\text{EUR } 100}{(1.02)^7} = \text{EUR } 100 \quad (\text{Par Bond}) \]
+% 	      \begin{itemize}
+% 		      \item Coupon Rate = Yield $\implies PV = FV$ (Par Bond)
+% 		      \item Coupon Rate > Yield $\implies PV > FV$ (Premium Bond)
+% 		      \item Coupon Rate < Yield $\implies PV < FV$ (Discount Bond)
+% 	      \end{itemize}
+% 	\item \textbf{Semiannual Coupons (India):} A 20-year bond with a $6.70\%$ coupon ($FV = \text{INR } 100$) paid semiannually. Periodic coupon $PMT = \text{INR } 3.35$, periodic discount rate $r = 3.35\%$, total periods $T = 40$:
+% 	      \[ PV = \frac{3.35}{0.0335} \left[ 1 - \frac{1}{1.0335^{40}} \right] + \frac{100}{1.0335^{40}} = \text{INR } 100 \]
+% 	      If the yield-to-maturity immediately rises to $7.70\%$ (periodic rate $r = 3.85\%$):
+% 	      \[ PV = \frac{3.35}{0.0385} \left[ 1 - \frac{1}{1.0385^{40}} \right] + \frac{100}{1.0385^{40}} \approx \text{INR } 89.88 \]
+% \end{enumerate}
 
-\textcolor{blue}{\textit{Tần suất ghép lãi ảnh hưởng mạnh đến PV. Khoản INR 100 ở năm 20: ghép năm có PV = INR 27.33, ghép nửa năm (40 kỳ) có PV = INR 26.77. Ghép lãi càng nhiều thì PV càng nhỏ.}}
-\end{tcolorbox}
+% \textcolor{blue}{\textit{Tần suất ghép lãi ảnh hưởng mạnh đến PV. Khoản INR 100 ở năm 20: ghép năm có PV = INR 27.33, ghép nửa năm (40 kỳ) có PV = INR 26.77. Ghép lãi càng nhiều thì PV càng nhỏ.}}
+% \end{tcolorbox}
 
 \subsubsection{Floating-Rate and Perpetual Bonds}
 \begin{itemize}
@@ -217,27 +217,27 @@ Using the sum of a geometric series, this simplifies to:
 \end{itemize}
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 146--147
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Examples: Floating-Rate and Perpetual Valuations},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-\begin{itemize}
-	\item \textbf{Floating-Rate (Sogn og Fjordane Energi A/S):} Norwegian hydropower green bond with quarterly coupon. Coupon Rate = 3-month NIBOR + 73 bps margin. If NIBOR is $4.52\%$, the quarterly periodic rate is:
-	      \[ r_{\text{periodic}} = \frac{4.52\% + 0.73\%}{4} = 1.3125\% \]
-	      The periodic coupon payment for a $\text{NOK } 1 \text{ million}$ face value is:
-	      \[ PMT = \text{NOK } 1,000,000 \times 1.3125\% = \text{NOK } 13,125 \]
-	\item \textbf{Perpetual Bond (KB Financial):} Perpetual debt with a $3.30\%$ coupon paid quarterly ($0.825\%$ periodic coupon). If the required return is $3.40\%$ quarterly compounded (periodic rate $0.85\%$):
-	      \[ PV = \frac{\text{KRW } 8.25}{0.0085} \approx \text{KRW } 970.59 \quad (\text{per KRW 1,000 face value}) \]
-\end{itemize}
-\end{tcolorbox}
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Examples: Floating-Rate and Perpetual Valuations},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% \begin{itemize}
+% 	\item \textbf{Floating-Rate (Sogn og Fjordane Energi A/S):} Norwegian hydropower green bond with quarterly coupon. Coupon Rate = 3-month NIBOR + 73 bps margin. If NIBOR is $4.52\%$, the quarterly periodic rate is:
+% 	      \[ r_{\text{periodic}} = \frac{4.52\% + 0.73\%}{4} = 1.3125\% \]
+% 	      The periodic coupon payment for a $\text{NOK } 1 \text{ million}$ face value is:
+% 	      \[ PMT = \text{NOK } 1,000,000 \times 1.3125\% = \text{NOK } 13,125 \]
+% 	\item \textbf{Perpetual Bond (KB Financial):} Perpetual debt with a $3.30\%$ coupon paid quarterly ($0.825\%$ periodic coupon). If the required return is $3.40\%$ quarterly compounded (periodic rate $0.85\%$):
+% 	      \[ PV = \frac{\text{KRW } 8.25}{0.0085} \approx \text{KRW } 970.59 \quad (\text{per KRW 1,000 face value}) \]
+% \end{itemize}
+% \end{tcolorbox}
 
 \subsubsection{Annuities and Fully Amortizing Loans}
 The cash flow pattern for fully amortizing loans (mortgages) is illustrated in Exhibit \ref{fig:mod4_exhibit_3}.
@@ -312,21 +312,21 @@ The valuation of equity paying constant dividends in perpetuity simplifies to:
 \end{equation}
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 152
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example: Shipline PLC Constant Dividend Valuation},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-Shipline PLC pays a constant annual dividend of $\text{GBP } 1.50$ indefinitely. With a required return $r = 15\%$:
-\[ PV_0 = \frac{\text{GBP } 1.50}{0.15} = \text{GBP } 10.00 \]
-\end{tcolorbox}
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Example: Shipline PLC Constant Dividend Valuation},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% Shipline PLC pays a constant annual dividend of $\text{GBP } 1.50$ indefinitely. With a required return $r = 15\%$:
+% \[ PV_0 = \frac{\text{GBP } 1.50}{0.15} = \text{GBP } 10.00 \]
+% \end{tcolorbox}
 
 \subsection{Constant Dividend Growth (Gordon Growth Model)}
 	\label{subsec:Constant Dividend Growth (Gordon Growth Model)}
@@ -347,25 +347,25 @@ If dividends grow at a constant rate $g$ in perpetuity:
 where $r - g > 0$.
 % Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 153
 
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Example: Shipline PLC Constant Growth Valuation},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
-If Shipline PLC’s dividend grows at a constant $g = 6\%$ indefinitely, next year's dividend is:
-\[ Div_1 = \text{GBP } 1.50 \times (1 + 0.06) = \text{GBP } 1.59 \]
-The expected stock price is:
-\[ PV_0 = \frac{\text{GBP } 1.59}{0.15 - 0.06} \approx \text{GBP } 17.67 \]
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Example: Shipline PLC Constant Growth Valuation},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% If Shipline PLC’s dividend grows at a constant $g = 6\%$ indefinitely, next year's dividend is:
+% \[ Div_1 = \text{GBP } 1.50 \times (1 + 0.06) = \text{GBP } 1.59 \]
+% The expected stock price is:
+% \[ PV_0 = \frac{\text{GBP } 1.59}{0.15 - 0.06} \approx \text{GBP } 17.67 \]
 
-\textcolor{blue}{\textit{Chênh lệch $r - g$ ở mẫu số rất quan trọng. Khi $g$ sát $r$, giá cổ phiếu cực kỳ nhạy cảm với bất kỳ biến động nhỏ nào của $r$ hoặc $g$.}}
-\end{tcolorbox}
+% \textcolor{blue}{\textit{Chênh lệch $r - g$ ở mẫu số rất quan trọng. Khi $g$ sát $r$, giá cổ phiếu cực kỳ nhạy cảm với bất kỳ biến động nhỏ nào của $r$ hoặc $g$.}}
+% \end{tcolorbox}
 
 \subsection{Two-Stage Dividend Growth Model}
 	\label{subsec:Two-Stage Dividend Growth Model}
@@ -416,6 +416,20 @@ Assume Shipline grows its dividend by $g_s = 6\%$ for three years, followed by $
 	\item \textbf{Step 3: Total price:}
 	      \[ PV_0 = 3.8317 + 9.2163 = \text{GBP } 13.0480 \approx \text{GBP } 13.05 \]
 \end{itemize}
+\textcolor{blue}{
+		      \textit{Sử dụng ví dụ ở trên, với trường hợp short-term là 3 năm, và long-term bắt đầu từ năm thứ 4 trở đi.
+			      Như vậy, theo công thức trên ta có n = 3, và giá trị Terminal value tương ứng tại thời điểm năm thứ 3.}
+		      \begin{align*}
+			      PV & = \frac{D(1+g_s)}{(1+r)} + \frac{D(1+g_s)^2}{(1+r)^2} + \frac{D(1+g_s)^3}{(1+r)^3} + \frac{D(1+g_s)^3(1+g_l)}{(1+r)^3(r-g_l)} \\
+			      PV & = \frac{D(1+g_s)}{(1+r)} + \frac{D(1+g_s)^2}{(1+r)^2} + \frac{D(1+g_s)^3}{(1+r)^2(r-g_l)}                                       \\
+		      \end{align*}
+		      Đến đây, chúng ta sử dụng chức năng \textbf{[CF]} trên máy tính để tính ra giá trị PV, theo 2 cách bấm:
+		      \footnote{\label{footnote1}\textcolor{blue}{Đề xuất cách tính này từ học viên lớp TE 17 và CFA 1.25}}
+		      \begin{enumerate}
+			      \item Dùng 3 dòng tiền: $\text{C01} = D(1+g_s)$, $\text{C02} = D(1+g_s)^2$, $\text{C03} = D(1+g_s)^3 + D(1+g_s)^3(1+g_l)/(r-g_l)$
+			      \item Hoặc 2 dòng tiền: $\text{C01} = D(1+g_s)$, $\text{C02} = D(1+g_s)^2 + D(1+g_s)^3/(r-g_l)$
+		      \end{enumerate}
+	      }
 \end{tcolorbox}
 
 \section{Implied Return and Growth}
@@ -430,116 +444,76 @@ When market prices and expected cash flows are observed, analysts can calculate 
 
 \subsection{Implied Return for Fixed-Income Instruments}
 	\label{subsec:Implied Return for Fixed-Income Instruments}
-The price-yield relationship of a discount bond and its implied return are illustrated in Exhibit \ref{fig:mod4_exhibit_8}.
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_8.png}
-	\caption{Discount Bond Implied Return}
-	\label{fig:mod4_exhibit_8}
-\end{figure}
-
-For discount bonds, the implied return is:
-\begin{equation}
-	r = \left( \frac{FV_t}{PV_0} \right)^{\frac{1}{t}} - 1
-	\label{eq:implied_return_discount_m4}
-\end{equation}
-% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 150
-
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Case Studies: Implied returns for zero-coupon and coupon bonds},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
 \begin{enumerate}
-	\item \textbf{Zero-Coupon (German sovereign bond):} 10-year discount bond issued at $\text{EUR } 100.50$ per $\text{EUR } 100$ principal ($r = -0.05\%$). Six years later, it trades at $\text{EUR } 95.72$.
+	\item Discount Instruments
+	      \begin{equation*}
+		      \text{implied r} = \sqrt[T]{\frac{FV_T}{PV}} - 1 = \left(\frac{FV_T}{PV}\right)^\frac{1}{T} - 1
+	      \end{equation*}
+	\item Coupon Instruments
 	      \begin{itemize}
-		      \item Annualized holding return for initial buyer (6 years):
-		            \[ r_{\text{hold}} = \left( \frac{95.72}{100.50} \right)^{1/6} - 1 \approx -0.81\% \]
-		      \item Expected annualized return for buyer at Year 6 (4 years remaining):
-		            \[ r_{\text{buy}} = \left( \frac{100}{95.72} \right)^{1/4} - 1 \approx 1.10\% \]
-	      \end{itemize}
-	\item \textbf{Coupon-Paying (Greece 2\% annual bond):} Issued at par ($\text{EUR } 100$, YTM $2\%$). Two years later, price drops to $\text{EUR } 93.091$.
-	      \begin{itemize}
-		      \item Implied YTM for remaining 5 years: Solved iteratively using RATE function:
-		            \[ \text{Rate}(5, 2, -93.091, 100) \approx 3.5320\% \]
-		      \item Two-year holding return if coupons are reinvested at $2.00\%$:
-		            \[ FV_2 = 2(1.02) + 2 + 93.091 = \text{EUR } 97.13 \implies r_{\text{hold}} = \left( \frac{97.13}{100} \right)^{1/2} - 1 \approx -1.445\% \]
+		      \item[] implied r = YTM
+		            \begin{equation*}
+			            \text{PV(Market Price of Coupon Bond)} = \frac{PMT_1}{(1+YTM)^1}+\frac{PMT_2}{(1+YTM)^2}+...+\frac{PMT_T + FV_T}{(1+YTM)^T}
+		            \end{equation*}
+		      \item[] \textit{Use Microsoft Excel or Google Sheets YIELD function:\\
+			            YTM = YIELD (settlement, maturity, rate, pr, redemption, frequency, [basis])
+		            }
 	      \end{itemize}
 \end{enumerate}
-
-\textcolor{blue}{\textit{Nhận xét: Khoản lỗ vốn (từ EUR 100 xuống EUR 93.091) lớn hơn coupon tích lũy (EUR 4.04), khiến suất sinh lời thực tế bị âm trong 2 năm đầu dù có coupon dương.}}
-\end{tcolorbox}
-
-The relationship between a coupon bond's price and its implied return (YTM) is illustrated in Exhibit \ref{fig:mod4_exhibit_10}.
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_10.png}
-	\caption{Coupon Bond Implied Return}
-	\label{fig:mod4_exhibit_10}
-\end{figure}
 
 \subsection{Equity Implied Return, Implied Growth, and Forward P/E Ratios}
 	\label{subsec:Equity Implied Return, Implied Growth, and Forward P/E Ratios}
 
-Rearranging the Gordon growth model, we can solve for implied return ($r$) and implied growth rate ($g$):
-\begin{equation}
-	r = \frac{Div_{t+1}}{PV_0} + g
-	\label{eq:implied_return_equity_m4}
-\end{equation}
-\begin{equation}
-	g = r - \frac{Div_{t+1}}{PV_0}
-	\label{eq:implied_growth_equity_m4}
-\end{equation}
-% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 166
-
-By dividing the valuation formula by expected earnings per share ($E_{t+1}$), we obtain the forward Price-to-Earnings (P/E) ratio:
-\begin{equation}
-	\frac{PV_t}{E_{t+1}} = \frac{Div_{t+1} / E_{t+1}}{r - g}
-	\label{eq:forward_pe_m4}
-\end{equation}
-where $Div_{t+1}/E_{t+1}$ represents the expected dividend payout ratio.
-% Reference: CFA Curriculum 2027, Volume 1, Module 4, Page 168
-
-\begin{tcolorbox}[
-	colback=gray!5!white,
-	colframe=black!15!white,
-	boxrule=0.5pt,
-	arc=3pt,
-	title=\textbf{Case Studies: Stock and index implied return and growth calculations},
-	coltitle=black,
-	colbacktitle=black!5!white,
-	before skip=6pt,
-	after skip=6pt,
-	breakable
-]
 \begin{enumerate}
-	\item \textbf{Coca-Cola Stock:} Trades at $\text{USD } 63.00$, next year expected dividend is $\text{USD } 1.76$.
-	      \begin{itemize}
-		      \item If $g = 4.00\%$ constant growth:
-		            \[ r_{\text{implied}} = \frac{1.76}{63.00} + 0.04 \approx 6.79\% \]
-		      \item If required return $r = 7.00\%$:
-		            \[ g_{\text{implied}} = 0.07 - \frac{1.76}{63.00} \approx 4.21\% \]
-	      \end{itemize}
-	\item \textbf{Coca-Cola Forward P/E:} Forward P/E is 28, payout ratio is $70\%$.
-	      \begin{itemize}
-		      \item If required return $r = 9.00\%$ and growth $g = 4.50\%$:
-		            \[ \text{Valuation P/E} = \frac{0.70}{0.09 - 0.045} \approx 15.56 \]
-		            Since the market P/E ($28$) is much higher than the fundamental valuation ($15.56$), the stock is \textbf{overvalued} (recommend short position).
-	      \end{itemize}
-	\item \textbf{Indian NIFTY 50 Index:} Forward P/E is 15, expected payout ratio is $50\%$, required return $r = 7.50\%$, expected growth $g = 4.50\%$:
-	      \[ \text{Valuation P/E} = \frac{0.50}{0.075 - 0.045} \approx 16.67 \]
-	      Since the market P/E ($15$) is lower than the valuation ($16.67$), the index is \textbf{undervalued} (recommend long position).
+	\item Constant Dividend Growth Rate
+	      \begin{align*}
+		       & \text{implied r} = \frac{D(1+g)}{PV} + g = \frac{D_{1}}{PV} + g            \\
+		       & \text{implied g} = \frac{r \times PV - D}{PV} = r - \frac{D_{1}}{PV}
+	      \end{align*}
+	      Given a \textbf{price-to-earnings ratio} and \textbf{dividend payout ratio},
+	      we can solve for either required return or implied dividend growth rate.
+	      \begin{equation*}
+		      \frac{PV}{E} = \frac{\displaystyle \frac{D}{E} \times (1+g)}{r - g}
+	      \end{equation*}
+	      In practice, the \textbf{forward price-to-earnings ratio}
+	      or ratio of its share price to an estimate of its next period (t + 1)
+	      earnings per share is commonly used.
+	      \begin{equation*}
+		      \frac{PV}{E_{1}} = \frac{\displaystyle \frac{D_{1}}{E_{1}}}{r - g}
+	      \end{equation*}
 \end{enumerate}
-\end{tcolorbox}
+
+% \begin{tcolorbox}[
+% 	colback=gray!5!white,
+% 	colframe=black!15!white,
+% 	boxrule=0.5pt,
+% 	arc=3pt,
+% 	title=\textbf{Case Studies: Stock and index implied return and growth calculations},
+% 	coltitle=black,
+% 	colbacktitle=black!5!white,
+% 	before skip=6pt,
+% 	after skip=6pt,
+% 	breakable
+% ]
+% \begin{enumerate}
+% 	\item \textbf{Coca-Cola Stock:} Trades at $\text{USD } 63.00$, next year expected dividend is $\text{USD } 1.76$.
+% 	      \begin{itemize}
+% 		      \item If $g = 4.00\%$ constant growth:
+% 		            \[ r_{\text{implied}} = \frac{1.76}{63.00} + 0.04 \approx 6.79\% \]
+% 		      \item If required return $r = 7.00\%$:
+% 		            \[ g_{\text{implied}} = 0.07 - \frac{1.76}{63.00} \approx 4.21\% \]
+% 	      \end{itemize}
+% 	\item \textbf{Coca-Cola Forward P/E:} Forward P/E is 28, payout ratio is $70\%$.
+% 	      \begin{itemize}
+% 		      \item If required return $r = 9.00\%$ and growth $g = 4.50\%$:
+% 		            \[ \text{Valuation P/E} = \frac{0.70}{0.09 - 0.045} \approx 15.56 \]
+% 		            Since the market P/E ($28$) is much higher than the fundamental valuation ($15.56$), the stock is \textbf{overvalued} (recommend short position).
+% 	      \end{itemize}
+% 	\item \textbf{Indian NIFTY 50 Index:} Forward P/E is 15, expected payout ratio is $50\%$, required return $r = 7.50\%$, expected growth $g = 4.50\%$:
+% 	      \[ \text{Valuation P/E} = \frac{0.50}{0.075 - 0.045} \approx 16.67 \]
+% 	      Since the market P/E ($15$) is lower than the valuation ($16.67$), the index is \textbf{undervalued} (recommend long position).
+% \end{enumerate}
+% \end{tcolorbox}
 
 \section{Cash Flow Additivity}
 \label{sec:Cash Flow Additivity}
@@ -555,7 +529,7 @@ The comparison between two investment strategies under this principle is illustr
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_13.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_13.png}
 	\caption{Two Investment Strategies}
 	\label{fig:mod4_exhibit_13}
 \end{figure}
@@ -640,7 +614,7 @@ The differences between spot and forward curves under rising rates are illustrat
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_16.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_16.png}
 	\caption{Forward Rate Differences}
 	\label{fig:mod4_exhibit_16}
 \end{figure}
@@ -699,14 +673,14 @@ The binomial tree model for the underlying asset's price is illustrated in Exhib
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_18.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_18.png}
 	\caption{One-Period Binomial Tree for the Asset's Price}
 	\label{fig:mod4_exhibit_18}
 \end{figure}
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_19.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_19.png}
 	\caption{One-Period Binomial Tree for the Contract's Price}
 	\label{fig:mod4_exhibit_19}
 \end{figure}
@@ -751,7 +725,7 @@ The replication payoffs for the call option under the up and down scenarios are 
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_20.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_20.png}
 	\caption{Call Option Replication}
 	\label{fig:mod4_exhibit_20}
 \end{figure}
@@ -788,7 +762,7 @@ The outcomes and decision tree of the desalination project with and without the 
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/004_Module_4/exhibit_22.png}
+	\includegraphics[width=0.65\linewidth]{002_figs/004_Module_4/exhibit_22.png}
 	\caption{Project Outcomes}
 	\label{fig:mod4_exhibit_22}
 \end{figure}
