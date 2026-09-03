@@ -38,6 +38,14 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyfoot[R]{\includegraphics[height=15pt]{002_figs/brand/logo Trustville + text.png}}%
+    \fancyfoot[C]{\thepage}%
+    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0.4pt}%
+}
+
 \newtcolorbox{examtip}[1][]{
     colback=trustvilleblue!5!white,
     colframe=trustvilleblue,
