@@ -11,3 +11,8 @@
 .DS_Store
 Thumbs.db
 *.txt
+
+# Scratch & Local artifacts
+scratch/
+Final Ver/
+002_figs/006_Module_6/exhibit_12_.png
