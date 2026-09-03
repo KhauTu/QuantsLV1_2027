@@ -23,8 +23,10 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{subcaption}
-
+\usepackage[toc,page]{appendix}
 \usepackage{xcolor}
+\usepackage{tikz}
+
 \definecolor{trustvilleblue}{HTML}{1D70B8}
 \definecolor{trustvillegreen}{HTML}{0F8A5F}
 
@@ -102,14 +104,18 @@ Vì vậy, Giảng viên Trustville đánh giá nội dung mới của môn họ
 %     \item[-] \textit{Video bài giảng theo chương trình năm 2024, }\href{https://www.youtube.com/playlist?list=PLXb7t2Rj75qHjU6zmDa1YhgMQmf9ynVpZ}{Click}
 %     \item[-] \textit{Tổng hợp các tài liệu khác: }\href{https://docs.google.com/spreadsheets/d/1-Iz2FbQpaJ5eGwUC_HNVa4TwAi5nm9fZNf8p_cczEK0/edit?usp=sharing}{Click}.
 % \end{itemize}
-\textit{Xin gửi lời cảm ơn trân trọng đến đội ngũ Giảng viên của Trustville, và những bạn học viên đã đóng góp nhiều ý tưởng để giúp hoàn thiện tài liệu này.}\\
+\textit{Xin gửi lời cảm ơn trân trọng đến:
+ anh \textbf{Lê Hồng Kỳ} - Giảng viên Python for Finance tại Trustville - đã hướng dẫn ứng dụng AI tự động hóa,
+ \textbf{tập thể học viên TE 17 và CFA 1.25} - đã đề xuất cách tính nhanh giá trị Equity trong phần Changing Dividend Growth Rate,
+ cùng toàn thể đội ngũ \textbf{Giảng viên và Học viên Trustville} - đã đóng góp nhiều ý tưởng hoàn thiện nội dung tài liệu này.
+}\\
 \textit{Mặc dù tài liệu biên soạn được chuẩn bị một cách kỹ lưỡng và cẩn trọng, nhưng cũng không thể tránh khỏi sai sót và lỗi diễn đạt.
-Vậy rất mong nhận được ý kiến đóng góp từ các bạn khi sử dụng tài liệu, để giúp hoàn thiện nội dung hơn.}\\
+Vậy rất mong nhận được ý kiến đóng góp từ các bạn khi sử dụng tài liệu, để giúp cải thiện trong những phiên bản sau.}\\
 \textit{Mọi ý kiến đóng góp xin gửi về email: \href{mailto:dongkhautu@gmail.com}{dongkhautu@gmail.com}}.\\
 \textbf{Chúc các bạn có những giờ học bổ ích và hoàn thành mục tiêu!}
 
-\setcounter{tocdepth}{1}
-% \addtocontents{toc}{\setcounter{tocdepth}{1}}
+% \setcounter{tocdepth}{1}
+\addtocontents{toc}{\setcounter{tocdepth}{1}}
 \tableofcontents
 % \newpage
 % \subsection{List of figures/tables}
@@ -129,9 +135,11 @@ Vậy rất mong nhận được ý kiến đóng góp từ các bạn khi sử 
 
 % \input{001_Module/005_final_appendices/012_Review_and_Practice.tex}
 
-\begin{appendix}
+\begin{appendices}
+    \input{001_Module/Appendix.tex}
+    \input{001_Module/Formula_Sheet.tex}
     \listoftables
     \listoffigures
-\end{appendix}
+\end{appendices}
 
 \end{document}

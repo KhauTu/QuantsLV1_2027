@@ -1,0 +1,1655 @@
+\chapter{Index Definition and Calculation}
+\label{chap:Index Definition and Calculation}
+
+\section{Công thức chung tính Index Value}
+Index là một chỉ số tượng trưng cho quy mô của thị trường chứng khoán.
+Nhìn vào Index, nhà đầu tư nhận biết được quy mô của thị trường đã tăng trưởng bao nhiêu, kể từ khi thị trường được thành lập.
+Để tính Index, người ta xây dựng một rổ cổ phiếu với số lượng giả định \(n_i\) cho mỗi cổ phiếu \(i\) trong rổ, và tính tổng giá trị rổ, sau đó quy chuẩn thành điểm chỉ số bằng cách chia cho một divisor $D_t$.
+
+Công thức tổng quát nhất của một chỉ số là:
+\[
+V_t = \frac{A_t}{D_t}
+\]
+
+Trong đó:
+\[
+V_t = \text{giá trị chỉ số tại thời điểm } t
+\]
+\[
+A_t = \text{aggregate index value, tức giá trị thô của rổ chỉ số}
+\]
+\[
+D_t = \text{divisor, dùng để chuẩn hóa giá trị thô thành điểm chỉ số}
+\]
+
+Với cách viết tổng quát:
+\[
+A_t = \sum_{i=1}^{N} n_{i,t}P_{i,t}
+\]
+
+Trong đó:
+\[
+n_{i,t} = \text{số lượng cổ phiếu giả định mà rổ chỉ số nắm giữ}
+\]
+\[
+P_{i,t} = \text{giá cổ phiếu } i \text{ tại thời điểm } t
+\]
+
+Liên hệ với Return:
+\[
+V_t = \frac{\sum_{i=1}^{N} n_{i,t}P_{i,t}}{D_t}
+= V_{t-1}\times\sum_{i=1}^{N} \times \frac{n_i \times P_{i,t-1}}{D_t V_{t-1}}\left(\frac{P_{i,t}}{P_{i,t-1}}\right)
+= V_{t-1}\times\sum_{i=1}^{N}w_{i,t-1}\left(\frac{P_{i,t}}{P_{i,t-1}}\right)
+\]
+
+\[
+\text{Do } D_t V_{t-1} = A_{t-1} \Rightarrow \frac{n_i \times P_{i,t-1}}{D_t V_{t-1}} = \frac{n_i \times P_{i,t-1}}{A_{t-1}} = w_{i,t-1}
+\]
+
+\[
+\text{Index t} = \text{Index (t-1)} \times \text{Tổng của (Weight của cổ phiếu i tại thời điểm t-1 nhân với Price Relative của cổ phiếu i)}
+\]
+Lưu ý, weight thường được lấy ở đầu kỳ, tức là: $w_{i,t-1}$, không phải weight cuối kỳ.
+\section{Cách tính Return}
+Return của từng cổ phiếu có thể được tính theo hai cách.
+\subsection{Price Return}
+Cách này chỉ phản ánh biến động giá cổ phiếu.
+\[
+R_{i,t}^{price}
+=
+\frac{P_{i,t}-P_{i,t-1}}{P_{i,t-1}}
+\]
+
+nên:
+\[
+V_{t}
+= V_{t-1}\times\sum_{i=1}^{N}w_{i,t-1}(1+R_{i,t})
+= V_{t-1}\times\left(1+\sum_{i=1}^{N}w_{i,t-1}R_{i,t}\right)
+= V_{t-1}(1+R_{index,t})
+\]
+
+\subsection{Total Return}
+\[
+R_{i,t}^{total}
+=
+\frac{P_{i,t}-P_{i,t-1}+Dividend_{i,t}}{P_{i,t-1}}
+\]
+Cách này phản ánh cả biến động giá và cổ tức.
+\[
+V_{TR,t}
+=
+V_{TR,t-1}
+\times
+\sum_{i=1}^{N}
+w_{i,t-1}
+\left(
+\frac{P_{i,t}+Dividend_{i,t}}{P_{i,t-1}}
+\right)
+\]
+Hoặc nếu dùng adjusted price đã phản ánh cổ tức:
+\[
+V_{TR,t}
+=
+V_{TR,t-1}
+\times
+\sum_{i=1}^{N}
+w_{i,t-1}
+\left(
+\frac{Adjusted\ Price_{i,t}}{Adjusted\ Price_{i,t-1}}
+\right)
+\]
+
+\section{Các loại weight của index}
+\subsection{Market-cap Weight}
+\[
+w_{i,t}^{M}
+=
+\frac{Q_{i,t}P_{i,t}}
+{\sum_{j=1}^{N}Q_{j,t}P_{j,t}}
+\]
+Nếu có điều chỉnh free float:
+\[
+w_{i,t}^{M}
+=
+\frac{Q_{i,t}f_{i,t}P_{i,t}}
+{\sum_{j=1}^{N}Q_{j,t}f_{j,t}P_{j,t}}
+\]
+\[
+f_{i,t} = \text{tỷ lệ free float của cổ phiếu } i
+\]
+Cổ phiếu nào có vốn hóa lớn hơn thì có trọng số lớn hơn trong index.
+
+\subsection{Price Weight}
+\[
+w_{i,t}^{P}
+=
+\frac{P_{i,t}}
+{\sum_{j=1}^{N}P_{j,t}}
+\]
+
+Cổ phiếu nào có giá cao hơn thì có trọng số lớn hơn.
+
+\subsection{Equal Weight}
+Tại ngày rebalance \(r\), mỗi cổ phiếu có cùng trọng số mục tiêu:
+\[
+w_{i,r}^{target}
+=
+\frac{1}{N}
+\]
+
+Ví dụ, nếu index có 5 cổ phiếu thì $w_i = 20\%$
+
+Sau ngày rebalance, giá cổ phiếu biến động khác nhau nên weight thực tế sẽ lệch khỏi mức target.
+
+\subsection{Fundamental Weight}
+Với fundamental-weighted index, weight được tính theo một chỉ tiêu cơ bản \(F_i\), ví dụ:
+ doanh thu;
+ lợi nhuận;
+ book value;
+ cash flow;
+ dividend;
+ hoặc một fundamental score tổng hợp.
+
+Công thức target weight là:
+\[
+w_{i,r}^{target}
+=
+\frac{F_i}{\sum_{j=1}^{N}F_j}
+\]
+
+\section{Diễn giải Divisor}
+Công thức chung:
+\[
+V_t = \frac{A_t}{D_t}
+\]
+Nếu không có sự kiện kỹ thuật:
+\[
+D_t = D_{t-1}
+\]
+Khi đó:
+\[
+V_t
+=
+V_{t-1}
+\times
+\frac{A_t}{A_{t-1}}
+\]
+
+Tức là index tăng hoặc giảm theo tốc độ tăng hoặc giảm của aggregate index value.
+
+Khi có sự kiện kỹ thuật làm \(A_t\) thay đổi cơ học, divisor được điều chỉnh để index không bị nhảy giả tạo.
+
+Công thức điều chỉnh divisor là:
+\[
+D_t
+=
+D_{t-1}
+\times
+\frac{A_t^*}{A_{t-1}}
+\]
+
+Trong đó:
+\[
+A_{t-1}
+=
+\text{aggregate index value trước sự kiện}
+\]
+\[
+A_t^*
+=
+\text{aggregate index value ngay sau sự kiện kỹ thuật, nhưng chưa tính biến động giá thị trường thật}
+\]
+
+Logic xuất phát từ yêu cầu:
+\[
+V_t^* = V_{t-1}
+\]
+
+Tức là:
+\[
+\frac{A_t^*}{D_t}
+=
+\frac{A_{t-1}}{D_{t-1}}
+\]
+
+Suy ra:
+\[
+D_t
+=
+D_{t-1}
+\times
+\frac{A_t^*}{A_{t-1}}
+\]
+
+\section{Cách xác định số lượng cổ phiếu mà rổ index nắm giữ}
+Giá trị rổ cổ phiếu phụ thuộc vào số lượng cổ phiếu giả định \(n_i\) của từng cổ phiếu thành phần.
+\[
+A_t
+=
+\sum_{i=1}^{N} n_{i,t}P_{i,t}
+\]
+
+\subsection{Market-cap-weighted Index}
+\[
+n_{i,t}=Q_{i,t}
+\]
+Nếu có free float:
+\[
+n_i=Q_if_i
+\]
+
+\subsection{Price-weighted Index}
+Với price-weighted index:
+\[
+n_i=1
+\]
+
+\subsection{Equal-weighted Index}
+Tại ngày rebalance \(r\):
+\[
+w_{i,r}^{target}
+=
+\frac{1}{N}
+\]
+Số lượng cổ phiếu giả định được tính bằng:
+\[
+n_{i,r}
+= \frac{A_r \times w_{i,r}^{target}}{P_{i,r}}
+= \frac{A_r \times \frac{1}{N}}{P_{i,r}}
+\]
+
+\subsection{Fundamental-weighted Index}
+Tính target weight theo yếu tố cơ bản:
+\[
+w_{i,r}^{target}
+=
+\frac{F_i}{\sum_{j=1}^{N}F_j}
+\]
+Sau đó tính số lượng cổ phiếu giả định:
+\[
+n_{i,r}
+=
+\frac{A_r \times w_{i,r}^{target}}{P_{i,r}}
+\]
+
+\subsection{\texorpdfstring{\(A_r\)}{Ar} lấy từ đâu?}
+Với equal-weighted index và fundamental-weighted index, \(A_r\) không phải là tổng vốn hóa thật ngoài thị trường, mà là quy mô danh nghĩa của rổ index.
+
+Nếu index mới được lập:
+\[
+A_0
+=
+V_0 \times D_0
+\]
+Nếu index đã tồn tại và đang rebalance:
+\[
+A_r^-
+=
+\sum_{i=1}^{N} n_{i,r^-}P_{i,r}
+\]
+Tức là tổng giá trị rổ ngay trước rebalance.
+
+Sau đó thường đặt:
+\[
+A_r^+ = A_r^-
+\]
+để index không nhảy điểm vì rebalance.
+
+Rồi tính lại:
+\[
+n_{i,r^+}
+=
+\frac{A_r^- \times w_{i,r}^{target}}{P_{i,r}}
+\]
+
+\section{Rebalance và Reconstitution}
+\subsection{Rebalance}
+
+Rebalance là điều chỉnh lại tỷ trọng của các cổ phiếu trong index về mức target.
+
+Sau một thời gian, do giá cổ phiếu biến động khác nhau, weight thực tế sẽ khác weight target.
+
+Công thức weight thực tế là:
+\[
+w_{i,t}^{actual}
+=
+\frac{n_{i,r}P_{i,t}}
+{\sum_{j=1}^{N}n_{j,r}P_{j,t}}
+\]
+Với equal-weighted index, tại ngày rebalance:
+\[
+w_i^{target}
+=
+\frac{1}{N}
+\]
+
+Với fundamental-weighted index, target weight dựa trên fundamental factor:
+\[
+w_i^{target}
+=
+\frac{F_i}{\sum F_i}
+\]
+Đến kỳ rebalance, index cập nhật \(F_i\), tính lại target weight mới, rồi điều chỉnh \(n_i\).
+
+\subsubsection{Khi nào cần rebalance?}
+Tùy methodology của index.
+
+Equal-weighted index thường rebalance theo kỳ:
+monthly, quarterly, semiannual, annual.
+
+Fundamental-weighted index thường rebalance theo kỳ:
+quarterly, semiannual, annual.
+
+Ngoài lịch định kỳ, rebalance cũng có thể xảy ra khi có sự kiện đặc biệt, chẳng hạn:
+ thêm hoặc loại cổ phiếu;
+ hủy niêm yết;
+ sáp nhập;
+ chia tách hoặc gộp cổ phiếu;
+ corporate actions lớn;
+ thay đổi số lượng cổ phiếu trong index;
+ vi phạm điều kiện index;
+ áp dụng weight cap.
+
+\subsection{Reconstitution}
+Reconstitution là thay đổi thành phần index.
+Ví dụ:
+ loại cổ phiếu A khỏi index;
+ thêm cổ phiếu E vào index;
+ cập nhật lại danh sách cổ phiếu đủ điều kiện.
+
+Cách nhớ:
+\[
+\text{Rebalance} = \text{chỉnh tỷ trọng}
+\]
+\[
+\text{Reconstitution} = \text{chỉnh danh sách cổ phiếu}
+\]
+
+Trên thực tế, reconstitution thường kéo theo rebalance, vì khi danh sách cổ phiếu thay đổi, ta phải tính lại:
+$w_i^{target}$ và $n_i$
+
+\subsubsection{Cách xử lý reconstitution}
+Trước sự kiện:
+\[
+V^-
+=
+\frac{A^-}{D^-}
+\]
+Sau khi thay đổi thành phần index, tính aggregate value mới:
+\[
+A^+
+=
+\sum_{i=1}^{N}n_i^+P_i
+\]
+Để index không nhảy giả tạo, divisor mới là:
+\[
+D^+ = \frac{A^+}{V^-}
+= D^- \times \frac{A^+}{A^-}
+\]
+
+\section{Kết luận}
+Có thể nhớ toàn bộ logic bằng bốn lớp.
+\subsection*{Lớp 1: Index Level}
+\[
+V_t
+=
+\frac{A_t}{D_t}
+\]
+
+\subsection*{Lớp 2: Aggregate Index Value}
+\[
+A_t
+=
+\sum_{i=1}^{N}n_{i,t}P_{i,t}
+\]
+Cách chọn \(n_i\) quyết định index là market-cap weighted, price weighted, equal weighted hay fundamental weighted.
+
+\subsection*{Lớp 3: Return}
+\[
+R_{index,t}
+=
+\sum_{i=1}^{N}w_{i,t-1}R_{i,t}
+\]
+\[
+V_t
+=
+V_{t-1}(1+R_{index,t})
+\]
+Hoặc:
+\[
+V_t
+=
+V_{t-1}
+\times
+\sum_{i=1}^{N}
+w_{i,t-1}
+\left(
+\frac{P_{i,t}}{P_{i,t-1}}
+\right)
+\]
+
+\subsection*{Lớp 4: Divisor, Rebalance và Reconstitution}
+\[
+D_t
+=
+D_{t-1}
+\times
+\frac{A_t^*}{A_{t-1}}
+\]
+
+Divisor giúp index không bị nhảy điểm giả tạo.
+
+Rebalance đưa weight thực tế về weight target.
+
+Reconstitution thay đổi danh sách cổ phiếu, và thường kéo theo rebalance hoặc divisor adjustment.
+%%%%%%%%%%%%%%%
+
+\chapter{Proof of Statistical Distributions Formula}
+\label{chap:Proof of Statistical Distributions Formula}
+
+\section{Discrete Uniform Distribution}
+\label{sec:Proof_Discrete_Uniform}
+Giả sử biến ngẫu nhiên rời rạc X nhận các giá trị nguyên trong đoạn $[a, b]$ với xác suất bằng nhau.
+\begin{itemize}
+	\item Số lượng giá trị có thể nhận là $N = b - a + 1$
+	\item Xác suất X nhận một giá trị bất kỳ trong đoạn là: $P(X=k)=\frac{1}{n}$ với mọi $k \in \{a, a+1,..., b\}$ 
+\end{itemize}
+
+\subsection*{Kỳ vọng}
+\[
+E(X)=\sum_{k=a}^{b}k\cdot P(X=k)=\sum_{k=a}^{b}k\cdot \frac{1}{n}=\sum_{k=a}^{b}k
+\]
+Do $\sum_{k=a}^{b}k$ là tổng của cấp số cộng từ a đến b gồm n phần tử, nên:
+\[
+\sum_{k=a}^{b}=\frac{n(a+b)}{2} \Rightarrow E(X)=\frac{1}{n}\cdot\frac{n(a+b)}{2}=\frac{a+b}{2}
+\]
+
+\subsection*{Phương sai}
+Để tính phương sai, ta sử dụng tính chất tịnh tiến: Phương sai không thay đổi khi ta dịch chuyển toàn bộ tập dữ liệu.
+Ta đặt biến mới $Y = X - a + 1$ (gọi là biến chuẩn hóa). Khi đó:
+\begin{itemize}
+	\item Y sẽ nhận các giá trị từ 1 đến $b - a + 1$ (tức là từ 1 đến N)
+	\item $Var(X) = Var(Y)=E(Y^2)-[E(Y)]^2$
+\end{itemize}
+\[
+E(Y)=\frac{1+N}{2} \Rightarrow [E(Y)]^2=\frac{(N+1)^2}{4}
+\]
+\[
+E(Y^2)=\sum_{i=1}^{N}i^2\cdot \frac{1}{N}=\frac{1}{N}\sum_{i=1}^{N}i^2 = \frac{1}{N}\cdot\frac{N(N+1)(2N+1)}{6}=\frac{(N+1)(2N+1)}{6}
+\]
+Suy ra:
+\[
+Var(Y)=\frac{(N+1)(2N+1)}{6}-\frac{(N+1)^2}{4}=(N+1)\cdot\frac{4N+2-3N-3}{12}=\frac{(N+1)(N-1)}{12}=\frac{N^2-1}{12}
+\]
+Do $N =  b-a+1$ nên ta có:
+\[
+Var(X) = \frac{(b-a+1)^2-1}{12}
+\]
+
+\section{Binomial Distribution}
+\label{sec:Proof_Binomial}
+
+Phân phối Nhị thức đếm số lần thành công trong $n$ lần thử độc lập. 
+Phân phối này được xây dựng dựa trên phân phối Bernoulli, với mỗi lần thử chỉ có 2 kết quả: Thành công (xác suất $p$) hoặc Thất bại (xác suất $1-p$).
+
+Giải nghĩa các thành phần trong công thức (\ref{eq:binomial_pmf_m6}):
+\begin{itemize}
+	\item $\binom{n}{x} = \frac{n!}{x!(n-x)!}$: Tổ hợp chập $x$ của $n$, đại diện cho số cách sắp xếp $x$ lần thành công trong $n$ lượt thử.
+	\item $p^x$: Xác suất xảy ra đúng $x$ lần thành công.
+	\item $(1-p)^{n-x}$: Xác suất xảy ra đúng $n-x$ lần thất bại còn lại.
+\end{itemize}
+
+Để tránh các công thức tính toán phức tạp, ta xây dựng biến nhị thức X thực chất là tổng của n phép thử Bernoulli độc lập với nhau (ký hiệu là $X_1, X_2,..., X_n$).
+Trong đó mỗi $X_i$ chỉ nhận giá trị 1 (thành công) hoặc 0 (thất bại).
+
+Đối với từng biến độc lập $X_i$:
+\begin{itemize}
+	\item $E(X_i) = 1\cdot p + 0\cdot(1-p) = p$
+	\item $E(X^2_i) = 1^2\cdot p + 0^2\cdot(1-p) = p$
+	\item $Var(X_i) = E(X^2_i) - [E(X_i)]^2 = p - p^2 = p(1-p)$
+\end{itemize}
+
+Vì $X = X_1+X_2+...+X_n$, áp dụng tính chất của kỳ vọng và phương sai cho các biến độc lập:
+\subsection*{Kỳ vọng}
+$E(X)=E(X_1)+E(X_2)+...+E(X_n)=np$
+\subsection*{Phương sai}
+$Var(X)=Var(X_1)+Var(X_2)+...+Var(X_n)=np(1-p)$
+% \begin{itemize}
+% 	\item Kỳ vọng tổng: $E(X)=E(X_1)+E(X_2)+...+E(X_n)=np$
+% 	\item Phương sai tổng: $Var(X)=Var(X_1)+Var(X_2)+...+Var(X_n)=np(1-p)$
+% \end{itemize}
+
+\section{Poisson Distribution}
+\label{sec:Proof_Poisson}
+
+\subsection*{PMF}
+Giả sử $X \sim \mathrm{Bin}(n,p)$ với PMF là $P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}.$
+
+Poisson được xây dựng để đếm số lần sự kiện xảy ra trong một khoảng thời gian chia nhỏ thành $n$ sự kiện và trung bình có $\lambda$ sự kiện xảy ra trong khoảng thời gian đó.
+
+Như vậy xác suất của sự kiện sẽ là $p=\frac{\lambda}{n}$, hay $\lambda=np$.
+Ta xét khi $n\rightarrow\infty$ và $p\rightarrow 0$ sao cho $\lambda=np$ không đổi.
+Suy ra
+\[
+P(X=k)
+=
+\binom{n}{k}
+\left(\frac{\lambda}{n}\right)^k
+\left(1-\frac{\lambda}{n}\right)^{n-k}.
+\]
+
+Khai triển tổ hợp
+\[
+\binom{n}{k}
+=
+\frac{n(n-1)\cdots(n-k+1)}{k!},
+\]
+
+Do đó
+\[
+\binom{n}{k}
+\left(\frac{\lambda}{n}\right)^k
+=
+\frac{\lambda^k}{k!}
+\cdot
+\frac{n(n-1)\cdots(n-k+1)}{n^k}.
+\]
+
+Ta có
+\[
+\lim_{n\to\infty}
+\frac{n(n-1)\cdots(n-k+1)}{n^k}
+=
+1,
+\]
+
+nên
+
+\[
+\lim_{n\to\infty}
+\binom{n}{k}
+\left(\frac{\lambda}{n}\right)^k
+=
+\frac{\lambda^k}{k!}.
+\]
+
+Xét thành phần còn lại,
+
+\[
+\left(1-\frac{\lambda}{n}\right)^{n-k}
+=
+\left(1-\frac{\lambda}{n}\right)^n
+\left(1-\frac{\lambda}{n}\right)^{-k}.
+\]
+
+Sử dụng
+
+\[
+\lim_{n\to\infty}
+\left(1-\frac{\lambda}{n}\right)^n
+=
+e^{-\lambda},
+\]
+
+và
+
+\[
+\lim_{n\to\infty}
+\left(1-\frac{\lambda}{n}\right)^{-k}
+=
+1,
+\]
+
+nên
+
+\[
+\lim_{n\to\infty}
+\left(1-\frac{\lambda}{n}\right)^{n-k}
+=
+e^{-\lambda}.
+\]
+
+Kết hợp lại ta được,
+
+\[
+\begin{aligned}
+P(X=k)
+&=
+\lim_{n\to\infty}
+\binom{n}{k}
+\left(\frac{\lambda}{n}\right)^k
+\left(1-\frac{\lambda}{n}\right)^{n-k}
+\\
+&=
+\frac{\lambda^k}{k!}
+e^{-\lambda}.
+\end{aligned}
+\]
+
+Điểm đặc biệt nhất của Poisson là Kỳ vọng đúng bằng Phương sai ($\mu = \sigma^2 = \lambda$).
+
+\subsection*{Kỳ vọng}
+Giả sử $X\sim\operatorname{Poisson}(\lambda),$ với PMF
+\[
+P(X=k)
+=
+\frac{e^{-\lambda}\lambda^k}{k!},
+\qquad
+k=0,1,2,\ldots
+\]
+
+Ta có,
+\[
+E(X)
+=
+\sum_{k=0}^{\infty}
+kP(X=k)
+=
+e^{-\lambda}
+\sum_{k=1}^{\infty}
+k
+\frac{\lambda^k}{k!}.
+\]
+
+Giản ước cho $k$, suy ra
+\[
+E(X)
+=
+e^{-\lambda}
+\sum_{k=1}^{\infty}
+\frac{\lambda^k}{(k-1)!}.
+\]
+
+Đưa 1 hệ số \(\lambda\) ra ngoài,
+\[
+=
+\lambda
+e^{-\lambda}
+\sum_{k=1}^{\infty}
+\frac{\lambda^{k-1}}{(k-1)!}.
+\]
+
+Đặt $j=k-1.$
+\[
+E(X)
+=
+\lambda
+e^{-\lambda}
+\sum_{j=0}^{\infty}
+\frac{\lambda^j}{j!}.
+\]
+
+Sử dụng khai triển Taylor của hàm mũ,
+\[
+e^\lambda
+=
+\sum_{j=0}^{\infty}
+\frac{\lambda^j}{j!},
+\]
+
+Ta có
+\[
+E(X)
+=
+\lambda
+e^{-\lambda}
+e^\lambda
+=
+\boxed{\lambda}.
+\]
+
+\subsection*{Phương sai}
+Đối với phương sai, ta sử dụng công thức
+\[
+Var(X)
+=
+E(X^2)-[E(X)]^2,
+\]
+
+Trước tiên,
+\[
+E(X^2)
+=
+E[X(X-1)]
++
+E(X).
+\]
+
+Với giá trị kỳ vọng thứ hai, ta có
+\[
+E[X(X-1)]
+=
+e^{-\lambda}
+\sum_{k=2}^{\infty}
+k(k-1)
+\frac{\lambda^k}{k!}.
+\]
+
+Giản ước cho $k(k-1)$, suy ra
+\[
+E[X(X-1)]
+=
+e^{-\lambda}
+\sum_{k=2}^{\infty}
+\frac{\lambda^k}{(k-2)!}.
+\]
+
+Đưa hệ số $\lambda^2$ ra ngoài,
+\[
+=
+\lambda^2
+e^{-\lambda}
+\sum_{k=2}^{\infty}
+\frac{\lambda^{k-2}}{(k-2)!}.
+\]
+
+Đặt $j=k-2.$
+\[
+E[X(X-1)]
+=
+\lambda^2
+e^{-\lambda}
+\sum_{j=0}^{\infty}
+\frac{\lambda^j}{j!}
+= \lambda^2
+e^{-\lambda} e^{\lambda}
+= \lambda^2.
+\]
+
+Suy ra,
+\[
+E(X^2)
+=
+\lambda^2+\lambda.
+\]
+
+\[
+\begin{aligned}
+Var(X)
+&=
+E(X^2)-[E(X)]^2\\
+&=
+(\lambda^2+\lambda)-\lambda^2\\
+&=
+\boxed{\lambda}.
+\end{aligned}
+\]
+
+Hay,
+\[
+\boxed{
+E(X)=Var(X)=\lambda.
+}
+\]
+
+\section{Continuous Uniform Distribution}
+\label{sec:Proof_Continuous_Uniform}
+Giả sử biến ngẫu nhiên liên tục X nhận giá trị trong đoạn \([a,b]\) với xác suất bằng nhau, tức là \(X\) có phân phối đều liên tục (Continuous Uniform Distribution):
+\[
+X\sim U(a,b),
+\]
+
+với PDF:
+\[
+f(x)=
+\begin{cases}
+\dfrac{1}{b-a}, & a\le x\le b,\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+
+\subsection*{Kỳ vọng}
+
+Theo định nghĩa,
+\[
+E(X)
+=
+\int_{-\infty}^{\infty}
+x\,f(x)\,dx.
+\]
+
+\(f(x)=0\) với những giá trị ngoài khoảng \([a,b]\),
+\[
+E(X)
+=
+\frac1{b-a}
+\int_a^b x\,dx.
+=
+\frac1{b-a}
+\left[
+\frac{x^2}{2}
+\right]_a^b
+=
+\frac{b^2-a^2}{2(b-a)}=\frac{a+b}{2}.
+\]
+
+\subsection*{Phương sai}
+\[
+Var(X)
+=
+E(X^2)-[E(X)]^2,
+\]
+
+Theo định nghĩa,
+\[
+E(X^2)
+=
+\frac1{b-a}
+\int_a^b x^2\,dx.
+\]
+
+Do đó,
+\[
+E(X^2)
+=
+\frac1{b-a}
+\left[
+\frac{x^3}{3}
+\right]_a^b
+=
+\frac{b^3-a^3}{3(b-a)}.
+\]
+
+\[
+\boxed{
+E(X^2)
+=
+\frac{a^2+ab+b^2}{3}.
+}
+\]
+
+Suy ra,
+\[
+\begin{aligned}
+Var(X)
+&=
+\frac{a^2+ab+b^2}{3}
+-
+\left(
+\frac{a+b}{2}
+\right)^2\\
+&=
+\frac{
+4(a^2+ab+b^2)
+-
+3(a+b)^2
+}{12}\\
+&=
+\frac{
+a^2-2ab+b^2
+}{12}\\
+&=
+\boxed{
+\frac{(b-a)^2}{12}.
+}
+\end{aligned}
+\]
+
+Tóm lại,
+\[
+\boxed{
+E(X)=\frac{a+b}{2},
+\qquad
+Var(X)=\frac{(b-a)^2}{12}.
+}
+\]
+
+\section{Logistic Distribution}
+\label{sec:Logistic_Distribution}
+
+\usetikzlibrary{positioning}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.9cm,
+    every node/.style={align=center},
+    box/.style={},
+    arrow/.style={->, thick}
+]
+
+\node (obs) [box] {Ta chỉ quan sát\\[2mm]
+\textbf{Default / No Default}};
+
+\node (latent) [box, below=of obs] {Giả sử bên dưới tồn tại một ``điểm rủi ro''\\[2mm]
+$Y^*=\beta^Tx+\varepsilon$};
+
+\node (rule) [box, below=of latent] {
+Nếu $Y^*>0 \;\Rightarrow\; Y=1$\\[2mm]
+Nếu $Y^*\le0 \;\Rightarrow\; Y=0$
+};
+
+\node (prob) [box, below=of rule] {
+$P(Y=1)=P(\varepsilon>-\beta^Tx)$
+};
+
+\node (normal) [box, below left=1.3cm and 2.4cm of prob] {
+$\varepsilon\sim N(0,1)$
+};
+
+\node (logistic) [box, below right=1.3cm and 2.4cm of prob] {
+$\varepsilon\sim \text{Logistic}(0,1)$
+};
+
+\node (probit) [box, below=of normal] {
+$P(Y=1)=\Phi(\beta^Tx)$\\[2mm]
+\textbf{Probit}
+};
+
+\node (logit) [box, below=of logistic] {
+$P(Y=1)=\dfrac{1}{1+e^{-\beta^Tx}}$\\[2mm]
+\textbf{Logit}
+};
+
+\draw[arrow] (obs) -- (latent);
+\draw[arrow] (latent) -- (rule);
+\draw[arrow] (rule) -- (prob);
+
+\draw[arrow] (prob) -- (normal);
+\draw[arrow] (prob) -- (logistic);
+
+\draw[arrow] (normal) -- (probit);
+\draw[arrow] (logistic) -- (logit);
+
+\end{tikzpicture}
+\caption{Logic hình thành Probit và Logit từ mô hình biến tiềm ẩn (Latent Variable Model).}
+\end{figure}
+
+\subsection*{Tại sao mô hình Logit được sử dụng phổ biến hơn Probit?}
+Mặc dù mô hình Logit và Probit được xây dựng trên các giả định khác nhau về phân phối của sai số, nhưng trong thực tế hai mô hình thường cho kết quả dự báo xác suất rất tương đồng. Sự khác biệt chủ yếu nằm ở tính chất toán học, hiệu quả tính toán và khả năng diễn giải, chứ không phải ở độ chính xác dự báo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{1. Hàm phân phối tích lũy (CDF) có dạng công thức tường minh}
+Mô hình Logit giả định sai số tuân theo phân phối Logistic,
+\[
+\varepsilon \sim Logistic(0,1),
+\]
+khi đó xác suất được tính thông qua hàm phân phối tích lũy
+\[
+F(z)
+=
+\frac{1}{1+e^{-z}},
+\]
+là một công thức tường minh (closed-form expression).
+Ngược lại, mô hình Probit giả định
+\[
+\varepsilon \sim N(0,1),
+\]
+với hàm phân phối tích lũy
+\[
+\Phi(z)
+=
+\int_{-\infty}^{z}
+\frac{1}{\sqrt{2\pi}}
+e^{-t^{2}/2}
+dt.
+\]
+
+Do hàm phân phối tích lũy của phân phối chuẩn không có biểu thức nguyên hàm dưới dạng các hàm sơ cấp, việc tính toán phải dựa trên phương pháp tích phân số hoặc các thuật toán xấp xỉ. Vì vậy, mô hình Logit thuận tiện hơn về mặt tính toán.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{2. Đạo hàm có dạng rất đơn giản}
+Đặt
+\[
+p
+=
+\frac{1}{1+e^{-z}}.
+\]
+Đạo hàm của hàm Logistic là
+\[
+\boxed{
+\frac{dp}{dz}
+=
+p(1-p).
+}
+\]
+Đạo hàm chỉ phụ thuộc vào chính xác suất dự báo $p$, do đó các biểu thức gradient và Hessian đều gọn.
+
+Trong khi đó, đối với mô hình Probit, $p=\Phi(z),$ thì
+\[
+\boxed{
+\frac{dp}{dz}
+=
+\phi(z),
+}
+\]
+trong đó
+\[
+\phi(z)
+=
+\frac{1}{\sqrt{2\pi}}
+e^{-z^{2}/2}
+\]
+
+là hàm mật độ xác suất của phân phối chuẩn.
+
+Mặc dù cả hai mô hình đều có thể tính toán dễ dàng bằng máy tính, nhưng đạo hàm của Logistic có dạng đại số đơn giản hơn, giúp việc xây dựng các thuật toán tối ưu trở nên thuận tiện hơn.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{3. Tối ưu hóa Maximum Likelihood đơn giản hơn}
+Các tham số của Logistic Regression thường được ước lượng bằng phương pháp Ước lượng Hợp lý Tối đa (Maximum Likelihood Estimation -- MLE).
+
+Đối với mô hình Logit, gradient của hàm hợp lý có dạng
+\[
+\nabla L
+=
+X^{T}(y-p),
+\]
+và ma trận Hessian là
+\[
+H
+=
+-X^{T}WX,
+\]
+trong đó
+\[
+W
+=
+diag\left(p_i(1-p_i)\right).
+\]
+Các biểu thức trên đều có dạng đơn giản và thuận lợi cho các thuật toán tối ưu lặp như Newton-Raphson hoặc Iteratively Reweighted Least Squares (IRLS).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{4. Dễ diễn giải thông qua Odds Ratio}
+Một ưu điểm rất quan trọng của mô hình Logit là khả năng diễn giải trực tiếp ý nghĩa của các hệ số hồi quy.
+
+Mô hình Logit có thể được viết dưới dạng
+\[
+\boxed{
+\log
+\left(
+\frac{p}{1-p}
+\right)
+=
+\beta^{T}x,
+}
+\]
+trong đó
+$
+\frac{p}{1-p}
+$
+được gọi là \textbf{Odds} (tỷ lệ cược).
+
+Do đó,$e^{\beta_j}$
+được gọi là \textbf{Odds Ratio}, cho biết khi biến giải thích $x_j$ tăng thêm một đơn vị thì Odds sẽ thay đổi bao nhiêu lần, trong điều kiện các biến khác được giữ nguyên.
+
+Khả năng diễn giải trực tiếp này khiến Logistic Regression trở thành mô hình tiêu chuẩn trong các lĩnh vực như chấm điểm tín dụng (Credit Scoring), quản trị rủi ro, y học, bảo hiểm và marketing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{5. Phù hợp với các thuật toán Machine Learning}
+Hàm Logistic (Sigmoid Function) là một trong những hàm kích hoạt (Activation Function) quan trọng nhất trong Machine Learning.
+
+Do đạo hàm
+\[
+\frac{d}{dz}\sigma(z)
+=
+\sigma(z)(1-\sigma(z)),
+\]
+có dạng rất đơn giản nên việc lan truyền ngược sai số (Backpropagation) và tối ưu hóa bằng Gradient Descent được thực hiện hiệu quả.
+
+Chính vì vậy, Logistic Regression được xem là nền tảng của nhiều thuật toán phân loại nhị phân hiện đại cũng như các mạng nơ-ron nhân tạo (Neural Networks).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Khi nào nên sử dụng mô hình Probit?}
+
+Mặc dù Logit phổ biến hơn, mô hình Probit vẫn là lựa chọn phù hợp trong một số trường hợp:
+\begin{itemize}
+\item Khi mô hình lý thuyết giả định sai số hoặc biến tiềm ẩn (Latent Variable) tuân theo phân phối chuẩn.
+\item Trong các nghiên cứu kinh tế lượng (Econometrics), nơi giả định phân phối chuẩn của sai số thường xuất phát từ cơ sở lý thuyết của mô hình.
+\item Trong sinh thống kê (Biostatistics) và tâm lý học lượng hóa (Psychometrics), khi các đặc tính tiềm ẩn của đối tượng nghiên cứu được giả định tuân theo phân phối chuẩn.
+\item Trong các mô hình Bayes có biến tiềm ẩn, do việc sử dụng phân phối chuẩn giúp việc suy luận hậu nghiệm (Posterior Inference) trở nên thuận tiện hơn.
+\item Khi cần duy trì tính nhất quán với các nghiên cứu học thuật trước đó đã sử dụng mô hình Probit.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Law of Total Variance}
+\label{sec:Law_of_Total_Variance}
+
+\subsection*{Công thức chung}
+Giả sử $R$ là biến ngẫu nhiên cần nghiên cứu và $S$ là biến trạng thái (state variable). Theo \textit{Law of Total Variance},
+\begin{equation}
+\boxed{
+\operatorname{Var}(R)
+=
+E\!\left[\operatorname{Var}(R\mid S)\right]
++
+\operatorname{Var}\!\left(E[R\mid S]\right)
+}
+\end{equation}
+
+Công thức trên phát biểu rằng phương sai tổng thể (\textit{unconditional variance}) gồm hai thành phần:
+
+\begin{itemize}
+    \item \textbf{Within-group variance}
+    \[
+    E[\operatorname{Var}(R|S)],
+    \]
+    là trung bình của phương sai trong từng nhóm (hay từng trạng thái).
+
+    \item \textbf{Between-group variance}
+    \[
+    \operatorname{Var}(E[R|S]),
+    \]
+    là phương sai của các giá trị kỳ vọng giữa các nhóm.
+\end{itemize}
+
+Do đó,
+
+\[
+\boxed{
+\text{Total Variance}
+=
+\text{Within-group Variance}
++
+\text{Between-group Variance}.
+}
+\]
+% Điều này cũng chính là tư tưởng cơ bản của ANOVA: tổng biến thiên bằng biến thiên trong nhóm cộng với biến thiên giữa các nhóm.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Algebraic Proof (2-State Case)}
+
+Giả sử biến trạng thái
+\[
+S\in\{A,B\},
+\]
+với
+$
+P(S=A)=p,\qquad
+P(S=B)=1-p.
+$
+Đặt
+\[
+E(R|A)=\mu_A,\qquad
+Var(R|A)=\sigma_A^2,
+\]
+\[
+E(R|B)=\mu_B,\qquad
+Var(R|B)=\sigma_B^2.
+\]
+Theo Law of Total Expectation,
+$
+\mu
+=
+E(R)
+=
+p\mu_A+(1-p)\mu_B.
+$
+Theo định nghĩa phương sai,
+$
+Var(R)
+=
+E[(R-\mu)^2].
+$
+Áp dụng kỳ vọng có điều kiện,
+\begin{align*}
+Var(R)
+&=
+pE[(R-\mu)^2|A]
++
+(1-p)E[(R-\mu)^2|B].
+\end{align*}
+Xét trạng thái $A$. Ta cộng và trừ $\mu_A$:
+$
+R-\mu
+=
+(R-\mu_A)
++
+(\mu_A-\mu).
+$
+Khai triển bình phương: 
+\begin{align*}
+(R-\mu)^2
+&=
+(R-\mu_A)^2
++
+2(R-\mu_A)(\mu_A-\mu)
++
+(\mu_A-\mu)^2.
+\end{align*}
+Lấy kỳ vọng có điều kiện,
+\begin{align*}
+E[(R-\mu)^2|A]
+&=
+E[(R-\mu_A)^2|A]
+\\
+&\quad
++
+2(\mu_A-\mu)
+E[R-\mu_A|A]
+\\
+&\quad
++
+(\mu_A-\mu)^2.
+\end{align*}
+
+Do $E(R|A)=\mu_A$, nên $E[R-\mu_A|A]=0$.
+
+Vì vậy, $E[(R-\mu)^2|A] = \sigma_A^2 + (\mu_A-\mu)^2$
+
+Tương tự,$E[(R-\mu)^2|B] = \sigma_B^2 + (\mu_B-\mu)^2$
+
+Thế trở lại biểu thức phương sai,
+\begin{align*}
+Var(R)
+&=
+p\left(
+\sigma_A^2
++
+(\mu_A-\mu)^2
+\right)
+\\
+&\quad+
+(1-p)
+\left(
+\sigma_B^2
++
+(\mu_B-\mu)^2
+\right).
+\end{align*}
+
+Nhóm các hạng tử,
+\begin{align*}
+Var(R)
+&=
+\underbrace{
+p\sigma_A^2
++
+(1-p)\sigma_B^2
+}_{E[Var(R|S)]}
+\\
+&\quad+
+\underbrace{
+p(\mu_A-\mu)^2
++
+(1-p)(\mu_B-\mu)^2
+}_{Var(E[R|S])}.
+\end{align*}
+
+Do đó,
+\[
+\boxed{
+Var(R)
+=
+E[Var(R|S)]
++
+Var(E[R|S]).
+}
+\]
+
+Thành phần đầu tiên phản ánh mức độ phân tán của dữ liệu trong từng nhóm, còn thành phần thứ hai phản ánh sự khác biệt giữa các giá trị trung bình của các nhóm. Khi tất cả các nhóm có cùng giá trị kỳ vọng, thành phần \textit{between-group variance} bằng 0 và phương sai tổng thể chỉ còn là trung bình có trọng số của các phương sai trong từng nhóm.
+
+\chapter{Simulation}
+\label{chap:Simulation}
+
+\section{Cholesky Decomposition}
+\label{sec:Cholesky_Decomposition}
+
+Phần này nói về ứng dụng Cholesky Decomposition để mô phỏng các biến ngẫu nhiên tương quan. Mục tiêu của Monte Carlo Simulation là sinh ra các biến ngẫu nhiên có đúng các đặc tính thống kê đã biết. 
+Giả sử cần mô phỏng hai biến ngẫu nhiên $X_1,\;X_2$ thỏa mãn
+
+\[
+E(X_1)=\mu_1,\qquad
+E(X_2)=\mu_2,
+\]
+
+\[
+Var(X_1)=\sigma_1^2,\qquad
+Var(X_2)=\sigma_2^2,
+\]
+
+và
+
+\[
+Corr(X_1,X_2)=\rho.
+\]
+
+Khi đó vector kỳ vọng là
+
+\[
+\boldsymbol{\mu}
+=
+\begin{bmatrix}
+\mu_1\\
+\mu_2
+\end{bmatrix},
+\]
+
+và ma trận hiệp phương sai là
+
+\[
+\Sigma
+=
+\begin{bmatrix}
+\sigma_1^2 &
+\rho\sigma_1\sigma_2
+\\
+\rho\sigma_1\sigma_2 &
+\sigma_2^2
+\end{bmatrix}.
+\]
+
+Đây là toàn bộ thông tin đầu vào của bài toán mô phỏng.
+
+\subsubsection*{Bước 1. Sinh các biến chuẩn độc lập}
+
+Các bộ sinh số ngẫu nhiên trên máy tính có thể dễ dàng tạo ra các biến chuẩn độc lập
+
+\[
+Z_1,Z_2\sim N(0,1),
+\]
+
+hay viết dưới dạng vector
+
+\[
+\mathbf Z
+\sim
+N(\mathbf0,I),
+\]
+
+với
+
+\[
+I=
+\begin{bmatrix}
+1&0\\
+0&1
+\end{bmatrix}.
+\]
+
+Do đó
+
+\[
+Cov(\mathbf Z)=I.
+\]
+
+Tuy nhiên, các biến này hoàn toàn độc lập và chưa phản ánh mối tương quan mong muốn.
+
+\subsubsection*{Bước 2. Tìm phép biến đổi tuyến tính}
+
+Giả sử tồn tại một ma trận \(A\) sao cho
+
+\[
+\boxed{
+\mathbf X
+=
+\boldsymbol{\mu}
++
+A\mathbf Z.
+}
+\]
+
+Khi đó
+
+\[
+E(\mathbf X)
+=
+\boldsymbol{\mu},
+\]
+
+nghĩa là vector kỳ vọng đã được đảm bảo.
+
+Để xác định ma trận \(A\), xét ma trận hiệp phương sai của \(\mathbf X\)
+
+\[
+Cov(\mathbf X)
+=
+Cov(A\mathbf Z).
+\]
+
+Theo tính chất của ma trận hiệp phương sai,
+
+\[
+Cov(A\mathbf Z)
+=
+A\,Cov(\mathbf Z)\,A^T.
+\]
+
+Vì
+
+\[
+Cov(\mathbf Z)=I,
+\]
+
+nên
+
+\[
+Cov(\mathbf X)
+=
+AA^T.
+\]
+
+Trong khi đó, mục tiêu của bài toán là
+
+\[
+Cov(\mathbf X)=\Sigma.
+\]
+
+Do đó, ma trận \(A\) phải thỏa mãn
+
+\[
+\boxed{
+AA^T=\Sigma.
+}
+\]
+
+\subsubsection*{Bước 3. Cholesky Decomposition}
+
+Theo định lý Cholesky, với mọi ma trận hiệp phương sai đối xứng xác định dương, luôn tồn tại duy nhất một ma trận tam giác dưới \(L\) sao cho
+
+\[
+\boxed{
+\Sigma
+=
+LL^T.
+}
+\]
+
+So sánh với điều kiện
+
+\[
+AA^T=\Sigma,
+\]
+
+ta chỉ cần chọn
+
+\[
+\boxed{
+A=L.
+}
+\]
+
+Do đó, công thức mô phỏng trở thành
+
+\[
+\boxed{
+\mathbf X
+=
+\boldsymbol{\mu}
++
+L\mathbf Z.
+}
+\]
+
+Đây chính là công thức Monte Carlo tổng quát cho các biến ngẫu nhiên có tương quan.
+
+\subsubsection*{Ví dụ với hai biến}
+
+Giả sử hệ số tương quan giữa hai biến là
+
+\[
+Corr(X_1,X_2)=\rho.
+\]
+
+Khi đó ma trận tương quan là
+
+\[
+R=
+\begin{bmatrix}
+1&\rho\\
+\rho&1
+\end{bmatrix}.
+\]
+
+Giả sử ma trận Cholesky có dạng
+
+\[
+L=
+\begin{bmatrix}
+a&0\\
+b&c
+\end{bmatrix}.
+\]
+
+Theo định nghĩa,
+
+\[
+LL^T=R.
+\]
+
+Ta có
+
+\[
+\begin{aligned}
+LL^T
+&=
+\begin{bmatrix}
+a&0\\
+b&c
+\end{bmatrix}
+\begin{bmatrix}
+a&b\\
+0&c
+\end{bmatrix}
+\\
+&=
+\begin{bmatrix}
+a^2&ab\\
+ab&b^2+c^2
+\end{bmatrix}.
+\end{aligned}
+\]
+
+So sánh từng phần tử với
+
+\[
+R=
+\begin{bmatrix}
+1&\rho\\
+\rho&1
+\end{bmatrix},
+\]
+
+thu được
+
+\[
+a^2=1,
+\]
+
+\[
+ab=\rho,
+\]
+
+\[
+b^2+c^2=1.
+\]
+
+Suy ra
+
+\[
+a=1,
+\]
+
+\[
+b=\rho,
+\]
+
+\[
+c=\sqrt{1-\rho^2}.
+\]
+
+Do đó
+
+\[
+\boxed{
+L
+=
+\begin{bmatrix}
+1&0\\
+\rho&\sqrt{1-\rho^2}
+\end{bmatrix}.
+}
+\]
+
+\subsubsection*{Công thức mô phỏng cuối cùng}
+
+Nếu chỉ xét ma trận tương quan, ta thu được
+
+\[
+\begin{aligned}
+X_1
+&=
+Z_1,
+\\
+X_2
+&=
+\rho Z_1
++
+\sqrt{1-\rho^2}\,Z_2.
+\end{aligned}
+\]
+
+Nếu bổ sung thêm vector kỳ vọng và độ lệch chuẩn, đặt
+
+\[
+D=
+\begin{bmatrix}
+\sigma_1&0\\
+0&\sigma_2
+\end{bmatrix},
+\]
+
+thì
+
+\[
+\boxed{
+\mathbf X
+=
+\boldsymbol{\mu}
++
+DL\mathbf Z.
+}
+\]
+
+Hay viết tường minh,
+
+\[
+\boxed{
+X_1
+=
+\mu_1+\sigma_1Z_1,
+}
+\]
+
+\[
+\boxed{
+X_2
+=
+\mu_2
++
+\sigma_2
+\left(
+\rho Z_1
++
+\sqrt{1-\rho^2}\,Z_2
+\right).
+}
+\]
+
+Như vậy, bằng cách áp dụng Cholesky Decomposition lên ma trận hiệp phương sai (hoặc ma trận tương quan), ta có thể biến đổi các biến chuẩn độc lập thành các biến ngẫu nhiên có đúng kỳ vọng, phương sai và cấu trúc tương quan mong muốn. Đây là nền tảng của Monte Carlo Simulation trong quản trị rủi ro, định giá phái sinh và mô hình hóa danh mục đầu tư.

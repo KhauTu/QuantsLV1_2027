@@ -1,0 +1,1437 @@
+\chapter{Formula Sheet}
+\label{chap:Formula Sheet}
+\markboth{Appendix: Formula Sheet}{Appendix: Formula Sheet}
+\vspace{0.5em}
+\section*{Module 1: Returns of Financial Assets and Instruments}
+\addcontentsline{toc}{section}{Module 1: Returns of Financial Assets and Instruments}
+\hrule
+\vspace{0.8em}
+\subsection*{Total Return}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:total_return}
+\vspace{-0.4em}
+\[
+\renewcommand{\arraystretch}{2.0}
+\begin{array}{r @{{}={}} c @{{}+{}} c}
+\text{Total Return} & \text{Capital Appreciation Return} & \text{Capital Distribution Return} \\
+r & r_{\text{price}} & r_{\text{distribution}} \\
+  & \dfrac{P_1-P_0}{P_0} & \dfrac{\text{Inc}}{P_0}
+\end{array}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Arithmetic and Geometric Holding Period Return}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:arithmetic_mean}
+\vspace{-0.4em}
+\[
+\bar{r}_A = \frac{r_1 + r_2 + \dots + r_T}{T} = \frac{1}{T}\sum_{t=1}^{T}r_t
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:geometric_mean}
+\vspace{-0.4em}
+\[
+\bar{r}_G = \sqrt[T]{(1 + r_1) \times (1 + r_2) \times \dots \times (1 + r_T)} - 1 = \left[ \prod_{t=1}^{T}(1+r_t) \right]^{1/T} - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Compounding: Daily, Monthly, Quarterly, and Annual Returns}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:annualized_return}
+\vspace{-0.4em}
+\[
+r_{\text{annualized}} = (1 + r_{\text{period}})^c - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Continuous Compounding}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:continuous_compounding}
+\vspace{-0.4em}
+\[
+\tilde{r}_{t, t+1} = \ln \left( \frac{P_{t+1}}{P_t} \right) = \ln(1 + r_{t, t+1})
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Required Rate of Return}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:real_risk_free}
+\vspace{-0.4em}
+\[
+r_{\text{real\_rf}} = \frac{1 + r_{\text{rf}}}{1 + \text{infl}} - 1 \quad \text{or quick approximation: } r_{\text{real\_rf}} \approx r_{\text{rf}} - \text{infl}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:required_return}
+\vspace{-0.4em}
+\[
+r = r_{\text{rf}} + \text{infl} + \sum_{j=1}^{n} (f_j \times \text{rp}_j)
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $n$ is the number of risk factors
+  \item $f_{j}$ is the exposure of the security to the $j^{\text{th}}$ risk factor
+  \item $\text{rp}_j$ is the specific risk premium associated with the $j^{\text{th}}$ risk factor
+  \item $\sum_{j=1}^{n} (f_j \times \text{rp}_j)$ is the sum of all risk premia.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Excess Returns}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:excess_return}
+\vspace{-0.4em}
+\[
+\dot{r}_i = \frac{1+r_i}{1+r_B} - 1 \quad \text{or quick approximation: } \dot{r}_i \approx r_i - r_B
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Real Returns}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:real_return}
+\vspace{-0.4em}
+\[
+r_{\text{real}} = \frac{1+r_i}{1+\text{infl}} - 1 \quad \text{or quick approximation: } r_{\text{real}} \approx r_i - \text{infl}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Pre-Tax and After-Tax Nominal Return}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:after_tax_return}
+\vspace{-0.4em}
+\[
+r_{\text{net-tax}} = r_{\text{price}} \times (1 - \text{tax}_{\text{capital gains}}) + r_{\text{capital}} \times (1 - \text{tax}_{\text{capital distribution}})
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Leveraged Returns}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:leveraged_return}
+\vspace{-0.4em}
+\[
+R_L = R_A + \frac{D}{E}(R_A - R_D)
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $R_L$ is the leveraged return (Return on Equity)
+  \item $R_A$ is the return on total assets (unleveraged return)
+  \item $R_D$ is the cost of debt (borrowing interest rate)
+  \item $D/E$ is the debt-to-equity ratio.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 2: Types of Returns for Financial Assets, Instruments, and Indicators}
+\addcontentsline{toc}{section}{Module 2: Types of Returns for Financial Assets, Instruments, and Indicators}
+\hrule
+\vspace{0.8em}
+\subsection*{Types of Returns: Financial Indicators}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:foreign_exchange_adjust_m2}
+\vspace{-0.4em}
+\[
+r_{\text{home}} = (1 + r_{\text{foreign}})(1 + r_{\text{FX}}) - 1 \approx r_{\text{foreign}} + r_{\text{FX}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:fx_rate_return_m2}
+\vspace{-0.4em}
+\[
+r_{\text{FX}} = \frac{\text{Ending FX Rate} - \text{Beginning FX Rate}}{\text{Beginning FX Rate}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 3: Benchmarking Returns}
+\addcontentsline{toc}{section}{Module 3: Benchmarking Returns}
+\hrule
+\vspace{0.8em}
+\subsection*{Time-Weighted Rate of Return (TWR)}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:twr_m3}
+\vspace{-0.4em}
+\[
+r_{\text{TW}} = \prod_{t=1}^{T} (1 + r_t) - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:twr_G}
+\vspace{-0.4em}
+\[
+r_{\text{G}} = \sqrt[T]{\prod_{t=1}^{T} (1 + r_t)} - 1
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $r_{\text{TW}}$ is the time-weighted rate of return.
+  \item $T$ is the total number of subperiods.
+  \item $r_t$ is the holding period return for subperiod $t$, calculated between two successive cash flow events.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Money-Weighted Rate of Return (MWR)}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:mwr_m3}
+\vspace{-0.4em}
+\[
+0 = \sum_{t=0}^{T} \frac{\text{CF}_t}{(1 + r_{\text{MW}})^t}
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $r_{\text{MW}}$ is the money-weighted rate of return.
+  \item $\text{CF}_t$ is the net cash flow at time $t$.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Price Return vs. Total Return Indexes}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:price_return_rate}
+\vspace{-0.4em}
+\[
+r_{\text{PR}} = \frac{P_{t+1}}{P_t} - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:total_return_rate}
+\vspace{-0.4em}
+\[
+r_{\text{TR}} = \frac{P_{t+1} + \text{Div}_{t+1}}{P_t} - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Index Weighting Methodologies}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:general_index_value}
+\vspace{-0.4em}
+\[
+\text{Index Value}_t = \sum_{i=1}^{N} w_{i,t} \times P_{i,t}
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $w_{i,t}$ is the weight of constituent $i$ at time $t$.
+  \item $P_{i,t}$ is the price of constituent $i$ at time $t$.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:market_cap_weight}
+\vspace{-0.4em}
+\[
+w_i^M = \frac{Q_i P_i}{\sum_{j=1}^{N} Q_j P_j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:divisor_index_value}
+\vspace{-0.4em}
+\[
+V_t = \frac{\sum_{i=1}^{N} Q_{i,t} P_{i,t}}{D_t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:float_adjusted_weight}
+\vspace{-0.4em}
+\[
+w_i^{M,\text{Float}} = \frac{f_i Q_i P_i}{\sum_{j=1}^{N} f_j Q_j P_j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:fundamental_weight}
+\vspace{-0.4em}
+\[
+w_i^F = \frac{F_i}{\sum_{j=1}^{N} F_j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:price_weight}
+\vspace{-0.4em}
+\[
+w_i^P = \frac{P_i}{\sum_{j=1}^{N} P_j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:price_weighted_value}
+\vspace{-0.4em}
+\[
+V_{\text{PRI},t} = \frac{\sum_{i=1}^{N} P_{i,t}}{D_t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:equal_weight}
+\vspace{-0.4em}
+\[
+w_i^E = \frac{1}{N}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:equal_weighted_value}
+\vspace{-0.4em}
+\[
+V_{\text{EQI},t} = \frac{\sum_{i=1}^{N} n_i P_{i,t}}{D_t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Divisor Adjustment for Stock Splits}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:divisor_adjustment}
+\vspace{-0.4em}
+\[
+D_{\text{new}} = \frac{\sum P_{\text{new}}}{V_{\text{PRI, before}}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 4: The Time Value of Money in Finance}
+\addcontentsline{toc}{section}{Module 4: The Time Value of Money in Finance}
+\hrule
+\vspace{0.8em}
+\subsection*{Time Value of Money in Fixed Income and Equity}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:fv_simple_m4}
+\vspace{-0.4em}
+\[
+FV_t = PV_0 (1 + r)^t
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:fv_continuous_m4}
+\vspace{-0.4em}
+\[
+FV_t = PV_0 e^{r \times t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_simple_m4}
+\vspace{-0.4em}
+\[
+PV_0 = FV_t (1 + r)^{-t} = \frac{FV_t}{(1 + r)^t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_continuous_m4}
+\vspace{-0.4em}
+\[
+PV_0 = FV_t e^{-r \times t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Discount Instruments}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_discount_bond_m4}
+\vspace{-0.4em}
+\[
+PV_{\text{Discount}} = \frac{FV_t}{(1 + r)^t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Coupon Instruments}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_coupon_bond_base_m4}
+\vspace{-0.4em}
+\[
+PV_{\text{Coupon}} = \sum_{t=1}^{T} \frac{PMT}{(1 + r)^t} + \frac{FV}{(1 + r)^T}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_coupon_bond_m4}
+\vspace{-0.4em}
+\[
+PV_{\text{Coupon}} = \frac{PMT}{r} \left[ 1 - \frac{1}{(1 + r)^T} \right] + \frac{FV}{(1 + r)^T}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Floating-Rate and Perpetual Bonds}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_perpetual_bond_m4}
+\vspace{-0.4em}
+\[
+PV_{\text{Perpetual}} = \frac{PMT}{r}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Annuities and Fully Amortizing Loans}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pmt_annuity_m4}
+\vspace{-0.4em}
+\[
+PMT = \frac{r \times PV_0}{1 - (1 + r)^{-t}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Constant Dividends}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pv_preferred_m4}
+\vspace{-0.4em}
+\[
+PV_t = \sum_{i=1}^{\infty} \frac{Div_{t+1}}{(1 + r)^i} = \frac{Div_{t+1}}{r}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Constant Dividend Growth (Gordon Growth Model)}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:gordon_growth_m4}
+\vspace{-0.4em}
+\[
+PV_t = \frac{Div_t (1 + g)}{r - g} = \frac{Div_{t+1}}{r - g}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Two-Stage Dividend Growth Model}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:two_stage_growth_base_m4}
+\vspace{-0.4em}
+\[
+PV_0 = \sum_{i=1}^{n} \frac{Div_0 (1 + g_s)^i}{(1 + r)^i} + \frac{E[S_n]}{(1 + r)^n}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:terminal_value_m4}
+\vspace{-0.4em}
+\[
+E[S_n] = \frac{Div_{n+1}}{r - g_l}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Implied Forward Interest Rates Using Cash Flow Additivity}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:forward_rate_spot_m4}
+\vspace{-0.4em}
+\[
+(1 + S_k)^k = (1 + S_j)^j (1 + F_{j, k-j})^{k-j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Forward Exchange Rates Using No Arbitrage}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:fx_forward_continuous_m4}
+\vspace{-0.4em}
+\[
+F = S \times e^{(r_{\text{price}} - r_{\text{base}})T}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 5: Statistical Characteristics of Asset Returns}
+\addcontentsline{toc}{section}{Module 5: Statistical Characteristics of Asset Returns}
+\hrule
+\vspace{0.8em}
+\subsection*{Measures of Central Tendency}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pop_mean_m5}
+\vspace{-0.4em}
+\[
+\text{Population Mean} = \mu = \frac{\sum_{i=1}^{N} X_i}{N}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sample_mean_m5}
+\vspace{-0.4em}
+\[
+\text{Sample Mean} = \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:median_odd_m5}
+\vspace{-0.4em}
+\[
+\text{Med} = X_{\left(\frac{n+1}{2}\right)}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:median_even_m5}
+\vspace{-0.4em}
+\[
+\text{Med} = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Measures of location}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:percentile_position_m5}
+\vspace{-0.4em}
+\[
+L_y = (n + 1) \frac{y}{100}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Measures of Dispersion}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:range_formula_m5}
+\vspace{-0.4em}
+\[
+\text{Range} = \text{Maximum value} - \text{Minimum value}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:mad_formula_m5}
+\vspace{-0.4em}
+\[
+\text{MAD} = \frac{\sum_{i=1}^{n} |X_i - \bar{X}|}{n}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pop_variance_m5}
+\vspace{-0.4em}
+\[
+\text{Population Variance} = \sigma^2 = \frac{\sum_{i=1}^{N} (X_i - \mu)^2}{N}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sample_variance_m5}
+\vspace{-0.4em}
+\[
+\text{Sample Variance} = s^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Kurtosis}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:excess_kurtosis_m5}
+\vspace{-0.4em}
+\[
+\text{Excess Kurtosis} = \text{Kurtosis} - 3
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sample_skewness_approx_m5}
+\vspace{-0.4em}
+\[
+\text{Sample Skewness} \approx \frac{1}{n} \sum_{i=1}^{n} \left(\frac{X_i - \bar{X}}{s}\right)^3
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sample_kurtosis_approx_m5}
+\vspace{-0.4em}
+\[
+\text{Sample Kurtosis} \approx \frac{1}{n} \sum_{i=1}^{n} \left(\frac{X_i - \bar{X}}{s}\right)^4
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Covariance}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pop_covariance_m5}
+\vspace{-0.4em}
+\[
+\sigma_{X,Y} = \frac{\sum_{i=1}^{N} (X_i - \mu_X)(Y_i - \mu_Y)}{N}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sample_covariance_m5}
+\vspace{-0.4em}
+\[
+s_{X,Y} = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{n-1}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Correlation}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:correlation_coefficient_m5}
+\vspace{-0.4em}
+\[
+\rho_{X,Y} = \frac{\sigma_{X,Y}}{\sigma_X \sigma_Y} \quad \text{or} \quad r_{X,Y} = \frac{s_{X,Y}}{s_X s_Y}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Semi-Deviation and Target Downside Deviation}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:target_semi_deviation_m5}
+\vspace{-0.4em}
+\[
+s_{\text{Target}} = \sqrt{\frac{\sum_{X_i \le B} (X_i - B)^2}{n - 1}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Relative dispersion}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:coefficient_of_variation_m5}
+\vspace{-0.4em}
+\[
+\text{CV} = \frac{s}{\bar{X}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:Sharpe_m5}
+\vspace{-0.4em}
+\[
+\text{Sharpe ratio} = \frac{R_i - r_f}{\sigma_i}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 6: Statistical Distributions for Financial Asset Prices and Returns}
+\addcontentsline{toc}{section}{Module 6: Statistical Distributions for Financial Asset Prices and Returns}
+\hrule
+\vspace{0.8em}
+\subsection*{Random Variables and Their Properties}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:cdf_def_m6}
+\vspace{-0.4em}
+\[
+F(x) = P(X \le x)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pdf_derivative_m6}
+\vspace{-0.4em}
+\[
+f_X(x) = \frac{dF_X(x)}{dx}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pdf_probability_interval_m6}
+\vspace{-0.4em}
+\[
+P(a \le X \le b) = \int_a^b f_X(x) dx = F(b) - F(a)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pdf_total_area_m6}
+\vspace{-0.4em}
+\[
+\int_{-\infty}^{\infty} f_X(x) dx = 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pmf_probability_interval_m6}
+\vspace{-0.4em}
+\[
+P(a \le X \le b) = \sum_{x=a}^b P(X=x)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Unconditional Expectations, Variance, and Covariance}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:discrete_expected_value_m6}
+\vspace{-0.4em}
+\[
+\text{Discrete: } \mu_X = E[X] = \sum_i x_i P(x_i)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:continuous_expected_value_m6}
+\vspace{-0.4em}
+\[
+\text{Continuous: } \mu_X = E[X] = \int_{-\infty}^{\infty} x f_X(x) dx
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:unconditional_variance_m6}
+\vspace{-0.4em}
+\[
+\sigma_X^2 = \text{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:unconditional_covariance_m6}
+\vspace{-0.4em}
+\[
+\sigma_{XY} = \text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Discrete Uniform Distribution}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:discrete_uniform_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Mean: } \mu = \frac{a + b}{2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:discrete_uniform_var_m6}
+\vspace{-0.4em}
+\[
+\text{Variance: } \sigma^2 = \frac{(b - a + 1)^2 - 1}{12}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Binomial Distribution}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:binomial_pmf_m6}
+\vspace{-0.4em}
+\[
+P(X=x) = \binom{n}{x} p^x (1-p)^{n-x}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:binomial_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Mean: } \mu = n \times p
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:binomial_variance_m6}
+\vspace{-0.4em}
+\[
+\text{Variance: } \sigma^2 = n \times p(1 - p)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:binomial_normal_approx_m6}
+\vspace{-0.4em}
+\[
+X \sim N(np, np(1-p))
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Poisson Distribution}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:poisson_pmf_m6}
+\vspace{-0.4em}
+\[
+P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:poisson_moments_m6}
+\vspace{-0.4em}
+\[
+\mu = \sigma^2 = \lambda
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Continuous Uniform Distribution}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:continuous_uniform_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Mean: } \mu = \frac{a + b}{2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:continuous_uniform_var_m6}
+\vspace{-0.4em}
+\[
+\text{Variance: } \sigma^2 = \frac{(b - a)^2}{12}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Logistic Distribution}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:logistic_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Mean: } \mu_X = \mu
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:logistic_variance_m6}
+\vspace{-0.4em}
+\[
+\text{Variance: } \sigma^2 = \frac{s^2 \pi^2}{3}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Joint Distributions of Random Variables}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:joint_cdf_m6}
+\vspace{-0.4em}
+\[
+F_{12}(x_1, x_2) = P(X_1 \le x_1, X_2 \le x_2)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:joint_cdf_integral_m6}
+\vspace{-0.4em}
+\[
+F_{12}(x_1, x_2) = \int_{-\infty}^{x_1} \int_{-\infty}^{x_2} f_{12}(u_1, u_2) du_1 du_2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:joint_pdf_independent_m6}
+\vspace{-0.4em}
+\[
+f_{12}(u_1, u_2) = f_1(u_1) \times f_2(u_2)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:marginal_density_m6}
+\vspace{-0.4em}
+\[
+f_{X_1}(x_1) = \int_{-\infty}^{\infty} f_{X_1 X_2}(x_1, u_2) du_2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Conditional Expectations}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:discrete_cond_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Discrete: } E[X|Y=y] = \sum_x x P(X=x | Y=y)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:continuous_cond_mean_m6}
+\vspace{-0.4em}
+\[
+\text{Continuous: } E[X|Y=y] = \int x f_{X|Y}(x|y) dx
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:conditional_variance_m6}
+\vspace{-0.4em}
+\[
+\text{Var}(X | Y=y) = E[X^2 | Y=y] - (E[X | Y=y])^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:total_prob_rule_expectation_m6}
+\vspace{-0.4em}
+\[
+E[X] = \sum_{i=1}^n E[X | S_i] \times P(S_i)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:law_of_total_variance_example}
+\vspace{-0.4em}
+\[
+\text{Var}(R) = E[\text{Var}(R|S)] + \text{Var}(E[R|S])
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Conditional Means, Variances, and Covariances}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:conditional_covariance_formula_m6}
+\vspace{-0.4em}
+\[
+\text{Cov}(X, Y | S) = E[(X - E[X|S])(Y - E[Y|S]) | S]
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Bayesian Updating}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:bayes_formula_m6}
+\vspace{-0.4em}
+\[
+P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item $P(A|B)$ is the posterior probability of $A$ occurring given $B$ is true.
+  \item $P(B|A)$ is the likelihood of observing $B$ given $A$ is true.
+  \item $P(A)$ is the prior probability of $A$.
+  \item $P(B)$ is the marginal probability of observing $B$, computed using the total probability rule:
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:total_prob_denominator_m6}
+\vspace{-0.4em}
+\[
+P(B) = \sum_i P(B|A_i) \times P(A_i)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 7: Estimation and Hypothesis Testing}
+\addcontentsline{toc}{section}{Module 7: Estimation and Hypothesis Testing}
+\hrule
+\vspace{0.8em}
+\subsection*{The Central Limit Theorem (CLT)}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:clt_mean_m7}
+\vspace{-0.4em}
+\[
+E[\bar{X}] = \mu
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:clt_variance_m7}
+\vspace{-0.4em}
+\[
+\sigma_{\bar{X}}^2 = \frac{\sigma^2}{n}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:clt_standard_error_m7}
+\vspace{-0.4em}
+\[
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} \quad \text{or} \quad s_{\bar{X}} = \frac{s}{\sqrt{n}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:clt_standardized_m7}
+\vspace{-0.4em}
+\[
+Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} N(0, 1) \quad \text{as } n \to \infty
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Confidence Intervals}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:confidence_interval_z_m7}
+\vspace{-0.4em}
+\[
+\bar{X} \pm Z_{\alpha/2} \times \frac{\sigma}{\sqrt{n}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:var_formula_m7}
+\vspace{-0.4em}
+\[
+\text{VaR} = Z_{\alpha} \times \sigma \times P
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{P-value}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:p_hacking_type_1_m7}
+\vspace{-0.4em}
+\[
+P(\text{At least one Type I Error}) = 1 - (1 - \alpha)^k
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 8: The Return and Risk of a Financial Portfolio}
+\addcontentsline{toc}{section}{Module 8: The Return and Risk of a Financial Portfolio}
+\hrule
+\vspace{0.8em}
+\subsection*{Returns of a Portfolio}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_return_single_m8}
+\vspace{-0.4em}
+\[
+R_{P,t} = \sum_{i=1}^N w_{i,t-1} R_{i,t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:asset_realized_return_m8}
+\vspace{-0.4em}
+\[
+R_{i,t} = \frac{P_{i,t} - P_{i,t-1} + \text{Div}_{i,t}}{P_{i,t-1}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_cumulative_no_drift_m8}
+\vspace{-0.4em}
+\[
+R_{P,T} = \sum_{i=1}^N w_{i,0} R_{i,T}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_arithmetic_average_m8}
+\vspace{-0.4em}
+\[
+\bar{R}_P = \frac{1}{T} \sum_{t=1}^T R_{P,t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_cumulative_drift_m8}
+\vspace{-0.4em}
+\[
+R_{P,T} = \prod_{t=1}^T \left(1 + \sum_{i=1}^N w_{i,t-1} R_{i,t}\right) - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_geometric_return_m8}
+\vspace{-0.4em}
+\[
+\bar{R}_{g,P} = \left[ \prod_{t=1}^T (1 + R_{P,t}) \right]^{\frac{1}{T}} - 1 = (1 + R_{P,T})^{\frac{1}{T}} - 1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Variance and Standard Deviation of Portfolio Returns}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_variance_sum_m8}
+\vspace{-0.4em}
+\[
+\sigma_P^2 = \sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{i,j}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:portfolio_expected_variance_m8}
+\vspace{-0.4em}
+\[
+E[\sigma_P^2] = \sum_{i=1}^N \sum_{j=1}^N w_i w_j E[\sigma_{i,j}]
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:two_asset_variance_m8}
+\vspace{-0.4em}
+\[
+\sigma_P^2 = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_{1,2} = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{1,2} \sigma_1 \sigma_2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Matrix Notation of Portfolio Risk}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:unique_covariances_m8}
+\vspace{-0.4em}
+\[
+\text{Unique Covariances} = \frac{N(N-1)}{2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:covariance_matrix_m8}
+\vspace{-0.4em}
+\[
+\mathbf{V} = \begin{bmatrix}
+		\sigma_1^2 & \sigma_{1,2} & \sigma_{1,3} & \cdots & \sigma_{1,N} \\
+		\sigma_{2,1} & \sigma_2^2 & \sigma_{2,3} & \cdots & \sigma_{2,N} \\
+		\sigma_{3,1} & \sigma_{3,2} & \sigma_3^2 & \cdots & \sigma_{3,N} \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		\sigma_{N,1} & \sigma_{N,2} & \sigma_{N,3} & \cdots & \sigma_N^2
+	\end{bmatrix}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:correlation_matrix_m8}
+\vspace{-0.4em}
+\[
+\boldsymbol{\rho} = \begin{bmatrix}
+		1 & \rho_{1,2} & \rho_{1,3} & \cdots & \rho_{1,N} \\
+		\rho_{2,1} & 1 & \rho_{2,3} & \cdots & \rho_{2,N} \\
+		\rho_{3,1} & \rho_{3,2} & 1 & \cdots & \rho_{3,N} \\
+		\vdots & \vdots & \vdots & \ddots & \vdots \\
+		\rho_{N,1} & \rho_{N,2} & \rho_{N,3} & \cdots & 1
+	\end{bmatrix}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Expected Return and Variance under Economic Scenarios}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:scenario_portfolio_return_m8}
+\vspace{-0.4em}
+\[
+R_{P,M} = \sum_{i=1}^N w_i R_{i,M}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:expected_return_scenarios_m8}
+\vspace{-0.4em}
+\[
+E[R_P] = \sum_{M=1}^M p_M R_{P,M} = \sum_{M=1}^M p_M \left( \sum_{i=1}^N w_i R_{i,M} \right)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:variance_scenarios_m8}
+\vspace{-0.4em}
+\[
+\sigma_P^2 = \sum_{M=1}^M p_M \left( R_{P,M} - E[R_P] \right)^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Benefits of Diversification}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:equal_weighted_variance_m8}
+\vspace{-0.4em}
+\[
+\sigma_P^2 = \frac{\sigma^2}{N} + \left(1 - \frac{1}{N}\right) \bar{\rho} \sigma^2
+\]
+\noindent\textbf{Diễn giải:}
+\begin{itemize}[leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt]
+  \item The contribution of the individual asset variance, $\frac{\sigma^2}{N}$, converges to $0$.
+  \item The multiplier $\left(1 - \frac{1}{N}\right)$ approaches $1$.
+\end{itemize}
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:limit_variance_m8}
+\vspace{-0.4em}
+\[
+\lim_{N \to \infty} \sigma_P^2 = \bar{\rho} \sigma^2 = \text{Average Covariance}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Feasible Set and Efficient Frontier}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:optimization_sum_m8}
+\vspace{-0.4em}
+\[
+\text{Minimize } \sigma_P^2 = \sum_{i=1}^N \sum_{j=1}^N w_i w_j \sigma_{i,j} \quad \text{subject to } \sum_{i=1}^N w_i = 1, \quad w_i \ge 0, \quad E[R_P] = k
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:optimization_matrix_m8}
+\vspace{-0.4em}
+\[
+\text{Minimize } \sigma_P^2 = \mathbf{w}^T \mathbf{V} \mathbf{w} \quad \text{subject to } \mathbf{w}^T \mathbf{1} = 1, \quad \mathbf{w}^T \boldsymbol{\mu} = k, \quad \mathbf{w} \ge \mathbf{0}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Derivation of the Minimum-Variance Portfolio Weights}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:MVP_weight_A_m8}
+\vspace{-0.4em}
+\[
+w_A^* = \frac{\sigma_B^2 - \sigma_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\sigma_{A,B}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:MVP_weight_B_m8}
+\vspace{-0.4em}
+\[
+w_B^* = 1 - w_A^* = \frac{\sigma_A^2 - \sigma_{A,B}}{\sigma_A^2 + \sigma_B^2 - 2\sigma_{A,B}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Investor Utility and Indifference Curves}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:utility_function_m8}
+\vspace{-0.4em}
+\[
+U = E[R] - \frac{1}{2} A \sigma^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Capital Allocation Line (CAL) and Sharpe Ratio}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:CAL_expected_return_m8}
+\vspace{-0.4em}
+\[
+E[R_c] = w_f R_f + (1 - w_f) E[R_P]
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:CAL_std_m8}
+\vspace{-0.4em}
+\[
+\sigma_c = (1 - w_f) \sigma_P \implies (1 - w_f) = \frac{\sigma_c}{\sigma_P}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:CAL_equation_m8}
+\vspace{-0.4em}
+\[
+E[R_c] = R_f + \left( \frac{E[R_P] - R_f}{\sigma_P} \right) \sigma_c
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sharpe_ratio_m8}
+\vspace{-0.4em}
+\[
+\text{Sharpe Ratio} = \frac{E[R_P] - R_f}{\sigma_P}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Capital Market Line (CML)}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:CML_equation_m8}
+\vspace{-0.4em}
+\[
+E[R_P] = R_f + \left( \frac{E[R_M] - R_f}{\sigma_M} \right) \sigma_P
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{The Capital Asset Pricing Model (CAPM) and Beta}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:beta_definition_m8}
+\vspace{-0.4em}
+\[
+\beta_i = \frac{\sigma_{i,M}}{\sigma_M^2} = \frac{\rho_{i,M} \sigma_i \sigma_M}{\sigma_M^2} = \rho_{i,M} \frac{\sigma_i}{\sigma_M}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:CAPM_equation_m8}
+\vspace{-0.4em}
+\[
+E[R_i] = R_f + \beta_i \left( E[R_M] - R_f \right)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:SML_covariance_form_m8}
+\vspace{-0.4em}
+\[
+E[R_i] = R_f + \left(\frac{E[R_M] - R_f}{\sigma_M^2}\right) \sigma_{i,M}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Estimating Beta using Linear Regression}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:market_model_m8}
+\vspace{-0.4em}
+\[
+R_{i,t} - R_{f,t} = \alpha_i + \beta_i \left( R_{M,t} - R_{f,t} \right) + \epsilon_{i,t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 9: Simulation of Financial Asset Prices and Returns}
+\addcontentsline{toc}{section}{Module 9: Simulation of Financial Asset Prices and Returns}
+\hrule
+\vspace{0.8em}
+\subsection*{Implementing Historical Simulation}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:log_return_m9}
+\vspace{-0.4em}
+\[
+r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:bond_pricing_m9}
+\vspace{-0.4em}
+\[
+PV_B = \sum_{t=1}^T \frac{CF_t}{(1 + y_t)^t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Monte Carlo Simulation Overview}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:gbm_log_return_m9}
+\vspace{-0.4em}
+\[
+r_t = \left(r_f - \frac{\sigma^2}{2}\right) \times s + \sigma \sqrt{s} Z
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Multivariate Monte Carlo Simulation}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:cholesky_x1_m9}
+\vspace{-0.4em}
+\[
+X_1 = \sigma_1 Z_1
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:cholesky_x2_m9}
+\vspace{-0.4em}
+\[
+X_2 = \sigma_2 \left(\rho Z_1 + \sqrt{1 - \rho^2} Z_2\right)
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:exp_x1_m9}
+\vspace{-0.4em}
+\[
+E[X_1] = \sigma_1 E[Z_1] = 0
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:exp_x2_m9}
+\vspace{-0.4em}
+\[
+E[X_2] = \sigma_2 E[\rho Z_1 + \sqrt{1 - \rho^2} Z_2] = 0
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:var_x12_m9}
+\vspace{-0.4em}
+\[
+E[X_1^2] = \sigma_1^2; \quad E[X_2^2] = \sigma_2^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:cov_x12_m9}
+\vspace{-0.4em}
+\[
+\sigma_{X_1, X_2} = E[X_1 X_2] = \rho \sigma_1 \sigma_2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Practical Implementation of Simulation Approaches Using Excel and Other Tools}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:gbm_price_step_m9}
+\vspace{-0.4em}
+\[
+P_{t+\Delta t} = P_t \times e^{(r-0.5\sigma^2)\Delta t + \sigma \sqrt{\Delta t} Z}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\section*{Module 10: Applications of Simple Linear Regression in Finance}
+\addcontentsline{toc}{section}{Module 10: Applications of Simple Linear Regression in Finance}
+\hrule
+\vspace{0.8em}
+\subsection*{Linear Regression Analysis}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:pop_regression_m10}
+\vspace{-0.4em}
+\[
+Y_i = \beta_0 + \beta_1 X_i + \epsilon_i, \quad i = 1, \dots, n
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:est_regression_m10}
+\vspace{-0.4em}
+\[
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Coefficient Estimation of Linear Regression}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sse_definition_m10}
+\vspace{-0.4em}
+\[
+\text{SSE} = \sum_{i=1}^n (Y_i - \hat{Y}_i)^2 = \sum_{i=1}^n e_i^2
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:slope_estimator_m10}
+\vspace{-0.4em}
+\[
+\hat{\beta}_1 = \frac{\text{Cov}(X, Y)}{\text{Var}(X)} = \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:intercept_estimator_m10}
+\vspace{-0.4em}
+\[
+\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Estimation Residuals}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:residual_definition_m10}
+\vspace{-0.4em}
+\[
+e_i = Y_i - \hat{Y}_i
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Evaluating Goodness-of-Fit and Regression Coefficients}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:sst_decomposition_m10}
+\vspace{-0.4em}
+\[
+\text{SST} = \text{SSR} + \text{SSE}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:r2_definition_m10}
+\vspace{-0.4em}
+\[
+R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:correlation_r2_m10}
+\vspace{-0.4em}
+\[
+r = \text{sign}(\hat{\beta}_1) \times \sqrt{R^2}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Hypothesis Testing and ANOVA Estimates}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:see_definition_m10}
+\vspace{-0.4em}
+\[
+s_e = \sqrt{\text{MSE}} = \sqrt{\frac{\text{SSE}}{n - 2}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:t_stat_slope_m10}
+\vspace{-0.4em}
+\[
+t = \frac{\hat{\beta}_1 - 0}{s_{\hat{\beta}_1}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:se_slope_m10}
+\vspace{-0.4em}
+\[
+s_{\hat{\beta}_1} = \frac{s_e}{\sqrt{\sum_{i=1}^n (X_i - \bar{X})^2}}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{Prediction Using a Simple Regression}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:predicted_value_m10}
+\vspace{-0.4em}
+\[
+\hat{Y}_p = \hat{\beta}_0 + \hat{\beta}_1 X_p
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:variance_prediction_error_m10}
+\vspace{-0.4em}
+\[
+s_{pred}^2 = s_e^2 \left[ 1 + \frac{1}{n} + \frac{(X_p - \bar{X})^2}{\sum_{i=1}^n (X_i - \bar{X})^2} \right]
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:prediction_interval_m10}
+\vspace{-0.4em}
+\[
+\hat{Y}_p \pm t_{crit} \times s_{pred}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
+\subsection*{CAPM Regression Framework}
+\begin{tcolorbox}[colback=blue!3!white, colframe=trustvilleblue!80!black, boxrule=0.5pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt, breakable]
+\noindent\textbf{Công thức} \eqref{eq:capm_regression_m10}
+\vspace{-0.4em}
+\[
+R_{i,t} - R_{f,t} = \alpha_i + \beta_i (R_{m,t} - R_{f,t}) + \epsilon_{i,t}
+\]
+\end{tcolorbox}
+\vspace{0.3em}
