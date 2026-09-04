@@ -184,6 +184,7 @@ Table \ref{tab:mwr_vs_twr_differences} summarizes the key comparisons between th
 \begin{examtip}[title={Cập nhật chương trình 2027}, colframe=red!75!black, colback=red!5!white]
 Toàn bộ phần "Index Definition and Calculation" (xây dựng, quản lý chỉ số, các phương pháp trọng số giá/vốn hóa và tái cơ cấu danh mục chỉ số) là nội dung hoàn toàn mới được đưa vào cấu phần Quantitative Methods năm 2027. Trước đây nội dung này nằm ở các môn học khác (như Portfolio Management hay Equity).
 \end{examtip}
+\textcolor{blue}{\textit{Cụ thể về phân loại, nền tảng toán học và quy trình tính toán chỉ số, xem thêm tại Appendix \ref{chap:Index Definition and Calculation} (Index Definition and Calculation).}}
 
 \begin{figure}[!htbp]
 	\centering
@@ -210,13 +211,15 @@ Toàn bộ phần "Index Definition and Calculation" (xây dựng, quản lý ch
 \end{itemize}
 Over time, the total return index will significantly outperform the price return index due to the compounding effect of reinvested cash distributions.
 
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_7.png}
-	\caption{MSCI World Index Price Return vs. Total Return (1999--2023)}
-	\label{fig:msci_world_price_vs_total}
-\end{figure}
+% \begin{figure}[!htbp]
+% 	\centering
+% 	\includegraphics[width=0.85\linewidth]{002_figs/003_Module_3/exhibit_7.png}
+% 	\caption{MSCI World Index Price Return vs. Total Return (1999--2023)}
+% 	\label{fig:msci_world_price_vs_total}
+% \end{figure}
 % Reference: CFA Curriculum 2027, Volume 1, Module 3, Page 100
+
+\textcolor{blue}{\textit{Công thức liên kết giá trị chỉ số Price Return và Total Return qua nhiều thời kỳ (kèm cơ chế tái đầu tư cổ tức và giá điều chỉnh Adjusted Price), xem thêm chi tiết tại phần (\ref{sec:app_index_return}).}}
 
 \subsection{Index Weighting Methodologies}
 	\label{subsec:Index Weighting Methodologies}
@@ -315,12 +318,16 @@ Table \ref{tab:index_weighting_methodologies_summary} compares the characteristi
 
 \textcolor{blue}{\textit{Chỉ số vốn hóa tự điều chỉnh tỷ trọng (Self-Rebalancing), giúp giảm chi phí giao dịch. Tuy nhiên, nó bị ảnh hưởng bởi đà tăng giá (momentum bias), ép mua nhiều các cổ phiếu đang bị định giá quá cao.}}
 
+\textcolor{blue}{\textit{Chi tiết cách xác định số lượng cổ phiếu giả định ($n_i$) và quy mô danh nghĩa ($A_r$) cho từng phương pháp phân bổ tỷ trọng (Market Cap, Float-Adjusted, Fundamental, Price, Equal), xem thêm phần (\ref{sec:app_index_weights}) và (\ref{sec:app_index_constituent_shares}).}}
+
 \subsection{Index Management: Rebalancing and Reconstitution}
 	\label{subsec:Index Management: Rebalancing and Reconstitution}
 \begin{itemize}
 	\item \textbf{Periodic Rebalancing:} adjusts the weights of the constituents back to their target levels. This is critical for equal-weighted and fundamentally weighted indexes because price variations cause weights to drift. Equal-weighted indexes require counter-trend trading (selling winners and buying losers), which increases transaction costs and portfolio turnover.
 	\item \textbf{Reconstitution:} the periodic process of adding or removing constituent securities from the index based on eligibility rules. Widely followed indexes often apply a \textit{banding strategy} (e.g., Russell 2000's 5\% band) to reduce unnecessary index turnover at the breakpoints.
 \end{itemize}
+
+\textcolor{blue}{\textit{Công thức toán học mô tả sự lệch tỷ trọng thực tế ($w_{i,t}^{\text{actual}}$) và cơ chế điều chỉnh Divisor mới ($D^+$) khi thay đổi danh mục (Reconstitution), xem thêm phần (\ref{sec:app_index_rebalance_reconstitution}).}}
 
 % \begin{figure}[!htbp]
 % 	\centering
@@ -362,6 +369,8 @@ Consider a price-weighted index with 5 stocks: A ($50$), B ($40$), C ($30$), D (
 
 \textcolor{blue}{\textit{Khi cổ phiếu chia tách làm giá giảm, Divisor phải giảm tương ứng để giữ điểm số chỉ số không bị thay đổi ảo.}}
 \end{tcolorbox}
+
+\textcolor{blue}{\textit{Xem thêm về nguyên lý tổng quát điều chỉnh Divisor ($D_t = D_{t-1} \times \frac{A_t^*}{A_{t-1}}$) và mô hình 4 lớp tư duy xây dựng chỉ số tại phần (\ref{sec:app_index_divisor}) và (\ref{sec:app_index_conclusion}).}}
 
 
 % \section{Practice Problems and Solutions}

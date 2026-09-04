@@ -1,6 +1,14 @@
 # Build directories
 004_intermediate/
 005_product/
+*.aux
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.synctex.gz
+*.toc
 
 # References (large files)
 000_references/

@@ -2,6 +2,7 @@
 \label{chap:Index Definition and Calculation}
 
 \section{Công thức chung tính Index Value}
+\label{sec:app_index_general_formula}
 Index là một chỉ số tượng trưng cho quy mô của thị trường chứng khoán.
 Nhìn vào Index, nhà đầu tư nhận biết được quy mô của thị trường đã tăng trưởng bao nhiêu, kể từ khi thị trường được thành lập.
 Để tính Index, người ta xây dựng một rổ cổ phiếu với số lượng giả định \(n_i\) cho mỗi cổ phiếu \(i\) trong rổ, và tính tổng giá trị rổ, sau đó quy chuẩn thành điểm chỉ số bằng cách chia cho một divisor $D_t$.
@@ -51,6 +52,7 @@ V_t = \frac{\sum_{i=1}^{N} n_{i,t}P_{i,t}}{D_t}
 \]
 Lưu ý, weight thường được lấy ở đầu kỳ, tức là: $w_{i,t-1}$, không phải weight cuối kỳ.
 \section{Cách tính Return}
+\label{sec:app_index_return}
 Return của từng cổ phiếu có thể được tính theo hai cách.
 \subsection{Price Return}
 Cách này chỉ phản ánh biến động giá cổ phiếu.
@@ -100,6 +102,7 @@ w_{i,t-1}
 \]
 
 \section{Các loại weight của index}
+\label{sec:app_index_weights}
 \subsection{Market-cap Weight}
 \[
 w_{i,t}^{M}
@@ -158,6 +161,7 @@ w_{i,r}^{target}
 \]
 
 \section{Diễn giải Divisor}
+\label{sec:app_index_divisor}
 Công thức chung:
 \[
 V_t = \frac{A_t}{D_t}
@@ -222,6 +226,7 @@ D_{t-1}
 \]
 
 \section{Cách xác định số lượng cổ phiếu mà rổ index nắm giữ}
+\label{sec:app_index_constituent_shares}
 Giá trị rổ cổ phiếu phụ thuộc vào số lượng cổ phiếu giả định \(n_i\) của từng cổ phiếu thành phần.
 \[
 A_t
@@ -303,6 +308,7 @@ n_{i,r^+}
 \]
 
 \section{Rebalance và Reconstitution}
+\label{sec:app_index_rebalance_reconstitution}
 \subsection{Rebalance}
 
 Rebalance là điều chỉnh lại tỷ trọng của các cổ phiếu trong index về mức target.
@@ -388,6 +394,7 @@ D^+ = \frac{A^+}{V^-}
 \]
 
 \section{Kết luận}
+\label{sec:app_index_conclusion}
 Có thể nhớ toàn bộ logic bằng bốn lớp.
 \subsection*{Lớp 1: Index Level}
 \[
