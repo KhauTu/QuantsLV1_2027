@@ -254,11 +254,41 @@
 
     .sidebar-close-mobile {
         display: none;
-        background: transparent;
-        border: none;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-md);
+        background: var(--bg-surface-alt);
+        border: 1px solid var(--border-subtle);
         color: var(--text-muted);
         cursor: pointer;
-        padding: 4px;
+        font-size: 1.1rem;
+        transition: all 0.2s;
+    }
+
+    .sidebar-close-mobile:hover, .sidebar-close-mobile:active {
+        background: var(--primary-light);
+        color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+    }
+
+    .sidebar-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .brand-title-badge {
@@ -1430,10 +1460,14 @@
     }
 
     @media (max-width: 768px) {
+        .sidebar-backdrop {
+            display: block;
+        }
         .app-sidebar {
             transform: translateX(-100%);
-            width: 300px;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.25);
+            width: min(320px, 85vw);
+            box-shadow: 10px 0 35px rgba(0,0,0,0.35);
+            z-index: 1000;
         }
         .app-sidebar.open {
             transform: translateX(0);
@@ -1445,7 +1479,7 @@
             display: flex;
         }
         .sidebar-close-mobile {
-            display: block;
+            display: flex;
         }
         .reader-container {
             padding: 24px 16px 40px;
@@ -1993,6 +2027,9 @@
                 </ul>
             </nav>
         </aside>
+
+        <!-- Backdrop overlay for mobile drawer -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
         <!-- MAIN CONTENT AREA -->
         <main class="app-main">
@@ -8561,6 +8598,92 @@ R_{i,t} - R_{f,t} = \alpha_i + \beta_i (R_{m,t} - R_{f,t}) + \epsilon_{i,t}
        INTERACTIVE JAVASCRIPT LOGIC
        ========================================================= */
 
+    // 0. Mobile Sidebar Drawer & Navigation Controls
+    const sidebar = document.getElementById('appSidebar');
+    const openSidebarBtn = document.getElementById('openSidebarBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+    function openMobileSidebar() {
+        if (sidebar) sidebar.classList.add('open');
+        if (sidebarBackdrop) sidebarBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileSidebar() {
+        if (sidebar) sidebar.classList.remove('open');
+        if (sidebarBackdrop) sidebarBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (openSidebarBtn) {
+        openSidebarBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openMobileSidebar();
+        });
+    }
+
+    if (closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMobileSidebar();
+        });
+    }
+
+    if (sidebarBackdrop) {
+        sidebarBackdrop.addEventListener('click', closeMobileSidebar);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileSidebar();
+        }
+    });
+
+    // Sidebar Accordions Toggle
+    document.querySelectorAll('.accordion-icon').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const grp = icon.closest('.sidebar-group');
+            if (grp) grp.classList.toggle('expanded');
+        });
+    });
+
+    // Sidebar Quick Search Live Filter
+    const sidebarSearch = document.getElementById('sidebarSearch');
+    if (sidebarSearch) {
+        sidebarSearch.addEventListener('input', (e) => {
+            const query = e.target.value.trim().toLowerCase();
+            const groups = document.querySelectorAll('.sidebar-group');
+            groups.forEach(grp => {
+                if (!query) {
+                    grp.style.display = '';
+                    grp.querySelectorAll('.sidebar-sub-item').forEach(si => si.style.display = '');
+                    return;
+                }
+                const grpText = grp.querySelector('.sidebar-main-link')?.textContent.toLowerCase() || '';
+                const subItems = grp.querySelectorAll('.sidebar-sub-item');
+                let anySubMatch = false;
+                subItems.forEach(si => {
+                    const itemText = si.textContent.toLowerCase();
+                    if (itemText.includes(query)) {
+                        si.style.display = '';
+                        anySubMatch = true;
+                    } else {
+                        si.style.display = 'none';
+                    }
+                });
+                if (grpText.includes(query) || anySubMatch) {
+                    grp.style.display = '';
+                    if (anySubMatch) grp.classList.add('expanded');
+                } else {
+                    grp.style.display = 'none';
+                }
+            });
+        });
+    }
+
     // 1. Theme Switcher
     const htmlEl = document.documentElement;
     const themeBtn = document.getElementById('themeToggle');
@@ -8710,9 +8833,7 @@ R_{i,t} - R_{f,t} = \alpha_i + \beta_i (R_{m,t} - R_{f,t}) + \epsilon_{i,t}
         }
 
         // 6. Close sidebar on mobile
-        if (window.innerWidth <= 768) {
-            sidebar.classList.remove('open');
-        }
+        closeMobileSidebar();
 
         // 7. Update reading progress bar
         updateProgressBar();
