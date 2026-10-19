@@ -5165,7 +5165,7 @@ The expected market return is $9.577\%$ and the risk-free rate is $2.560\%$. Cal
                     <span class="callout-icon">📌</span>
                     <span class="callout-title">Case Study: Historical Simulation of a Long-Only Portfolio</span>
                 </div>
-                <div class="callout-body">A portfolio manager wants to determine the daily Value at Risk (VaR) of a portfolio at the 95
+                <div class="callout-body">A portfolio manager wants to determine the daily Value at Risk (VaR) of a portfolio at the 95% confidence level. The portfolio replicates the HKD performance of investing in two assets:
 <ul class="curriculum-list"><li>HSI (Hang Seng Index): HKD 55,000,000</li><li>CSI 300 Index: HKD 40,000,000</li></ul>
 The manager uses a one-year history of daily log returns (246 trading days).
 <p class="body-para"><strong>Step 1: Calculate log returns.</strong> <br />
@@ -5209,12 +5209,13 @@ The daily P/L estimates are ranked from lowest to highest (<a href="#lbl-tabmod9
 <div class="math-display-container"><div class="math-scroll">\[
 	\sigma_p^2 = D_{HS}^2 \sigma_{HS}^2 + D_{SS}^2 \sigma_{SS}^2 + 2 D_{HS} D_{SS} \rho \sigma_{HS} \sigma_{SS} = 1.1354 \, (\text{million HKD})^2
 \]</div></div>
-<p class="body-para">The standard deviation is $\sigma_p = \text{HKD } 1.0656\text{ million}$. The 95</p>
+<p class="body-para">The standard deviation is $\sigma_p = \text{HKD } 1.0656\text{ million}$. The 95% confidence level parametric VaR ($z = 1.96$) is:</p>
 <div class="math-display-container"><div class="math-scroll">\[
 \text{VaR}_{95\%} = 1.96 \times 1.0656 = \text{HKD } 2.0885 \text{ million}
 \]</div></div>
-<p class="body-para">The difference arises because parametric VaR relies on the normality assumption, whereas historical VaR directly reflects empirical tail behavior and any inherent drift.</div>
-            </div></p>
+<p class="body-para">The difference arises because parametric VaR relies on the normality assumption, whereas historical VaR directly reflects empirical tail behavior and any inherent drift.</p>
+                </div>
+            </div>
 <div class="callout callout-instructor">
                 <div class="callout-header">
                     <span class="callout-icon">💬</span>
